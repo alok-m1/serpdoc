@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     default: `${title} — SERP API Documentation`,
   },
   description,
-  metadataBase: new URL('https://serphouse.com'),
+  metadataBase: new URL('https://serpdoc.vercel.app'),
   openGraph: {
     title: {
       template: `%s — ${title}`,
