@@ -1,0 +1,36 @@
+---
+title: Check SERP Status
+description: Check the processing status of a scheduled SERP task by its unique ID.
+---
+
+As a response of the API server, you will get a status of your SERP task.
+
+> **Requires authentication**
+
+## Get a Status of Your SERP Task
+
+`GET` `https://api.serphouse.com/serp/check`
+
+### Query Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| id | String | Unique identifier of your SERP task |
+
+### Headers
+
+| Name | Type | Description |
+|------|------|-------------|
+| Authorization | String | Bearer `<YOUR_API_KEY>` |
+
+### Example Request
+
+```bash
+curl --location --request GET 'https://api.serphouse.com/serp/check?id=77224195' \
+--header 'Authorization: Bearer <YOUR_API_KEY>'
+```
+
+<Cards>
+  <Card title="Get SERP Result" href="/serphouse/extra-apis/get-serp-result" />
+  <Card title="Schedule SERP" href="/serphouse/extra-apis/schedule-serp" />
+</Cards>

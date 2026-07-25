@@ -1,0 +1,29 @@
+---
+title: Domains List
+description: Get the full list of supported search engine domains for Google, Bing, and Yahoo.
+---
+
+Get the full list of supported domains by our SERP API. This list also contains Bing and Yahoo domains.
+
+> **Requires authentication**
+
+## Get a List of Domains
+
+`GET` `https://api.serphouse.com/domain/list`
+
+### Headers
+
+| Name | Type | Description |
+|------|------|-------------|
+| Authorization | String | Bearer `<YOUR_API_KEY>` |
+
+### Response
+
+Returns a JSON object with a `results` array containing all supported domain strings for Google, Bing, and Yahoo.
+
+### Example Request
+
+```bash
+curl --location --request GET 'https://api.serphouse.com/domain/list' \
+--header 'Authorization: Bearer <YOUR_API_KEY>'
+```

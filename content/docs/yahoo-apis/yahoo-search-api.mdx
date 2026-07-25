@@ -1,0 +1,55 @@
+---
+title: Yahoo Search API
+description: Access real-time search results from Yahoo, providing relevant websites and web content.
+---
+
+Retrieve real-time search results from the Yahoo search page, providing access to relevant websites, search listings, and web content.
+
+> **Requires authentication**
+
+`POST` `https://api.serphouse.com/yahoo-web`
+
+## Path Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| responseType | String | `html` or `json` |
+
+## Headers
+
+| Name | Type | Description |
+|------|------|-------------|
+| Authorization | String | Bearer `<YOUR_API_KEY>` |
+| Content-Type | String | application/json |
+
+## Request Body
+
+| Name | Type | Description |
+|------|------|-------------|
+| q | string | Search phrase |
+| domain | string | Yahoo domain (e.g. `fr.yahoo.com`). Use domains list API. |
+| lang | string | Language code e.g. `lang_en`, `lang_fr` |
+| device | string | `desktop` or `mobile` |
+| page | integer | Page number |
+| no_trace | string \| integer | Enterprise only. Enables NoTrace mode. |
+
+## Example Request
+
+```bash
+curl --location --request POST 'https://api.serphouse.com/yahoo-web' \
+--header 'Authorization: Bearer <YOUR_API_KEY>' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "data": {
+        "q": "Emmanuel Macron",
+        "domain": "fr.yahoo.com",
+        "lang": "lang_fr", 
+        "device": "desktop"
+    }
+}'
+```
+
+<Cards>
+  <Card title="Yahoo News API" href="/serphouse/yahoo-apis/yahoo-news-api" />
+  <Card title="Yahoo Image API" href="/serphouse/yahoo-apis/yahoo-image-api" />
+</Cards>

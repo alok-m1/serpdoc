@@ -1,0 +1,98 @@
+---
+title: About the SERP API
+description: Learn about Scheduled and Live SERP API methods for retrieving top-100 search results.
+---
+
+<Callout type="info">
+  SERPHouse is a high-volume SERP API built for SEO professionals, data scientists, and developers. It
+  handles CAPTCHA resolution, proxy management, and delivers structured JSON data at scale.
+</Callout>
+
+SERP API provides the **Top-100** SERP results for a keyword. The results are specific to the selected **search engine** and **location settings**. There are two different methods you can use to retrieve data: **Scheduled** (asynchronous) and **Live** (synchronous).
+
+## How It Works
+
+1. **Submit a keyword** — Send your query along with search engine, location, and device parameters.
+2. **SERPHouse processes the request** — Our infrastructure handles proxies, CAPTCHAs, and parsing behind the scenes.
+3. **Retrieve structured results** — Get back clean JSON with organic results, ads, featured snippets, and more.
+
+<Callout type="success" title="Pay on Success">
+  You only pay for successful requests. Failed requests don't count against your credits.
+</Callout>
+
+---
+
+## Scheduled SERP API — Asynchronous
+
+The Scheduled SERP API operates on an **asynchronous** model — it doesn't return results immediately. Instead, it returns a list of **unique task IDs**, each assigned to a separate search task. You submit a keyword and receive a `task_id`, then poll for results using that ID.
+
+<Callout type="idea" title="Why use Scheduled?">
+  Ideal for batch processing, background jobs, and large-scale keyword research where you don't need instant answers.
+</Callout>
+
+### Best for
+
+- **Batch processing** large volumes of keywords
+- **Background jobs** where immediate results aren't required
+- **Rate limit management** — tasks are queued and processed as capacity allows
+- **Retrieving results at scale** without blocking your application's main thread
+
+The unique task IDs are **persistent**, allowing you to check status and retrieve results at any time after submission.
+
+<Callout type="warn" title="Polling Required">
+  After submitting a Scheduled request, you must poll the status endpoint using the returned `task_id` until processing completes. Use the **Check SERP Status** and **Get SERP Result** endpoints for this.
+</Callout>
+
+---
+
+## Live SERP API — Synchronous
+
+Live SERP API uses a **synchronous** model — data is returned immediately after the task completes, in a single request-response cycle. There's no need for a separate status check or result retrieval step.
+
+<Callout type="success" title="Instant Results">
+  Get data back in the same HTTP response — no polling, no callbacks, no complexity.
+</Callout>
+
+### Best for
+
+- **Real-time dashboards** and live monitoring tools
+- **User-facing searches** where speed is critical
+- **Single keyword lookups** that need instant answers
+- **Interactive applications** that block on search results before proceeding
+
+The Live SERP API is available over both **HTTP GET** and **HTTP POST**, giving you flexibility in how you integrate with your existing stack.
+
+---
+
+## Feature Comparison
+
+| Feature | Scheduled (Async) | Live (Sync) |
+|---------|:-:|:-:|
+| Response model | Asynchronous (polling) | Synchronous (immediate) |
+| Best for | Batch & background jobs | Real-time & user-facing |
+| Task IDs | Persistent per keyword | N/A |
+| Rate limit management | Built-in queuing | Per-minute throttle |
+| HTTP methods | POST only | GET & POST |
+
+---
+
+## Key Benefits
+
+<Callout type="info" title="99.99% Uptime">
+  Enterprise-grade infrastructure ensuring your data pipelines never stall.
+</Callout>
+
+<Callout type="info" title="7-Day Money Back Guarantee">
+  Try risk-free. If SERPHouse doesn't meet your needs, get a full refund within 7 days.
+</Callout>
+
+<Callout type="info" title="No CAPTCHA, No Blocks">
+  We manage proxy rotation and CAPTCHA resolution so you get clean data every time.
+</Callout>
+
+<Cards>
+  <Card title="Getting Started" href="/serphouse/introduction/getting-started" />
+  <Card title="Live HTTP GET" href="/serphouse/extra-apis/live-http-get" />
+  <Card title="Live HTTP POST" href="/serphouse/extra-apis/live-http-post" />
+  <Card title="Schedule SERP" href="/serphouse/extra-apis/schedule-serp" />
+</Cards>

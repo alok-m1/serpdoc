@@ -1,0 +1,79 @@
+---
+title: Google Schedule SERP (Top 100 Results)
+description: Schedule multi-page Google SERP searches with credit refund for unused pages.
+---
+
+<Callout type="idea" title="Why this endpoint?">
+  Google recently restricted the `num` parameter to a maximum of 10 results per request. To overcome this limitation, we introduced a new endpoint that can fetch results from multiple pages asynchronously.
+</Callout>
+
+## How It Works
+
+- **`max_pages`** defines how many result pages you want scraped.
+- Each page contains up to 10 results.
+- `max_pages=5` → up to 50 results (5 pages × 10 results per page)
+- `max_pages=10` → up to 100 results (10 pages × 10 results per page)
+
+## Pricing
+
+<Callout type="success" title="Auto Refund">
+  Credits are reserved upfront for each scheduled task based on the `max_pages` value (1 page = 10 credits). If fewer pages are available than requested, the unused reserved credits are **automatically refunded** after processing completes.
+</Callout>
+
+- Example: If `max_pages=7` but only 2 pages are available, 20 credits will be used and the remaining 50 credits will be refunded once the task is completed.
+
+<Callout type="warn">
+  Requires authentication — provide your API key as a Bearer token in the Authorization header.
+</Callout>
+
+`POST` `https://api.serphouse.com/serp/google_advanced_scheduled`
+
+## Headers
+
+| Name | Type | Description |
+|------|------|-------------|
+| Authorization | String | Bearer `<YOUR_API_KEY>` |
+| Content-Type | String | application/json |
+
+## Request Body
+
+| Name | Type | Description |
+|------|------|-------------|
+| q | string | Search phrase |
+| domain | string | Google domain |
+| lang | string | Language code e.g. `en`, `fr` |
+| device | string | `desktop` or `mobile` |
+| loc | string | Optional if specifying `loc_id` |
+| loc_id | integer | Optional if specifying `loc` |
+| verbatim | integer | Google Verbatim (`0` or `1`) |
+| gfilter | integer | Filter on/off (`1` or `0`) |
+| postback_url | url | POST results to this URL when complete |
+| pingback_url | url | GET notification URL when complete |
+| max_pages | integer | Pages to return (1–10, default 10) |
+| date_range | String | Date filter |
+
+## Example Request
+
+```bash
+curl --location --request POST 'https://api.serphouse.com/serp/google_advanced_scheduled' \
+--header 'Authorization: Bearer <YOUR_API_KEY>' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "data": [
+        {
+            "q": "Cold Cofee",
+            "domain": "google.com",
+            "lang": "en",
+            "device": "desktop",
+            "loc": "London,England,United Kingdom",
+            "verbatim": 0,
+            "max_pages": 5
+        }
+    ]
+}'
+```
+
+<Cards>
+  <Card title="Google SERP (Top 100)" href="/serphouse/google-apis/google-serp-top-100-results" />
+  <Card title="Schedule SERP" href="/serphouse/extra-apis/schedule-serp" />
+</Cards>

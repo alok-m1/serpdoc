@@ -1,0 +1,68 @@
+---
+title: Schedule SERP
+description: Schedule SERP tasks for delayed retrieval with postback and pingback support.
+---
+
+Below you will find a detailed description of the fields you can use for setting a task.
+
+All POST data should be sent in JSON format (UTF-8 encoding). The task setting is done using the POST method when the array of tasks is sent in JSON format. We recommend setting up to 100 tasks at a time.
+
+> **Requires authentication**
+
+`POST` `https://api.serphouse.com/serp/schedule`
+
+### Headers
+
+| Name | Type | Description |
+|------|------|-------------|
+| Authorization | String | Bearer `<YOUR_API_KEY>` |
+| Content-Type | String | application/json |
+
+### Request Body
+
+| Name | Type | Description |
+|------|------|-------------|
+| q | string | Search phrase |
+| domain | string | Google, Bing, or Yahoo domain |
+| lang | string | Language code e.g. `en`, `fr` |
+| device | string | `desktop` or `mobile` |
+| serp_type | string | `web`, `news`, or `image` |
+| loc | string | Optional if specifying `loc_id` |
+| loc_id | integer | Optional if specifying `loc` |
+| verbatim | integer | Google Verbatim (`0` or `1`) |
+| gfilter | integer | Filter on/off (`1` or `0`) |
+| page | integer | Page number |
+| num_result | integer | Results per page |
+| postback_url | url | POST results to this URL when complete |
+| pingback_url | url | GET notification URL when complete |
+| date_range | String | Date filter |
+
+### Example Request
+
+```bash
+curl --location --request POST 'https://api.serphouse.com/serp/schedule' \
+--header 'Authorization: Bearer <YOUR_API_KEY>' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "data": [
+        {
+            "q": "Coffee",
+            "domain": "google.com",
+            "lang": "en",
+            "device": "desktop",
+            "serp_type": "web",
+            "loc": "Alba,Texas,United States",
+            "verbatim": 0,
+            "postback_url": "https://webhook.site/8f885f1f-c38a-4a10-8506-335441213208",
+            "page": 1,
+            "num_result": 10
+        }
+    ]
+}'
+```
+
+<Cards>
+  <Card title="Get SERP Result" href="/serphouse/extra-apis/get-serp-result" />
+  <Card title="Check SERP Status" href="/serphouse/extra-apis/check-serp-status" />
+  <Card title="Webhook" href="/serphouse/introduction/webhook" />
+</Cards>

@@ -1,0 +1,92 @@
+---
+title: Webhook
+description: Configure webhooks, pingback and postback URLs for real-time SERP data delivery.
+---
+
+Use webhooks to get notified about events related to the SERPHouse Schedule API such as Google Trend Schedule Search and Schedule SERP.
+
+Webhooks (Web Callback, HTTP Push API or Reverse API) are one way that a web application can send information to another application in real-time when a specific event happens.
+
+<Callout type="info">
+  You can configure your webhook from the <a href="https://serphouse.com">Webhook Setting Page</a> in your dashboard.
+</Callout>
+
+## Pingback URL
+
+Pingback is also known as callback. It alerts you when a desired task is completed. If you have sent 100 keywords batch request, once SERPHouse server completes processing those keywords they will start hitting the `pingback_url` if you have provided a URL.
+
+Once you receive a pingback request from our server, it means your keyword search has been completed and is ready to retrieve data from our server using the GET SERP Result API.
+
+<Callout type="success" title="HTTP GET">
+  Our Pingback Feature is served via HTTP GET Request.
+</Callout>
+
+## Postback URL
+
+Postback is commonly known as a Webhook. While using our Batch API (Delayed SERP API), the postback URL helps you reduce your backend work. While sending a Batch Processing request you are allowed to send up to 100 keywords in a single request with `postback_url` for each keyword.
+
+Once your request reaches SERPHouse server, our backend makes a queue of your keywords and executes them on concurrent threads. As soon as our backend completes keyword processing, you will receive an HTTP POST Request on your provided `postback_url`.
+
+As soon as you receive our request, you must safely validate and store the data and free up our request within a specified timeout.
+
+<Callout type="success" title="HTTP POST with JSON">
+  Our Postback Feature is served via HTTP POST Request with JSON Body.
+</Callout>
+
+## Webhook SSL Verification
+
+Webhook SSL verification refers to the process of verifying the authenticity and validity of an SSL certificate used by a webhook endpoint. When a webhook is established between two systems, it is crucial to ensure secure communication and prevent potential security risks. SSL certificates are used to encrypt data transmitted between the systems, providing a secure connection.
+
+SSL verification involves checking the SSL certificate presented by the webhook endpoint to ensure it is issued by a trusted certificate authority (CA) and that it has not expired or been revoked. The verification process confirms the webhook endpoint's identity and ensures that the communication is protected against potential man-in-the-middle attacks or unauthorized access.
+
+To perform SSL verification, the system initiating the webhook request typically checks the SSL certificate chain, including the root CA and intermediate certificates, to ensure they are valid. It verifies that the common name or subject alternative name (SAN) in the certificate matches the endpoint's domain name. Additionally, the system checks if the certificate is within its validity period and hasn't been tampered with or revoked.
+
+If the SSL verification fails, it indicates a potential security risk, and the webhook request may be rejected or considered untrustworthy.
+
+<Callout type="info">
+  You can enable or disable SSL Verification for your webhook from your <a href="https://serphouse.com">dashboard</a>.
+</Callout>
+
+## Webhook Retry Strategy
+
+Webhook retry strategy allows our Webhook server to make multiple delivery attempts when your server is temporarily unavailable or unreachable. Here's how it works:
+
+| Attempt | Timing |
+|---------|--------|
+| 1st | Immediate |
+| 2nd | 100 seconds after failure |
+| 3rd | 1,000 seconds after 2nd failure |
+| 4th | 1,800 seconds after 3rd failure |
+
+After these four attempts, if the webhook delivery still fails, it will be marked as a permanent failure.
+
+<Callout type="warn" title="Manual fallback">
+  If webhook delivery fails permanently, you can manually retrieve your results using our SERP GET API.
+</Callout>
+
+## How to Prevent Duplicate Webhooks
+
+There could be scenarios where your endpoint might receive the same webhook event multiple times. This is an expected behaviour based on the webhook design. In such a scenario, we recommend you follow **Idempotency**.
+
+You could be receiving the same events multiple times as SERPHouse follows at-least-once delivery semantics. In this approach, if we do not receive a successful response from your server, we resend the webhook. There could be situations where your server accepts the event but fails to respond in 5 seconds. In such cases, the session is marked timeout. It is assumed that the webhook was not processed and is sent again.
+
+<Callout type="idea" title="Use x-serphouse-task-id">
+  To prevent an event from being missed, ensure you configure your server to handle or receive the same event details multiple times. Check the value of the `x-serphouse-task-id` in the webhook request header. The value for this header is unique per event and can help you determine the duplicity of a webhook event.
+</Callout>
+
+## Validate Webhooks from SERPHouse
+
+Validate the webhook before you start using them. When your webhook secret key is set, SERPHouse uses it to create a hash signature with each payload. This hash signature is passed with each request under the `x-serphouse-signature` header that you need to validate at your end.
+
+<Callout type="error" title="Secret rotation">
+  If you have changed your webhook secret, remember to use the old secret for webhook signature validation while retrying older requests. Using the new secret will lead to a signature mismatch.
+</Callout>
+
+| Header | Description |
+|--------|-------------|
+| `x-serphouse-signature` | HMAC-SHA256 hash of the request body, keyed with your webhook secret. |
+
+<Cards>
+  <Card title="Schedule SERP" href="/serphouse/extra-apis/schedule-serp" />
+  <Card title="Getting Started" href="/serphouse/introduction/getting-started" />
+</Cards>

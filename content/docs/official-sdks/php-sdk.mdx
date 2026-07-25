@@ -1,0 +1,99 @@
+---
+title: PHP SDK
+description: Official SERPHouse PHP SDK for integrating SERP search into any PHP application.
+icon: php
+---
+
+The official PHP SDK makes it easy to integrate the SERPHouse API into any PHP application.
+
+<ResourceCards>
+  <ResourceCard title="GitHub" subtitle="SERPHouse/serphouse-php" href="https://github.com/SERPHouse/serphouse-php" icon="github" />
+  <ResourceCard title="Packagist" subtitle="serphouse/serphouse-php" href="https://packagist.org/packages/serphouse/serphouse-php" icon="packagist" />
+</ResourceCards>
+
+## Requirements
+
+- PHP 7.2+
+- Composer
+
+## Installation
+
+```bash
+composer require serphouse/serphouse-php
+```
+
+## Initialize the Client
+
+```php
+require 'vendor/autoload.php';
+use Serphouse\SERPHouseClient;
+$client = new SERPHouseClient('YOUR_API_KEY');
+```
+
+<Callout type="info">
+  Replace `YOUR_API_KEY` with your actual SERPHouse API key from the <a href="https://www.serphouse.com/">dashboard</a>.
+</Callout>
+
+## Live SERP Search
+
+```php
+$response = $client->serpApi->live([
+    'data' => [
+        'q' => 'apple',
+        'domain' => 'google.com',
+        'lang' => 'en',
+        'device' => 'desktop',
+        'serp_type' => 'web',
+        'loc' => 'Texas, United States',
+        'page' => 1,
+        'num_result' => 10,
+    ]
+]);
+```
+
+## Schedule a Search
+
+```php
+$response = $client->serpApi->schedule([...]);
+```
+
+## Check Search Status
+
+```php
+$response = $client->serpApi->check($searchId);
+```
+
+## Get Search Result
+
+```php
+$response = $client->serpApi->get($searchId);
+```
+
+## Additional Services
+
+```php
+$response = $client->domains->list();
+$response = $client->languages->list();
+$response = $client->location->search(['q' => 'Texas']);
+$response = $client->account->fetch();
+```
+
+## Exception Handling
+
+The SDK throws dedicated exception classes for common error scenarios:
+
+| Exception | When it occurs |
+|-----------|---------------|
+| `SERPHouseUnauthorizedException` | Invalid or missing API key |
+| `SERPHouseRateLimitExceededException` | Too many requests in a short period |
+| `SERPHousePaymentRequiredException` | Account credits exhausted |
+| `SERPHouseNotFoundException` | Invalid SERP ID or endpoint |
+| `SERPHouseServerErrorException` | Internal server error |
+
+<Callout type="idea" title="Best practice">
+  Always wrap API calls in try-catch blocks and handle each exception type appropriately for a robust integration.
+</Callout>
+
+<Cards>
+  <Card title="Node.js SDK" href="/serphouse/official-sdks/node-js-sdk" />
+</Cards>

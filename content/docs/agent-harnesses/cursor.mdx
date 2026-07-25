@@ -1,0 +1,45 @@
+---
+title: Cursor
+description: Connect the SERPHouse MCP Server to Cursor for AI-powered search capabilities.
+icon: cursor
+---
+
+Cursor is an AI-powered code editor with support for Model Context Protocol (MCP) servers.
+
+## Prerequisites
+
+- Cursor installed
+- An active SERPHouse account
+- A valid SERPHouse API key
+
+## Configure the SERPHouse MCP Server
+
+Edit `~/.cursor/mcp.json` and add:
+
+```json
+{
+  "mcpServers": {
+    "serphouse": {
+      "type": "http",
+      "url": "https://mcp.serphouse.com/YOUR_SERPHouse_API_KEY/mcp"
+    }
+  }
+}
+```
+
+Replace `YOUR_SERPHouse_API_KEY` with your actual SERPHouse API key.
+
+## Using SERPHouse
+
+Once configured, Cursor automatically invokes SERPHouse whenever a request requires search engine data.
+
+Example prompts:
+- `Search Google for "Laravel Horizon".`
+- `Show me the top 10 search results for "AI SEO tools".`
+- `Search Google News for "OpenAI".`
+
+## Troubleshooting
+
+- **Server doesn't appear** — Reload Cursor or start a new chat session.
+- **401 Unauthorized** — Verify your API key is valid and active.
+- **Tools unavailable** — Start a new Cursor chat after configuration.

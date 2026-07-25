@@ -1,0 +1,44 @@
+---
+title: Claude Code
+description: Connect the SERPHouse MCP Server to Claude Code for native search capabilities in your terminal.
+icon: claude-code
+---
+
+Claude Code is Anthropic's AI-powered coding assistant that runs directly in your terminal. By connecting the SERPHouse MCP Server, Claude Code can access SERPHouse tools natively using the Model Context Protocol (MCP).
+
+## Prerequisites
+
+- Claude Code installed
+- An active SERPHouse account
+- A valid SERPHouse API key
+
+## Configure the SERPHouse MCP Server
+
+```bash
+claude mcp add serphouse \
+    --transport http \
+    https://mcp.serphouse.com/YOUR_SERPHouse_API_KEY/mcp
+```
+
+Replace `YOUR_SERPHouse_API_KEY` with your actual SERPHouse API key.
+
+## Verify Configuration
+
+```bash
+claude mcp list
+```
+
+## Using SERPHouse
+
+Once configured, Claude Code automatically invokes SERPHouse whenever a request requires search engine data.
+
+Example prompts:
+- `Search Google for "Laravel Horizon".`
+- `Show me the top 10 search results for "AI SEO tools".`
+- `Search Google News for "OpenAI".`
+
+## Troubleshooting
+
+- **401 Unauthorized** — Verify your API key is valid and active.
+- **Connection refused** — Check that `https://mcp.serphouse.com/...` is reachable.
+- **Tools not appearing** — Restart Claude Code after configuration.

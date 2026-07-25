@@ -1,0 +1,294 @@
+---
+title: Vercel AI SDK
+description: Use @serphouse/ai-sdk with the Vercel AI SDK for live web search in AI applications.
+icon: Vercel
+---
+
+`@serphouse/ai-sdk` is an official AI SDK integration for the SERPHouse Search APIs. It exposes SERPHouse search endpoints as native AI tools, allowing any model supported by the Vercel AI SDK to search the web, retrieve news, or discover short videos through tool calling.
+
+Instead of writing HTTP requests, handling authentication, validating inputs, or parsing responses, you simply register the provided tools and let the model decide when to use them.
+
+<ResourceCards>
+  <ResourceCard title="GitHub" subtitle="SERPHouse/ai-sdk" href="https://github.com/SERPHouse/ai-sdk" icon="github" />
+  <ResourceCard title="NPM" subtitle="@serphouse/ai-sdk" href="https://www.npmjs.com/package/@serphouse/ai-sdk" icon="npm" />
+</ResourceCards>
+
+## Why @serphouse/ai-sdk?
+
+Modern LLMs are limited by their training data and cannot reliably answer questions that require fresh information. To solve this, AI applications need access to external tools.
+
+Although SERPHouse already provides powerful Search APIs, integrating them into an AI workflow usually requires building HTTP clients, managing authentication, defining tool schemas, validating inputs, handling API responses, and writing repetitive boilerplate.
+
+`@serphouse/ai-sdk` removes all of that. It wraps SERPHouse APIs into fully typed Vercel AI SDK tools with built-in Zod validation, allowing models to search the internet with only a few lines of code. Instead of manually deciding when to call the API, the language model automatically chooses the appropriate tool whenever it needs external information.
+
+## Features
+
+- Native Vercel AI SDK `tool()` integration
+- Fully typed with TypeScript
+- Built-in Zod validation
+- Zero HTTP boilerplate
+- Supports automatic tool calling
+- Works with any AI SDK compatible model
+- Lightweight and production ready
+- Supports Web Search, Google News, and Google Short Videos
+
+## Installation
+
+```bash
+npm install @serphouse/ai-sdk
+```
+
+Peer dependencies: `npm install ai zod`
+
+Requirements: Node.js >= 18
+
+## API Key Setup
+
+```bash
+export SERPHOUSE_API_KEY="your_api_key"
+```
+
+The SDK automatically reads this environment variable. You can also pass an API key explicitly when creating a tool.
+
+## Getting Started
+
+Register the tools and let the model decide when to use them:
+
+```ts
+import { generateText } from "ai";
+import { openai } from "@ai-sdk/openai";
+import { search, news } from "@serphouse/ai-sdk";
+
+const { text } = await generateText({
+  model: openai("gpt-4o"),
+  tools: {
+    search: search(),
+    news: news(),
+  },
+  prompt: "What happened in AI this week?",
+});
+
+console.log(text);
+```
+
+The model automatically decides whether a tool is needed, which tool should be called, and what arguments should be passed. No manual API requests are required.
+
+## How Tool Calling Works
+
+When the model encounters a prompt that requires real-time information, it automatically invokes one of the registered SERPHouse tools:
+
+```
+User
+  │
+  ▼
+generateText()
+  │
+  ▼
+LLM decides tool is needed
+  │
+  ▼
+SERPHouse Tool
+  │
+  ▼
+SERPHouse Search API
+  │
+  ▼
+Search Results
+  │
+  ▼
+LLM
+  │
+  ▼
+Final Answer
+```
+
+You only register the tools. The AI SDK handles the rest.
+
+## Available Tools
+
+| Tool | Description | Endpoint |
+|------|-------------|----------|
+| `search()` | Google Web Search | `/web-search-lite` |
+| `news()` | Google News Search | `/google-news` |
+| `shortVideo()` | Google Short Videos Search | `/google-short-videos-api` |
+
+Each tool includes a Zod input schema, execute handler, type safety, and automatic tool execution.
+
+## Tool Input Schema
+
+Every tool accepts the same search parameters (except `gl`, which is only supported by `search()`):
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `q` | `string` | Required | Search query |
+| `domain` | `string` | `"google.com"` | Google domain |
+| `lang` | `string` | `"en"` | Language |
+| `loc` | `string` | `"New York,New York,United States"` | Search location |
+| `page` | `number` | `1` | Page number |
+| `date_range` | `string` | `"y"` | Time filter |
+| `device` | `"desktop" \| "mobile"` | `"desktop"` | Device |
+| `gl` | `string` | `"US"` | Country code (`search()` only) |
+
+## Authentication
+
+The SDK resolves the API key in the following order.
+
+### Environment Variable
+
+```bash
+export SERPHOUSE_API_KEY="your_api_key"
+```
+
+```ts
+const tool = search();
+```
+
+### Explicit API Key
+
+```ts
+const tool = search({
+  apiKey: "sk-xxxxxxxx",
+});
+```
+
+Explicit keys always override the environment variable.
+
+## API Reference
+
+### `search()`
+
+Google Web Search. Returns organic results, ads, knowledge graph, related searches, featured snippets, and rich results.
+
+```ts
+import { search } from "@serphouse/ai-sdk";
+
+const tool = search();
+```
+
+### `news()`
+
+Google News Search. Returns headlines, publishers, publish date, URLs, and news metadata.
+
+```ts
+import { news } from "@serphouse/ai-sdk";
+
+const tool = news();
+```
+
+### `shortVideo()`
+
+Google Short Videos Search. Returns short videos, metadata, and source URLs.
+
+```ts
+import { shortVideo } from "@serphouse/ai-sdk";
+
+const tool = shortVideo();
+```
+
+### Tool Options
+
+```ts
+type ToolOptions = {
+  apiKey?: string;
+};
+```
+
+## Examples
+
+### OpenAI
+
+```ts
+import { generateText } from "ai";
+import { openai } from "@ai-sdk/openai";
+import { search, news } from "@serphouse/ai-sdk";
+
+const { text } = await generateText({
+  model: openai("gpt-4o"),
+  tools: {
+    search: search(),
+    news: news(),
+  },
+  prompt: "Latest AI news",
+});
+```
+
+### Anthropic Claude
+
+```ts
+import { generateText } from "ai";
+import { anthropic } from "@ai-sdk/anthropic";
+import { search } from "@serphouse/ai-sdk";
+
+const { text } = await generateText({
+  model: anthropic("claude-sonnet-4-20250514"),
+  tools: {
+    search: search(),
+  },
+  prompt: "Search for the latest technology news.",
+});
+```
+
+### Google Gemini
+
+```ts
+import { generateText } from "ai";
+import { google } from "@ai-sdk/google";
+import { search } from "@serphouse/ai-sdk";
+
+const { text } = await generateText({
+  model: google("gemini-2.0-flash"),
+  tools: {
+    search: search(),
+  },
+  prompt: "Find AI startups founded this year.",
+});
+```
+
+## Using Multiple Tools
+
+```ts
+import { search, news, shortVideo } from "@serphouse/ai-sdk";
+
+const tools = {
+  search: search(),
+  news: news(),
+  shortVideo: shortVideo(),
+};
+```
+
+The model automatically chooses the correct tool depending on the prompt.
+
+| Prompt | Tool |
+|--------|------|
+| Search React documentation | `search()` |
+| Latest NVIDIA news | `news()` |
+| Best AI coding reels | `shortVideo()` |
+
+## Error Handling
+
+If an API key cannot be found, the SDK throws an authentication error. If SERPHouse returns an API error, it is propagated through the tool execution. Handle errors normally using `try/catch`.
+
+```ts
+try {
+  const result = await generateText(...);
+} catch (error) {
+  console.error(error);
+}
+```
+
+## Why Use This SDK Instead of Calling the API Directly?
+
+| Direct API | `@serphouse/ai-sdk` |
+|------------|---------------------|
+| Manual HTTP requests | Native AI SDK tools |
+| Manual validation | Built-in Zod schemas |
+| Manual authentication | Automatic API key resolution |
+| Manual response handling | Automatic tool execution |
+| Boilerplate | Minimal code |
+| Model unaware of APIs | Models can call tools automatically |
+
+<Cards>
+  <Card title="LangChain" href="/langchain" />
+  <Card title="LlamaIndex" href="/llamaindex" />
+  <Card title="MCP Server" href="/mcp-server" />
+</Cards>

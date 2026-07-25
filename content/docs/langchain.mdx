@@ -1,0 +1,60 @@
+---
+title: LangChain Integration
+description: Use SERPHouse AI SDK with LangChain for live web search in AI agents.
+icon: LangChain
+---
+
+The SERPHouse AI SDK is a Python SDK for the SERPHouse search API, built to plug live web search data directly into AI agents. It provides first-class, framework-native integrations for both LangChain and LlamaIndex.
+
+<ResourceCards>
+  <ResourceCard title="GitHub" subtitle="SERPHouse/ai-sdk-python" href="https://github.com/SERPHouse/ai-sdk-python" icon="github" />
+  <ResourceCard title="PyPI" subtitle="serphouse-ai-sdk" href="https://pypi.org/project/serphouse-ai-sdk/" icon="pypi" />
+</ResourceCards>
+
+## Installation
+
+```bash
+pip install serphouse-ai-sdk[langchain]
+```
+
+Or for all frameworks: `pip install serphouse-ai-sdk[all]`
+
+## API Key Setup
+
+```bash
+export SERPHOUSE_API_KEY=your_key_here
+```
+
+## Available Tools
+
+| Tool | Description | Endpoint |
+|------|-------------|----------|
+| `search()` | Google Web Search | `/web-search-lite` |
+| `news()` | Google News Search | `/google-news` |
+| `short_video()` | Google Short Videos Search | `/google-short-videos-api` |
+
+## Usage Example
+
+```python
+from langchain.agents import create_agent
+from langchain_openai import ChatOpenAI
+from serphouse.langchain import search, news, short_video
+
+agent = create_agent(
+    model=ChatOpenAI(model="gpt-4"),
+    tools=[search(), news(), short_video()],
+)
+
+response = agent.invoke({
+    "messages": [{"role": "user", "content": "Latest AI news from OpenAI"}]
+})
+print(response["messages"][-1].content)
+```
+
+Works with OpenAI, Anthropic Claude, and Google Gemini models.
+
+<Cards>
+  <Card title="LlamaIndex" href="/llamaindex" />
+  <Card title="Vercel AI SDK" href="/vercel-ai-sdk" />
+  <Card title="MCP Server" href="/mcp-server" />
+</Cards>

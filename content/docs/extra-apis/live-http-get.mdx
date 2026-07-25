@@ -1,0 +1,41 @@
+---
+title: Live (HTTP GET)
+description: Perform real-time SERP searches using HTTP GET requests with query parameters.
+---
+
+<DeprecatedNotice/>
+
+Performing a realtime search is as simple as making a GET HTTP request to the SERPHouse live endpoint. The only required parameters are your API key and `q` (your search query).
+
+> **Requires authentication**
+
+`GET` `https://api.serphouse.com/serp/live`
+
+### Path Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| responseType | String | `html` or `json` |
+
+### Query Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| q | String | Search phrase |
+| domain | String | Google, Bing, or Yahoo domain |
+| lang | String | Language code e.g. `en`, `fr` |
+| device | String | `desktop` or `mobile` |
+| serp_type | String | `web`, `news`, or `image` |
+| loc | String | Optional if specifying `loc_id` |
+| loc_id | String | Optional if specifying `loc` |
+| page | integer | Page number |
+| num_result | integer | Number of results per page |
+| date_range | String | Date filter |
+| verbatim | integer | Google Verbatim search (`0` or `1`) |
+| gfilter | integer | Filter on/off (`1` or `0`) |
+
+### Headers
+
+| Name | Type | Description |
+|------|------|-------------|
+| Authorization | String | Bearer `<YOUR_API_KEY>` |

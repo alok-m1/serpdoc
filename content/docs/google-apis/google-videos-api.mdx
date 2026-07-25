@@ -1,0 +1,35 @@
+---
+title: Google Videos API
+description: Fetch real-time video search results from Google with duration and quality filters.
+---
+
+The Google Video API allows you to fetch real-time video search results directly from Google using a simple HTTP POST request, making large-scale SERP data collection fast and reliable.
+
+<Callout type="warn">
+  Requires authentication — provide your API key as a Bearer token in the Authorization header.
+</Callout>
+
+`POST` `https://api.serphouse.com/google-videos-api`
+
+## Headers
+
+| Name | Type | Description |
+|------|------|-------------|
+| Authorization | String | Bearer `<YOUR_API_KEY>` |
+| Content-Type | String | application/json |
+
+## Request Body
+
+| Name | Type | Description |
+|------|------|-------------|
+| q | string | Search phrase |
+| domain | string | Choose google domain |
+| device | string | `desktop` or `mobile` |
+| lang | string | Language code e.g. `en`, `fr` |
+| loc | string | Optional if specifying `loc_id` |
+| loc_id | integer | Optional if specifying `loc` |
+| date_range | String | `YYYY-MM-DD,YYYY-MM-DD` or `h`, `d`, `w`, `m`, `y` |
+| page | integer | Page number |
+| video_duration | String | `short` (0-4 min), `medium` (4-20 min), `long` (20+ min) |
+| video_quality | String | `high` |
+| video_captions | String | `captioned` |

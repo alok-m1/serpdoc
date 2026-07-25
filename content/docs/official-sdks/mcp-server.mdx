@@ -1,0 +1,234 @@
+---
+title: MCP Server
+description: The SERPHouse MCP Server enables AI assistants to access SERPHouse APIs through the Model Context Protocol.
+icon: mcp-server
+---
+
+The SERPHouse MCP Server enables AI assistants to access SERPHouse APIs through the Model Context Protocol (MCP). Once configured, supported AI clients can perform Google, Bing, and Yahoo searches, retrieve SERP data, look up locations, and check account details — all from within a conversation.
+
+<Callout type="success" title="Fully Managed">
+  The SERPHouse MCP Server is fully managed by SERPHouse — no server to install, host, or maintain.
+</Callout>
+
+<ResourceCards>
+  <ResourceCard title="GitHub" subtitle="SERPHouse/serphouse-mcp" href="https://github.com/SERPHouse/serphouse-mcp" icon="github" />
+  <ResourceCard title="NPM" subtitle="serphouse-mcp" href="https://www.npmjs.com/package/serphouse-mcp" icon="npm" />
+</ResourceCards>
+
+## Quick Start (Hosted)
+
+1. Get your API key from the [SERPHouse Dashboard](https://www.serphouse.com/).
+2. Add the server to your MCP client config:
+
+```json
+{
+  "mcpServers": {
+    "serphouse": {
+      "url": "https://mcp.serphouse.com/YOUR_SERPHouse_API_KEY/mcp"
+    }
+  }
+}
+```
+
+Replace `YOUR_SERPHouse_API_KEY` with your actual API key.
+
+3. Start your AI assistant and ask it to search the web.
+
+## Authentication
+
+SERPHouse MCP authenticates using your API key passed as part of the MCP endpoint URL. The key is forwarded to the SERPHouse API as a Bearer token.
+
+```json
+{
+  "mcpServers": {
+    "serphouse": {
+      "url": "https://mcp.serphouse.com/YOUR_SERPHouse_API_KEY/mcp"
+    }
+  }
+}
+```
+
+<Callout type="info">
+  Tools and resources can be discovered **without** a key. The API key is only required when calling actual SERPHouse API tools.
+</Callout>
+
+## What You Can Ask
+
+| Use case | Example prompt |
+|---|---|
+| **Rank tracking** | *"Where do we rank for 'crm software' on Google US desktop?"* |
+| **Competitor analysis** | *"Who owns the top 5 spots for 'project management software' in London?"* |
+| **Local search** | *"Top Google Local results for 'emergency plumber' in Chicago."* |
+| **Keyword discovery** | *"What does Autocomplete suggest for 'best saas for'?"* |
+| **Multi-engine coverage** | *"Compare Yahoo and Google news results for 'electric vehicles'."* |
+| **Shopping research** | *"Search Google Shopping for mechanical keyboards under $150."* |
+
+## Deployment Options
+
+### Hosted (Default)
+
+No infrastructure to manage. The endpoint is always available at `https://mcp.serphouse.com/YOUR_SERPHouse_API_KEY/mcp`.
+
+### Self-Hosted
+
+<Callout type="warn">
+  Only use self-hosted if you need to run the server behind a firewall or in an air-gapped environment. For most use cases, the hosted endpoint is recommended.
+</Callout>
+
+Run the server on your own infrastructure via Docker or Node.
+
+**Docker:**
+
+```bash
+docker run -e PORT=8080 -p 8080:8080 serphouse/serphouse-mcp
+```
+
+Then configure your MCP client:
+
+```json
+{
+  "mcpServers": {
+    "serphouse": {
+      "url": "http://localhost:8080/{API_KEY}/mcp"
+    }
+  }
+}
+```
+
+**Node:**
+
+```bash
+npx serphouse-mcp
+```
+
+Set the API key via the `SERPHOUSE_API_KEY` environment variable for stdio mode:
+
+```json
+{
+  "mcpServers": {
+    "serphouse": {
+      "command": "npx",
+      "args": ["serphouse-mcp"],
+      "env": {
+        "SERPHOUSE_API_KEY": "YOUR_API_KEY"
+      }
+    }
+  }
+}
+```
+
+
+
+## Available Tools
+
+The SERPHouse MCP Server registers **23 tools** across five categories.
+
+### Reference Tools
+
+Use these to discover supported domains, languages, and location IDs.
+
+| Tool | Description |
+|---|---|
+| `serphouse_domain_list` | List supported search domains. Call before Yahoo searches — use regional domains like `uk.yahoo.com`. |
+| `serphouse_language_list` | Get supported language codes for Google, Bing, or Yahoo. |
+| `serphouse_location_search` | Search SERPHouse location IDs and names for Google or Bing targeting. |
+| `serphouse_account_info` | Get SERPHouse account plan and credit usage. |
+
+### Default / Lite Search
+
+Fast, lightweight Google organic results. Only `q` is required; `gl` defaults to `US`.
+
+| Tool | Description |
+|---|---|
+| `serphouse_search` | Default web search. Recommended for most queries. |
+| `serphouse_google_web_lite` | Alias of `serphouse_search`. |
+
+Use `serphouse_google_web` when you need `device`, `gfilter`, or `num_result`. Use `serphouse_serp_google_advanced` for SEO rankings beyond the top 10.
+
+### Google SERP Tools
+
+Full-featured Google search with device targeting, location, and result control. These require `loc` or `loc_id`.
+
+| Tool | Description |
+|---|---|
+| `serphouse_google_web` | Full Google web search with device, gfilter, and num_result options. |
+| `serphouse_google_image` | Google Image search. |
+| `serphouse_google_news` | Google News search. |
+| `serphouse_google_shop` | Google Shopping search. |
+| `serphouse_serp_google_advanced` | SEO ranking checks — fetch up to 100 results per query using `max_pages`. |
+
+### Bing SERP Tools
+
+Real-time Bing search across web, images, and news. Requires `loc` or `loc_id`.
+
+| Tool | Description |
+|---|---|
+| `serphouse_bing_web` | Bing web search. |
+| `serphouse_bing_image` | Bing image search. |
+| `serphouse_bing_news` | Bing news search. |
+
+### Yahoo SERP Tools
+
+Real-time Yahoo search across web, images, and news. Uses regional Yahoo domains (e.g., `uk.yahoo.com`). Does **not** require location.
+
+| Tool | Description |
+|---|---|
+| `serphouse_yahoo_web` | Yahoo web search. |
+| `serphouse_yahoo_image` | Yahoo image search. |
+| `serphouse_yahoo_news` | Yahoo news search. |
+
+### Google Verticals
+
+Specialized Google search verticals for jobs, autocomplete, videos, forums, and local business discovery.
+
+| Tool | Description |
+|---|---|
+| `serphouse_google_jobs` | Google Jobs search. |
+| `serphouse_google_autocomplete` | Google Autocomplete suggestions. Requires `loc` (for localization). |
+| `serphouse_google_videos` | Google Videos search with duration, quality, and captions filters. |
+| `serphouse_google_short_videos` | Google Short Videos search. |
+| `serphouse_google_forums` | Google Forums / Discussions search. |
+| `serphouse_google_local` | Google Local business results (maps). |
+
+## MCP Resources
+
+The server also provides built-in resources that teach AI assistants how to use the tools correctly:
+
+| Resource | Description |
+|---|---|
+| `serphouse_guide` | Tool catalog with routing rules, location guidance, and domain conventions. |
+| `serphouse_examples` | Minimal request examples for each search engine. |
+
+## Location Targeting
+
+Location targeting works differently depending on the tool category:
+
+| Tool group | Method | Required |
+|---|---|---|
+| `serphouse_search` / `serphouse_google_web_lite` | `gl` (country code) or `loc` (name string) | Optional |
+| `serphouse_google_web` / `serphouse_google_image` / `serphouse_google_news` / `serphouse_google_shop` / `serphouse_serp_google_advanced` | `loc` or `loc_id` | **Yes** |
+| `serphouse_bing_web` / `serphouse_bing_image` / `serphouse_bing_news` | `loc` or `loc_id` | **Yes** |
+| `serphouse_yahoo_web` / `serphouse_yahoo_image` / `serphouse_yahoo_news` | Not supported | No |
+| `serphouse_google_jobs` / `serphouse_google_videos` / `serphouse_google_short_videos` / `serphouse_google_forums` / `serphouse_google_local` | `loc` or `loc_id` | **Yes** |
+| `serphouse_google_autocomplete` | `loc` (name string, not ID) | **Yes** |
+
+Use `serphouse_location_search` to find location IDs for precise targeting.
+
+## Troubleshooting
+
+<Callout type="idea" title="Quick tips">
+  Most issues are resolved by verifying your API key, checking your credit balance, and ensuring the endpoint URL is correct.
+</Callout>
+
+| Issue | Solution |
+|---|---|
+| **401 Unauthorized** | Verify your API key is valid and active in the SERPHouse Dashboard. |
+| **Connection failed** | Ensure the endpoint URL is correct and your network allows outbound HTTPS. |
+| **Tools not appearing** | Restart your AI client after adding the MCP server. |
+| **Request failed** | Check your account has sufficient credits and the requested tool is supported. |
+| **Yahoo search fails** | Call `serphouse_domain_list` first — `yahoo.com` is not valid. Use a regional domain like `uk.yahoo.com`. |
+
+## Support
+
+- Contact the [SERPHouse support team](https://www.serphouse.com/) for assistance.
+- Report bugs or request features on the [GitHub repository](https://github.com/SERPHouse/serphouse-mcp).

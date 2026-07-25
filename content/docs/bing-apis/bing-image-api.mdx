@@ -1,0 +1,54 @@
+---
+title: Bing Image API
+description: Access real-time Bing image search results and discover relevant images from online sources.
+---
+
+Access real-time Bing image search results and discover relevant images from a wide range of online sources with the Bing Image API.
+
+> **Requires authentication**
+
+`POST` `https://api.serphouse.com/bing-image`
+
+## Path Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| responseType | String | `html` or `json` |
+
+## Headers
+
+| Name | Type | Description |
+|------|------|-------------|
+| Authorization | String | Bearer `<YOUR_API_KEY>` |
+| Content-Type | String | application/json |
+
+## Request Body
+
+| Name | Type | Description |
+|------|------|-------------|
+| q | string | Search phrase |
+| lang | string | Language code e.g. `en-US`, `fr-FR` |
+| loc | string | Optional if specifying `loc_id` |
+| loc_id | integer | Optional if specifying `loc` |
+| page | integer | Page number |
+| no_trace | string \| integer | Enterprise only. Enables NoTrace mode. |
+
+## Example Request
+
+```bash
+curl --location --request POST 'https://api.serphouse.com/bing-image' \
+--header 'Authorization: Bearer <YOUR_API_KEY>' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "data": {
+        "q": "Coffee",
+        "lang": "en-IN", 
+        "loc": "Mumbai,Maharashtra,India"
+    }
+}'
+```
+
+<Cards>
+  <Card title="Bing Search API" href="/serphouse/bing-apis/bing-search-api" />
+  <Card title="Bing News API" href="/serphouse/bing-apis/bing-news-api" />
+</Cards>

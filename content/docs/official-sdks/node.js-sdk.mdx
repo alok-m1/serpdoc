@@ -1,0 +1,282 @@
+---
+title: Node.js SDK
+description: Official SERPHouse Node.js SDK for integrating SERP search into any Node.js application.
+icon: nodejs
+---
+
+The official Node.js SDK makes it easy to integrate the SERPHouse API into any Node.js application.
+
+Instead of manually creating HTTP requests, the SDK handles authentication, request formatting, and response parsing so you can focus on building your application.
+
+<Callout type="info">
+  The SDK provides access to Google SERP, Bing SERP, Yahoo SERP, domains, languages, locations, and account information.
+</Callout>
+
+<ResourceCards>
+  <ResourceCard title="GitHub" subtitle="SERPHouse/serphouse-nodejs" href="https://github.com/SERPHouse/serphouse-nodejs" icon="github" />
+  <ResourceCard title="NPM" subtitle="@serphouse/serphouse-nodejs" href="https://www.npmjs.com/package/@serphouse/serphouse-nodejs" icon="npm" />
+</ResourceCards>
+
+## Requirements
+
+- Node.js 16+
+- npm or yarn
+
+## Installation
+
+```bash
+npm install serphouse
+```
+
+or with Yarn:
+
+```bash
+yarn add serphouse
+```
+
+## Get Your API Key
+
+Create a SERPHouse account and generate an API key from your dashboard.
+
+## Initialize the Client
+
+```javascript
+const { SERPHouseClient } = require("serphouse");
+
+const client = new SERPHouseClient({
+    apiKey: process.env.SERPHOUSE_API_KEY,
+});
+```
+
+<Callout type="warn">
+  Using environment variables is recommended. Never hardcode your API key in source code.
+</Callout>
+
+```bash
+SERPHOUSE_API_KEY=your_api_key
+```
+
+## Quick Start
+
+```javascript
+const response = await client.serp.live({
+    data: {
+        q: "Coffee",
+        domain: "google.com",
+        lang: "en",
+        loc: "Texas, United States",
+        device: "desktop",
+        serp_type: "web",
+    },
+});
+
+console.log(response);
+```
+
+## Available Services
+
+The SDK exposes the following services.
+
+| Service | Description |
+|---------|-------------|
+| `client.serp` | Google, Bing & Yahoo SERP APIs |
+| `client.domains` | Supported domains |
+| `client.languages` | Supported languages |
+| `client.locations` | Search locations |
+| `client.account` | Account information |
+
+## SERP API
+
+### Live Search
+
+Retrieve search results immediately.
+
+```javascript
+const response = await client.serp.live({
+    data: {
+        q: "Coffee",
+        domain: "google.com",
+        lang: "en",
+        device: "desktop",
+        serp_type: "web",
+        loc: "Texas, United States",
+        page: 1,
+        num_result: 10,
+    },
+});
+```
+
+### Schedule a Search
+
+Schedule searches for asynchronous processing.
+
+```javascript
+const response = await client.serp.schedule({
+    data: [
+        {
+            q: "Coffee",
+            domain: "google.com",
+            lang: "en",
+            device: "desktop",
+            serp_type: "web",
+            loc: "Texas, United States",
+            postback_url: "https://example.com/postback",
+            pingback_url: "https://example.com/pingback",
+        },
+    ],
+});
+```
+
+### Check Search Status
+
+```javascript
+const response = await client.serp.check(searchId);
+```
+
+### Get Search Results
+
+```javascript
+const response = await client.serp.get(searchId);
+```
+
+Retrieve raw HTML.
+
+```javascript
+const response = await client.serp.get(searchId, "html");
+```
+
+## Domains
+
+Retrieve all supported search domains.
+
+```javascript
+const response = await client.domains.list();
+```
+
+## Languages
+
+Retrieve supported languages.
+
+```javascript
+const response = await client.languages.list();
+```
+
+Retrieve Bing languages.
+
+```javascript
+const response = await client.languages.list({
+    type: "bing",
+});
+```
+
+## Locations
+
+Search available locations.
+
+```javascript
+const response = await client.locations.search({
+    q: "Texas",
+});
+```
+
+## Account
+
+Retrieve account details.
+
+```javascript
+const response = await client.account.info();
+```
+
+## Error Handling
+
+<Callout type="idea" title="Always handle errors">
+  Network issues, invalid API keys, and rate limits can all cause requests to fail. Always use try-catch.
+</Callout>
+
+```javascript
+try {
+    const response = await client.serp.live({
+        data: {
+            q: "Coffee",
+        },
+    });
+    console.log(response);
+} catch (error) {
+    console.error(error.message);
+}
+```
+
+## Using Async/Await
+
+All SDK methods return Promises.
+
+```javascript
+try {
+    const response = await client.serp.live({
+        data: {
+            q: "Coffee",
+        },
+    });
+
+    console.log(response);
+} catch (error) {
+    console.error(error.message);
+}
+```
+
+## Environment Variables
+
+Store your API key securely.
+
+```bash
+SERPHOUSE_API_KEY=your_api_key
+```
+
+```javascript
+require("dotenv").config();
+
+const { SERPHouseClient } = require("serphouse");
+
+const client = new SERPHouseClient({
+    apiKey: process.env.SERPHOUSE_API_KEY,
+});
+```
+
+## Complete Example
+
+```javascript
+require("dotenv").config();
+
+const { SERPHouseClient } = require("serphouse");
+
+const client = new SERPHouseClient({
+    apiKey: process.env.SERPHOUSE_API_KEY,
+});
+
+async function main() {
+    const results = await client.serp.live({
+        data: {
+            q: "Coffee",
+            domain: "google.com",
+            lang: "en",
+            device: "desktop",
+            serp_type: "web",
+        },
+    });
+
+    console.log(results);
+}
+
+main();
+```
+
+## Support
+
+If you encounter any issues while installing, configuring, or using the SERPHouse Node.js SDK, we're here to help.
+
+- Contact the SERPHouse support team for assistance.
+- Report bugs or request features by opening an issue on the GitHub repository.
+
+<Cards>
+  <Card title="PHP SDK" href="/serphouse/official-sdks/php-sdk" />
+</Cards>

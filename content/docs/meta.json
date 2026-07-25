@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "--- Introduction ---",
+    "introduction/about-the-serp-api",
+    "introduction/getting-started",
+    "introduction/webhook",
+    "--- Offical SDK ---",
+    "official-sdks/node.js-sdk",
+     "official-sdks/php-sdk",
+    "official-sdks/mcp-server",
+
+    "--- Official API ---",
+    "google-apis",
+    "yahoo-apis",
+    "bing-apis",
+    "extra-apis",
+
+    "--- Build With Agents ---",
+    "agent-harnesses/agent-skills",
+    "agent-harnesses/claude-code",
+    "agent-harnesses/codex-cli",
+    "agent-harnesses/cursor",
+    "agent-harnesses/opencode",
+    "agent-harnesses/vs-code",
+    "agent-harnesses/smithery",
+
+    "--- Frameworks ---",
+    "vercel-ai-sdk",
+    "langchain",
+    "llamaindex"
+
+  ]
+}

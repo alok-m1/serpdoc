@@ -1,0 +1,46 @@
+---
+title: OpenCode
+description: Connect the SERPHouse MCP Server to OpenCode for native search provider capabilities.
+icon: opencode
+---
+
+OpenCode is an open-source AI coding assistant that supports Model Context Protocol (MCP) servers. By connecting the SERPHouse MCP Server, OpenCode can use SERPHouse as a native search provider.
+
+## Prerequisites
+
+- OpenCode installed
+- An active SERPHouse account
+- A valid SERPHouse API key
+
+## Configure the SERPHouse MCP Server
+
+Edit `~/.config/opencode/opencode.json` and add:
+
+```json
+{
+  "mcp": {
+    "serphouse": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://mcp.serphouse.com/YOUR_SERPHouse_API_KEY/mcp"
+    }
+  }
+}
+```
+
+Replace `YOUR_SERPHouse_API_KEY` with your actual SERPHouse API key.
+
+## Using SERPHouse
+
+Once configured, OpenCode automatically invokes SERPHouse whenever a request requires search engine data.
+
+Example prompts:
+- `Search Google for "Laravel Horizon".`
+- `Show me the top 10 search results for "AI SEO tools".`
+- `Search Google News for "OpenAI".`
+
+## Troubleshooting
+
+- **Server doesn't load** — Verify your configuration file is valid JSON.
+- **401 Unauthorized** — Verify your API key is valid and active.
+- **Tool calls fail** — Check debug logs with `opencode --debug`.

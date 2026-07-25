@@ -1,0 +1,54 @@
+---
+title: VS Code
+description: Connect the SERPHouse MCP Server to Visual Studio Code for AI-powered search.
+icon: vs-code
+---
+
+Visual Studio Code supports Model Context Protocol (MCP) servers, allowing AI-powered extensions to connect with external tools and services.
+
+## Prerequisites
+
+- Visual Studio Code installed
+- An AI extension with MCP support
+- An active SERPHouse account
+- A valid SERPHouse API key
+
+## Configure the SERPHouse MCP Server
+
+### One-command install
+
+```bash
+code --add-mcp '{"name":"serphouse","url":"https://mcp.serphouse.com/YOUR_SERPHouse_API_KEY/mcp","type":"http"}'
+```
+
+### Manual setup
+
+Open Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P`) and search for `MCP: Open User Configuration`. Add:
+
+```json
+{
+  "servers": {
+    "serphouse": {
+      "type": "http",
+      "url": "https://mcp.serphouse.com/YOUR_SERPHouse_API_KEY/mcp"
+    }
+  }
+}
+```
+
+Replace `YOUR_SERPHouse_API_KEY` with your actual SERPHouse API key.
+
+## Using SERPHouse
+
+Once configured, your AI assistant automatically invokes SERPHouse whenever a request requires search engine data.
+
+Example prompts:
+- `Search Google for "Laravel 13 documentation".`
+- `Search Google News for "OpenAI".`
+- `Find top ranking pages for "technical SEO checklist".`
+
+## Troubleshooting
+
+- **Server doesn't appear** — Verify MCP configuration contains valid JSON.
+- **401 Unauthorized** — Verify your API key.
+- **Reload VS Code** window after configuration changes.

@@ -1,0 +1,57 @@
+---
+title: Bing Search API
+description: Access real-time web search data from Bing with the Bing Web Search API.
+---
+
+Access real-time web search data from Bing, delivering relevant search results from a wide range of websites and online sources.
+
+> **Requires authentication**
+
+`POST` `https://api.serphouse.com/bing-web`
+
+## Path Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| responseType | String | `html` or `json` |
+
+## Headers
+
+| Name | Type | Description |
+|------|------|-------------|
+| Authorization | String | Bearer `<YOUR_API_KEY>` |
+| Content-Type | String | application/json |
+
+## Request Body
+
+| Name | Type | Description |
+|------|------|-------------|
+| q | string | Search phrase |
+| lang | string | Language code e.g. `en-US`, `fr-FR` |
+| device | string | `desktop` or `mobile` |
+| loc | string | Optional if specifying `loc_id` |
+| loc_id | integer | Optional if specifying `loc` |
+| page | integer | Page number |
+| date_range | String | `YYYY-MM-DD,YYYY-MM-DD` or `d`, `w`, `m`, `y` |
+| no_trace | string \| integer | Enterprise only. Enables NoTrace mode. |
+
+## Example Request
+
+```bash
+curl --location --request POST 'https://api.serphouse.com/bing-web' \
+--header 'Authorization: Bearer <YOUR_API_KEY>' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "data": {
+        "q": "Coffee",
+        "lang": "en-US", 
+        "device": "desktop",
+        "loc": "United States"
+    }
+}'
+```
+
+<Cards>
+  <Card title="Bing News API" href="/serphouse/bing-apis/bing-news-api" />
+  <Card title="Bing Image API" href="/serphouse/bing-apis/bing-image-api" />
+</Cards>

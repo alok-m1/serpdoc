@@ -1,0 +1,35 @@
+---
+title: Agent Skills
+description: Official AI agent skills for the SERPHouse ecosystem — teach AI agents how to use the REST API, MCP server, and Node.js SDK.
+icon: agent-skills
+---
+
+Official AI agent skills for the SERPHouse ecosystem. Teach AI agents how to use the SERPHouse REST API, MCP server, and Node.js SDK with accurate, grounded knowledge.
+
+<ResourceCards>
+  <ResourceCard title="GitHub" subtitle="SERPHouse/agent-skills" href="https://github.com/SERPHouse/agent-skills" icon="github" />
+</ResourceCards>
+
+## Available Skills
+
+| Skill | Purpose |
+|-------|---------|
+| **Search** | Routes questions to the correct SERPHouse skill |
+| **API** | Complete REST API reference |
+| **MCP** | Complete MCP tool reference |
+| **Node.js** | Full SDK documentation |
+
+## Installation
+
+```bash
+npx skills add https://github.com/SERPHouse/agent-skills --skill serphouse-search
+npx skills add https://github.com/SERPHouse/agent-skills --skill serphouse-api
+npx skills add https://github.com/SERPHouse/agent-skills --skill serphouse-mcp
+npx skills add https://github.com/SERPHouse/agent-skills --skill serphouse-nodejs
+```
+
+## Authentication
+
+```bash
+export SERPHOUSE_API_KEY="your_api_key"
+```

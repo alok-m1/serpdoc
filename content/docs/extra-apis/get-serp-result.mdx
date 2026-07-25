@@ -1,0 +1,40 @@
+---
+title: Get SERP Result
+description: Retrieve the results of a previously scheduled SERP task by its unique ID.
+---
+
+As a response of the API server, you will receive a JSON array containing the result of your SERP query.
+
+> **Requires authentication**
+
+`GET` `https://api.serphouse.com/serp/get`
+
+### Path Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| responseType | String | `html` or `json` |
+
+### Query Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| id | String | Unique identifier of your SERP task |
+
+### Headers
+
+| Name | Type | Description |
+|------|------|-------------|
+| Authorization | String | Bearer `<YOUR_API_KEY>` |
+
+### Example Request
+
+```bash
+curl --location --request GET 'https://api.serphouse.com/serp/get?id=77224195' \
+--header 'Authorization: Bearer <YOUR_API_KEY>'
+```
+
+<Cards>
+  <Card title="Check SERP Status" href="/serphouse/extra-apis/check-serp-status" />
+  <Card title="Schedule SERP" href="/serphouse/extra-apis/schedule-serp" />
+</Cards>

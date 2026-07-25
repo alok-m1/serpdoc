@@ -1,0 +1,32 @@
+---
+title: Google Autocomplete API
+description: Retrieve real-time Google search suggestions and autocomplete results.
+---
+
+Retrieve real-time Google search suggestions (autocomplete results) using the Google Auto Complete API. This endpoint returns keyword suggestions exactly like those shown in the Google search bar while typing a query.
+
+<Callout type="info">
+  **Pricing:** 5 credits per Google Autocomplete API request.
+</Callout>
+
+<Callout type="warn">
+  Requires authentication — provide your API key as a Bearer token in the Authorization header.
+</Callout>
+
+`POST` `https://api.serphouse.com/google-autocomplete-api`
+
+## Headers
+
+| Name | Type | Description |
+|------|------|-------------|
+| Authorization | String | Bearer `<YOUR_API_KEY>` |
+| Content-Type | String | application/json |
+
+## Request Body
+
+| Name | Type | Description |
+|------|------|-------------|
+| q | string | Search phrase |
+| lang | string | Language code e.g. `en`, `fr` |
+| loc | string | Location for localized suggestions |
+| client | string | `chrome` (default), `chrome-omni`, `home_page`, `safari`, `firefox`, `youtube` |

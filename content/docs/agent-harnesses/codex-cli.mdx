@@ -1,0 +1,39 @@
+---
+title: Codex CLI
+description: Connect the SERPHouse MCP Server to Codex CLI for search capabilities in your terminal.
+icon: codex-cli
+---
+
+Codex CLI is OpenAI's terminal-based AI coding assistant with support for Model Context Protocol (MCP) servers.
+
+## Prerequisites
+
+- Codex CLI installed
+- An active SERPHouse account
+- A valid SERPHouse API key
+
+## Configure the SERPHouse MCP Server
+
+Edit `~/.codex/config.toml` and add:
+
+```toml
+[mcp_servers.serphouse]
+url = "https://mcp.serphouse.com/YOUR_SERPHouse_API_KEY/mcp"
+```
+
+Replace `YOUR_SERPHouse_API_KEY` with your actual SERPHouse API key.
+
+## Using SERPHouse
+
+Once configured, Codex CLI automatically invokes SERPHouse whenever a request requires search engine data.
+
+Example prompts:
+- `Search Google for "Laravel Horizon".`
+- `Search Google News for "OpenAI".`
+- `Search Google Images for "Tesla Model Y".`
+
+## Troubleshooting
+
+- **Server doesn't appear** — Verify your config.toml has valid TOML syntax.
+- **401 Unauthorized** — Verify your API key is valid and active.
+- **Restart Codex CLI** after making configuration changes.

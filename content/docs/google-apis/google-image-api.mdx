@@ -1,0 +1,43 @@
+---
+title: Google Image API
+description: Retrieve real-time Google Image search results quickly and reliably.
+---
+
+Retrieve real-time Google Image search results quickly and reliably using the Google Image API endpoint.
+
+<Callout type="warn">
+  Requires authentication — provide your API key as a Bearer token in the Authorization header.
+</Callout>
+
+`POST` `https://api.serphouse.com/google-image`
+
+## Path Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| responseType | String | `html` or `json` |
+
+## Headers
+
+| Name | Type | Description |
+|------|------|-------------|
+| Authorization | String | Bearer `<YOUR_API_KEY>` |
+| Content-Type | String | application/json |
+
+## Request Body
+
+| Name | Type | Description |
+|------|------|-------------|
+| q | string | Search phrase |
+| domain | string | Choose google domain |
+| lang | string | Language code e.g. `en`, `fr` |
+| loc | string | Optional if specifying `loc_id` |
+| loc_id | integer | Optional if specifying `loc` |
+| page | integer | Page number |
+| date_range | String | `YYYY-MM-DD,YYYY-MM-DD` or `h`, `d`, `w`, `m`, `y` |
+| no_trace | string \| integer | Enterprise only. Enables NoTrace mode. |
+
+<Cards>
+  <Card title="Google Search API" href="/serphouse/google-apis/google-search-api" />
+  <Card title="Google News API" href="/serphouse/google-apis/google-news-api" />
+</Cards>

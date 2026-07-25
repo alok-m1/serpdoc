@@ -1,0 +1,36 @@
+---
+title: Locations List
+description: Search Google and Bing geographical locations for SERP API targeting.
+---
+
+We use Google Geographical Targeting, that's why you can use it as a data source. Google and Bing have different locations.
+
+Download the CSV files:
+- [Google Locations](https://serphouse-space.nyc3.digitaloceanspaces.com/google_locations.csv)
+- [Bing Locations](https://serphouse-space.nyc3.digitaloceanspaces.com/bing_locations.csv)
+
+> **Requires authentication**
+
+## Get a List of Locations
+
+`GET` `https://api.serphouse.com/location/search`
+
+### Query Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| q | String | Search in our location database |
+| type | String | `google` or `bing` |
+
+### Headers
+
+| Name | Type | Description |
+|------|------|-------------|
+| Authorization | String | Bearer `<YOUR_API_KEY>` |
+
+### Example Request
+
+```bash
+curl --location --request GET 'https://api.serphouse.com/location/search?q=texas&type=google' \
+--header 'Authorization: Bearer <YOUR_API_KEY>'
+```
