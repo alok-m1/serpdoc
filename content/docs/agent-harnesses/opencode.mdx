@@ -8,7 +8,7 @@ OpenCode is an open-source AI coding assistant that supports Model Context Proto
 
 ## Prerequisites
 
-- OpenCode installed
+- [OpenCode](https://opencode.ai) installed
 - An active SERPHouse account
 - A valid SERPHouse API key
 
@@ -28,19 +28,32 @@ Edit `~/.config/opencode/opencode.json` and add:
 }
 ```
 
-Replace `YOUR_SERPHouse_API_KEY` with your actual SERPHouse API key.
+<Callout type="info">
+  Replace <code>YOUR_SERPHouse_API_KEY</code> with your actual SERPHouse API key.
+</Callout>
 
 ## Using SERPHouse
 
 Once configured, OpenCode automatically invokes SERPHouse whenever a request requires search engine data.
 
-Example prompts:
+<Callout type="idea">
+  Try these example prompts to get started.
+</Callout>
+
 - `Search Google for "Laravel Horizon".`
 - `Show me the top 10 search results for "AI SEO tools".`
 - `Search Google News for "OpenAI".`
 
 ## Troubleshooting
 
-- **Server doesn't load** — Verify your configuration file is valid JSON.
-- **401 Unauthorized** — Verify your API key is valid and active.
-- **Tool calls fail** — Check debug logs with `opencode --debug`.
+| Issue | Solution |
+|-------|----------|
+| **Server doesn't load** | Verify your configuration file is valid JSON. |
+| **401 Unauthorized** | Verify your API key is valid and active in your [dashboard](https://serphouse.com). |
+| **Tool calls fail** | Check debug logs with `opencode --debug`. |
+
+<Cards>
+  <Card title="Claude Code" href="/serphouse/agent-harnesses/claude-code" />
+  <Card title="Cursor" href="/serphouse/agent-harnesses/cursor" />
+  <Card title="VS Code" href="/serphouse/agent-harnesses/vs-code" />
+</Cards>

@@ -30,3 +30,11 @@ Retrieve real-time Google search suggestions (autocomplete results) using the Go
 | lang | string | Language code e.g. `en`, `fr` |
 | loc | string | Location for localized suggestions |
 | client | string | `chrome` (default), `chrome-omni`, `home_page`, `safari`, `firefox`, `youtube` |
+
+## Example Request
+
+<ApiExample
+  endpoint="https://api.serphouse.com/google-autocomplete-api"
+  query="best coffee"
+  params='{"loc": "New York,United States", "client": "chrome"}'
+/>

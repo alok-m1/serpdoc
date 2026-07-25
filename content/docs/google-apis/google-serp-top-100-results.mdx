@@ -57,6 +57,14 @@ description: Fetch up to 100 Google search results across multiple pages with th
 | max_pages | integer | Pages to return (1–10, default 10) |
 | date_range | String | Date filter |
 
+## Example Request
+
+<ApiExample
+  endpoint="https://api.serphouse.com/serp/google_advanced"
+  query="best restaurants"
+  params='{"device": "desktop", "loc": "New York,United States", "max_pages": 5}'
+/>
+
 <Cards>
   <Card title="Google Schedule SERP (Top 100)" href="/serphouse/google-apis/google-schedule-serp-top-100-results" />
   <Card title="Google Search API" href="/serphouse/google-apis/google-search-api" />

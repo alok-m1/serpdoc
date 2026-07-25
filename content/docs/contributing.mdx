@@ -1,0 +1,140 @@
+---
+title: Contribute to SERPHouse
+description: Help build SERPHouse in the open — SDKs, agent harnesses, docs, and tooling. Start at github.com/SERPHouse.
+icon: GitHub
+---
+
+SERPHouse is built in the open. Whether you improve an official SDK, write an agent harness guide, fix docs, or ship tooling around the SERP API — **contributions are welcome**.
+
+<ContributeHero />
+
+## Where to contribute
+
+Everything lives under the **[SERPHouse GitHub organization](https://github.com/SERPHouse)**. Pick a repo, open an issue, or send a pull request.
+
+<ResourceCards>
+  <ResourceCard title="GitHub Org" subtitle="github.com/SERPHouse" href="https://github.com/SERPHouse" icon="github" />
+  <ResourceCard title="Node.js SDK" subtitle="SERPHouse/serphouse-nodejs" href="https://github.com/SERPHouse/serphouse-nodejs" icon="github" />
+  <ResourceCard title="PHP SDK" subtitle="SERPHouse/serphouse-php" href="https://github.com/SERPHouse/serphouse-php" icon="github" />
+  <ResourceCard title="MCP Server" subtitle="SERPHouse/serphouse-mcp" href="https://github.com/SERPHouse/serphouse-mcp" icon="github" />
+</ResourceCards>
+
+---
+
+## Official open-source repos
+
+| Project | What you'll work on | Repository |
+|---------|---------------------|------------|
+| **Node.js SDK** | Client API, types, examples | [SERPHouse/serphouse-nodejs](https://github.com/SERPHouse/serphouse-nodejs) |
+| **PHP SDK** | Client API, packaging, docs | [SERPHouse/serphouse-php](https://github.com/SERPHouse/serphouse-php) |
+| **MCP Server** | Tools, config, agent integrations | [SERPHouse/serphouse-mcp](https://github.com/SERPHouse/serphouse-mcp) |
+| **Agent Skills** | Skill docs for AI coding agents | [SERPHouse/agent-skills](https://github.com/SERPHouse/agent-skills) |
+| **AI SDK (Python)** | LangChain / LlamaIndex tooling | [SERPHouse/ai-sdk-python](https://github.com/SERPHouse/ai-sdk-python) |
+| **n8n Node** | No-code workflows with SERPHouse | [SERPHouse/n8n-node-serphouse](https://github.com/SERPHouse/n8n-node-serphouse) |
+
+<Callout type="success" title="New to open source?">
+  Small PRs are perfect first contributions — typo fixes, clearer examples, and missing parameter notes all help.
+</Callout>
+
+---
+
+## Ways you can help
+
+### SDKs & libraries
+
+Bug fixes, new language ports, better error messages, and feature additions are all appreciated. Prefer PRs that include tests and a short note on *why* the change matters.
+
+### Agent harnesses
+
+Integrations live in `content/docs/agent-harnesses/`. If you've wired SERPHouse into Claude Code, Cursor, Codex CLI, OpenCode, VS Code, Smithery, or another agent — document it using the existing page pattern.
+
+### Documentation
+
+This site is MDX under `content/docs/`. Clearer copy, better tables, and runnable examples make the product easier for everyone.
+
+### More ideas
+
+- **Example projects** — dashboards, research tools, SEO workflows
+- **Tutorials** — competitor analysis, local SEO tracking, news monitoring
+- **Integrations** — WordPress, Shopify, or other platforms
+- **Translations** — docs in more languages
+
+---
+
+## How to contribute docs
+
+<Steps>
+  <Step>
+
+    ### Fork the org
+
+    Start from **[github.com/SERPHouse](https://github.com/SERPHouse)** and fork the docs (or the relevant product) repository.
+
+  </Step>
+  <Step>
+
+    ### Edit or add a page
+
+    Add or update MDX under `content/docs/`. Match the tone and structure of nearby pages.
+
+  </Step>
+  <Step>
+
+    ### Update navigation
+
+    If you add a new page, register it in `content/docs/meta.json` (or the section `meta.json`) so it appears in the sidebar.
+
+  </Step>
+  <Step>
+
+    ### Open a pull request
+
+    Describe the change, link related issues, and call out anything reviewers should verify.
+
+  </Step>
+</Steps>
+
+---
+
+## Guidelines
+
+<Callout type="info" title="Keep it consistent">
+  Follow existing MDX patterns — frontmatter, Callouts, Cards, tables, and resource links.
+</Callout>
+
+- Keep examples **concise and runnable**
+- **Test API examples** before submitting
+- For SDK changes, **include tests** with your PR
+- Prefer clear language over jargon — readers should get value in under a minute
+- Never commit API keys or secrets
+
+---
+
+## Ready when you are
+
+Jump into the org, star a repo you care about, and open your first PR. The community (and future you) will thank you.
+
+<Cards>
+  <Card
+    title="SERPHouse on GitHub"
+    description="Browse every public repo and open a PR."
+    href="https://github.com/SERPHouse"
+    external
+  />
+  <Card
+    title="API Reference"
+    description="Explore endpoints while you build."
+    href="https://api.serphouse.com"
+    external
+  />
+  <Card
+    title="Getting Started"
+    description="Auth, rate limits, and your first request."
+    href="/serphouse/introduction/getting-started"
+  />
+  <Card
+    title="Agent Skills"
+    description="Teach AI agents how to use SERPHouse."
+    href="/serphouse/agent-harnesses/agent-skills"
+  />
+</Cards>

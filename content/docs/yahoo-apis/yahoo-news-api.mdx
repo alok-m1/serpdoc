@@ -5,7 +5,9 @@ description: Access real-time Yahoo News search results with the latest headline
 
 Retrieve real-time news results from the Yahoo News search page, providing access to the latest headlines, breaking news, and stories from trusted publishers.
 
-> **Requires authentication**
+<Callout type="warn">
+  Requires authentication — provide your API key as a Bearer token in the Authorization header.
+</Callout>
 
 `POST` `https://api.serphouse.com/yahoo-news`
 
@@ -33,21 +35,19 @@ Retrieve real-time news results from the Yahoo News search page, providing acces
 | page | integer | Page number |
 | no_trace | string \| integer | Enterprise only. Enables NoTrace mode. |
 
+<Callout type="info">
+  Yahoo requires regional domains — use <code>serphouse_domain_list</code> to find the right domain for your target region. <code>yahoo.com</code> is not valid.
+</Callout>
+
 ## Example Request
 
-```bash
-curl --location --request POST 'https://api.serphouse.com/yahoo-news' \
---header 'Authorization: Bearer <YOUR_API_KEY>' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "data": {
-        "q": "football world cup 2026",
-        "domain": "in.yahoo.com",
-        "lang": "lang_en", 
-        "device": "desktop"
-    }
-}'
-```
+<ApiExample
+  endpoint="https://api.serphouse.com/yahoo-news"
+  query="football world cup 2026"
+  domain="in.yahoo.com"
+  lang="lang_en"
+  params='{"device": "desktop"}'
+/>
 
 <Cards>
   <Card title="Yahoo Search API" href="/serphouse/yahoo-apis/yahoo-search-api" />

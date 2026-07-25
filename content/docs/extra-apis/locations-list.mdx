@@ -9,7 +9,9 @@ Download the CSV files:
 - [Google Locations](https://serphouse-space.nyc3.digitaloceanspaces.com/google_locations.csv)
 - [Bing Locations](https://serphouse-space.nyc3.digitaloceanspaces.com/bing_locations.csv)
 
-> **Requires authentication**
+<Callout type="warn">
+  Requires authentication — provide your API key as a Bearer token in the Authorization header.
+</Callout>
 
 ## Get a List of Locations
 
@@ -28,9 +30,9 @@ Download the CSV files:
 |------|------|-------------|
 | Authorization | String | Bearer `<YOUR_API_KEY>` |
 
-### Example Request
+## Example Request
 
-```bash
-curl --location --request GET 'https://api.serphouse.com/location/search?q=texas&type=google' \
---header 'Authorization: Bearer <YOUR_API_KEY>'
-```
+<ApiExample
+  endpoint="https://api.serphouse.com/location/search"
+  params='{"q": "texas", "type": "google"}'
+/>

@@ -5,7 +5,9 @@ description: Access real-time web search data from Bing with the Bing Web Search
 
 Access real-time web search data from Bing, delivering relevant search results from a wide range of websites and online sources.
 
-> **Requires authentication**
+<Callout type="warn">
+  Requires authentication — provide your API key as a Bearer token in the Authorization header.
+</Callout>
 
 `POST` `https://api.serphouse.com/bing-web`
 
@@ -37,19 +39,11 @@ Access real-time web search data from Bing, delivering relevant search results f
 
 ## Example Request
 
-```bash
-curl --location --request POST 'https://api.serphouse.com/bing-web' \
---header 'Authorization: Bearer <YOUR_API_KEY>' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "data": {
-        "q": "Coffee",
-        "lang": "en-US", 
-        "device": "desktop",
-        "loc": "United States"
-    }
-}'
-```
+<ApiExample
+  endpoint="https://api.serphouse.com/bing-web"
+  query="Coffee"
+  params='{"device": "desktop", "loc": "United States"}'
+/>
 
 <Cards>
   <Card title="Bing News API" href="/serphouse/bing-apis/bing-news-api" />

@@ -5,7 +5,9 @@ description: Fetch real-time image search results from Yahoo for seamless image 
 
 Fetch real-time image search results from Yahoo, enabling seamless access to images from a wide range of online sources.
 
-> **Requires authentication**
+<Callout type="warn">
+  Requires authentication — provide your API key as a Bearer token in the Authorization header.
+</Callout>
 
 `POST` `https://api.serphouse.com/yahoo-image`
 
@@ -32,20 +34,18 @@ Fetch real-time image search results from Yahoo, enabling seamless access to ima
 | page | integer | Page number |
 | no_trace | string \| integer | Enterprise only. Enables NoTrace mode. |
 
+<Callout type="info">
+  Yahoo requires regional domains — use <code>serphouse_domain_list</code> to find the right domain for your target region. <code>yahoo.com</code> is not valid.
+</Callout>
+
 ## Example Request
 
-```bash
-curl --location --request POST 'https://api.serphouse.com/yahoo-image' \
---header 'Authorization: Bearer <YOUR_API_KEY>' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "data": {
-        "q": "naredra modi",
-        "domain": "in.yahoo.com",
-        "lang": "lang_en" 
-    }
-}'
-```
+<ApiExample
+  endpoint="https://api.serphouse.com/yahoo-image"
+  query="narendra modi"
+  domain="in.yahoo.com"
+  lang="lang_en"
+/>
 
 <Cards>
   <Card title="Yahoo Search API" href="/serphouse/yahoo-apis/yahoo-search-api" />

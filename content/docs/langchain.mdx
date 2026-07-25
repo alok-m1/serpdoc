@@ -13,13 +13,19 @@ The SERPHouse AI SDK is a Python SDK for the SERPHouse search API, built to plug
 
 ## Installation
 
+<Callout type="success">Quick setup with a single pip command.</Callout>
+
 ```bash
 pip install serphouse-ai-sdk[langchain]
 ```
 
-Or for all frameworks: `pip install serphouse-ai-sdk[all]`
+<Callout type="info">For all frameworks: <code>pip install serphouse-ai-sdk[all]</code></Callout>
 
 ## API Key Setup
+
+<Callout type="warn">
+  Set your <code>SERPHOUSE_API_KEY</code> environment variable before using the SDK.
+</Callout>
 
 ```bash
 export SERPHOUSE_API_KEY=your_key_here
@@ -51,7 +57,9 @@ response = agent.invoke({
 print(response["messages"][-1].content)
 ```
 
-Works with OpenAI, Anthropic Claude, and Google Gemini models.
+<Callout type="idea">
+  Works with OpenAI, Anthropic Claude, and Google Gemini models.
+</Callout>
 
 <Cards>
   <Card title="LlamaIndex" href="/llamaindex" />

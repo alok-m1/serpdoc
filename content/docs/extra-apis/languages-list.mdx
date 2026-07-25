@@ -5,7 +5,9 @@ description: Retrieve the full list of supported languages for Google, Bing, and
 
 Retrieve the full list of languages by Google, Bing, and Yahoo. You can use the language code in performing SERP requests.
 
-> **Requires authentication**
+<Callout type="warn">
+  Requires authentication — provide your API key as a Bearer token in the Authorization header.
+</Callout>
 
 ## Get a Full List of Languages
 
@@ -23,9 +25,8 @@ Retrieve the full list of languages by Google, Bing, and Yahoo. You can use the 
 |------|------|-------------|
 | Authorization | String | Bearer `<YOUR_API_KEY>` |
 
-### Example Request
+## Example Request
 
-```bash
-curl --location --request GET 'https://api.serphouse.com/language/list/google' \
---header 'Authorization: Bearer <YOUR_API_KEY>'
-```
+<ApiExample
+  endpoint="https://api.serphouse.com/language/list/google"
+/>

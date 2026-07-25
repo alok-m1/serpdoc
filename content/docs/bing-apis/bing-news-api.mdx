@@ -5,7 +5,9 @@ description: Access real-time Bing News search results and stay informed with th
 
 Access real-time Bing News search results and stay informed with the latest news articles, headlines, and trending stories from trusted sources across the web.
 
-> **Requires authentication**
+<Callout type="warn">
+  Requires authentication — provide your API key as a Bearer token in the Authorization header.
+</Callout>
 
 `POST` `https://api.serphouse.com/bing-news`
 
@@ -36,19 +38,11 @@ Access real-time Bing News search results and stay informed with the latest news
 
 ## Example Request
 
-```bash
-curl --location --request POST 'https://api.serphouse.com/bing-news' \
---header 'Authorization: Bearer <YOUR_API_KEY>' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "data": {
-        "q": "today top news",
-        "lang": "en-IN", 
-        "device": "desktop",
-        "loc": "Surat,Gujarat,India"
-    }
-}'
-```
+<ApiExample
+  endpoint="https://api.serphouse.com/bing-news"
+  query="today top news"
+  params='{"device": "desktop", "loc": "Surat,Gujarat,India"}'
+/>
 
 <Cards>
   <Card title="Bing Search API" href="/serphouse/bing-apis/bing-search-api" />

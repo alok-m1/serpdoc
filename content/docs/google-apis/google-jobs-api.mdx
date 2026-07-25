@@ -43,16 +43,8 @@ Performing a real-time Google Jobs search using HTTP POST is very simple with th
 
 ## Example Request
 
-```bash
-curl --location --request POST 'https://api.serphouse.com/google-jobs-api' \
---header 'Authorization: Bearer <YOUR_API_KEY>' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "data": {
-        "q": "reactJs devloper",
-        "domain": "google.com",
-        "lang": "en", 
-        "loc": "Abernathy,Texas,United States"
-    }
-}'
-```
+<ApiExample
+  endpoint="https://api.serphouse.com/google-jobs-api"
+  query="reactJs developer"
+  params='{"loc": "Abernathy,Texas,United States"}'
+/>

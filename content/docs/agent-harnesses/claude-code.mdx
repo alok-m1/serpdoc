@@ -8,7 +8,7 @@ Claude Code is Anthropic's AI-powered coding assistant that runs directly in you
 
 ## Prerequisites
 
-- Claude Code installed
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) installed
 - An active SERPHouse account
 - A valid SERPHouse API key
 
@@ -20,7 +20,9 @@ claude mcp add serphouse \
     https://mcp.serphouse.com/YOUR_SERPHouse_API_KEY/mcp
 ```
 
-Replace `YOUR_SERPHouse_API_KEY` with your actual SERPHouse API key.
+<Callout type="info">
+  Replace <code>YOUR_SERPHouse_API_KEY</code> with your actual SERPHouse API key.
+</Callout>
 
 ## Verify Configuration
 
@@ -28,17 +30,32 @@ Replace `YOUR_SERPHouse_API_KEY` with your actual SERPHouse API key.
 claude mcp list
 ```
 
+<Callout type="success">
+  If configured correctly, <code>serphouse</code> appears in the list of available MCP servers.
+</Callout>
+
 ## Using SERPHouse
 
 Once configured, Claude Code automatically invokes SERPHouse whenever a request requires search engine data.
 
-Example prompts:
+<Callout type="idea">
+  Try these example prompts to get started.
+</Callout>
+
 - `Search Google for "Laravel Horizon".`
 - `Show me the top 10 search results for "AI SEO tools".`
 - `Search Google News for "OpenAI".`
 
 ## Troubleshooting
 
-- **401 Unauthorized** — Verify your API key is valid and active.
-- **Connection refused** — Check that `https://mcp.serphouse.com/...` is reachable.
-- **Tools not appearing** — Restart Claude Code after configuration.
+| Issue | Solution |
+|-------|----------|
+| **401 Unauthorized** | Verify your API key is valid and active in your [dashboard](https://serphouse.com). |
+| **Connection refused** | Check that `https://mcp.serphouse.com/...` is reachable from your network. |
+| **Tools not appearing** | Restart Claude Code after configuration. |
+
+<Cards>
+  <Card title="OpenCode" href="/serphouse/agent-harnesses/opencode" />
+  <Card title="Cursor" href="/serphouse/agent-harnesses/cursor" />
+  <Card title="VS Code" href="/serphouse/agent-harnesses/vs-code" />
+</Cards>

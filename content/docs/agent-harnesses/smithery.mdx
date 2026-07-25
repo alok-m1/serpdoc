@@ -6,7 +6,9 @@ icon: smithery
 
 Smithery is a platform that simplifies MCP server installation and management.
 
-**View on Smithery:** [serphouse/serphouse-mcp](https://smithery.ai/servers/serphouse/serphouse-mcp)
+<Callout type="info">
+  View on Smithery: <a href="https://smithery.ai/servers/serphouse/serphouse-mcp">serphouse/serphouse-mcp</a>
+</Callout>
 
 ## Installation
 
@@ -14,9 +16,9 @@ Smithery is a platform that simplifies MCP server installation and management.
 npx -y @smithery/cli install serphouse/serphouse-mcp --client claude
 ```
 
-## Supported Clients
-
-Install for any supported AI client using the `--client` option.
+<Callout type="success">
+  Replace <code>--client claude</code> with your preferred AI client — Smithery supports Claude Code, Cursor, VS Code, and more.
+</Callout>
 
 ## Alternative Installation
 
@@ -26,8 +28,20 @@ You can also connect directly using the hosted MCP endpoint:
 https://mcp.serphouse.com/YOUR_SERPHouse_API_KEY/mcp
 ```
 
+<Callout type="warn">
+  Replace <code>YOUR_SERPHouse_API_KEY</code> with your actual SERPHouse API key.
+</Callout>
+
 ## Troubleshooting
 
-- Ensure Node.js is installed (npx requires Node.js)
-- Verify your API key is valid
-- Restart your AI client after installation
+| Issue | Solution |
+|-------|----------|
+| **npx not found** | Ensure Node.js is installed. |
+| **401 Unauthorized** | Verify your API key is valid and active in your [dashboard](https://serphouse.com). |
+| **Server not detected** | Restart your AI client after installation. |
+
+<Cards>
+  <Card title="Claude Code" href="/serphouse/agent-harnesses/claude-code" />
+  <Card title="Cursor" href="/serphouse/agent-harnesses/cursor" />
+  <Card title="VS Code" href="/serphouse/agent-harnesses/vs-code" />
+</Cards>

@@ -40,19 +40,11 @@ Retrieve real-time Google Web Search results with a fast, lightweight response, 
 
 ## Example Request
 
-```bash
-curl --location --request POST 'https://api.serphouse.com/web-search-lite' \
---header 'Authorization: Bearer <YOUR_API_KEY>' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "data": {
-        "q": "AI coding assistant",
-        "domain": "google.com",
-        "lang": "en", 
-        "loc": "US"
-    }
-}'
-```
+<ApiExample
+  endpoint="https://api.serphouse.com/web-search-lite"
+  query="AI coding assistant"
+  params='{"loc": "US"}'
+/>
 
 <Cards>
   <Card title="Google Search API" href="/serphouse/google-apis/google-search-api" />

@@ -6,7 +6,9 @@ icon: Vercel
 
 `@serphouse/ai-sdk` is an official AI SDK integration for the SERPHouse Search APIs. It exposes SERPHouse search endpoints as native AI tools, allowing any model supported by the Vercel AI SDK to search the web, retrieve news, or discover short videos through tool calling.
 
-Instead of writing HTTP requests, handling authentication, validating inputs, or parsing responses, you simply register the provided tools and let the model decide when to use them.
+<Callout type="warn">
+  Instead of writing HTTP requests, handling authentication, validating inputs, or parsing responses, you simply register the provided tools and let the model decide when to use them.
+</Callout>
 
 <ResourceCards>
   <ResourceCard title="GitHub" subtitle="SERPHouse/ai-sdk" href="https://github.com/SERPHouse/ai-sdk" icon="github" />
@@ -15,7 +17,9 @@ Instead of writing HTTP requests, handling authentication, validating inputs, or
 
 ## Why @serphouse/ai-sdk?
 
-Modern LLMs are limited by their training data and cannot reliably answer questions that require fresh information. To solve this, AI applications need access to external tools.
+<Callout type="info">
+  Modern LLMs are limited by their training data and cannot reliably answer questions that require fresh information. `@serphouse/ai-sdk` bridges this gap by turning SERPHouse APIs into AI-native tools.
+</Callout>
 
 Although SERPHouse already provides powerful Search APIs, integrating them into an AI workflow usually requires building HTTP clients, managing authentication, defining tool schemas, validating inputs, handling API responses, and writing repetitive boilerplate.
 
@@ -23,16 +27,26 @@ Although SERPHouse already provides powerful Search APIs, integrating them into 
 
 ## Features
 
-- Native Vercel AI SDK `tool()` integration
-- Fully typed with TypeScript
-- Built-in Zod validation
-- Zero HTTP boilerplate
-- Supports automatic tool calling
-- Works with any AI SDK compatible model
-- Lightweight and production ready
-- Supports Web Search, Google News, and Google Short Videos
+<table>
+  <thead>
+    <tr><th>Feature</th><th>Benefit</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Native `tool()` integration</td><td>Plug-and-play with Vercel AI SDK</td></tr>
+    <tr><td>Fully typed with TypeScript</td><td>Autocomplete and type safety</td></tr>
+    <tr><td>Built-in Zod validation</td><td>Input validation out of the box</td></tr>
+    <tr><td>Zero HTTP boilerplate</td><td>No fetch, no axios, no manual requests</td></tr>
+    <tr><td>Automatic tool calling</td><td>Model decides when to search</td></tr>
+    <tr><td>Model-agnostic</td><td>Works with OpenAI, Anthropic, Google, and more</td></tr>
+    <tr><td>Lightweight & production ready</td><td>Minimal dependencies, fully tested</td></tr>
+  </tbody>
+</table>
 
 ## Installation
+
+<Callout type="success">
+  Quick setup with a single command.
+</Callout>
 
 ```bash
 npm install @serphouse/ai-sdk
@@ -40,15 +54,19 @@ npm install @serphouse/ai-sdk
 
 Peer dependencies: `npm install ai zod`
 
-Requirements: Node.js >= 18
+<Callout type="info">
+  Requires <strong>Node.js >= 18</strong>.
+</Callout>
 
 ## API Key Setup
+
+<Callout type="warn">
+  The SDK automatically reads the <code>SERPHOUSE_API_KEY</code> environment variable. You can also pass an API key explicitly when creating a tool.
+</Callout>
 
 ```bash
 export SERPHOUSE_API_KEY="your_api_key"
 ```
-
-The SDK automatically reads this environment variable. You can also pass an API key explicitly when creating a tool.
 
 ## Getting Started
 
@@ -71,38 +89,10 @@ const { text } = await generateText({
 console.log(text);
 ```
 
-The model automatically decides whether a tool is needed, which tool should be called, and what arguments should be passed. No manual API requests are required.
+<Callout type="idea">
+  The model automatically decides whether a tool is needed, which tool should be called, and what arguments should be passed. No manual API requests are required.
+</Callout>
 
-## How Tool Calling Works
-
-When the model encounters a prompt that requires real-time information, it automatically invokes one of the registered SERPHouse tools:
-
-```
-User
-  │
-  ▼
-generateText()
-  │
-  ▼
-LLM decides tool is needed
-  │
-  ▼
-SERPHouse Tool
-  │
-  ▼
-SERPHouse Search API
-  │
-  ▼
-Search Results
-  │
-  ▼
-LLM
-  │
-  ▼
-Final Answer
-```
-
-You only register the tools. The AI SDK handles the rest.
 
 ## Available Tools
 
@@ -131,7 +121,9 @@ Every tool accepts the same search parameters (except `gl`, which is only suppor
 
 ## Authentication
 
-The SDK resolves the API key in the following order.
+<Callout type="info">
+  The SDK resolves the API key in the following order.
+</Callout>
 
 ### Environment Variable
 
@@ -161,7 +153,6 @@ Google Web Search. Returns organic results, ads, knowledge graph, related search
 
 ```ts
 import { search } from "@serphouse/ai-sdk";
-
 const tool = search();
 ```
 
@@ -171,7 +162,6 @@ Google News Search. Returns headlines, publishers, publish date, URLs, and news 
 
 ```ts
 import { news } from "@serphouse/ai-sdk";
-
 const tool = news();
 ```
 
@@ -181,7 +171,6 @@ Google Short Videos Search. Returns short videos, metadata, and source URLs.
 
 ```ts
 import { shortVideo } from "@serphouse/ai-sdk";
-
 const tool = shortVideo();
 ```
 
@@ -195,54 +184,54 @@ type ToolOptions = {
 
 ## Examples
 
-### OpenAI
+<Tabs items={["OpenAI", "Anthropic", "Gemini"]}>
+  <Tab>
+    ```ts
+    import { generateText } from "ai";
+    import { openai } from "@ai-sdk/openai";
+    import { search, news } from "@serphouse/ai-sdk";
 
-```ts
-import { generateText } from "ai";
-import { openai } from "@ai-sdk/openai";
-import { search, news } from "@serphouse/ai-sdk";
+    const { text } = await generateText({
+      model: openai("gpt-4o"),
+      tools: {
+        search: search(),
+        news: news(),
+      },
+      prompt: "Latest AI news",
+    });
+    ```
+  </Tab>
+  <Tab>
+    ```ts
+    import { generateText } from "ai";
+    import { anthropic } from "@ai-sdk/anthropic";
+    import { search } from "@serphouse/ai-sdk";
 
-const { text } = await generateText({
-  model: openai("gpt-4o"),
-  tools: {
-    search: search(),
-    news: news(),
-  },
-  prompt: "Latest AI news",
-});
-```
+    const { text } = await generateText({
+      model: anthropic("claude-sonnet-4-20250514"),
+      tools: {
+        search: search(),
+      },
+      prompt: "Search for the latest technology news.",
+    });
+    ```
+  </Tab>
+  <Tab>
+    ```ts
+    import { generateText } from "ai";
+    import { google } from "@ai-sdk/google";
+    import { search } from "@serphouse/ai-sdk";
 
-### Anthropic Claude
-
-```ts
-import { generateText } from "ai";
-import { anthropic } from "@ai-sdk/anthropic";
-import { search } from "@serphouse/ai-sdk";
-
-const { text } = await generateText({
-  model: anthropic("claude-sonnet-4-20250514"),
-  tools: {
-    search: search(),
-  },
-  prompt: "Search for the latest technology news.",
-});
-```
-
-### Google Gemini
-
-```ts
-import { generateText } from "ai";
-import { google } from "@ai-sdk/google";
-import { search } from "@serphouse/ai-sdk";
-
-const { text } = await generateText({
-  model: google("gemini-2.0-flash"),
-  tools: {
-    search: search(),
-  },
-  prompt: "Find AI startups founded this year.",
-});
-```
+    const { text } = await generateText({
+      model: google("gemini-2.0-flash"),
+      tools: {
+        search: search(),
+      },
+      prompt: "Find AI startups founded this year.",
+    });
+    ```
+  </Tab>
+</Tabs>
 
 ## Using Multiple Tools
 
@@ -256,7 +245,9 @@ const tools = {
 };
 ```
 
-The model automatically chooses the correct tool depending on the prompt.
+<Callout type="idea">
+  The model automatically chooses the correct tool depending on the prompt.
+</Callout>
 
 | Prompt | Tool |
 |--------|------|
@@ -266,7 +257,11 @@ The model automatically chooses the correct tool depending on the prompt.
 
 ## Error Handling
 
-If an API key cannot be found, the SDK throws an authentication error. If SERPHouse returns an API error, it is propagated through the tool execution. Handle errors normally using `try/catch`.
+<Callout type="error">
+  If an API key cannot be found, the SDK throws an authentication error. If SERPHouse returns an API error, it is propagated through the tool execution.
+</Callout>
+
+Handle errors normally using `try/catch`:
 
 ```ts
 try {
@@ -286,9 +281,3 @@ try {
 | Manual response handling | Automatic tool execution |
 | Boilerplate | Minimal code |
 | Model unaware of APIs | Models can call tools automatically |
-
-<Cards>
-  <Card title="LangChain" href="/langchain" />
-  <Card title="LlamaIndex" href="/llamaindex" />
-  <Card title="MCP Server" href="/mcp-server" />
-</Cards>

@@ -8,7 +8,7 @@ Codex CLI is OpenAI's terminal-based AI coding assistant with support for Model 
 
 ## Prerequisites
 
-- Codex CLI installed
+- [Codex CLI](https://openai.com/codex) installed
 - An active SERPHouse account
 - A valid SERPHouse API key
 
@@ -21,19 +21,36 @@ Edit `~/.codex/config.toml` and add:
 url = "https://mcp.serphouse.com/YOUR_SERPHouse_API_KEY/mcp"
 ```
 
-Replace `YOUR_SERPHouse_API_KEY` with your actual SERPHouse API key.
+<Callout type="info">
+  Replace <code>YOUR_SERPHouse_API_KEY</code> with your actual SERPHouse API key.
+</Callout>
+
+<Callout type="warn">
+  TOML syntax is strict — ensure proper formatting or the server will not load.
+</Callout>
 
 ## Using SERPHouse
 
 Once configured, Codex CLI automatically invokes SERPHouse whenever a request requires search engine data.
 
-Example prompts:
+<Callout type="idea">
+  Try these example prompts to get started.
+</Callout>
+
 - `Search Google for "Laravel Horizon".`
 - `Search Google News for "OpenAI".`
 - `Search Google Images for "Tesla Model Y".`
 
 ## Troubleshooting
 
-- **Server doesn't appear** — Verify your config.toml has valid TOML syntax.
-- **401 Unauthorized** — Verify your API key is valid and active.
-- **Restart Codex CLI** after making configuration changes.
+| Issue | Solution |
+|-------|----------|
+| **Server doesn't appear** | Verify your `config.toml` has valid TOML syntax. |
+| **401 Unauthorized** | Verify your API key is valid and active in your [dashboard](https://serphouse.com). |
+| **Changes not taking effect** | Restart Codex CLI after making configuration changes. |
+
+<Cards>
+  <Card title="Claude Code" href="/serphouse/agent-harnesses/claude-code" />
+  <Card title="Cursor" href="/serphouse/agent-harnesses/cursor" />
+  <Card title="OpenCode" href="/serphouse/agent-harnesses/opencode" />
+</Cards>

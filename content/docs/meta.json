@@ -27,7 +27,10 @@
     "--- Frameworks ---",
     "vercel-ai-sdk",
     "langchain",
-    "llamaindex"
+    "llamaindex",
+
+    "--- Contribute ---",
+    "contributing"
 
   ]
 }

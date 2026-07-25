@@ -21,15 +21,88 @@ Official AI agent skills for the SERPHouse ecosystem. Teach AI agents how to use
 
 ## Installation
 
+Install only the skill(s) you need.
+
+### Search (Router)
+
+Routes SERPHouse questions to the correct skill doc. Always install this first.
+
 ```bash
 npx skills add https://github.com/SERPHouse/agent-skills --skill serphouse-search
+```
+
+<ManualSetup>
+
+```bash
+mkdir -p .skills/serphouse-search
+curl -o .skills/serphouse-search/SKILL.md https://raw.githubusercontent.com/SERPHouse/agent-skills/master/skills/search/SKILL.md
+```
+
+</ManualSetup>
+
+### API (REST)
+
+REST API reference — endpoints, auth, parameters, rate limits, credit costs, and cURL examples.
+
+```bash
 npx skills add https://github.com/SERPHouse/agent-skills --skill serphouse-api
+```
+
+<ManualSetup>
+
+```bash
+mkdir -p .skills/serphouse-api
+curl -o .skills/serphouse-api/SKILL.md https://raw.githubusercontent.com/SERPHouse/agent-skills/master/skills/api/SKILL.md
+```
+
+</ManualSetup>
+
+### MCP (Model Context Protocol)
+
+Every MCP tool, parameter, and input format for MCP-compatible clients.
+
+```bash
 npx skills add https://github.com/SERPHouse/agent-skills --skill serphouse-mcp
+```
+
+<ManualSetup>
+
+```bash
+mkdir -p .skills/serphouse-mcp
+curl -o .skills/serphouse-mcp/SKILL.md https://raw.githubusercontent.com/SERPHouse/agent-skills/master/skills/mcp/SKILL.md
+```
+
+</ManualSetup>
+
+### Node.js (SDK)
+
+Full `@serphouse/serphouse-nodejs` SDK docs — imports, types, methods, error handling.
+
+```bash
 npx skills add https://github.com/SERPHouse/agent-skills --skill serphouse-nodejs
 ```
 
+<ManualSetup>
+
+```bash
+mkdir -p .skills/serphouse-nodejs
+curl -o .skills/serphouse-nodejs/SKILL.md https://raw.githubusercontent.com/SERPHouse/agent-skills/master/skills/nodejs/SKILL.md
+```
+
+</ManualSetup>
+
 ## Authentication
+
+<Callout type="warn">
+  Your API key must be set as an environment variable for the skills to authenticate with SERPHouse.
+</Callout>
 
 ```bash
 export SERPHOUSE_API_KEY="your_api_key"
 ```
+
+<Cards>
+  <Card title="OpenCode" href="/serphouse/agent-harnesses/opencode" />
+  <Card title="Claude Code" href="/serphouse/agent-harnesses/claude-code" />
+  <Card title="Cursor" href="/serphouse/agent-harnesses/cursor" />
+</Cards>

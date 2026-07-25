@@ -8,8 +8,8 @@ Visual Studio Code supports Model Context Protocol (MCP) servers, allowing AI-po
 
 ## Prerequisites
 
-- Visual Studio Code installed
-- An AI extension with MCP support
+- [Visual Studio Code](https://code.visualstudio.com) installed
+- An AI extension with MCP support (e.g., GitHub Copilot, Continue)
 - An active SERPHouse account
 - A valid SERPHouse API key
 
@@ -36,19 +36,32 @@ Open Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P`) and search for `MCP: Open
 }
 ```
 
-Replace `YOUR_SERPHouse_API_KEY` with your actual SERPHouse API key.
+<Callout type="info">
+  Replace <code>YOUR_SERPHouse_API_KEY</code> with your actual SERPHouse API key in both methods.
+</Callout>
 
 ## Using SERPHouse
 
 Once configured, your AI assistant automatically invokes SERPHouse whenever a request requires search engine data.
 
-Example prompts:
+<Callout type="idea">
+  Try these example prompts to get started.
+</Callout>
+
 - `Search Google for "Laravel 13 documentation".`
 - `Search Google News for "OpenAI".`
 - `Find top ranking pages for "technical SEO checklist".`
 
 ## Troubleshooting
 
-- **Server doesn't appear** — Verify MCP configuration contains valid JSON.
-- **401 Unauthorized** — Verify your API key.
-- **Reload VS Code** window after configuration changes.
+| Issue | Solution |
+|-------|----------|
+| **Server doesn't appear** | Verify MCP configuration contains valid JSON. |
+| **401 Unauthorized** | Verify your API key in your [dashboard](https://serphouse.com). |
+| **Changes not reflected** | Reload VS Code window after configuration changes. |
+
+<Cards>
+  <Card title="Claude Code" href="/serphouse/agent-harnesses/claude-code" />
+  <Card title="Cursor" href="/serphouse/agent-harnesses/cursor" />
+  <Card title="OpenCode" href="/serphouse/agent-harnesses/opencode" />
+</Cards>

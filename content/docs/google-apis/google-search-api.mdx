@@ -49,20 +49,11 @@ Access Google's search results in real time, providing relevant web pages, searc
 
 ## Example Request
 
-```bash
-curl --location --request POST 'https://api.serphouse.com/google-web' \
---header 'Authorization: Bearer <YOUR_API_KEY>' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "data": {
-        "q": "Fresh Bagels",
-        "domain": "google.com",
-        "lang": "en",
-        "device": "desktop",
-        "loc": "New York,United States"
-    }
-}'
-```
+<ApiExample
+  endpoint="https://api.serphouse.com/google-web"
+  query="Fresh Bagels"
+  params='{"device": "desktop", "loc": "New York,United States"}'
+/>
 
 <Cards>
   <Card title="Google News API" href="/serphouse/google-apis/google-news-api" />

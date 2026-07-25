@@ -5,7 +5,9 @@ description: Retrieve the results of a previously scheduled SERP task by its uni
 
 As a response of the API server, you will receive a JSON array containing the result of your SERP query.
 
-> **Requires authentication**
+<Callout type="warn">
+  Requires authentication — provide your API key as a Bearer token in the Authorization header.
+</Callout>
 
 `GET` `https://api.serphouse.com/serp/get`
 
@@ -27,12 +29,12 @@ As a response of the API server, you will receive a JSON array containing the re
 |------|------|-------------|
 | Authorization | String | Bearer `<YOUR_API_KEY>` |
 
-### Example Request
+## Example Request
 
-```bash
-curl --location --request GET 'https://api.serphouse.com/serp/get?id=77224195' \
---header 'Authorization: Bearer <YOUR_API_KEY>'
-```
+<ApiExample
+  endpoint="https://api.serphouse.com/serp/get"
+  params='{"id": "77224195"}'
+/>
 
 <Cards>
   <Card title="Check SERP Status" href="/serphouse/extra-apis/check-serp-status" />

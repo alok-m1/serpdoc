@@ -5,7 +5,9 @@ description: Check the processing status of a scheduled SERP task by its unique 
 
 As a response of the API server, you will get a status of your SERP task.
 
-> **Requires authentication**
+<Callout type="warn">
+  Requires authentication — provide your API key as a Bearer token in the Authorization header.
+</Callout>
 
 ## Get a Status of Your SERP Task
 
@@ -23,12 +25,12 @@ As a response of the API server, you will get a status of your SERP task.
 |------|------|-------------|
 | Authorization | String | Bearer `<YOUR_API_KEY>` |
 
-### Example Request
+## Example Request
 
-```bash
-curl --location --request GET 'https://api.serphouse.com/serp/check?id=77224195' \
---header 'Authorization: Bearer <YOUR_API_KEY>'
-```
+<ApiExample
+  endpoint="https://api.serphouse.com/serp/check"
+  params='{"id": "77224195"}'
+/>
 
 <Cards>
   <Card title="Get SERP Result" href="/serphouse/extra-apis/get-serp-result" />

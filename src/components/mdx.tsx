@@ -2,6 +2,11 @@ import defaultMdxComponents from 'fumadocs-ui/mdx';
 import type { MDXComponents } from 'mdx/types';
 import { ResourceCards, ResourceCard } from './resource-cards';
 import { DeprecatedNotice } from './DeprecatedNotice';
+import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
+import { Steps, Step } from 'fumadocs-ui/components/steps';
+import { ApiExample } from './ApiExample';
+import { ManualSetup } from './ManualSetup';
+import { ContributeHero } from './ContributeHero';
 
 export function getMDXComponents(components?: MDXComponents) {
   return {
@@ -9,6 +14,13 @@ export function getMDXComponents(components?: MDXComponents) {
     ResourceCards,
     ResourceCard,
     DeprecatedNotice,
+    Tabs,
+    Tab,
+    Steps,
+    Step,
+    ApiExample,
+    ManualSetup,
+    ContributeHero,
     ...components,
   } satisfies MDXComponents;
 }
