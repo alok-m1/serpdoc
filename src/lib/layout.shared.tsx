@@ -3,9 +3,6 @@ import type { DocsLayoutProps } from "fumadocs-ui/layouts/docs";
 import { appName, gitConfig } from "./shared";
 import Image from "next/image";
 import {LinkedInIcon } from "@/icons/brand-icons";
-import { AppSwitcher } from "@/components/AppSwitcher";
-
-
 
 export function baseOptions(): BaseLayoutProps {
   return {
@@ -31,8 +28,5 @@ export function baseOptions(): BaseLayoutProps {
 }
 
 export function sidebarOptions(): DocsLayoutProps["sidebar"] {
-  return {
-    banner: <AppSwitcher key="app-switcher" defaultApp="docs" />
-
-  };
+  return {};
 }

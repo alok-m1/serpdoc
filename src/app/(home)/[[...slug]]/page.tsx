@@ -5,6 +5,7 @@ import {
   DocsPage,
   DocsTitle,
   MarkdownCopyButton,
+  PageLastUpdate,
   ViewOptionsPopover,
 } from "fumadocs-ui/layouts/docs/page";
 import { notFound, redirect } from "next/navigation";
@@ -12,6 +13,8 @@ import { getMDXComponents } from "@/components/mdx";
 import type { Metadata } from "next";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import { gitConfig, appName } from "@/lib/shared";
+import { submitFeedback } from "@/lib/feedback";
+import { Feedback } from "@/components/feedback/client";
 
 const baseUrl = "https://serphouse.com";
 
@@ -105,6 +108,16 @@ export default async function Page(props: PageProps<"/[[...slug]]">) {
             })}
           />
         </DocsBody>
+        {page.data.lastModified ? (
+          <PageLastUpdate date={page.data.lastModified} />
+        ) : null}
+        <Feedback
+          onSendAction={async (feedback) => {
+            'use server';
+            await submitFeedback(feedback);
+            return {};
+          }}
+        />
       </DocsPage>
     </>
   );
