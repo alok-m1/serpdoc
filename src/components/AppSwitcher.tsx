@@ -24,7 +24,7 @@ const APPS: readonly App[] = [
     key: "docs",
     label: "Documentation",
     description: "Guides & API reference",
-    href: "/introduction/about-the-serp-api",
+    href: "/about-the-serp-api",
     icon: BookOpen,
     color:
       "text-blue-600 bg-blue-50 ring-1 ring-inset ring-blue-600/20 dark:bg-blue-500/10 dark:text-blue-400 dark:ring-blue-400/20",

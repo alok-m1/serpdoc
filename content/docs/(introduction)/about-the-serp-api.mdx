@@ -1,0 +1,112 @@
+---
+title: About SERPHouse
+description: Our mission is to make search engine data universally accessible, reliably, at scale, and without friction.
+icon: Search
+---
+
+<Callout type="info">
+  SERPHouse exists to remove the complexity from search data collection. We believe every business, researcher, and developer deserves unfettered access to search engine results, without building and maintaining their own proxy infrastructure, CAPTCHA solvers, or parser pipelines.
+</Callout>
+
+Our mission is to be the most **reliable**, **transparent**, and **developer-first** SERP API on the market. We're building the infrastructure layer for web search data, so you don't have to.
+
+The SERPHouse API delivers **top-100 results** tailored to your **search engine**, **location**, and **device** preferences, with two distinct retrieval models: **Scheduled** (async, polling-based) and **Live** (sync, immediate response).
+
+---
+
+## How It Works
+
+1. **Submit a query**: Configure your search with engine, location, language, and device parameters.
+2. **We handle the complexity**: SERPHouse manages proxy rotation, CAPTCHA resolution, and data parsing.
+3. **Receive structured JSON**: Organic results, ads, featured snippets, knowledge panels, and more.
+
+<Callout type="success" title="You Only Pay for Results">
+  Every failed request is free. Credits are deducted exclusively on successful responses. No charge for retries, blocks, or errors.
+</Callout>
+
+---
+
+## Scheduled API - Asynchronous
+
+The Scheduled model is built for **scale without compromise**. Submit a keyword and receive a persistent `task_id`. Poll the status endpoint when convenient; results wait for you.
+
+<Callout type="idea" title="Built for Scale">
+  Queue thousands of keywords without rate-limit concerns. The Scheduled API manages throughput intelligently, processing tasks as capacity allows.
+</Callout>
+
+### When to use it
+
+- **Batch keyword research**: thousands of queries per session
+- **Background pipelines**: integrate into ETL workflows and data lakes
+- **Rate-limit decoupling**: submit freely, retrieve on your schedule
+- **Historical archives**: persistent task IDs let you revisit results at any time
+
+<Callout type="warn" title="Polling Required">
+  After submission, call the status endpoint with your `task_id` until the task completes. Use the **Check SERP Status** and **Get SERP Result** endpoints.
+</Callout>
+
+---
+
+## Live API - Synchronous
+
+The Live model delivers results in a **single request-response cycle**. No polling, no callbacks, just send your query and receive structured data immediately.
+
+<Callout type="success" title="Sub-Second Response">
+  Latency-optimized infrastructure returns results in the same HTTP response, making it ideal for time-sensitive applications.
+</Callout>
+
+### When to use it
+
+- **Real-time dashboards** and live SERP monitoring
+- **User-facing search tools** where speed defines UX
+- **Single-keyword lookups** that need instant answers
+- **Interactive workflows** that block on search results
+
+Available over both **HTTP GET** and **HTTP POST**, giving you integration flexibility regardless of your stack.
+
+---
+
+## Quick Comparison
+
+| Feature | Scheduled (Async) | Live (Sync) |
+|---------|:-:|:-:|
+| Response model | Polling-based | Immediate |
+| Workload fit | Batch & background | Real-time & interactive |
+| Task IDs | Persistent | N/A |
+| Throughput management | Built-in queuing | Per-minute throttle |
+| HTTP methods | POST | GET & POST |
+
+---
+
+## Why SERPHouse
+
+<Callout type="info" title="99.99% Uptime SLA">
+  Enterprise-grade infrastructure designed for mission-critical data pipelines. Our track record speaks for itself.
+</Callout>
+
+<Callout type="info" title="Net-7 Billing - Pay on Success Only">
+  Risk-free by design. If a request fails, for any reason, you aren't charged. Try SERPHouse for 7 days; if it doesn't meet your needs, receive a full refund.
+</Callout>
+
+<Callout type="info" title="Zero Infrastructure Overhead">
+  We eliminate proxy management, CAPTCHA engineering, and parser maintenance from your roadmap. Focus on your product and leave search infrastructure to us.
+</Callout>
+
+---
+
+## Trusted By
+
+Thousands of SEO professionals, data teams, and developers rely on SERPHouse to power their search data pipelines, from early-stage startups to established enterprises.
+
+|  |  |
+|---|---|
+| **SEO agencies** monitoring thousands of keywords across client portfolios | **Data scientists** training ML models on fresh SERP data |
+| **SaaS products** embedding competitive intelligence features | **Enterprise marketing teams** tracking brand presence at scale |
+
+---
+
+## Connect With Us
+
+We believe in building in public. Follow our journey, get updates, and reach out:
+
+<SocialLinks />

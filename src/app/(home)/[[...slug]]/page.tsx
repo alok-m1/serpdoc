@@ -71,7 +71,7 @@ export default async function Page(props: PageProps<"/[[...slug]]">) {
   const params = await props.params;
 
   if (!params.slug) {
-    redirect("/introduction/about-the-serp-api");
+    redirect("/about-the-serp-api");
   }
 
   const page = source.getPage(params.slug);

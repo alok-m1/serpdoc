@@ -1,0 +1,43 @@
+---
+title: Extra APIs
+description: Account, live SERP, scheduling, and utility endpoints that power the SERPHouse platform.
+icon: Layers
+---
+
+Extra APIs cover live and scheduled SERP workflows, account details, and lookup helpers for domains, languages, and locations. Use these alongside the Google, Bing, and Yahoo search endpoints.
+
+All endpoints require authentication — pass your API key as a Bearer token in the `Authorization` header.
+
+## Live SERP
+
+<Cards>
+  <Card title="Live (HTTP GET)" description="Real-time SERP searches via query parameters." href="/extra-apis/live-http-get" />
+  <Card title="Live (HTTP POST)" description="Real-time SERP searches via a JSON request body." href="/extra-apis/live-http-post" />
+</Cards>
+
+## Scheduled SERP
+
+<Cards>
+  <Card title="Schedule SERP" description="Queue SERP tasks with postback and pingback support." href="/extra-apis/schedule-serp" />
+  <Card title="Check SERP Status" description="Poll the processing status of a scheduled task." href="/extra-apis/check-serp-status" />
+  <Card title="Get SERP Result" description="Retrieve results for a completed scheduled task." href="/extra-apis/get-serp-result" />
+</Cards>
+
+## Account & Lookups
+
+<Cards>
+  <Card title="Account Info" description="Plan details, credit usage, and account status." href="/extra-apis/account-info" />
+  <Card title="Domains List" description="Supported domains for Google, Bing, and Yahoo." href="/extra-apis/domains-list" />
+  <Card title="Languages List" description="Supported language codes for each engine." href="/extra-apis/languages-list" />
+  <Card title="Locations List" description="Search Google and Bing locations for geo targeting." href="/extra-apis/locations-list" />
+</Cards>
+
+## Related
+
+<Cards>
+  <Card title="Getting Started" href="/getting-started" />
+  <Card title="Webhook" href="/webhook" />
+  <Card title="Google APIs" href="/google-apis" />
+  <Card title="Bing APIs" href="/bing-apis" />
+  <Card title="Yahoo APIs" href="/yahoo-apis" />
+</Cards>
