@@ -7,7 +7,7 @@ export default function Layout({ children }: LayoutProps<"/">) {
   return (
     <DocsLayout tree={source.getPageTree()} {...baseOptions()} sidebar={{
       ...sidebarOptions(),
-      banner:<AppSwitcher/>
+      banner: <AppSwitcher key="app-switcher" />,
     }}>
       {children}
     </DocsLayout>

@@ -56,24 +56,21 @@ export function AppSwitcher() {
 
   return (
     <Popover>
-      <PopoverTrigger >
-        <button
-          type="button"
-          className={cn(
-            "group flex items-center gap-2 rounded-lg border border-black/5 px-2 py-2.5",
-            "bg-fd-secondary/50 hover:bg-fd-secondary transition-colors",
-            "text-sm font-medium text-fd-foreground w-full justify-between"
-          )}
-        >
-
-          <div className="flex gap-2 items-center justify-center">
+      <PopoverTrigger
+        type="button"
+        className={cn(
+          "group flex items-center gap-2 rounded-lg border border-black/5 px-2 py-2.5",
+          "bg-fd-secondary/50 hover:bg-fd-secondary transition-colors",
+          "text-sm font-medium text-fd-foreground w-full justify-between"
+        )}
+      >
+        <div className="flex gap-2 items-center justify-center">
           <span className={cn("flex items-center justify-center rounded-md p-1", APPS[0].color)}>
             <CurrentIcon className="size-4" aria-hidden="true" />
           </span>
-            <span>{APPS[0].label}</span>
-          </div>
-          <ChevronsUpDown className="size-3.5 text-fd-muted-foreground transition-transform group-data-[state=open]:rotate-180" />
-        </button>
+          <span>{APPS[0].label}</span>
+        </div>
+        <ChevronsUpDown className="size-3.5 text-fd-muted-foreground transition-transform group-data-[state=open]:rotate-180" />
       </PopoverTrigger>
 
       <PopoverContent className="w-full p-1.5">
