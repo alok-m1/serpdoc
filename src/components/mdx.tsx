@@ -7,6 +7,7 @@ import { Steps, Step } from 'fumadocs-ui/components/steps';
 import { ApiExample } from './ApiExample';
 import { ManualSetup } from './ManualSetup';
 import { ContributeHero } from './ContributeHero';
+import { SocialLinks } from './SocialLinks';
 
 export function getMDXComponents(components?: MDXComponents) {
   return {
@@ -21,6 +22,7 @@ export function getMDXComponents(components?: MDXComponents) {
     ApiExample,
     ManualSetup,
     ContributeHero,
+    SocialLinks,
     ...components,
   } satisfies MDXComponents;
 }
