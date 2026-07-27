@@ -1,8 +1,9 @@
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 import type { DocsLayoutProps } from "fumadocs-ui/layouts/docs";
-import { appName, gitConfig } from "./shared";
+import { appName, gitConfig, socialLinks } from "./shared";
 import Image from "next/image";
-import {LinkedInIcon } from "@/icons/brand-icons";
+import { GitHubIcon, LinkedInIcon, XIcon } from "@/icons/brand-icons";
+import { Globe, Mail } from "lucide-react";
 
 export function baseOptions(): BaseLayoutProps {
   return {
@@ -15,15 +16,22 @@ export function baseOptions(): BaseLayoutProps {
       ),
     },
     githubUrl: `https://github.com/${gitConfig.user}/${gitConfig.repo}`,
-    links: [
+    links: socialLinks.map((social) => {
+      const iconMap = {
+        X: <XIcon className="size-4" />,
+        LinkedIn: <LinkedInIcon className="size-4" />,
+        GitHub: <GitHubIcon className="size-4" />,
+        Website: <Globe className="size-4" />,
+        Email: <Mail className="size-4" />,
+      };
 
-      {
+      return {
         type: "icon" as const,
-        url: "https://linkedin.com/company/serphouse",
-        text: "LinkedIn",
-        icon: <LinkedInIcon className="size-4" />,
-      },
-    ],
+        url: social.href,
+        text: social.name,
+        icon: iconMap[social.name as keyof typeof iconMap],
+      };
+    }),
   };
 }
 

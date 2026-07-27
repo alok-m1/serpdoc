@@ -1,17 +1,29 @@
 "use client"
 import * as React from "react"
 import Link from "next/link"
-import { Check, ChevronsUpDown, BookOpen, Globe, LayoutDashboard } from "lucide-react"
+import { BookOpen, Globe, LayoutDashboard, ChevronsUpDown, ArrowUpRight, type LucideIcon } from "lucide-react"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "fumadocs-ui/components/ui/popover"
+import { cn } from "@/lib/utils"
 
-const APPS = [
+interface App {
+  key: string
+  label: string
+  description: string
+  href: string
+  icon: LucideIcon
+  color: string
+  external?: boolean
+}
+
+const APPS: readonly App[] = [
   {
     key: "docs",
     label: "Documentation",
+    description: "Guides & API reference",
     href: "/",
     icon: BookOpen,
     color:
@@ -20,71 +32,78 @@ const APPS = [
   {
     key: "website",
     label: "Website",
+    description: "Marketing site",
     href: "https://www.serphouse.com",
     icon: Globe,
+    external: true,
     color:
       "text-teal-600 bg-teal-50 ring-1 ring-inset ring-teal-600/20 dark:bg-teal-500/10 dark:text-teal-400 dark:ring-teal-400/20",
   },
   {
     key: "dashboard",
     label: "Dashboard",
+    description: "Account & billing",
     href: "https://www.serphouse.com/home",
     icon: LayoutDashboard,
+    external: true,
     color:
       "text-amber-600 bg-amber-50 ring-1 ring-inset ring-amber-600/20 dark:bg-amber-500/10 dark:text-amber-400 dark:ring-amber-400/20",
   },
-]
+] as const
 
 export function AppSwitcher() {
-  const [open, setOpen] = React.useState(false)
-  const [selected, setSelected] = React.useState("docs")
-  const current = APPS.find((a) => a.key === selected) ?? APPS[0]
-  const CurrentIcon = current.icon
+  const CurrentIcon = APPS[0].icon
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger
-        render={
-          <button
-            type="button"
-            className="group flex w-full items-center gap-3 rounded-xl border border-border bg-background px-2.5 py-2 text-left text-sm shadow-sm transition-all hover:border-border/80 hover:bg-secondary/40 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 data-[popup-open]:border-border/80 data-[popup-open]:bg-secondary/60 data-[popup-open]:shadow-md"
-          >
-            <div
-              className={`flex aspect-square size-9 shrink-0 items-center justify-center rounded-lg ${current.color}`}
-            >
-              <CurrentIcon className="size-4.5" />
-            </div>
-            <div className="flex min-w-0 flex-col gap-0.5 leading-none">
-              <span className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
-                Switch to
-              </span>
-              <span className="truncate font-semibold text-foreground">
-                {current.label}
-              </span>
-            </div>
-            <ChevronsUpDown className="ml-auto size-4 shrink-0 text-muted-foreground transition-transform duration-200 group-data-[popup-open]:rotate-180" />
-          </button>
-        }
-      />
-      <PopoverContent className="overflow-hidden rounded-xl border border-border bg-background/50 p-1.5 shadow-lg backdrop-blur-sm">
+    <Popover>
+      <PopoverTrigger >
+        <button
+          type="button"
+          className={cn(
+            "group flex items-center gap-2 rounded-lg border border-black/5 px-2 py-2.5",
+            "bg-fd-secondary/50 hover:bg-fd-secondary transition-colors",
+            "text-sm font-medium text-fd-foreground w-full justify-between"
+          )}
+        >
+
+          <div className="flex gap-2 items-center justify-center">
+          <span className={cn("flex items-center justify-center rounded-md p-1", APPS[0].color)}>
+            <CurrentIcon className="size-4" aria-hidden="true" />
+          </span>
+            <span>{APPS[0].label}</span>
+          </div>
+          <ChevronsUpDown className="size-3.5 text-fd-muted-foreground transition-transform group-data-[state=open]:rotate-180" />
+        </button>
+      </PopoverTrigger>
+
+      <PopoverContent className="w-full p-1.5">
         {APPS.map((app) => {
           const Icon = app.icon
-          const isSelected = app.key === selected
           return (
             <Link
               key={app.key}
               href={app.href}
-              target="_blank"
-              className="flex items-center gap-3 rounded-lg px-2 py-2 hover:bg-secondary/70"
-              onClick={() => setSelected(app.key)}
+              target={app.external ? "_blank" : undefined}
+              rel={app.external ? "noopener noreferrer" : undefined}
+              className={cn(
+                "flex items-center gap-3 rounded-md px-2.5 py-2",
+                "hover:bg-fd-accent transition-colors group w-full"
+              )}
             >
-              <div
-                className={`flex size-7 shrink-0 items-center justify-center rounded-md ${app.color}`}
-              >
-                <Icon className="size-4" />
-              </div>
-              <span className="font-medium">{app.label}</span>
-              {isSelected && <Check className="ml-auto size-4 text-primary" />}
+              <span className={cn("flex shrink-0 items-center justify-center rounded-md p-1.5", app.color)}>
+                <Icon className="size-4" aria-hidden="true" />
+              </span>
+              <span className="flex flex-col min-w-0">
+                <span className="text-sm font-medium text-fd-foreground truncate">
+                  {app.label}
+                </span>
+                <span className="text-xs text-fd-muted-foreground truncate">
+                  {app.description}
+                </span>
+              </span>
+              {app.external && (
+                <ArrowUpRight className="size-3.5 ml-auto shrink-0 text-fd-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+              )}
             </Link>
           )
         })}
