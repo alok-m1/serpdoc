@@ -3,8 +3,7 @@ import './global.css';
 import { Inter, Geist } from 'next/font/google';
 import type { Metadata } from 'next';
 import { cn } from "@/lib/utils";
-import { Banner } from 'fumadocs-ui/components/banner';
-import Link from 'fumadocs-core/link';
+import { CountdownBanner } from '@/components/countdown-banner';
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
@@ -46,9 +45,7 @@ export default function Layout({ children }: LayoutProps<'/'>) {
   return (
     <html lang="en" className={cn(inter.className, "font-sans", geist.variable)} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
-        <Banner id="earlybird" variant="rainbow">
-          Earlybird offer — <Link target='_blank' href="https://www.serphouse.com/pricing?utm=documentation" className="underline font-medium">grab 10% off your first month</Link>
-        </Banner>
+        <CountdownBanner />
         <RootProvider>{children}</RootProvider>
       </body>
     </html>

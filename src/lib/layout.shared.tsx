@@ -4,6 +4,8 @@ import { appName, gitConfig, socialLinks } from "./shared";
 import Image from "next/image";
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/icons/brand-icons";
 import { Globe, Mail } from "lucide-react";
+import Link from "next/link";
+import { AppSwitcher } from "@/components/AppSwitcher";
 
 export function baseOptions(): BaseLayoutProps {
   return {
@@ -14,7 +16,9 @@ export function baseOptions(): BaseLayoutProps {
           <span className="font-semibold text-xl">{appName}</span>
         </div>
       ),
+      url:"/about-the-serp-api"
     },
+
     githubUrl: `https://github.com/${gitConfig.user}/${gitConfig.repo}`,
     links: socialLinks.map((social) => {
       const iconMap = {
@@ -36,5 +40,7 @@ export function baseOptions(): BaseLayoutProps {
 }
 
 export function sidebarOptions(): DocsLayoutProps["sidebar"] {
-  return {};
+  return {
+    banner: <AppSwitcher key="alok" />,
+  };
 }

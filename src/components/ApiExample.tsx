@@ -1,7 +1,10 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from 'fumadocs-ui/components/tabs';
 import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock';
 
-interface ApiExampleProps {
+type Fmt = 'curl' | 'js' | 'py' | 'php' | 'go';
+
+interface RequestExampleProps {
+  mode?: 'request';
   endpoint: string;
   query: string;
   domain?: string;
@@ -9,13 +12,20 @@ interface ApiExampleProps {
   params?: string;
 }
 
-function renderData(
+interface ResponseExampleProps {
+  mode: 'response';
+  response: string | Record<string, unknown>;
+}
+
+type ApiExampleProps = RequestExampleProps | ResponseExampleProps;
+
+function renderRequest(
   endpoint: string,
   query: string,
   domain: string,
   lang: string,
   extraParams: Record<string, string | number | boolean>,
-  fmt: 'curl' | 'js' | 'py' | 'php' | 'go',
+  fmt: Fmt,
 ) {
   const entries = Object.entries(extraParams);
   const q = JSON.stringify(query);
@@ -177,6 +187,17 @@ function parseParams(params: string) {
   }
 }
 
+function formatResponse(response: string | Record<string, unknown>) {
+  if (typeof response === 'string') {
+    try {
+      return JSON.stringify(JSON.parse(response), null, 2);
+    } catch {
+      return response; // not valid JSON, show as-is
+    }
+  }
+  return JSON.stringify(response, null, 2);
+}
+
 const TRAFFIC_DOTS = (
   <span className="flex items-center gap-1.5">
     <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f56]" />
@@ -185,42 +206,67 @@ const TRAFFIC_DOTS = (
   </span>
 );
 
-export function ApiExample({
+const REQUEST_TABS: { label: string; fmt: Fmt; codeLang: string }[] = [
+  { label: 'curl', fmt: 'curl', codeLang: 'bash' },
+  { label: 'Node.js', fmt: 'js', codeLang: 'javascript' },
+  { label: 'Python', fmt: 'py', codeLang: 'python' },
+  { label: 'PHP', fmt: 'php', codeLang: 'php' },
+  { label: 'Go', fmt: 'go', codeLang: 'go' },
+];
+
+function ResponseExample({ response }: { response: string | Record<string, unknown> }) {
+  return (
+    <Tabs defaultValue="Response">
+      <TabsList>
+        {TRAFFIC_DOTS}
+        <TabsTrigger value="Response">Response</TabsTrigger>
+      </TabsList>
+      <TabsContent value="Response">
+        <DynamicCodeBlock
+          lang="json"
+          code={formatResponse(response)}
+          codeblock={{ allowCopy: true }}
+        />
+      </TabsContent>
+    </Tabs>
+  );
+}
+
+function RequestExample({
   endpoint,
   query,
   domain = 'google.com',
   lang = 'en',
   params = '{}',
-}: ApiExampleProps) {
+}: Omit<RequestExampleProps, 'mode'>) {
   const extraParams = parseParams(params);
 
-  const tabs: { label: string; fmt: 'curl' | 'js' | 'py' | 'php' | 'go'; codeLang: string }[] = [
-    { label: 'curl', fmt: 'curl', codeLang: 'bash' },
-    { label: 'Node.js', fmt: 'js', codeLang: 'javascript' },
-    { label: 'Python', fmt: 'py', codeLang: 'python' },
-    { label: 'PHP', fmt: 'php', codeLang: 'php' },
-    { label: 'Go', fmt: 'go', codeLang: 'go' },
-  ];
-
   return (
-    <Tabs defaultValue={tabs[0].label}>
+    <Tabs defaultValue={REQUEST_TABS[0].label}>
       <TabsList>
         {TRAFFIC_DOTS}
-        {tabs.map((t) => (
+        {REQUEST_TABS.map((t) => (
           <TabsTrigger key={t.label} value={t.label} className="flex items-center gap-2">
             <span>{t.label}</span>
           </TabsTrigger>
         ))}
       </TabsList>
-      {tabs.map((t) => (
+      {REQUEST_TABS.map((t) => (
         <TabsContent key={t.label} value={t.label}>
           <DynamicCodeBlock
             lang={t.codeLang}
-            code={renderData(endpoint, query, domain, lang, extraParams, t.fmt)}
+            code={renderRequest(endpoint, query, domain, lang, extraParams, t.fmt)}
             codeblock={{ allowCopy: true }}
           />
         </TabsContent>
       ))}
     </Tabs>
   );
+}
+
+export function ApiExample(props: ApiExampleProps) {
+  if (props.mode === 'response') {
+    return <ResponseExample response={props.response} />;
+  }
+  return <RequestExample {...props} />;
 }

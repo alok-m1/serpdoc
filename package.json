@@ -8,7 +8,8 @@
     "start": "next start",
     "types:check": "fumadocs-mdx && next typegen && tsc --noEmit",
     "postinstall": "fumadocs-mdx",
-    "lint": "eslint"
+    "lint": "eslint",
+    "alok":"bun run script/watch.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",

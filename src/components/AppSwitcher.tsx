@@ -1,7 +1,7 @@
 "use client"
 import * as React from "react"
 import Link from "next/link"
-import { BookOpen, Globe, LayoutDashboard, ChevronsUpDown, ArrowUpRight, type LucideIcon } from "lucide-react"
+import { BookOpen, ExternalLink, FileText, Globe, LayoutDashboard, ChevronsUpDown, ArrowUpRight, type LucideIcon } from "lucide-react"
 import {
   Popover,
   PopoverContent,
@@ -48,6 +48,16 @@ const APPS: readonly App[] = [
     external: true,
     color:
       "text-amber-600 bg-amber-50 ring-1 ring-inset ring-amber-600/20 dark:bg-amber-500/10 dark:text-amber-400 dark:ring-amber-400/20",
+  },
+  {
+    key: "blog",
+    label: "Blog",
+    description: "News & updates",
+    href: "https://www.serphouse.com/blog",
+    icon: FileText,
+    external: true,
+    color:
+      "text-purple-600 bg-purple-50 ring-1 ring-inset ring-purple-600/20 dark:bg-purple-500/10 dark:text-purple-400 dark:ring-purple-400/20",
   },
 ] as const
 
