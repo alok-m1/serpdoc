@@ -18,7 +18,7 @@ function formatTime(ms: number) {
 
 export function CountdownBanner() {
   const [timeLeft, setTimeLeft] = useState<number | null>(null);
-  const variant = bannerVariants.sunset;
+  const variant = bannerVariants.topaz;
 
   useEffect(() => {
     let start = localStorage.getItem(STORAGE_KEY);
