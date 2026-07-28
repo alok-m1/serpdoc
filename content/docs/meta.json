@@ -23,6 +23,7 @@
     "(agent-harnesses)/opencode",
     "(agent-harnesses)/vs-code",
     "(agent-harnesses)/smithery",
+     "(agent-harnesses)/open-web-ui",
 
     "--- Frameworks ---",
     "vercel-ai-sdk",

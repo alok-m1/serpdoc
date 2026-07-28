@@ -5,6 +5,7 @@ import { DeprecatedNotice } from './DeprecatedNotice';
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 import { Steps, Step } from 'fumadocs-ui/components/steps';
 import { ApiExample } from './ApiExample';
+import {APIRequestUrl} from "./APIRequestUrl"
 import { ManualSetup } from './ManualSetup';
 import { ContributeHero } from './ContributeHero';
 import { SocialLinks } from './SocialLinks';
@@ -23,6 +24,7 @@ export function getMDXComponents(components?: MDXComponents) {
     ManualSetup,
     ContributeHero,
     SocialLinks,
+    APIRequestUrl,
     ...components,
   } satisfies MDXComponents;
 }

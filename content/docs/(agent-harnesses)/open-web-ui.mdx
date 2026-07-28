@@ -1,0 +1,107 @@
+---
+title: Open WebUI
+description: Configure SERPHouse as a web search provider in Open WebUI
+icon: OpenWebUI
+---
+
+[Open WebUI](https://openwebui.com) is a self-hosted AI chat interface with pluggable web search. Connect SERPHouse once and every model can pull live results with citations.
+
+<img
+  src="/images/agent-harnesses/open-web-ui-flow.svg"
+  alt="Flow: User chat to Open WebUI to SERPHouse to model citations"
+  className="w-full rounded-xl border bg-fd-card my-6"
+/>
+
+## Prerequisites
+
+- A running Open WebUI instance
+- A [SERPHouse API key](https://serphouse.com)
+- Admin access
+
+## Configure
+
+<Tabs items={['Admin Panel', 'Docker', 'Kubernetes']}>
+  <Tab value="Admin Panel">
+    <Steps>
+      <Step>
+        Sign in as admin, then open **Admin Panel → Settings → Web Search**.
+      </Step>
+      <Step>
+        Toggle **Web Search** on and set **Web Search Engine** to `serphouse`.
+      </Step>
+      <Step>
+        Paste your API key into **SERPHouse API Key**.
+
+        Optionally set **SERPHouse Domain** (e.g. `google.com`, `google.co.uk`).
+      </Step>
+      <Step>
+        Click **Save**.
+      </Step>
+    </Steps>
+  </Tab>
+
+  <Tab value="Docker">
+    Pass env vars on the container. Env vars override Admin Panel values.
+
+    ```bash
+    docker run -d \
+      -p 3000:8080 \
+      -e SERPHOUSE_API_KEY=your_key_here \
+      -e SERPHOUSE_DOMAIN=google.com \
+      -v open-webui:/app/backend/data \
+      --name open-webui \
+      --restart always \
+      ghcr.io/open-webui/open-webui:main
+    ```
+  </Tab>
+
+  <Tab value="Kubernetes">
+    Add to your Helm `values.yaml` or pod spec:
+
+    ```yaml
+    extraEnv:
+      - name: SERPHOUSE_API_KEY
+        value: "your_key_here"
+      - name: SERPHOUSE_DOMAIN
+        value: "google.com"
+    ```
+  </Tab>
+</Tabs>
+
+| Variable | Default | Notes |
+|---|---|---|
+| `SERPHOUSE_API_KEY` | *(empty)* | **Required**. Your SERPHouse API key. |
+| `SERPHOUSE_DOMAIN` | `google.com` | Google domain for localized results. |
+
+<Callout type="warn">
+  Keep your API key private. Never commit it or share it in public channels.
+</Callout>
+
+## Test it
+
+1. Start a new chat.
+2. Click **+** in the prompt field to enable web search.
+3. Ask something time-sensitive, e.g. `+latest AI news 2026`.
+4. Confirm live results appear in the response.
+
+<Callout type="idea">
+  Use the <strong>+</strong> toggle per message. Turn search on only when you need fresh data.
+</Callout>
+
+## Troubleshooting
+
+| Issue | Solution |
+|---|---|
+| **Invalid API key** | Re-copy the key from the [SERPHouse dashboard](https://serphouse.com). Check for trailing spaces. |
+| **No results** | Enable **+** web search on the message. Confirm the host can reach `https://api.serphouse.com`. |
+| **Wrong region** | Set `SERPHOUSE_DOMAIN` to a local Google domain, e.g. `google.co.uk`. |
+| **Model ignores results** | Use a model that supports Open WebUI web search grounding. |
+| **Timeouts** | Check network latency and your SERPHouse credit balance. |
+
+## Related
+
+<Cards>
+  <Card title="Open WebUI Web Search" href="https://docs.openwebui.com/features/chat-conversations/web-search" />
+  <Card title="Agent Skills" href="/agent-skills" />
+  <Card title="Claude Code" href="/claude-code" />
+</Cards>

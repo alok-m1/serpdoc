@@ -20,3 +20,4 @@ export { default as PypiIcon } from "./pypi";
 export { default as PackagistIcon } from "./packagist";
 export { default as Nodejs } from "./Nodejs"
 export { default as PhpIcon } from "./php"
+export {default as OpenWebUI} from "./open-web-ui"

@@ -53,16 +53,28 @@ Host: api.serphouse.com
 | Code | Description |
 |------|-------------|
 | 200 | Request executed successfully. SERP data available in the `results` field. |
-| 400 | Invalid request body (validation error). Check error details in the response. |
-| 401 | Unauthenticated — check your API key and ensure it's sent as a Bearer token in the Authorization header. |
-| 402 | Insufficient credits — your account has run out of available credits, or there is a payment issue. |
-| 404 | Endpoint not found — you may have provided an invalid SERP ID in Get or Check API. |
-| 405 | Method not allowed — check the HTTP method used in your request. |
-| 429 | Rate limit exceeded — slow down your request rate. |
-| 500 | Internal server error — our team is notified automatically. |
+| 400 | Invalid request body. Validation error. Check error details in the response. |
+| 401 | Unauthenticated. Check your API key and ensure it is sent as a Bearer token in the Authorization header. |
+| 402 | Insufficient credits. Your account has run out of available credits, or there is a payment issue. |
+| 404 | Endpoint not found. You may have provided an invalid SERP ID in Get or Check API. |
+| 405 | Method not allowed. Check the HTTP method used in your request. |
+| 429 | Rate limit exceeded. Slow down your request rate. |
+| 500 | Internal server error. Our team is notified automatically. |
 
 <Callout type="info" title="2xx only means success">
   Only HTTP 200 indicates a successful request. All other status codes indicate an error that needs to be addressed.
+</Callout>
+
+<Callout type="warn" title="Response format">
+   In some cases, a 200 status may also return this error  retry the request after some time.
+
+  ```json
+  {
+    "status": "error",
+    "msg": "Please try again",
+    "error": ""
+  }
+  ```
 </Callout>
 
 ---
@@ -81,7 +93,7 @@ All API requests are subject to rate limits.
 
 | Plan | Rate limit |
 |------|-----------:|
-| Free Trial | 60 req/min |
+| Free plan | 60 req/min |
 | Basic | 60 req/min |
 | Regular | 60 req/min |
 | Custom Plan | As needed |
