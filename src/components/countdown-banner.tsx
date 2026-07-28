@@ -44,17 +44,17 @@ export function CountdownBanner() {
 
   return (
     <Banner variant="rainbow" rainbowColors={variant.rainbowColors} className="text-amber-950 dark:text-amber-50">
-      <span className="inline-flex items-center gap-3">
-        <span className={`rounded-full px-2.5 py-0.5 text-xs font-semibold tracking-wide uppercase ${variant.badge} text-amber-700 dark:text-amber-200`}>
+      <span className="inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-1 sm:gap-3">
+        <span className={`hidden sm:inline rounded-full px-2.5 py-0.5 text-xs font-semibold tracking-wide uppercase ${variant.badge} text-amber-700 dark:text-amber-200`}>
           Limited
         </span>
-        <span className="text-sm tracking-tight">
+        <span className="text-xs sm:text-sm tracking-tight">
           Earlybird offer —{' '}
           <Link target="_blank" href="https://www.serphouse.com/pricing?utm=documentation" className="font-semibold underline underline-offset-2 decoration-amber-800/40 hover:decoration-amber-800/80 dark:decoration-white/40 dark:hover:decoration-white/80 transition">
             grab 10% off your first month
           </Link>
         </span>
-        <span className="tabular-nums rounded-md bg-gradient-to-b from-yellow-200 to-yellow-300 px-2 py-0.5 text-sm font-bold text-yellow-950 shadow-sm min-w-[8.5rem] text-center">
+        <span className="tabular-nums rounded-md bg-gradient-to-b from-yellow-200 to-yellow-300 px-2 py-0.5 text-xs sm:text-sm font-bold text-yellow-950 shadow-sm min-w-[6rem] sm:min-w-[8.5rem] text-center">
           {timeLeft !== null ? formatTime(timeLeft) : '--h --m --s'}
         </span>
       </span>
