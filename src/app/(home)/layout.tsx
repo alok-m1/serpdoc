@@ -5,9 +5,11 @@ import { CountdownBanner } from "@/components/countdown-banner";
 
 export default function Layout({ children }: LayoutProps<"/">) {
   return (
+    <>
+      <CountdownBanner />
       <DocsLayout tree={source.getPageTree()} {...baseOptions()} sidebar={sidebarOptions()}>
-      <CountdownBanner/>
         {children}
       </DocsLayout>
+    </>
   );
 }
