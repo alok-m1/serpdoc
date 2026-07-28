@@ -43,7 +43,7 @@ export function CountdownBanner() {
   }, []);
 
   return (
-    <Banner variant="rainbow" rainbowColors={variant.rainbowColors} className="text-amber-950 dark:text-amber-50">
+    <Banner variant="rainbow" rainbowColors={variant.rainbowColors} className="!z-10 text-amber-950 dark:text-amber-50" changeLayout={false} >
       <span className="inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-1 sm:gap-3">
         <span className={`hidden sm:inline rounded-full px-2.5 py-0.5 text-xs font-semibold tracking-wide uppercase ${variant.badge} text-amber-700 dark:text-amber-200`}>
           Limited
