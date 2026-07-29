@@ -1,0 +1,59 @@
+---
+title: Google Organic
+description: SERPHouse - Unlocking The Riches Of Google's Organic Search Results.
+---
+import { oganic_result } from '@/lib/api-examples/google';
+
+Access natural, non-paid search listings from Google's main search results, including title, URL, snippet, and position data.
+
+<Callout type="warn">
+  Requires authentication — provide your API key as a Bearer token in the Authorization header.
+</Callout>
+
+`POST` `https://api.serphouse.com/google-web`
+
+## Response
+
+Organic results appear in the `organic` field within the response results. Each entry contains standard search listing fields.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| organic | array | Array of organic listing entries |
+| position | integer | Ranking position on the page |
+| title | string | Page title |
+| link | string | URL to the page |
+| displayed_link | string | Displayed URL in search results |
+| snippet | string | Page description or excerpt |
+| site_title | string | Source site name |
+| cached_page | string | Link to cached version |
+| snippet_extension | array | Additional snippet context |
+| thumbnail | string | Thumbnail image if available |
+
+## Example Request
+
+<ApiExample
+  endpoint="https://api.serphouse.com/google-web"
+  query="Fresh Bagels"
+  params='{"device": "desktop", "loc": "New York,United States"}'
+/>
+
+<figure className="not-prose my-6 overflow-hidden rounded-xl border bg-fd-card">
+  <div className="border-b bg-fd-muted px-3 py-1.5 text-[11px] font-medium text-fd-muted-foreground">
+    Google Organic — Visual Reference
+  </div>
+  <img
+    src="/images/google-api/organic.png"
+    alt="Google Organic search results"
+    className="w-full"
+  />
+</figure>
+
+<ApiExample mode="response" response={oganic_result} />
+
+## Related Links
+
+<Cards>
+  <Card title="Google Search API" href="/google-apis/google-search" />
+  <Card title="Google Ads" href="/google-apis/google-search/google-ads" />
+  <Card title="Google Related Searches" href="/google-apis/google-search/related-search" />
+</Cards>

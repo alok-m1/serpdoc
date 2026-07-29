@@ -1,0 +1,56 @@
+---
+title: Google Top Stories
+description: Headline News at Your Fingertips Power Your App with Google Top Stories.
+---
+import { top_stories } from '@/lib/api-examples/google';
+
+Retrieve the latest breaking news and headline stories directly from Google search results using the Top Stories result type.
+
+<Callout type="warn">
+  Requires authentication — provide your API key as a Bearer token in the Authorization header.
+</Callout>
+
+`POST` `https://api.serphouse.com/google-web`
+
+## Response
+
+Top Stories appear in the `top_stories` field within the response results. Each entry contains the article title, publisher, timestamp, snippet, and thumbnail.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| top_stories | array | Array of news story entries |
+| title | string | Headline of the news article |
+| channel | string | Publisher name |
+| time | string | Publication time description |
+| snippet | string | Article summary |
+| url | string | Link to the full article |
+| img | string | Thumbnail image (base64) |
+
+## Example Request
+
+<ApiExample
+  endpoint="https://api.serphouse.com/google-web"
+  query="breaking news"
+  params='{"device": "desktop", "loc": "United States"}'
+/>
+
+<figure className="not-prose my-6 overflow-hidden rounded-xl border bg-fd-card">
+  <div className="border-b bg-fd-muted px-3 py-1.5 text-[11px] font-medium text-fd-muted-foreground">
+    Google Top Stories — Visual Reference
+  </div>
+  <img
+    src="/images/google-api/google-top-stories-results-desktop.png"
+    alt="Google Top Stories in search results"
+    className="w-full"
+  />
+</figure>
+
+<ApiExample mode="response" response={top_stories} />
+
+## Related Links
+
+<Cards>
+  <Card title="Google Search API" href="/google-apis/google-search" />
+  <Card title="Google News API" href="/google-apis/google-news-api" />
+  <Card title="Google Inline Images" href="/google-apis/google-search/inline-image" />
+</Cards>

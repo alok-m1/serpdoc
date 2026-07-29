@@ -1,0 +1,54 @@
+---
+title: Google Carousel
+description: SERPHouse Unlocking Google's Carousel Riches with Ease.
+---
+import { google_carsoule } from '@/lib/api-examples/google';
+
+Access Google's horizontal carousel results that showcase media, events, or entities in an interactive scrollable format within search results.
+
+<Callout type="warn">
+  Requires authentication — provide your API key as a Bearer token in the Authorization header.
+</Callout>
+
+`POST` `https://api.serphouse.com/google-web`
+
+## Response
+
+Carousel results appear in the `carousel` field within the response results. Each entry contains a carousel item with title, link, and image.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| carousel | array | Array of carousel item entries |
+| position | integer | Position in the carousel |
+| title | string | Item title |
+| link | string | Google search URL for the item |
+| image_url | string | Item thumbnail image |
+
+## Example Request
+
+<ApiExample
+  endpoint="https://api.serphouse.com/google-web"
+  query="apple"
+  params='{"device": "desktop", "loc": "United States"}'
+/>
+
+<figure className="not-prose my-6 overflow-hidden rounded-xl border bg-fd-card">
+  <div className="border-b bg-fd-muted px-3 py-1.5 text-[11px] font-medium text-fd-muted-foreground">
+    Google Carousel — Visual Reference
+  </div>
+  <img
+    src="/images/google-api/google-carousel-results-desktop.png"
+    alt="Google Carousel in search results"
+    className="w-full"
+  />
+</figure>
+
+<ApiExample mode="response" response={google_carsoule} />
+
+## Related Links
+
+<Cards>
+  <Card title="Google Search API" href="/google-apis/google-search" />
+  <Card title="Google Inline Images" href="/google-apis/google-search/inline-image" />
+  <Card title="Google Top Stories" href="/google-apis/google-search/top-stories" />
+</Cards>

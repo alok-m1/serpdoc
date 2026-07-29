@@ -2,6 +2,7 @@
 title: Google Schedule SERP (Top 100 Results)
 description: Schedule multi-page Google SERP searches with credit refund for unused pages.
 ---
+import { googleScheduleSerpTop100Response } from '@/lib/api-examples/googleScheduleSerpTop100';
 
 <Callout type="idea" title="Why this endpoint?">
   Google recently restricted the `num` parameter to a maximum of 10 results per request. To overcome this limitation, we introduced a new endpoint that can fetch results from multiple pages asynchronously.
@@ -62,7 +63,7 @@ description: Schedule multi-page Google SERP searches with credit refund for unu
 
 ## Example Response
 
-<ApiExample mode="response" response='{"status":"success","msg":"Task(s) successfully scheduled","results":[{"user_id":4281,"se":"google_advanced","q":"Cold Cofee","domain":"google.com","lang":"en","country_iso":"GB","loc":"London,England,United Kingdom","lat":"51.51","long":"-0.13","device":"desktop","verbatim":0,"date_range":null,"gfilter":"1","pingback_url":null,"postback_url":null,"is_scheduled":1,"page":1,"num_result":50,"updated_at":"2025-10-03T09:42:08.000000Z","created_at":"2025-10-03T09:42:08.000000Z","id":211237003,"max_pages":5},{"user_id":4281,"se":"google_advanced","q":"Coffee","domain":"google.com","lang":"en","country_iso":"RU","loc":"Russia","lat":"61.52","long":"105.32","device":"desktop","verbatim":0,"date_range":null,"gfilter":"1","pingback_url":null,"postback_url":null,"is_scheduled":1,"page":1,"num_result":80,"updated_at":"2025-10-03T09:43:23.000000Z","created_at":"2025-10-03T09:43:23.000000Z","id":211237016,"max_pages":8},{"user_id":4281,"se":"google_advanced","q":"Tea","domain":"google.com","lang":"en","country_iso":"US","loc":"Alba,Texas,United States","lat":"32.79","long":"-95.63","device":"desktop","verbatim":0,"date_range":null,"gfilter":"1","pingback_url":null,"postback_url":null,"is_scheduled":1,"page":1,"num_result":50,"updated_at":"2025-10-03T09:41:04.000000Z","created_at":"2025-10-03T09:41:04.000000Z","id":211236971,"max_pages":5}]}' />
+<ApiExample mode="response" response={googleScheduleSerpTop100Response} />
 
 ## Related Links
 

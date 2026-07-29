@@ -1,0 +1,55 @@
+---
+title: Google Knowledge Panel
+description: Unveil the Rich Tapestry of Knowledge with SERPHouse - Google Knowledge Graph API.
+---
+import { knowlege_pannel } from '@/lib/api-examples/google';
+
+Access structured entity data from Google's Knowledge Graph, providing detailed information about people, places, organizations, and more.
+
+<Callout type="warn">
+  Requires authentication — provide your API key as a Bearer token in the Authorization header.
+</Callout>
+
+`POST` `https://api.serphouse.com/google-web`
+
+## Response
+
+The Knowledge Panel appears in the `knowledge_graph` field within the response results. It contains structured entity information including name, description, image, and key attributes.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| knowledge_graph | object | Knowledge panel data |
+| title | string | Entity name |
+| description | string | Entity description |
+| image_url | string | Entity image URL |
+| source | object | Source attribution details |
+| attributes | array | Key-value pairs of entity attributes |
+
+## Example Request
+
+<ApiExample
+  endpoint="https://api.serphouse.com/google-web"
+  query="apple"
+  params='{"device": "desktop", "loc": "United States"}'
+/>
+
+<figure className="not-prose my-6 overflow-hidden rounded-xl border bg-fd-card">
+  <div className="border-b bg-fd-muted px-3 py-1.5 text-[11px] font-medium text-fd-muted-foreground">
+    Google Knowledge Panel — Visual Reference
+  </div>
+  <img
+    src="/images/google-api/google-knowledge-panel-result-desktop.png"
+    alt="Google Knowledge Panel in search results"
+    className="w-full"
+  />
+</figure>
+
+<ApiExample mode="response" response={knowlege_pannel} />
+
+## Related Links
+
+<Cards>
+  <Card title="Google Search API" href="/google-apis/google-search" />
+  <Card title="Google People Also Ask" href="/google-apis/google-search/people-ask-for" />
+  <Card title="Google Organic" href="/google-apis/google-search/organic" />
+</Cards>

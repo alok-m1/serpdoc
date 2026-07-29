@@ -4,8 +4,7 @@ import { ResourceCards, ResourceCard } from './resource-cards';
 import { DeprecatedNotice } from './DeprecatedNotice';
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 import { Steps, Step } from 'fumadocs-ui/components/steps';
-import { ApiExample } from './ApiExample';
-import {APIRequestUrl} from "./APIRequestUrl"
+import { ApiExample, ApiTab, ApiCodeBlock } from './ApiExample';
 import { ManualSetup } from './ManualSetup';
 import { ContributeHero } from './ContributeHero';
 import { SocialLinks } from './SocialLinks';
@@ -21,10 +20,11 @@ export function getMDXComponents(components?: MDXComponents) {
     Steps,
     Step,
     ApiExample,
+    ApiTab,
+    ApiCodeBlock,
     ManualSetup,
     ContributeHero,
     SocialLinks,
-    APIRequestUrl,
     ...components,
   } satisfies MDXComponents;
 }

@@ -1,0 +1,68 @@
+---
+title: Google Search API
+description: Access Google's search results in real time, providing relevant web pages and search listings.
+---
+import { googleWebSearchResponse } from '@/lib/api-examples/googleWebSearch';
+
+Access Google's search results in real time, providing relevant web pages, search listings, and content from across the internet.
+
+<Callout type="warn">
+  Requires authentication — provide your API key as a Bearer token in the Authorization header.
+</Callout>
+
+`POST` `https://api.serphouse.com/google-web`
+
+## Path Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| responseType | String | `html` or `json` |
+
+## Headers
+
+| Name | Type | Description |
+|------|------|-------------|
+| Authorization | String | Bearer `<YOUR_API_KEY>` |
+| Content-Type | String | application/json |
+
+## Request Body
+
+| Name | Type | Description |
+|------|------|-------------|
+| q | string | Search phrase |
+| domain | string | Google domain (get list from [Domains List](/extra-apis/domains-list)) |
+| device | string | `desktop` or `mobile` |
+| lang | string | Language code e.g. `en`, `fr` |
+| loc | string | Optional if specifying `loc_id` |
+| loc_id | integer | Optional if specifying `loc` |
+| page | integer | Page number |
+| date_range | String | `YYYY-MM-DD,YYYY-MM-DD` or `h`, `d`, `w`, `m`, `y` |
+| verbatim | integer | `0` or `1` for Google Verbatim search |
+| gfilter | integer | `1` (default) to enable filters, `0` to disable |
+| num_result | integer | Number of results per page (1–10) |
+| no_trace | string \| integer | Enterprise only. Enables NoTrace mode. |
+
+## Response
+
+<Callout type="info">
+  Returns structured JSON with search metadata, parameters, and results including organic listings, local pack, and inline shopping.
+</Callout>
+
+## Example Request
+
+<ApiExample
+  endpoint="https://api.serphouse.com/google-web"
+  query="Fresh Bagels"
+  params='{"device": "desktop", "loc": "New York,United States"}'
+/>
+
+## Example Response
+
+<ApiExample mode="response" response={googleWebSearchResponse} />
+## Related Links
+
+<Cards>
+  <Card title="Google News API" href="/google-apis/google-news-api" />
+  <Card title="Google Image API" href="/google-apis/google-image-api" />
+  <Card title="Google Lite Web Search API" href="/google-apis/google-lite-web-search-api" />
+</Cards>
