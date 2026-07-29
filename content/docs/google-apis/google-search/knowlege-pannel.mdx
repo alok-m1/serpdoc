@@ -7,7 +7,7 @@ import { knowlege_pannel } from '@/lib/api-examples/google';
 Access structured entity data from Google's Knowledge Graph, providing detailed information about people, places, organizations, and more.
 
 <Callout type="warn">
-  Requires authentication — provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the Authorization header.
 </Callout>
 
 `POST` `https://api.serphouse.com/google-web`
@@ -33,16 +33,11 @@ The Knowledge Panel appears in the `knowledge_graph` field within the response r
   params='{"device": "desktop", "loc": "United States"}'
 />
 
-<figure className="not-prose my-6 overflow-hidden rounded-xl border bg-fd-card">
-  <div className="border-b bg-fd-muted px-3 py-1.5 text-[11px] font-medium text-fd-muted-foreground">
-    Google Knowledge Panel — Visual Reference
-  </div>
-  <img
-    src="/images/google-api/google-knowledge-panel-result-desktop.png"
-    alt="Google Knowledge Panel in search results"
-    className="w-full"
-  />
-</figure>
+<VisualRef
+  title="Google Knowledge Panel"
+  src="/images/google-api/google-knowledge-panel-result-desktop.png"
+  alt="Google Knowledge Panel in search results"
+/>
 
 <ApiExample mode="response" response={knowlege_pannel} />
 

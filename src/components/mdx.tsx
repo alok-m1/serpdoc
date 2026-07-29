@@ -8,6 +8,7 @@ import { ApiExample, ApiTab, ApiCodeBlock } from './ApiExample';
 import { ManualSetup } from './ManualSetup';
 import { ContributeHero } from './ContributeHero';
 import { SocialLinks } from './SocialLinks';
+import { VisualRef } from './VisualRef';
 
 export function getMDXComponents(components?: MDXComponents) {
   return {
@@ -25,6 +26,7 @@ export function getMDXComponents(components?: MDXComponents) {
     ManualSetup,
     ContributeHero,
     SocialLinks,
+    VisualRef,
     ...components,
   } satisfies MDXComponents;
 }

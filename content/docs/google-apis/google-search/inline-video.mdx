@@ -7,7 +7,7 @@ import { inline_video } from '@/lib/api-examples/google';
 Access Google video results embedded within web search responses, surfacing relevant video content from YouTube and other sources.
 
 <Callout type="warn">
-  Requires authentication — provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the Authorization header.
 </Callout>
 
 `POST` `https://api.serphouse.com/google-web`
@@ -33,16 +33,11 @@ Inline videos appear in the `inline_videos` field within the response results. E
   params='{"device": "desktop", "loc": "United States"}'
 />
 
-<figure className="not-prose my-6 overflow-hidden rounded-xl border bg-fd-card">
-  <div className="border-b bg-fd-muted px-3 py-1.5 text-[11px] font-medium text-fd-muted-foreground">
-    Google Inline Videos — Visual Reference
-  </div>
-  <img
-    src="/images/google-api/google-inline-video-results-desktop.png"
-    alt="Google Inline Video in search results"
-    className="w-full"
-  />
-</figure>
+<VisualRef
+  title="Google Inline Videos"
+  src="/images/google-api/google-inline-video-results-desktop.png"
+  alt="Google Inline Video in search results"
+/>
 
 <ApiExample mode="response" response={inline_video} />
 

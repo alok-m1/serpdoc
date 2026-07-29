@@ -7,7 +7,7 @@ import { related_search } from '@/lib/api-examples/google';
 Retrieve Google's related search suggestions that appear at the bottom of search results, helping users discover connected topics.
 
 <Callout type="warn">
-  Requires authentication — provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the Authorization header.
 </Callout>
 
 `POST` `https://api.serphouse.com/google-web`
@@ -30,16 +30,11 @@ Related searches appear in the `related_search` field within the response result
   params='{"device": "desktop", "loc": "New York,United States"}'
 />
 
-<figure className="not-prose my-6 overflow-hidden rounded-xl border bg-fd-card">
-  <div className="border-b bg-fd-muted px-3 py-1.5 text-[11px] font-medium text-fd-muted-foreground">
-    Google Related Searches — Visual Reference
-  </div>
-  <img
-    src="/images/google-api/google-related-searches-desktop.png"
-    alt="Google Related Searches in search results"
-    className="w-full"
-  />
-</figure>
+<VisualRef
+  title="Google Related Searches"
+  src="/images/google-api/google-related-searches-desktop.png"
+  alt="Google Related Searches in search results"
+/>
 
 <ApiExample mode="response" response={related_search} />
 

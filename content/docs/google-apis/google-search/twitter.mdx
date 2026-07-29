@@ -7,7 +7,7 @@ import { google_twitter } from '@/lib/api-examples/google';
 Access Twitter/X results that appear in Google search results, surfacing relevant tweets and social media content.
 
 <Callout type="warn">
-  Requires authentication — provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the Authorization header.
 </Callout>
 
 `POST` `https://api.serphouse.com/google-web`
@@ -33,16 +33,11 @@ Twitter results appear in the `twitter` or `tweets` field within the response re
   params='{"device": "desktop", "loc": "United States"}'
 />
 
-<figure className="not-prose my-6 overflow-hidden rounded-xl border bg-fd-card">
-  <div className="border-b bg-fd-muted px-3 py-1.5 text-[11px] font-medium text-fd-muted-foreground">
-    Google Tweets — Visual Reference
-  </div>
-  <img
-    src="/images/google-api/google-latest-tweets-results-desktop.png"
-    alt="Google Twitter results in search results"
-    className="w-full"
-  />
-</figure>
+<VisualRef
+  title="Google Tweets"
+  src="/images/google-api/google-latest-tweets-results-desktop.png"
+  alt="Google Twitter results in search results"
+/>
 
 <ApiExample mode="response" response={google_twitter} />
 

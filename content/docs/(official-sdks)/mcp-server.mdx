@@ -4,10 +4,10 @@ description: The SERPHouse MCP Server enables AI assistants to access SERPHouse 
 icon: mcp-server
 ---
 
-The SERPHouse MCP Server enables AI assistants to access SERPHouse APIs through the Model Context Protocol (MCP). Once configured, supported AI clients can perform Google, Bing, and Yahoo searches, retrieve SERP data, look up locations, and check account details — all from within a conversation.
+The SERPHouse MCP Server enables AI assistants to access SERPHouse APIs through the Model Context Protocol (MCP). Once configured, supported AI clients can perform Google, Bing, and Yahoo searches, retrieve SERP data, look up locations, and check account details → all from within a conversation.
 
 <Callout type="success" title="Fully Managed">
-  The SERPHouse MCP Server is fully managed by SERPHouse — no server to install, host, or maintain.
+  The SERPHouse MCP Server is fully managed by SERPHouse: no server to install, host, or maintain.
 </Callout>
 
 <ResourceCards>
@@ -129,7 +129,7 @@ Use these to discover supported domains, languages, and location IDs.
 
 | Tool | Description |
 |---|---|
-| `serphouse_domain_list` | List supported search domains. Call before Yahoo searches — use regional domains like `uk.yahoo.com`. |
+| `serphouse_domain_list` | List supported search domains. Call before Yahoo searches → use regional domains like `uk.yahoo.com`. |
 | `serphouse_language_list` | Get supported language codes for Google, Bing, or Yahoo. |
 | `serphouse_location_search` | Search SERPHouse location IDs and names for Google or Bing targeting. |
 | `serphouse_account_info` | Get SERPHouse account plan and credit usage. |
@@ -155,7 +155,7 @@ Full-featured Google search with device targeting, location, and result control.
 | `serphouse_google_image` | Google Image search. |
 | `serphouse_google_news` | Google News search. |
 | `serphouse_google_shop` | Google Shopping search. |
-| `serphouse_serp_google_advanced` | SEO ranking checks — fetch up to 100 results per query using `max_pages`. |
+| `serphouse_serp_google_advanced` | SEO ranking checks: fetch up to 100 results per query using `max_pages`. |
 
 ### Bing SERP Tools
 
@@ -226,7 +226,7 @@ Use `serphouse_location_search` to find location IDs for precise targeting.
 | **Connection failed** | Ensure the endpoint URL is correct and your network allows outbound HTTPS. |
 | **Tools not appearing** | Restart your AI client after adding the MCP server. |
 | **Request failed** | Check your account has sufficient credits and the requested tool is supported. |
-| **Yahoo search fails** | Call `serphouse_domain_list` first — `yahoo.com` is not valid. Use a regional domain like `uk.yahoo.com`. |
+| **Yahoo search fails** | Call `serphouse_domain_list` first → `yahoo.com` is not valid. Use a regional domain like `uk.yahoo.com`. |
 
 ## Support
 

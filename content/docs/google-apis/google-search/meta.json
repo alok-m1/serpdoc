@@ -1,0 +1,20 @@
+{
+  "title": "Google Search API",
+  "description": "Full reference for all Google Search result types: organic results, ads, images, videos, products, local listings, knowledge panels, news, and more.",
+  "defaultOpen": false,
+  "pages": [
+    "organic",
+    "google-ads",
+    "inline-image",
+    "inline-video",
+    "inline-product",
+    "local-buisness",
+    "carousal",
+    "top-stories",
+    "knowlege-pannel",
+    "people-ask-for",
+    "related-search",
+    "ai-overview",
+    "twitter"
+  ]
+}

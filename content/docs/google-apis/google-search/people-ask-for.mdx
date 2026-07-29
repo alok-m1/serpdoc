@@ -7,7 +7,7 @@ import { People_also_ask } from '@/lib/api-examples/google';
 Access the "People Also Ask" questions and answers that appear in Google search results, revealing related queries users frequently search for.
 
 <Callout type="warn">
-  Requires authentication — provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the Authorization header.
 </Callout>
 
 `POST` `https://api.serphouse.com/google-web`
@@ -31,16 +31,11 @@ People Also Ask entries appear in the `people_also_ask` field within the respons
   params='{"device": "desktop", "loc": "New York,United States"}'
 />
 
-<figure className="not-prose my-6 overflow-hidden rounded-xl border bg-fd-card">
-  <div className="border-b bg-fd-muted px-3 py-1.5 text-[11px] font-medium text-fd-muted-foreground">
-    Google People Also Ask — Visual Reference
-  </div>
-  <img
-    src="/images/google-api/google-people-ask-results-destop.png"
-    alt="Google People Also Ask in search results"
-    className="w-full"
-  />
-</figure>
+<VisualRef
+  title="Google People Also Ask"
+  src="/images/google-api/google-people-ask-results-destop.png"
+  alt="Google People Also Ask in search results"
+/>
 
 <ApiExample mode="response" response={People_also_ask} />
 

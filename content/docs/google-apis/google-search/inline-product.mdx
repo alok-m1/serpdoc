@@ -7,7 +7,7 @@ import { inline_product } from '@/lib/api-examples/google';
 Access Google's inline shopping results that appear within web search, showing product listings with prices, ratings, and merchant information.
 
 <Callout type="warn">
-  Requires authentication — provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the Authorization header.
 </Callout>
 
 `POST` `https://api.serphouse.com/google-web`
@@ -35,16 +35,11 @@ Inline shopping results appear in the `inline_shopping` field within the respons
   params='{"device": "desktop", "loc": "New York,United States"}'
 />
 
-<figure className="not-prose my-6 overflow-hidden rounded-xl border bg-fd-card">
-  <div className="border-b bg-fd-muted px-3 py-1.5 text-[11px] font-medium text-fd-muted-foreground">
-    Google Inline Products — Visual Reference
-  </div>
-  <img
-    src="/images/google-api/google-inline-products-results-desktop.png"
-    alt="Google Inline Products in search results"
-    className="w-full"
-  />
-</figure>
+<VisualRef
+  title="Google Inline Products"
+  src="/images/google-api/google-inline-products-results-desktop.png"
+  alt="Google Inline Products in search results"
+/>
 
 <ApiExample mode="response" response={inline_product} />
 

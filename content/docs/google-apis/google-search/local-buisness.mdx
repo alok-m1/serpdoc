@@ -7,7 +7,7 @@ import { local_buisness } from '@/lib/api-examples/google';
 Access local business listings from Google's Local Pack, providing business details like address, rating, reviews, and contact information.
 
 <Callout type="warn">
-  Requires authentication — provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the Authorization header.
 </Callout>
 
 `POST` `https://api.serphouse.com/google-web`
@@ -39,16 +39,11 @@ Local business results appear in the `local_pack` field within the response resu
   params='{"device": "desktop", "loc": "New York,United States"}'
 />
 
-<figure className="not-prose my-6 overflow-hidden rounded-xl border bg-fd-card">
-  <div className="border-b bg-fd-muted px-3 py-1.5 text-[11px] font-medium text-fd-muted-foreground">
-    Google Local Business — Visual Reference
-  </div>
-  <img
-    src="/images/google-api/google-local-business-results-desktop-restaurants.png"
-    alt="Google Local Business in search results"
-    className="w-full"
-  />
-</figure>
+<VisualRef
+  title="Google Local Business"
+  src="/images/google-api/google-local-business-results-desktop-restaurants.png"
+  alt="Google Local Business in search results"
+/>
 
 <ApiExample mode="response" response={local_buisness} />
 

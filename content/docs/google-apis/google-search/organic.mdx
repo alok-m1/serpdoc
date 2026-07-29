@@ -7,7 +7,7 @@ import { oganic_result } from '@/lib/api-examples/google';
 Access natural, non-paid search listings from Google's main search results, including title, URL, snippet, and position data.
 
 <Callout type="warn">
-  Requires authentication — provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the Authorization header.
 </Callout>
 
 `POST` `https://api.serphouse.com/google-web`
@@ -37,16 +37,11 @@ Organic results appear in the `organic` field within the response results. Each 
   params='{"device": "desktop", "loc": "New York,United States"}'
 />
 
-<figure className="not-prose my-6 overflow-hidden rounded-xl border bg-fd-card">
-  <div className="border-b bg-fd-muted px-3 py-1.5 text-[11px] font-medium text-fd-muted-foreground">
-    Google Organic — Visual Reference
-  </div>
-  <img
-    src="/images/google-api/organic.png"
-    alt="Google Organic search results"
-    className="w-full"
-  />
-</figure>
+<VisualRef
+  title="Google Organic"
+  src="/images/google-api/organic.png"
+  alt="Google Organic search results"
+/>
 
 <ApiExample mode="response" response={oganic_result} />
 

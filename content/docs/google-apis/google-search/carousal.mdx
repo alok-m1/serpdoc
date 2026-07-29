@@ -7,7 +7,7 @@ import { google_carsoule } from '@/lib/api-examples/google';
 Access Google's horizontal carousel results that showcase media, events, or entities in an interactive scrollable format within search results.
 
 <Callout type="warn">
-  Requires authentication — provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the Authorization header.
 </Callout>
 
 `POST` `https://api.serphouse.com/google-web`
@@ -32,16 +32,11 @@ Carousel results appear in the `carousel` field within the response results. Eac
   params='{"device": "desktop", "loc": "United States"}'
 />
 
-<figure className="not-prose my-6 overflow-hidden rounded-xl border bg-fd-card">
-  <div className="border-b bg-fd-muted px-3 py-1.5 text-[11px] font-medium text-fd-muted-foreground">
-    Google Carousel — Visual Reference
-  </div>
-  <img
-    src="/images/google-api/google-carousel-results-desktop.png"
-    alt="Google Carousel in search results"
-    className="w-full"
-  />
-</figure>
+<VisualRef
+  title="Google Carousel"
+  src="/images/google-api/google-carousel-results-desktop.png"
+  alt="Google Carousel in search results"
+/>
 
 <ApiExample mode="response" response={google_carsoule} />
 

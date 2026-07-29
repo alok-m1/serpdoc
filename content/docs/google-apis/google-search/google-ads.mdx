@@ -7,7 +7,7 @@ import { google_ads } from '@/lib/api-examples/google';
 Access paid advertisement listings from Google search results, including top and bottom ad placements with sitelinks and extensions.
 
 <Callout type="warn">
-  Requires authentication — provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the Authorization header.
 </Callout>
 
 `POST` `https://api.serphouse.com/google-web`
@@ -35,16 +35,11 @@ Paid ads appear in the `ads` field within the response results. Each ad entry in
   params='{"device": "desktop", "loc": "United States"}'
 />
 
-<figure className="not-prose my-6 overflow-hidden rounded-xl border bg-fd-card">
-  <div className="border-b bg-fd-muted px-3 py-1.5 text-[11px] font-medium text-fd-muted-foreground">
-    Google Ads — Visual Reference
-  </div>
-  <img
-    src="/images/google-api/google-ads-result-desktop.png"
-    alt="Google Ads in search results"
-    className="w-full"
-  />
-</figure>
+<VisualRef
+  title="Google Ads"
+  src="/images/google-api/google-ads-result-desktop.png"
+  alt="Google Ads in search results"
+/>
 
 <ApiExample mode="response" response={google_ads} />
 
