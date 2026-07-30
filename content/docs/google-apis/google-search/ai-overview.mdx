@@ -1,13 +1,15 @@
 ---
-title: Google AI Overview API
+title: AI Overview API
 description: Get structured access to Google's AI-generated summaries in real-time.
 ---
-import { ai_overview } from '@/lib/api-examples/google';
+
+import { ai_overview } from "@/lib/api-examples/google";
 
 Access Google's AI-generated summaries (SGE) directly from search results, providing the full AI overview text and source citations in structured JSON.
 
 <Callout type="warn">
-  Requires authentication → provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the
+  Authorization header.
 </Callout>
 
 `POST` `https://api.serphouse.com/google-web`
@@ -16,11 +18,11 @@ Access Google's AI-generated summaries (SGE) directly from search results, provi
 
 The AI Overview appears in the `ai_overview` field within the response results. It includes the AI-generated summary text and the sources cited.
 
-| Field | Type | Description |
-|-------|------|-------------|
-| ai_overview | object | AI-generated summary block |
-| ai_overview.contents | array | Text blocks of the AI-generated summary |
-| ai_overview.references | array | Cited sources with URL, source, and title |
+| Field                  | Type   | Description                               |
+| ---------------------- | ------ | ----------------------------------------- |
+| ai_overview            | object | AI-generated summary block                |
+| ai_overview.contents   | array  | Text blocks of the AI-generated summary   |
+| ai_overview.references | array  | Cited sources with URL, source, and title |
 
 ## Example Request
 
@@ -43,5 +45,8 @@ The AI Overview appears in the `ai_overview` field within the response results. 
 <Cards>
   <Card title="Google Search API" href="/google-apis/google-search" />
   <Card title="Google Organic" href="/google-apis/google-search/organic" />
-  <Card title="Google People Also Ask" href="/google-apis/google-search/people-ask-for" />
+  <Card
+    title="Google People Also Ask"
+    href="/google-apis/google-search/people-ask-for"
+  />
 </Cards>

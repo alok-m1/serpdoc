@@ -1,13 +1,15 @@
 ---
-title: Google Top Stories
+title: Top Stories
 description: Headline News at Your Fingertips Power Your App with Google Top Stories.
 ---
-import { top_stories } from '@/lib/api-examples/google';
+
+import { top_stories } from "@/lib/api-examples/google";
 
 Retrieve the latest breaking news and headline stories directly from Google search results using the Top Stories result type.
 
 <Callout type="warn">
-  Requires authentication → provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the
+  Authorization header.
 </Callout>
 
 `POST` `https://api.serphouse.com/google-web`
@@ -16,15 +18,15 @@ Retrieve the latest breaking news and headline stories directly from Google sear
 
 Top Stories appear in the `top_stories` field within the response results. Each entry contains the article title, publisher, timestamp, snippet, and thumbnail.
 
-| Field | Type | Description |
-|-------|------|-------------|
-| top_stories | array | Array of news story entries |
-| title | string | Headline of the news article |
-| channel | string | Publisher name |
-| time | string | Publication time description |
-| snippet | string | Article summary |
-| url | string | Link to the full article |
-| img | string | Thumbnail image (base64) |
+| Field       | Type   | Description                  |
+| ----------- | ------ | ---------------------------- |
+| top_stories | array  | Array of news story entries  |
+| title       | string | Headline of the news article |
+| channel     | string | Publisher name               |
+| time        | string | Publication time description |
+| snippet     | string | Article summary              |
+| url         | string | Link to the full article     |
+| img         | string | Thumbnail image (base64)     |
 
 ## Example Request
 
@@ -47,5 +49,8 @@ Top Stories appear in the `top_stories` field within the response results. Each 
 <Cards>
   <Card title="Google Search API" href="/google-apis/google-search" />
   <Card title="Google News API" href="/google-apis/google-news-api" />
-  <Card title="Google Inline Images" href="/google-apis/google-search/inline-image" />
+  <Card
+    title="Google Inline Images"
+    href="/google-apis/google-search/inline-image"
+  />
 </Cards>

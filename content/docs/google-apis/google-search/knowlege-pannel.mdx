@@ -1,13 +1,15 @@
 ---
-title: Google Knowledge Panel
+title: Knowledge Panel
 description: Unveil the Rich Tapestry of Knowledge with SERPHouse - Google Knowledge Graph API.
 ---
-import { knowlege_pannel } from '@/lib/api-examples/google';
+
+import { knowlege_pannel } from "@/lib/api-examples/google";
 
 Access structured entity data from Google's Knowledge Graph, providing detailed information about people, places, organizations, and more.
 
 <Callout type="warn">
-  Requires authentication → provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the
+  Authorization header.
 </Callout>
 
 `POST` `https://api.serphouse.com/google-web`
@@ -16,14 +18,14 @@ Access structured entity data from Google's Knowledge Graph, providing detailed 
 
 The Knowledge Panel appears in the `knowledge_graph` field within the response results. It contains structured entity information including name, description, image, and key attributes.
 
-| Field | Type | Description |
-|-------|------|-------------|
-| knowledge_graph | object | Knowledge panel data |
-| title | string | Entity name |
-| description | string | Entity description |
-| image_url | string | Entity image URL |
-| source | object | Source attribution details |
-| attributes | array | Key-value pairs of entity attributes |
+| Field           | Type   | Description                          |
+| --------------- | ------ | ------------------------------------ |
+| knowledge_graph | object | Knowledge panel data                 |
+| title           | string | Entity name                          |
+| description     | string | Entity description                   |
+| image_url       | string | Entity image URL                     |
+| source          | object | Source attribution details           |
+| attributes      | array  | Key-value pairs of entity attributes |
 
 ## Example Request
 
@@ -45,6 +47,9 @@ The Knowledge Panel appears in the `knowledge_graph` field within the response r
 
 <Cards>
   <Card title="Google Search API" href="/google-apis/google-search" />
-  <Card title="Google People Also Ask" href="/google-apis/google-search/people-ask-for" />
+  <Card
+    title="Google People Also Ask"
+    href="/google-apis/google-search/people-ask-for"
+  />
   <Card title="Google Organic" href="/google-apis/google-search/organic" />
 </Cards>

@@ -1,13 +1,15 @@
 ---
-title: Google People Also Ask
+title: People Also Ask
 description: Unveil the Rich Tapestry of Knowledge with SERPHouse - Google People Also Ask API.
 ---
-import { People_also_ask } from '@/lib/api-examples/google';
+
+import { People_also_ask } from "@/lib/api-examples/google";
 
 Access the "People Also Ask" questions and answers that appear in Google search results, revealing related queries users frequently search for.
 
 <Callout type="warn">
-  Requires authentication → provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the
+  Authorization header.
 </Callout>
 
 `POST` `https://api.serphouse.com/google-web`
@@ -16,12 +18,12 @@ Access the "People Also Ask" questions and answers that appear in Google search 
 
 People Also Ask entries appear in the `people_also_ask` field within the response results. Each entry contains a question and its expandable answer.
 
-| Field | Type | Description |
-|-------|------|-------------|
-| people_also_ask | array | Array of related question entries |
-| question | string | The related question text |
-| answer | string | The expandable answer snippet |
-| link | string | Link to source of the answer |
+| Field           | Type   | Description                       |
+| --------------- | ------ | --------------------------------- |
+| people_also_ask | array  | Array of related question entries |
+| question        | string | The related question text         |
+| answer          | string | The expandable answer snippet     |
+| link            | string | Link to source of the answer      |
 
 ## Example Request
 
@@ -43,6 +45,12 @@ People Also Ask entries appear in the `people_also_ask` field within the respons
 
 <Cards>
   <Card title="Google Search API" href="/google-apis/google-search" />
-  <Card title="Google Related Searches" href="/google-apis/google-search/related-search" />
-  <Card title="Google Knowledge Panel" href="/google-apis/google-search/knowlege-pannel" />
+  <Card
+    title="Google Related Searches"
+    href="/google-apis/google-search/related-search"
+  />
+  <Card
+    title="Google Knowledge Panel"
+    href="/google-apis/google-search/knowlege-pannel"
+  />
 </Cards>

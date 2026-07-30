@@ -1,13 +1,15 @@
 ---
-title: Google Related Searches
+title: Related Searches
 description: Uncover Hidden Connections with SERPHouse - Google Related Search Result API.
 ---
-import { related_search } from '@/lib/api-examples/google';
+
+import { related_search } from "@/lib/api-examples/google";
 
 Retrieve Google's related search suggestions that appear at the bottom of search results, helping users discover connected topics.
 
 <Callout type="warn">
-  Requires authentication → provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the
+  Authorization header.
 </Callout>
 
 `POST` `https://api.serphouse.com/google-web`
@@ -16,11 +18,11 @@ Retrieve Google's related search suggestions that appear at the bottom of search
 
 Related searches appear in the `related_search` field within the response results. Each entry contains a suggested search phrase and its URL.
 
-| Field | Type | Description |
-|-------|------|-------------|
-| related_search | array | Array of related search suggestions |
-| title | string | Suggested search phrase |
-| link | string | Google search URL for the suggestion |
+| Field          | Type   | Description                          |
+| -------------- | ------ | ------------------------------------ |
+| related_search | array  | Array of related search suggestions  |
+| title          | string | Suggested search phrase              |
+| link           | string | Google search URL for the suggestion |
 
 ## Example Request
 
@@ -42,6 +44,9 @@ Related searches appear in the `related_search` field within the response result
 
 <Cards>
   <Card title="Google Search API" href="/google-apis/google-search" />
-  <Card title="Google People Also Ask" href="/google-apis/google-search/people-ask-for" />
+  <Card
+    title="Google People Also Ask"
+    href="/google-apis/google-search/people-ask-for"
+  />
   <Card title="Google Organic" href="/google-apis/google-search/organic" />
 </Cards>

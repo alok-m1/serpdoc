@@ -1,13 +1,15 @@
 ---
-title: Google Inline Product
+title: Inline Product
 description: Unveil Shopping Opportunities with SERPHouse - Google Inline Products API.
 ---
-import { inline_product } from '@/lib/api-examples/google';
+
+import { inline_product } from "@/lib/api-examples/google";
 
 Access Google's inline shopping results that appear within web search, showing product listings with prices, ratings, and merchant information.
 
 <Callout type="warn">
-  Requires authentication → provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the
+  Authorization header.
 </Callout>
 
 `POST` `https://api.serphouse.com/google-web`
@@ -16,16 +18,16 @@ Access Google's inline shopping results that appear within web search, showing p
 
 Inline shopping results appear in the `inline_shopping` field within the response results. Each entry contains product details.
 
-| Field | Type | Description |
-|-------|------|-------------|
-| inline_shopping | array | Array of product listing entries |
-| rank | integer | Product ranking position |
-| title | string | Product name |
-| link | string | Product purchase URL |
-| image | string | Product image (base64) |
-| price | string | Product price |
-| rating | string | Product rating text |
-| shop | string | Merchant name |
+| Field           | Type    | Description                      |
+| --------------- | ------- | -------------------------------- |
+| inline_shopping | array   | Array of product listing entries |
+| rank            | integer | Product ranking position         |
+| title           | string  | Product name                     |
+| link            | string  | Product purchase URL             |
+| image           | string  | Product image (base64)           |
+| price           | string  | Product price                    |
+| rating          | string  | Product rating text              |
+| shop            | string  | Merchant name                    |
 
 ## Example Request
 

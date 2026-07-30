@@ -1,13 +1,15 @@
 ---
-title: Google Twitter
+title: Twitter
 description: SERPHouse Hear the Pulse of Twitter with the Google Tweets Result API.
 ---
-import { google_twitter } from '@/lib/api-examples/google';
+
+import { google_twitter } from "@/lib/api-examples/google";
 
 Access Twitter/X results that appear in Google search results, surfacing relevant tweets and social media content.
 
 <Callout type="warn">
-  Requires authentication → provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the
+  Authorization header.
 </Callout>
 
 `POST` `https://api.serphouse.com/google-web`
@@ -16,14 +18,14 @@ Access Twitter/X results that appear in Google search results, surfacing relevan
 
 Twitter results appear in the `twitter` or `tweets` field within the response results. Each entry contains tweet details, author, and engagement data.
 
-| Field | Type | Description |
-|-------|------|-------------|
-| twitter | array | Array of tweet entries |
-| position | integer | Ranking position |
-| title | string | Tweet text or title |
-| link | string | URL to the tweet |
-| author | string | Twitter/X account name |
-| snippet | string | Tweet content preview |
+| Field    | Type    | Description            |
+| -------- | ------- | ---------------------- |
+| twitter  | array   | Array of tweet entries |
+| position | integer | Ranking position       |
+| title    | string  | Tweet text or title    |
+| link     | string  | URL to the tweet       |
+| author   | string  | Twitter/X account name |
+| snippet  | string  | Tweet content preview  |
 
 ## Example Request
 
@@ -45,6 +47,9 @@ Twitter results appear in the `twitter` or `tweets` field within the response re
 
 <Cards>
   <Card title="Google Search API" href="/google-apis/google-search" />
-  <Card title="Google Top Stories" href="/google-apis/google-search/top-stories" />
+  <Card
+    title="Google Top Stories"
+    href="/google-apis/google-search/top-stories"
+  />
   <Card title="Google Organic" href="/google-apis/google-search/organic" />
 </Cards>

@@ -1,13 +1,15 @@
 ---
-title: Google Ads
+title: Ads
 description: SERPHouse Decrypt The Ad Maze With The Google Paid Ads Result API.
 ---
-import { google_ads } from '@/lib/api-examples/google';
+
+import { google_ads } from "@/lib/api-examples/google";
 
 Access paid advertisement listings from Google search results, including top and bottom ad placements with sitelinks and extensions.
 
 <Callout type="warn">
-  Requires authentication → provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the
+  Authorization header.
 </Callout>
 
 `POST` `https://api.serphouse.com/google-web`
@@ -16,16 +18,16 @@ Access paid advertisement listings from Google search results, including top and
 
 Paid ads appear in the `ads` field within the response results. Each ad entry includes position, title, description, source, and optional sitelinks.
 
-| Field | Type | Description |
-|-------|------|-------------|
-| ads | array | Array of paid ad entries |
-| position | integer | Ad ranking position |
-| block_position | string | `top` or `bottom` placement |
-| title | string | Ad headline |
-| link | string | Destination URL |
-| snippet | string | Ad description text |
-| source | string | Advertiser name |
-| sitelinks | array | Additional sitelink extensions |
+| Field          | Type    | Description                    |
+| -------------- | ------- | ------------------------------ |
+| ads            | array   | Array of paid ad entries       |
+| position       | integer | Ad ranking position            |
+| block_position | string  | `top` or `bottom` placement    |
+| title          | string  | Ad headline                    |
+| link           | string  | Destination URL                |
+| snippet        | string  | Ad description text            |
+| source         | string  | Advertiser name                |
+| sitelinks      | array   | Additional sitelink extensions |
 
 ## Example Request
 
@@ -48,5 +50,8 @@ Paid ads appear in the `ads` field within the response results. Each ad entry in
 <Cards>
   <Card title="Google Search API" href="/google-apis/google-search" />
   <Card title="Google Organic" href="/google-apis/google-search/organic" />
-  <Card title="Google Inline Product" href="/google-apis/google-search/inline-product" />
+  <Card
+    title="Google Inline Product"
+    href="/google-apis/google-search/inline-product"
+  />
 </Cards>

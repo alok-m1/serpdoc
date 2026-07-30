@@ -1,13 +1,15 @@
 ---
-title: Google Carousel
+title: Carousel
 description: SERPHouse Unlocking Google's Carousel Riches with Ease.
 ---
-import { google_carsoule } from '@/lib/api-examples/google';
+
+import { google_carsoule } from "@/lib/api-examples/google";
 
 Access Google's horizontal carousel results that showcase media, events, or entities in an interactive scrollable format within search results.
 
 <Callout type="warn">
-  Requires authentication → provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the
+  Authorization header.
 </Callout>
 
 `POST` `https://api.serphouse.com/google-web`
@@ -16,13 +18,13 @@ Access Google's horizontal carousel results that showcase media, events, or enti
 
 Carousel results appear in the `carousel` field within the response results. Each entry contains a carousel item with title, link, and image.
 
-| Field | Type | Description |
-|-------|------|-------------|
-| carousel | array | Array of carousel item entries |
-| position | integer | Position in the carousel |
-| title | string | Item title |
-| link | string | Google search URL for the item |
-| image_url | string | Item thumbnail image |
+| Field     | Type    | Description                    |
+| --------- | ------- | ------------------------------ |
+| carousel  | array   | Array of carousel item entries |
+| position  | integer | Position in the carousel       |
+| title     | string  | Item title                     |
+| link      | string  | Google search URL for the item |
+| image_url | string  | Item thumbnail image           |
 
 ## Example Request
 
@@ -44,6 +46,12 @@ Carousel results appear in the `carousel` field within the response results. Eac
 
 <Cards>
   <Card title="Google Search API" href="/google-apis/google-search" />
-  <Card title="Google Inline Images" href="/google-apis/google-search/inline-image" />
-  <Card title="Google Top Stories" href="/google-apis/google-search/top-stories" />
+  <Card
+    title="Google Inline Images"
+    href="/google-apis/google-search/inline-image"
+  />
+  <Card
+    title="Google Top Stories"
+    href="/google-apis/google-search/top-stories"
+  />
 </Cards>
