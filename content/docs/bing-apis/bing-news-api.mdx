@@ -22,20 +22,20 @@ Access real-time Bing News search results and stay informed with the latest news
 
 | Name | Type | Description |
 |------|------|-------------|
-| Authorization | String | Bearer `<YOUR_API_KEY>` |
-| Content-Type | String | application/json |
+| Authorization <span style={{color: "red"}}>*</span> | String | Bearer `<YOUR_API_KEY>` |
+| Content-Type <span style={{color: "red"}}>*</span> | String | application/json |
 
 ## Request Body
 
 | Name | Type | Description |
 |------|------|-------------|
-| q | string | Search phrase |
-| lang | string | Language code e.g. `en-US`, `fr-FR` |
-| device | string | `desktop` or `mobile` |
-| loc | string | Optional if specifying `loc_id` |
-| loc_id | integer | Optional if specifying `loc` |
-| page | integer | Page number |
-| no_trace | string \| integer | Enterprise only. Enables NoTrace mode. |
+| q <span style={{color: "red"}}>*</span> | string | Search phrase that you want to search |
+| lang <span style={{color: "red"}}>*</span> | string | You can set language for e.g. `en-US` for english `fr-FR` for french.<br />Get the list of available languages by making a separate request to the [Languages List](/extra-apis/languages-list) |
+| device <span style={{color: "red"}}>*</span> | string | `desktop` To extract desktop result `mobile` To extract mobile result |
+| loc <span style={{color: "red"}}>*</span> | string | Optional field if you specify `loc_id`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list) |
+| loc_id <span style={{color: "red"}}>*</span> | integer | Optional field if you specify `loc`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list) |
+| page | integer | Give specific page to get the result of that page number. By default it will get you first page. |
+| no_trace | string \| integer | Enterprise only. Enables NoTrace mode. Accepted values: `0`, `1`, `true`, and `false`. When enabled (`1` or `true`), search parameters, files, and metadata are not stored on our servers. |
 
 ## Example Request
 

@@ -33,25 +33,25 @@ import { googleScheduleSerpTop100Response } from '@/lib/api-examples/googleSched
 
 | Name | Type | Description |
 |------|------|-------------|
-| Authorization | String | Bearer `<YOUR_API_KEY>` |
-| Content-Type | String | application/json |
+| Authorization <span style={{color: "red"}}>*</span> | String | Bearer `<YOUR_API_KEY>` |
+| Content-Type <span style={{color: "red"}}>*</span> | String | application/json |
 
 ## Request Body
 
 | Name | Type | Description |
 |------|------|-------------|
-| q | string | Search phrase |
-| domain | string | Google domain |
-| lang | string | Language code e.g. `en`, `fr` |
-| device | string | `desktop` or `mobile` |
-| loc | string | Optional if specifying `loc_id` |
-| loc_id | integer | Optional if specifying `loc` |
+| q <span style={{color: "red"}}>*</span> | string | Search phrase that you want to search |
+| domain <span style={{color: "red"}}>*</span> | string | Choose google domain.<br /><br />You can retrieve the list of supported Google domains by making a separate request to the [Domains List](/extra-apis/domains-list) |
+| lang <span style={{color: "red"}}>*</span> | string | You can set language for e.g. `en` for english `fr` for french.<br />Get the list of available languages by making a separate request to the [Languages List](/extra-apis/languages-list) |
+| device <span style={{color: "red"}}>*</span> | string | `desktop` To extract desktop result `mobile` To extract mobile result |
+| loc <span style={{color: "red"}}>*</span> | string | Optional field if you specify `loc_id`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list) |
+| loc_id <span style={{color: "red"}}>*</span> | integer | Optional field if you specify `loc`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list) |
 | verbatim | integer | Google Verbatim (`0` or `1`) |
 | gfilter | integer | Filter on/off (`1` or `0`) |
 | postback_url | url | POST results to this URL when complete |
 | pingback_url | url | GET notification URL when complete |
 | max_pages | integer | Pages to return (1–10, default 10) |
-| date_range | String | Date filter |
+| date_range | String | Sometimes you may want to only find information published during a specific time frame. To limit Google results by date<br /><br />Parameter values can be comma separated date range `YYYY-MM-DD,YYYY-MM-DD` OR<br /><br />`h` Past hour<br />`d` Past 24 hours<br />`w` Past week<br />`m` Past month<br />`y` Past year |
 
 ## Example Request
 

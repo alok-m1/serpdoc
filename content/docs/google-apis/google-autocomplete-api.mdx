@@ -20,16 +20,16 @@ Retrieve real-time Google search suggestions (autocomplete results) using the Go
 
 | Name | Type | Description |
 |------|------|-------------|
-| Authorization | String | Bearer `<YOUR_API_KEY>` |
-| Content-Type | String | application/json |
+| Authorization <span style={{color: "red"}}>*</span> | String | Bearer `<YOUR_API_KEY>` |
+| Content-Type <span style={{color: "red"}}>*</span> | String | application/json |
 
 ## Request Body
 
 | Name | Type | Description |
 |------|------|-------------|
-| q | string | Search phrase |
-| lang | string | Language code e.g. `en`, `fr` |
-| loc | string | Location for localized suggestions |
+| q <span style={{color: "red"}}>*</span> | string | Search phrase that you want to search |
+| lang <span style={{color: "red"}}>*</span> | string | You can set language for e.g. `en` for english `fr` for french.<br />Get the list of available languages by making a separate request to the [Languages List](/extra-apis/languages-list) |
+| loc <span style={{color: "red"}}>*</span> | string | Location for localized suggestions<br />You can receive the list of available locations by making a separate request to the [Locations List](/extra-apis/locations-list) |
 | client | string | `chrome` (default), `chrome-omni`, `home_page`, `safari`, `firefox`, `youtube` |
 
 ## Example Request

@@ -16,22 +16,22 @@ Retrieve real-time Google Web Search results with a fast, lightweight response, 
 
 | Name | Type | Description |
 |------|------|-------------|
-| Authorization | String | Bearer `<YOUR_API_KEY>` |
-| Content-Type | String | application/json |
+| Authorization <span style={{color: "red"}}>*</span> | String | Bearer `<YOUR_API_KEY>` |
+| Content-Type <span style={{color: "red"}}>*</span> | String | application/json |
 
 ## Request Body
 
 | Name | Type | Description |
 |------|------|-------------|
-| q | string | Search phrase |
-| domain | string | Google domain |
-| lang | string | Language code e.g. `en`, `fr` |
-| gl | string | Two-letter ISO country code (`US`, `IN`, `GB`). Optional if specifying `loc` |
-| loc | string | Location name. Optional if specifying `gl` |
-| page | integer | Page number |
-| date_range | String | `YYYY-MM-DD,YYYY-MM-DD` or `h`, `d`, `w`, `m`, `y` |
-| verbatim | integer | `0` or `1` for Google Verbatim search |
-| no_trace | string \| integer | Enterprise only. Enables NoTrace mode. |
+| q <span style={{color: "red"}}>*</span> | string | Search phrase that you want to search |
+| domain <span style={{color: "red"}}>*</span> | string | Choose google domain.<br /><br />You can retrieve the list of supported Google domains by making a separate request to the [Domains List](/extra-apis/domains-list) |
+| lang <span style={{color: "red"}}>*</span> | string | You can set language for e.g. `en` for english `fr` for french.<br />Get the list of available languages by making a separate request to the [Languages List](/extra-apis/languages-list) |
+| gl <span style={{color: "red"}}>*</span> | string | Optional field if you specify `loc`<br />**The request must include either `loc` or `gl`**<br />The `gl` parameter accepts only two-letter ISO country codes (e.g. `IN`, `US`, `GB`). You can retrieve the list of supported country codes from the [Locations List](/extra-apis/locations-list) |
+| loc <span style={{color: "red"}}>*</span> | string | Optional field if you specify `gl`<br />**The request must include either `loc` or `gl`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list) |
+| page | integer | Give specific page to get the result of that page number. By default it will get you first page. |
+| date_range | String | Sometimes you may want to only find information published during a specific time frame. To limit Google results by date<br /><br />Parameter values can be comma separated date range `YYYY-MM-DD,YYYY-MM-DD` OR<br /><br />`h` Past hour<br />`d` Past 24 hours<br />`w` Past week<br />`m` Past month<br />`y` Past year |
+| verbatim | integer | Set Google Verbatim search, Parameter value can be `0` or `1` |
+| no_trace | string \| integer | Enterprise only. Enables NoTrace mode. Accepted values: `0`, `1`, `true`, and `false`. When enabled (`1` or `true`), search parameters, files, and metadata are not stored on our servers. |
 
 ## Response
 

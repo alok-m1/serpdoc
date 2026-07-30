@@ -22,19 +22,19 @@ Retrieve real-time search results from the Yahoo search page, providing access t
 
 | Name | Type | Description |
 |------|------|-------------|
-| Authorization | String | Bearer `<YOUR_API_KEY>` |
-| Content-Type | String | application/json |
+| Authorization <span style={{color: "red"}}>*</span> | String | Bearer `<YOUR_API_KEY>` |
+| Content-Type <span style={{color: "red"}}>*</span> | String | application/json |
 
 ## Request Body
 
 | Name | Type | Description |
 |------|------|-------------|
-| q | string | Search phrase |
-| domain | string | Yahoo domain (e.g. `fr.yahoo.com`). Use domains list API. |
-| lang | string | Language code e.g. `lang_en`, `lang_fr` |
-| device | string | `desktop` or `mobile` |
-| page | integer | Page number |
-| no_trace | string \| integer | Enterprise only. Enables NoTrace mode. |
+| q <span style={{color: "red"}}>*</span> | string | Search phrase that you want to search |
+| domain <span style={{color: "red"}}>*</span> | string | Choose yahoo domain (e.g. `fr.yahoo.com`).<br /><br />You can retrieve the list of supported Yahoo domains by making a separate request to the [Domains List](/extra-apis/domains-list) |
+| lang <span style={{color: "red"}}>*</span> | string | You can set language for e.g. `lang_en` for english `lang_fr` for french.<br />Get the list of available languages by making a separate request to the [Languages List](/extra-apis/languages-list) |
+| device <span style={{color: "red"}}>*</span> | string | `desktop` To extract desktop result `mobile` To extract mobile result |
+| page | integer | Give specific page to get the result of that page number. By default it will get you first page. |
+| no_trace | string \| integer | Enterprise only. Enables NoTrace mode. Accepted values: `0`, `1`, `true`, and `false`. When enabled (`1` or `true`), search parameters, files, and metadata are not stored on our servers. |
 
 <Callout type="info">
   Yahoo requires regional domains → use <code>serphouse_domain_list</code> to find the right domain for your target region. <code>yahoo.com</code> is not valid.
