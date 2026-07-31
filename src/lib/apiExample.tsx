@@ -9,6 +9,7 @@ export function renderRequest(
   lang: string,
   extraParams: Record<string, string | number | boolean>,
   fmt: Fmt,
+  method: 'GET' | 'POST' = 'POST',
 ) {
   const entries = Object.entries(extraParams);
   const q = JSON.stringify(query);
@@ -18,8 +19,109 @@ export function renderRequest(
   const formatValue = (v: string | number | boolean) =>
     typeof v === 'string' ? JSON.stringify(v) : String(v);
 
+  const buildQueryString = () => {
+    const parts: string[] = [];
+    if (query) parts.push(`q=${query}`);
+    if (query && domain) parts.push(`domain=${domain}`);
+    if (query && lang) parts.push(`lang=${lang}`);
+    for (const [k, v] of entries) parts.push(`${k}=${v}`);
+    return parts.length > 0 ? `?${parts.join('&')}` : '';
+  };
+
+  if (method === 'GET') {
+    const url = `${endpoint}${buildQueryString()}`;
+
+    if (fmt === 'curl') {
+      return [
+        `curl --location --request GET '${url}' \\`,
+        `--header 'Authorization: Bearer <YOUR_API_KEY>'`,
+      ].join('\n');
+    }
+
+    if (fmt === 'js') {
+      return [
+        `const API_KEY = "<YOUR_API_KEY>";`,
+        ``,
+        `async function main() {`,
+        `  const response = await fetch("${url}", {`,
+        `    method: "GET",`,
+        `    headers: {`,
+        `      Authorization: \`Bearer \${API_KEY}\`,`,
+        `    },`,
+        `  });`,
+        ``,
+        `  const data = await response.json();`,
+        `  console.log(data);`,
+        `}`,
+        ``,
+        `main();`,
+      ].join('\n');
+    }
+
+    if (fmt === 'py') {
+      return [
+        `import requests`,
+        ``,
+        `url = "${url}"`,
+        `headers = {`,
+        `    "Authorization": "Bearer <YOUR_API_KEY>",`,
+        `}`,
+        ``,
+        `response = requests.get(url, headers=headers)`,
+        `print(response.json())`,
+      ].join('\n');
+    }
+
+    if (fmt === 'php') {
+      return [
+        `<?php`,
+        ``,
+        `$apiKey = "<YOUR_API_KEY>";`,
+        `$url = "${url}";`,
+        ``,
+        `$ch = curl_init($url);`,
+        `curl_setopt($ch, CURLOPT_HTTPGET, true);`,
+        `curl_setopt($ch, CURLOPT_HTTPHEADER, [`,
+        `    "Authorization: Bearer $apiKey",`,
+        `]);`,
+        `curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);`,
+        ``,
+        `$response = curl_exec($ch);`,
+        `curl_close($ch);`,
+        ``,
+        `echo $response;`,
+      ].join('\n');
+    }
+
+    return [
+      `package main`,
+      ``,
+      `import (`,
+      `    "fmt"`,
+      `    "net/http"`,
+      `    "io/ioutil"`,
+      `)`,
+      ``,
+      `func main() {`,
+      `    url := "${url}"`,
+      ``,
+      `    client := &http.Client{}`,
+      `    req, _ := http.NewRequest("GET", url, nil)`,
+      `    req.Header.Set("Authorization", "Bearer <YOUR_API_KEY>")`,
+      ``,
+      `    resp, _ := client.Do(req)`,
+      `    defer resp.Body.Close()`,
+      ``,
+      `    body, _ := ioutil.ReadAll(resp.Body)`,
+      `    fmt.Println(string(body))`,
+      `}`,
+    ].join('\n');
+  }
+
   if (fmt === 'curl') {
-    const lines = entries.map(([k, v]) => `            "${k}": ${formatValue(v)}`);
+    const lines = entries.map(([k, v], i) =>
+      `            "${k}": ${formatValue(v)}${i < entries.length - 1 ? ',' : ''}`,
+    );
     return [
       `curl --location --request POST '${endpoint}' \\`,
       `--header 'Authorization: Bearer <YOUR_API_KEY>' \\`,
@@ -36,8 +138,10 @@ export function renderRequest(
   }
 
   if (fmt === 'js') {
-    const lines = entries.map(([k, v]) =>
-      typeof v === 'string' ? `            ${k}: "${v}"` : `            ${k}: ${v}`,
+    const lines = entries.map(([k, v], i) =>
+      typeof v === 'string'
+        ? `            ${k}: "${v}"${i < entries.length - 1 ? ',' : ''}`
+        : `            ${k}: ${v}${i < entries.length - 1 ? ',' : ''}`,
     );
     return [
       `const API_KEY = "<YOUR_API_KEY>";`,

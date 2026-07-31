@@ -10,6 +10,7 @@ type RequestExampleProps = {
   domain?: string;
   lang?: string;
   params?: string;
+  method?: 'GET' | 'POST';
 };
 
 type ResponseExampleProps = {
@@ -38,6 +39,7 @@ export function ApiCodeBlock({
   domain = 'google.com',
   lang = 'en',
   params = '{}',
+  method = 'POST',
   fmt,
 }: {
   endpoint: string;
@@ -45,6 +47,7 @@ export function ApiCodeBlock({
   domain?: string;
   lang?: string;
   params?: string;
+  method?: 'GET' | 'POST';
   fmt: Fmt;
 }) {
   const extraParams = parseParams(params);
@@ -52,7 +55,7 @@ export function ApiCodeBlock({
   return (
     <DynamicCodeBlock
       lang={tab?.codeLang ?? 'bash'}
-      code={renderRequest(endpoint, query, domain, lang, extraParams, fmt)}
+      code={renderRequest(endpoint, query, domain, lang, extraParams, fmt, method)}
       codeblock={{ allowCopy: true }}
     />
   );
@@ -107,6 +110,7 @@ function RequestExample({
   domain = 'google.com',
   lang = 'en',
   params = '{}',
+  method = 'POST',
 }: Omit<RequestExampleProps, 'mode'>) {
   const extraParams = parseParams(params);
 
@@ -124,7 +128,7 @@ function RequestExample({
         <TabsContent key={t.label} value={t.label}>
           <DynamicCodeBlock
             lang={t.codeLang}
-            code={renderRequest(endpoint, query, domain, lang, extraParams, t.fmt)}
+            code={renderRequest(endpoint, query, domain, lang, extraParams, t.fmt, method)}
             codeblock={{ allowCopy: true }}
           />
         </TabsContent>

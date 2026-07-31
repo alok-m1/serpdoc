@@ -18,7 +18,7 @@ Get the full list of supported domains by our SERP API. This list also contains 
 
 | Name | Type | Description |
 |------|------|-------------|
-| Authorization | String | Bearer `<YOUR_API_KEY>` |
+| Authorization <span style={{color: "red"}}>*</span> | String | Bearer `<YOUR_API_KEY>` |
 
 <Callout type="info">
   Returns a JSON object with a `results` array containing all supported domain strings for Google, Bing, and Yahoo.
@@ -28,6 +28,7 @@ Get the full list of supported domains by our SERP API. This list also contains 
 
 <ApiExample
   endpoint="https://api.serphouse.com/domain/list"
+  method="GET"
 />
 
 ## Example Response

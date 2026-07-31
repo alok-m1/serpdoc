@@ -20,37 +20,41 @@ Performing a realtime search is as simple as making a GET HTTP request to the SE
 
 | Name | Type | Description |
 |------|------|-------------|
-| responseType | String | `html` or `json` |
+| responseType | String | responseType can be `html`, `json`, or `md` (Markdown). |
 
 ### Query Parameters
 
 | Name | Type | Description |
 |------|------|-------------|
-| q | String | Search phrase |
-| domain | String | Google, Bing, or Yahoo domain |
-| lang | String | Language code e.g. `en`, `fr` |
-| device | String | `desktop` or `mobile` |
-| serp_type | String | `web`, `news`, or `image` |
-| loc | String | Optional if specifying `loc_id` |
-| loc_id | String | Optional if specifying `loc` |
-| page | integer | Page number |
-| num_result | integer | Number of results per page |
-| date_range | String | Date filter |
-| verbatim | integer | Google Verbatim search (`0` or `1`) |
-| gfilter | integer | Filter on/off (`1` or `0`) |
+| q <span style={{color: "red"}}>*</span> | String | Search phrase that you want to search |
+| domain | String | Choose `google`, `bing` or `yahoo` domain.<br />You can get the list of available search engines by making a separate request to the [Domains List](/extra-apis/domains-list) |
+| lang | String | You can set language for e.g. `en` for english `fr` for french.<br />Get the list of available languages by making a separate request to the [Languages List](/extra-apis/languages-list) |
+| device | String | Device can be<br />`desktop` To extract desktop result<br />`mobile` To extract mobile result |
+| serp_type | String | Serp type can be<br />`web` get structured json result search engines web result<br />`news` Get news result from search engines<br />`image` Search image over search engines and get json result |
+| loc | String | Optional field if you specify `loc_id`<br />**When choose yahoo domain then field is optional**<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list) |
+| loc_id | String | Optional field if you specify `loc`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list) |
+| verbatim | String | Set Google Verbatim search, Parameter value can be `0` or `1` |
+| gfilter | String | Parameter defines if the filters for 'Similar Results' and 'Omitted Results' are on or off. It can be set to `1` (default) to enable these filters, or `0` to disable these filters. |
+| page | String | Give specific page to get the result of that page number. By default it will get you first page. |
+| num_result | String | Define the number of results you want to get per page. By default, you will get up to 10 results.<br />Maximum 10 results are available. |
+| api_token <span style={{color: "red"}}>*</span> | String | Your API key<br />**Optional** if you specify an Authorization header in request |
+| date_range | String | Sometimes you may want to only find information published during a specific time frame. To limit Google results by date<br /><br />Parameter values can be comma separated date range `YYYY-MM-DD,YYYY-MM-DD` OR<br /><br />`h` Past hour<br />`d` Past 24 hours<br />`w` Past week<br />`m` Past month<br />`y` Past year |
 
 ### Headers
 
 | Name | Type | Description |
 |------|------|-------------|
-| Authorization | String | Bearer `<YOUR_API_KEY>` |
+| Authorization <span style={{color: "red"}}>*</span> | String | Bearer `<YOUR_API_KEY>` |
 
 ## Example Request
 
 <ApiExample
   endpoint="https://api.serphouse.com/serp/live"
-  query="Coffee"
-  params='{"device": "desktop", "loc": "New York,United States"}'
+  method="GET"
+  query="apple"
+  domain="google.com"
+  lang="en"
+  params='{"device": "desktop", "serp_type": "web", "loc": "Alba,Texas,United States", "loc_id": "1026201", "verbatim": "0", "gfilter": "0", "page": "1", "num_result": "10"}'
 />
 ## Example Response
 

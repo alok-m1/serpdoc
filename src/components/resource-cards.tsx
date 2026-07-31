@@ -5,6 +5,7 @@ import {
   NpmIcon,
   PypiIcon,
   PackagistIcon,
+  SmitheryIcon,
 } from "@/icons/brand-icons";
 
 const resourceIcons: Record<string, FC<SVGProps<SVGSVGElement>>> = {
@@ -12,6 +13,7 @@ const resourceIcons: Record<string, FC<SVGProps<SVGSVGElement>>> = {
   npm: NpmIcon,
   pypi: PypiIcon,
   packagist: PackagistIcon,
+  smithery: SmitheryIcon,
 };
 
 type ResourceIcon = keyof typeof resourceIcons;
