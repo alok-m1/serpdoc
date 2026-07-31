@@ -16,18 +16,21 @@ Access Google's inline shopping results that appear within web search, showing p
 
 ## Response
 
-Inline shopping results appear in the `inline_shopping` field within the response results. Each entry contains product details.
+Inline shopping results appear in the `shopping` field within the response results. Each entry contains product details.
 
-| Field           | Type    | Description                      |
-| --------------- | ------- | -------------------------------- |
-| inline_shopping | array   | Array of product listing entries |
-| rank            | integer | Product ranking position         |
-| title           | string  | Product name                     |
-| link            | string  | Product purchase URL             |
-| image           | string  | Product image (base64)           |
-| price           | string  | Product price                    |
-| rating          | string  | Product rating text              |
-| shop            | string  | Merchant name                    |
+| Field          | Type    | Description                            |
+| -------------- | ------- | -------------------------------------- |
+| rank           | integer | Product ranking position               |
+| title          | string  | Product name                           |
+| link           | string  | Product purchase URL                   |
+| image          | string  | Product image URL or Base64 data       |
+| price          | string  | Product price                          |
+| unit_price     | string  | Price per unit                         |
+| old_price      | string  | Original price                         |
+| shipping_price | string  | Shipping cost                          |
+| rating         | string  | Product rating                         |
+| tags           | string  | Promotional tags                       |
+| shop           | string  | Merchant name                          |
 
 ## Example Request
 

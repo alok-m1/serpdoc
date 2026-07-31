@@ -18,18 +18,19 @@ Access natural, non-paid search listings from Google's main search results, incl
 
 Organic results appear in the `organic` field within the response results. Each entry contains standard search listing fields.
 
-| Field             | Type    | Description                      |
-| ----------------- | ------- | -------------------------------- |
-| organic           | array   | Array of organic listing entries |
-| position          | integer | Ranking position on the page     |
-| title             | string  | Page title                       |
-| link              | string  | URL to the page                  |
-| displayed_link    | string  | Displayed URL in search results  |
-| snippet           | string  | Page description or excerpt      |
-| site_title        | string  | Source site name                 |
-| cached_page       | string  | Link to cached version           |
-| snippet_extension | array   | Additional snippet context       |
-| thumbnail         | string  | Thumbnail image if available     |
+| Field             | Type    | Description                                                                                                                                                          |
+| ----------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| position          | integer | Ranking position on the page                                                                                                                                         |
+| title             | string  | Page title                                                                                                                                                           |
+| link              | string  | URL to the page                                                                                                                                                      |
+| displayed_link    | string  | Displayed URL in search results                                                                                                                                      |
+| snippet           | string  | Page description or excerpt                                                                                                                                          |
+| site_title        | string  | Source site name                                                                                                                                                     |
+| cached_page       | string  | Link to cached version                                                                                                                                               |
+| snippet_extension | array   | Additional snippet context                                                                                                                                           |
+| thumbnail         | string  | Thumbnail image if available                                                                                                                                         |
+| reviews           | object  | Contains review information, including `rated` (string) and `rating` (string). Returned when a review/rating block is present in the search result.                   |
+| sitelinks         | object  | Contains sitelinks for the result. Includes two sub-keys: `inline` (array of `{link, title}`) and `expanded` (array of `{link, title}`).                              |
 
 ## Example Request
 

@@ -16,17 +16,13 @@ Retrieve the latest breaking news and headline stories directly from Google sear
 
 ## Response
 
-Top Stories appear in the `top_stories` field within the response results. Each entry contains the article title, publisher, timestamp, snippet, and thumbnail.
+Top Stories appear in the `top_stories` field within the response results. Each entry contains the article title, link, and image.
 
-| Field       | Type   | Description                  |
-| ----------- | ------ | ---------------------------- |
-| top_stories | array  | Array of news story entries  |
-| title       | string | Headline of the news article |
-| channel     | string | Publisher name               |
-| time        | string | Publication time description |
-| snippet     | string | Article summary              |
-| url         | string | Link to the full article     |
-| img         | string | Thumbnail image (base64)     |
+| Field | Type   | Description                  |
+| ----- | ------ | ---------------------------- |
+| title | string | Headline of the news article |
+| link  | string | Link to the full article     |
+| image | string | Thumbnail image (base64)     |
 
 ## Example Request
 

@@ -18,16 +18,16 @@ Access paid advertisement listings from Google search results, including top and
 
 Paid ads appear in the `ads` field within the response results. Each ad entry includes position, title, description, source, and optional sitelinks.
 
-| Field          | Type    | Description                    |
-| -------------- | ------- | ------------------------------ |
-| ads            | array   | Array of paid ad entries       |
-| position       | integer | Ad ranking position            |
-| block_position | string  | `top` or `bottom` placement    |
-| title          | string  | Ad headline                    |
-| link           | string  | Destination URL                |
-| snippet        | string  | Ad description text            |
-| source         | string  | Advertiser name                |
-| sitelinks      | array   | Additional sitelink extensions |
+| Field          | Type    | Description                                    |
+| -------------- | ------- | ---------------------------------------------- |
+| position       | integer | Ad ranking position                            |
+| block_position | string  | `top` or `bottom` placement                    |
+| title          | string  | Ad headline                                    |
+| link           | string  | Destination URL                                |
+| displayed_link | string  | Displayed URL for the advertisement            |
+| description    | string  | Ad description text                            |
+| source         | string  | Advertiser name                                |
+| sitelinks      | array   | Additional sitelink extensions                 |
 
 ## Example Request
 

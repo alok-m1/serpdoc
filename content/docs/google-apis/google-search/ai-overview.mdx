@@ -18,11 +18,11 @@ Access Google's AI-generated summaries (SGE) directly from search results, provi
 
 The AI Overview appears in the `ai_overview` field within the response results. It includes the AI-generated summary text and the sources cited.
 
-| Field                  | Type   | Description                               |
-| ---------------------- | ------ | ----------------------------------------- |
-| ai_overview            | object | AI-generated summary block                |
-| ai_overview.contents   | array  | Text blocks of the AI-generated summary   |
-| ai_overview.references | array  | Cited sources with URL, source, and title |
+| Field      | Type   | Description                               |
+| ---------- | ------ | ----------------------------------------- |
+| title      | string | AI Overview title                         |
+| contents   | array  | Text blocks of the AI-generated summary   |
+| references | array  | Cited sources with URL, source, and title |
 
 ## Example Request
 

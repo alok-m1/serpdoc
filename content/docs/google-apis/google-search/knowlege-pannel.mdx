@@ -16,16 +16,15 @@ Access structured entity data from Google's Knowledge Graph, providing detailed 
 
 ## Response
 
-The Knowledge Panel appears in the `knowledge_graph` field within the response results. It contains structured entity information including name, description, image, and key attributes.
+The Knowledge Panel appears in the `knowledge_card` field within the response results. It contains structured entity information including name, description, image, and key attributes.
 
-| Field           | Type   | Description                          |
-| --------------- | ------ | ------------------------------------ |
-| knowledge_graph | object | Knowledge panel data                 |
-| title           | string | Entity name                          |
-| description     | string | Entity description                   |
-| image_url       | string | Entity image URL                     |
-| source          | object | Source attribution details           |
-| attributes      | array  | Key-value pairs of entity attributes |
+| Field       | Type   | Description                          |
+| ----------- | ------ | ------------------------------------ |
+| title       | string | Entity name                          |
+| description | string | Entity description                   |
+| image       | string | Entity image URL                     |
+| source      | object | Source attribution details           |
+| attributes  | array  | Key-value pairs of entity attributes |
 
 ## Example Request
 

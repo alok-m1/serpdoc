@@ -16,14 +16,11 @@ Access Google's inline image results within web search responses, perfect for bu
 
 ## Response
 
-Inline images appear in the `inline_images` field within the response results. Each entry contains the image data, source URL, and metadata.
+Inline images appear in the `inline_images` field within the response results. Each entry contains the image data.
 
-| Field         | Type   | Description                       |
-| ------------- | ------ | --------------------------------- |
-| inline_images | array  | Array of inline image results     |
-| image         | string | Base64 encoded image data         |
-| source_url    | string | URL of the page hosting the image |
-| title         | string | Image title or alt text           |
+| Field | Type   | Description                                                                                                                    |
+| ----- | ------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| image | string | The image field may contain either a Base64-encoded image (`src:BASE64...`) or a regular HTTPS image URL.                       |
 
 ## Example Request
 
