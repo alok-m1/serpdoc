@@ -1,6 +1,6 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from 'fumadocs-ui/components/tabs';
 import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock';
-import { renderRequest, formatResponse, REQUEST_TABS, TRAFFIC_DOTS, type Fmt } from '@/lib/apiExample';
+import { renderRequest, formatResponse, REQUEST_TABS, TRAFFIC_DOTS, type Fmt } from '@/lib/request';
 import { Children, type ReactNode } from 'react';
 
 type RequestExampleProps = {

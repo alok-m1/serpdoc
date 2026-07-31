@@ -1,0 +1,65 @@
+---
+title: Batch SERP
+description: Schedule SERP tasks for delayed retrieval with postback and pingback support.
+---
+
+import { scheduleSerpResponse } from "@/lib/api-examples/scheduleSerp";
+
+Below you will find a detailed description of the fields you can use for setting a task.
+
+All POST data should be sent in JSON format (UTF-8 encoding). The task setting is done using the POST method when the array of tasks is sent in JSON format. We recommend setting up to 100 tasks at a time.
+
+<Callout type="warn">
+  Requires authentication → provide your API key as a Bearer token in the
+  Authorization header.
+</Callout>
+
+`POST` `https://api.serphouse.com/serp/schedule`
+
+## Batch SERP
+
+### Headers
+
+| Name          | Type   | Description             |
+| ------------- | ------ | ----------------------- |
+| Authorization | String | Bearer `<YOUR_API_KEY>` |
+| Content-Type  | String | application/json        |
+
+### Request Body
+
+| Name         | Type    | Description                            |
+| ------------ | ------- | -------------------------------------- |
+| q            | string  | Search phrase                          |
+| domain       | string  | Google, Bing, or Yahoo domain          |
+| lang         | string  | Language code e.g. `en`, `fr`          |
+| device       | string  | `desktop` or `mobile`                  |
+| serp_type    | string  | `web`, `news`, or `image`              |
+| loc          | string  | Optional if specifying `loc_id`        |
+| loc_id       | integer | Optional if specifying `loc`           |
+| verbatim     | integer | Google Verbatim (`0` or `1`)           |
+| gfilter      | integer | Filter on/off (`1` or `0`)             |
+| page         | integer | Page number                            |
+| num_result   | integer | Results per page                       |
+| postback_url | url     | POST results to this URL when complete |
+| pingback_url | url     | GET notification URL when complete     |
+| date_range   | String  | Date filter                            |
+
+## Example Request
+
+<ApiExample
+  endpoint="https://api.serphouse.com/serp/schedule"
+  query="Coffee"
+  domain="google.com"
+  params='{"device": "desktop", "loc": "Alba,Texas,United States", "serp_type": "web", "page": 1, "num_result": 10}'
+/>
+## Example Response
+
+<ApiExample mode="response" response={scheduleSerpResponse} />
+
+## Related Links
+
+<Cards>
+  <Card title="Get SERP Result" href="/extra-apis/get-serp-result" />
+  <Card title="Check SERP Status" href="/extra-apis/check-serp-status" />
+  <Card title="Webhook" href="/webhook" />
+</Cards>

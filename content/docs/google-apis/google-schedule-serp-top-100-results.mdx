@@ -1,11 +1,14 @@
 ---
-title: Google Schedule SERP (Top 100 Results)
+title: Google Batch SERP (Top 100 Results)
 description: Schedule multi-page Google SERP searches with credit refund for unused pages.
 ---
-import { googleScheduleSerpTop100Response } from '@/lib/api-examples/googleScheduleSerpTop100';
+
+import { googleScheduleSerpTop100Response } from "@/lib/api-examples/googleScheduleSerpTop100";
 
 <Callout type="idea" title="Why this endpoint?">
-  Google recently restricted the `num` parameter to a maximum of 10 results per request. To overcome this limitation, we introduced a new endpoint that can fetch results from multiple pages asynchronously.
+  Google recently restricted the `num` parameter to a maximum of 10 results per
+  request. To overcome this limitation, we introduced a new endpoint that can
+  fetch results from multiple pages asynchronously.
 </Callout>
 
 ## How It Works
@@ -18,40 +21,44 @@ import { googleScheduleSerpTop100Response } from '@/lib/api-examples/googleSched
 ## Pricing
 
 <Callout type="success" title="Auto Refund">
-  Credits are reserved upfront for each scheduled task based on the `max_pages` value (1 page = 10 credits). If fewer pages are available than requested, the unused reserved credits are **automatically refunded** after processing completes.
+  Credits are reserved upfront for each scheduled task based on the `max_pages`
+  value (1 page = 10 credits). If fewer pages are available than requested, the
+  unused reserved credits are **automatically refunded** after processing
+  completes.
 </Callout>
 
 - Example: If `max_pages=7` but only 2 pages are available, 20 credits will be used and the remaining 50 credits will be refunded once the task is completed.
 
 <Callout type="warn">
-  Requires authentication → provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the
+  Authorization header.
 </Callout>
 
 `POST` `https://api.serphouse.com/serp/google_advanced_scheduled`
 
 ## Headers
 
-| Name | Type | Description |
-|------|------|-------------|
-| Authorization <span style={{color: "red"}}>*</span> | String | Bearer `<YOUR_API_KEY>` |
-| Content-Type <span style={{color: "red"}}>*</span> | String | application/json |
+| Name                                                 | Type   | Description             |
+| ---------------------------------------------------- | ------ | ----------------------- |
+| Authorization <span style={{color: "red"}}>\*</span> | String | Bearer `<YOUR_API_KEY>` |
+| Content-Type <span style={{color: "red"}}>\*</span>  | String | application/json        |
 
 ## Request Body
 
-| Name | Type | Description |
-|------|------|-------------|
-| q <span style={{color: "red"}}>*</span> | string | Search phrase that you want to search |
-| domain <span style={{color: "red"}}>*</span> | string | Choose google domain.<br /><br />You can retrieve the list of supported Google domains by making a separate request to the [Domains List](/extra-apis/domains-list) |
-| lang <span style={{color: "red"}}>*</span> | string | You can set language for e.g. `en` for english `fr` for french.<br />Get the list of available languages by making a separate request to the [Languages List](/extra-apis/languages-list) |
-| device <span style={{color: "red"}}>*</span> | string | `desktop` To extract desktop result `mobile` To extract mobile result |
-| loc <span style={{color: "red"}}>*</span> | string | Optional field if you specify `loc_id`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list) |
-| loc_id <span style={{color: "red"}}>*</span> | integer | Optional field if you specify `loc`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list) |
-| verbatim | integer | Google Verbatim (`0` or `1`) |
-| gfilter | integer | Filter on/off (`1` or `0`) |
-| postback_url | url | POST results to this URL when complete |
-| pingback_url | url | GET notification URL when complete |
-| max_pages | integer | Pages to return (1–10, default 10) |
-| date_range | String | Sometimes you may want to only find information published during a specific time frame. To limit Google results by date<br /><br />Parameter values can be comma separated date range `YYYY-MM-DD,YYYY-MM-DD` OR<br /><br />`h` Past hour<br />`d` Past 24 hours<br />`w` Past week<br />`m` Past month<br />`y` Past year |
+| Name                                          | Type    | Description                                                                                                                                                                                                                                                                                                                |
+| --------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| q <span style={{color: "red"}}>\*</span>      | string  | Search phrase that you want to search                                                                                                                                                                                                                                                                                      |
+| domain <span style={{color: "red"}}>\*</span> | string  | Choose google domain.<br /><br />You can retrieve the list of supported Google domains by making a separate request to the [Domains List](/extra-apis/domains-list)                                                                                                                                                        |
+| lang <span style={{color: "red"}}>\*</span>   | string  | You can set language for e.g. `en` for english `fr` for french.<br />Get the list of available languages by making a separate request to the [Languages List](/extra-apis/languages-list)                                                                                                                                  |
+| device <span style={{color: "red"}}>\*</span> | string  | `desktop` To extract desktop result `mobile` To extract mobile result                                                                                                                                                                                                                                                      |
+| loc <span style={{color: "red"}}>\*</span>    | string  | Optional field if you specify `loc_id`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list)                                             |
+| loc_id <span style={{color: "red"}}>\*</span> | integer | Optional field if you specify `loc`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list)                                                |
+| verbatim                                      | integer | Google Verbatim (`0` or `1`)                                                                                                                                                                                                                                                                                               |
+| gfilter                                       | integer | Filter on/off (`1` or `0`)                                                                                                                                                                                                                                                                                                 |
+| postback_url                                  | url     | POST results to this URL when complete                                                                                                                                                                                                                                                                                     |
+| pingback_url                                  | url     | GET notification URL when complete                                                                                                                                                                                                                                                                                         |
+| max_pages                                     | integer | Pages to return (1–10, default 10)                                                                                                                                                                                                                                                                                         |
+| date_range                                    | String  | Sometimes you may want to only find information published during a specific time frame. To limit Google results by date<br /><br />Parameter values can be comma separated date range `YYYY-MM-DD,YYYY-MM-DD` OR<br /><br />`h` Past hour<br />`d` Past 24 hours<br />`w` Past week<br />`m` Past month<br />`y` Past year |
 
 ## Example Request
 
@@ -68,6 +75,9 @@ import { googleScheduleSerpTop100Response } from '@/lib/api-examples/googleSched
 ## Related Links
 
 <Cards>
-  <Card title="Google SERP (Top 100)" href="/google-apis/google-serp-top-100-results" />
+  <Card
+    title="Google SERP (Top 100)"
+    href="/google-apis/google-serp-top-100-results"
+  />
   <Card title="Schedule SERP" href="/extra-apis/schedule-serp" />
 </Cards>
