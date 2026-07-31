@@ -9,10 +9,12 @@ import { ManualSetup } from './ManualSetup';
 import { ContributeHero } from './ContributeHero';
 import { SocialLinks } from './SocialLinks';
 import { VisualRef } from './VisualRef';
+import { CustomLink } from './CustomLink';
 
 export function getMDXComponents(components?: MDXComponents) {
   return {
     ...defaultMdxComponents,
+    a: CustomLink,
     ResourceCards,
     ResourceCard,
     DeprecatedNotice,

@@ -1,0 +1,56 @@
+---
+title: Inline Shopping
+description: Power E-Commerce Discoveries with SERPHouse - Google Inline Shopping API.
+---
+
+import { inline_shopping } from "@/lib/api-examples/google";
+
+Access Google's inline shopping results that appear within web search, showing product listings with prices, ratings, and merchant information.
+
+<Callout type="warn">
+  Requires authentication → provide your API key as a Bearer token in the
+  Authorization header.
+</Callout>
+
+`POST` `https://api.serphouse.com/google-web`
+
+## Response
+
+Inline shopping results appear in the `inline_shopping` field within the response results. Each entry contains the following fields:
+
+| Field  | Type    | Description                          |
+| ------ | ------- | ------------------------------------ |
+| rank   | integer | Product ranking position             |
+| title  | string  | Product name                         |
+| link   | string  | Product purchase URL                 |
+| image  | string  | Product image URL or Base64 data     |
+| price  | string  | Product price                        |
+| rating | string  | Product rating or review information |
+| shop   | string  | Merchant name                        |
+
+## Example Request
+
+<ApiExample
+  endpoint="https://api.serphouse.com/google-web"
+  query="Wireless Headphones"
+  params='{"device": "desktop", "loc": "India"}'
+/>
+
+<VisualRef
+  title="Google Inline Shopping"
+  src="/images/google-api/inline-shopping-image.png"
+  alt="Google Inline Shopping results in search"
+/>
+
+<ApiExample mode="response" response={inline_shopping} />
+
+## Related Links
+
+<Cards>
+  <Card title="Google Search API" href="/google-apis/google-search" />
+  <Card title="Google Shopping API" href="/google-apis/google-shopping-api" />
+  <Card
+    title="Google Inline Product"
+    href="/google-apis/google-search/inline-product"
+  />
+</Cards>

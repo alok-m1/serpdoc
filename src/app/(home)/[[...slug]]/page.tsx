@@ -10,6 +10,7 @@ import {
 } from "fumadocs-ui/layouts/docs/page";
 import { notFound, redirect } from "next/navigation";
 import { getMDXComponents } from "@/components/mdx";
+import { CustomLink } from "@/components/CustomLink";
 import type { Metadata } from "next";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import { gitConfig, appName } from "@/lib/shared";
@@ -104,7 +105,7 @@ export default async function Page(props: PageProps<"/[[...slug]]">) {
         <DocsBody>
           <MDX
             components={getMDXComponents({
-              a: createRelativeLink(source, page),
+              a: createRelativeLink(source, page, CustomLink),
             })}
           />
         </DocsBody>

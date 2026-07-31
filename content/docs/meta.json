@@ -6,7 +6,8 @@
     "(introduction)/webhook",
     "--- Offical SDK ---",
     "(official-sdks)/node.js-sdk",
-     "(official-sdks)/php-sdk",
+    "(official-sdks)/php-sdk",
+    "(official-sdks)/python-sdk",
     "(official-sdks)/mcp-server",
 
     "--- Official API ---",

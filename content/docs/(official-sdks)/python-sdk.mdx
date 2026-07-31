@@ -1,0 +1,203 @@
+---
+title: Python SDK
+description: Official SERPHouse Python SDK for integrating SERP search into any Python application.
+icon: Pypi
+---
+
+The official Python SDK makes it easy to integrate the SERPHouse API into any Python application.
+
+Instead of manually creating HTTP requests, the SDK handles authentication, request formatting, and response parsing so you can focus on building your application.
+
+<Callout type="info">
+  The SDK provides access to Google SERP, Google News, and Google Short Videos directly through a simple typed client.
+</Callout>
+
+<ResourceCards>
+  <ResourceCard title="GitHub" subtitle="SERPHouse/ai-sdk-python" href="https://github.com/SERPHouse/ai-sdk-python" icon="github" />
+  <ResourceCard title="PyPI" subtitle="serphouse-ai-sdk" href="https://pypi.org/project/serphouse-ai-sdk/" icon="pypi" />
+</ResourceCards>
+
+## Requirements
+
+- Python 3.10+
+- pip
+
+## Installation
+
+```bash
+pip install serphouse-ai-sdk
+```
+
+## Get Your API Key
+
+Create a SERPHouse account and generate an API key from your dashboard.
+
+## Initialize the Client
+
+```python
+from serphouse import SERPHouseClient
+
+client = SERPHouseClient(api_key="YOUR_API_KEY")
+```
+
+<Callout type="warn">
+  Using environment variables is recommended. Never hardcode your API key in source code.
+</Callout>
+
+The SDK reads the `SERPHOUSE_API_KEY` environment variable automatically, so the `api_key` argument is optional when it is set:
+
+```bash
+export SERPHOUSE_API_KEY=your_api_key
+```
+
+```python
+from serphouse import SERPHouseClient
+
+client = SERPHouseClient()
+```
+
+## Quick Start
+
+```python
+from serphouse import SERPHouseClient
+
+client = SERPHouseClient()
+
+result = client.post("/web-search-lite", {
+    "q": "Coffee",
+    "gl": "US",
+    "device": "desktop",
+    "num_result": 10,
+})
+
+print(result)
+```
+
+## Available Endpoints
+
+The client exposes `get` and `post` methods for the SERPHouse API.
+
+| Endpoint | Description |
+|----------|-------------|
+| `POST /web-search-lite` | Google organic web search |
+| `POST /google-news` | Google News search |
+| `POST /google-short-videos-api` | Google Short Videos (Shorts) |
+
+## Web Search
+
+Search the web with optional location and language targeting.
+
+```python
+result = client.post("/web-search-lite", {
+    "q": "coffee shops",
+    "domain": "google.com",
+    "lang": "en",
+    "loc": "Austin,Texas,United States",
+    "device": "desktop",
+    "page": 1,
+})
+```
+
+You can target a country directly with the `gl` parameter (ISO 3166-1 alpha-2) instead of `loc`.
+
+```python
+result = client.post("/web-search-lite", {
+    "q": "coffee shops",
+    "gl": "US",
+})
+```
+
+## Google News
+
+```python
+result = client.post("/google-news", {
+    "q": "artificial intelligence",
+    "date_range": "w",
+    "device": "desktop",
+})
+```
+
+## Google Short Videos
+
+```python
+result = client.post("/google-short-videos-api", {
+    "q": "cooking recipes",
+    "video_quality": "high",
+})
+```
+
+## Request Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `q` | `str` | — | Search query (required) |
+| `domain` | `str` | `google.com` | Search domain |
+| `lang` | `str` | `en` | Language code |
+| `loc` | `str` | `New York,New York,United States` | Location in `City,State,Country` format |
+| `gl` | `str` | `US` | Country code (web search only) |
+| `device` | `str` | `desktop` | `desktop` or `mobile` |
+| `page` | `int` | — | Page number |
+| `date_range` | `str` | `y` | `h`, `d`, `w`, `m`, `y`, or `YYYY-MM-DD,YYYY-MM-DD` |
+| `num_result` | `int` | — | Number of results (1–10) |
+
+## Error Handling
+
+<Callout type="idea" title="Always handle errors">
+  Network issues, invalid API keys, and rate limits can all cause requests to fail. Always wrap calls in try-catch.
+</Callout>
+
+```python
+from serphouse import SERPHouseClient, ApiError
+
+client = SERPHouseClient()
+
+try:
+    result = client.post("/web-search-lite", {
+        "q": "Coffee",
+    })
+    print(result)
+except ApiError as error:
+    print(f"Request failed with status {error.status}: {error}")
+```
+
+The SDK raises `ApiError` with a `status` code and `body` payload for any non-success response.
+
+## Complete Example
+
+```python
+import os
+
+from serphouse import SERPHouseClient
+
+client = SERPHouseClient()
+
+def main():
+    results = client.post("/web-search-lite", {
+        "q": "Coffee",
+        "domain": "google.com",
+        "lang": "en",
+        "device": "desktop",
+        "gl": "US",
+        "num_result": 10,
+    })
+
+    print(results)
+
+if __name__ == "__main__":
+    main()
+```
+
+## Support
+
+If you encounter any issues while installing, configuring, or using the SERPHouse Python SDK, we're here to help.
+
+- Contact the SERPHouse support team for assistance.
+- Report bugs or request features by opening an issue on the GitHub repository.
+
+## Related Links
+
+<Cards>
+  <Card title="Node.js SDK" href="/node.js-sdk" />
+  <Card title="PHP SDK" href="/php-sdk" />
+  <Card title="MCP Server" href="/mcp-server" />
+</Cards>
