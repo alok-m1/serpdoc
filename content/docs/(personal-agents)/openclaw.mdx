@@ -1,0 +1,209 @@
+---
+title: OpenClaw
+description: Connect the SERPHouse MCP Server to OpenClaw for always-on search in your personal AI assistant.
+icon: openclaw
+---
+
+[OpenClaw](https://openclaw.ai) is the open-source personal AI assistant that connects Discord, Telegram, WhatsApp, Slack, and more to AI agents on your own hardware. It runs as a persistent Gateway daemon with memory that survives across sessions. By adding the SERPHouse MCP Server, OpenClaw can pull live Google, Bing, and Yahoo results from any channel.
+
+<img
+  src="/images/personal-agent/openclaw.png"
+  alt="OpenClaw logo"
+  className="w-24 h-24 rounded-full border bg-fd-card my-6"
+/>
+
+<Callout type="success" title="Why SERPHouse + OpenClaw">
+  The Gateway runs 24/7 on your own hardware, so SERPHouse search is always one message away — no browser, no scraping, no maintenance.
+</Callout>
+
+## What You'll Build
+
+| Capability | How it works |
+|---|---|
+| **Always-on search** | Message from any platform, get live Google / Bing / Yahoo results back |
+| **Local business data** | Google Local results for nearby businesses on demand |
+| **Media search** | Bing Images, Google News, Yahoo News from any channel |
+| **Multi-engine compare** | Ask for the same query across engines and get a comparison |
+
+## Prerequisites
+
+- A machine running **Linux or macOS** to host the Gateway
+- An active **SERPHouse account** — free credits included on signup
+- A **SERPHouse API key** from your [dashboard](https://serphouse.com)
+
+<Callout type="info">
+  OpenClaw's install wizard asks for a model provider and API key during onboarding — have those ready.
+</Callout>
+
+## Step 1 — Get Your SERPHouse API Key
+
+<Steps>
+  <Step>
+    Sign up at [serphouse.com](https://serphouse.com) and confirm your email.
+  </Step>
+  <Step>
+    Open your **Dashboard** and copy the **API key** shown there.
+  </Step>
+  <Step>
+    Keep it handy — you'll add it to OpenClaw next.
+  </Step>
+</Steps>
+
+<Callout type="error" title="Keep your key secure">
+  Your API key maps directly to your credit usage. Never commit it to a repository, share it in public channels, or paste it into a screenshot.
+</Callout>
+
+## Step 2 — Install OpenClaw
+
+If you haven't set OpenClaw up yet:
+
+```bash
+curl -fsSL https://openclaw.ai/install.sh | bash
+openclaw onboard --install-daemon
+```
+
+<Steps>
+  <Step>
+    Run the install script above.
+  </Step>
+  <Step>
+    Run <code>openclaw onboard --install-daemon</code> to start onboarding and install the Gateway as a background daemon.
+  </Step>
+  <Step>
+    Follow the wizard: pick a **model provider**, set an **API key**, and configure the **Gateway**.
+  </Step>
+  <Step>
+    Confirm the daemon is running:
+
+    ```bash
+    openclaw gateway status
+    ```
+  </Step>
+</Steps>
+
+<Callout type="info" title="Already running OpenClaw?">
+  Skip straight to the next step — the SERPHouse server plugs into an existing install without re-onboarding.
+</Callout>
+
+## Step 3 — Add the SERPHouse MCP Server
+
+MCP server definitions live under `mcp.servers` in `~/.openclaw/openclaw.json`. Add the SERPHouse hosted endpoint:
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "serphouse": {
+        "url": "https://mcp.serphouse.com/YOUR_SERPHouse_API_KEY/mcp",
+        "transport": "streamable-http",
+        "enabled": true
+      }
+    }
+  }
+}
+```
+
+<Callout type="info">
+  Replace <code>YOUR_SERPHouse_API_KEY</code> with your actual SERPHouse API key. The key is forwarded to the SERPHouse API as a Bearer token.
+</Callout>
+
+Restart the Gateway to pick up the new definition:
+
+```bash
+openclaw gateway restart
+```
+
+### Prefer the CLI?
+
+The same server can be added in one command:
+
+```bash
+openclaw mcp add serphouse \
+  --url https://mcp.serphouse.com/YOUR_SERPHouse_API_KEY/mcp \
+  --transport streamable-http
+```
+
+<Callout type="idea" title="Other ways to add it">
+  You can also add the server from the **Control UI: Settings → MCP → Add server**, or in a chat via **+ → Connectors → Add MCP server…**.
+</Callout>
+
+## Step 4 — Verify the Server
+
+Probe the server to confirm it connects and advertises tools:
+
+```bash
+openclaw mcp doctor serphouse --probe
+```
+
+<Callout type="success" title="Probe passes">
+  A successful probe lists the SERPHouse tools (search, images, news, and more) that OpenClaw can now call.
+</Callout>
+
+<Steps>
+  <Step>
+    Run the doctor probe above.
+  </Step>
+  <Step>
+    Confirm <code>serphouse</code> reports <code>connected</code> and the tool list is non-empty.
+  </Step>
+  <Step>
+    Message your assistant from any channel and ask your first search query.
+  </Step>
+</Steps>
+
+## Using SERPHouse
+
+Once connected, message your assistant from any channel. OpenClaw picks the right SERPHouse tool automatically.
+
+<Callout type="idea" title="Try these example prompts to get started">
+  Pick any prompt and send it from Discord, Telegram, WhatsApp, Slack, or the web chat.
+</Callout>
+
+<Tabs items={['Rank Tracking', 'News & Media', 'Local SEO', 'Media Search', 'Multi-Engine']}>
+  <Tab value="Rank Tracking">
+    - `Where do we rank for "crm software" on Google US desktop?`
+    - `Who owns the top 5 spots for "project management software" in London?`
+  </Tab>
+
+  <Tab value="News & Media">
+    - `Search Google News for "OpenAI" and summarize the top stories.`
+    - `What is Yahoo News covering about "electric vehicles" right now?`
+  </Tab>
+
+  <Tab value="Local SEO">
+    - `Top Google Local results for "emergency plumber" in Chicago.`
+    - `Find the best-rated coffee shops near "Austin, Texas".`
+  </Tab>
+
+  <Tab value="Media Search">
+    - `Search Bing Images for "minimalist desk setup".`
+    - `Show me Google Videos for "WebAssembly tutorial".`
+  </Tab>
+
+  <Tab value="Multi-Engine">
+    - `Compare Yahoo and Google news results for "electric vehicles".`
+    - `Cross-check Bing and Google web results for "AI agents".`
+  </Tab>
+</Tabs>
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| **Server appears but exposes no tools** | Run `openclaw mcp doctor serphouse --probe`. Check `toolFilter.include`/`exclude` if you added one. |
+| **401 Unauthorized** | Verify your API key is valid and active in your [dashboard](https://serphouse.com). |
+| **Changes don't reach the agent** | Restart the Gateway or run `openclaw mcp reload`. |
+| **Credits exhausted** | Check your account credit balance in the SERPHouse dashboard. |
+| **Yahoo search fails** | Use a regional domain — call the domain list tool first; `yahoo.com` is invalid. |
+
+<Callout type="info" title="Still stuck?">
+  Re-verify your API key, credit balance, and the endpoint URL first. If it persists, contact [SERPHouse support](https://serphouse.com).
+</Callout>
+
+## Related Links
+
+<Cards>
+  <Card title="Hermes" href="/hermes" />
+  <Card title="MCP Server" href="/mcp-server" />
+  <Card title="Agent Skills" href="/agent-skills" />
+</Cards>

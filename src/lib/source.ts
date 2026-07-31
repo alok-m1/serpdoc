@@ -13,6 +13,8 @@ const toolToBrand: Record<string, keyof typeof brandIcons> = {
   'cursor': 'Cursor',
   'smithery': 'Smithery',
   'agent-skills': 'AgentSkills',
+  'hermes': 'Hermes',
+  'openclaw': 'OpenClaw',
   'nodejs': 'Nodejs',
   'php': 'Php',
   'mcp-server': 'MCPServer',

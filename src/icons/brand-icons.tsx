@@ -22,7 +22,9 @@ import {
   PackagistIcon,
   Nodejs,
   PhpIcon,
-  OpenWebUI
+  OpenWebUI,
+  HermesIcon,
+  OpenClawIcon
 } from "./brand";
 
 export {
@@ -48,7 +50,9 @@ export {
   PackagistIcon,
   Nodejs,
   PhpIcon,
-  OpenWebUI
+  OpenWebUI,
+  HermesIcon,
+  OpenClawIcon
 };
 
 export const brandIcons: Record<string, FC<SVGProps<SVGSVGElement>>> = {
@@ -74,5 +78,7 @@ export const brandIcons: Record<string, FC<SVGProps<SVGSVGElement>>> = {
   AgentSkills: AgentSkillsIcon,
   Nodejs: Nodejs,
   Php: PhpIcon,
-  OpenWebUI:OpenWebUI
+  OpenWebUI:OpenWebUI,
+  Hermes: HermesIcon,
+  OpenClaw: OpenClawIcon
 };

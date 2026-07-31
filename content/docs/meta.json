@@ -25,6 +25,10 @@
     "(agent-harnesses)/smithery",
      "(agent-harnesses)/open-web-ui",
 
+    "--- Personal Agents ---",
+    "(personal-agents)/hermes",
+    "(personal-agents)/openclaw",
+
     "--- Frameworks ---",
     "vercel-ai-sdk",
     "langchain",
