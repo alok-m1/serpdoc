@@ -1,1 +1,14 @@
-export const google_twitter='{"tweets":[{"tweet":"Some deliveries can leave you stumped.  #ShubmanGill #GTvsCSK #IPLonJioCinema #ShoppingAisaIndiaJaisa #MatchMadness #MatchJaisaCelebrationWaisa #TATAIPL #TATAIPL2023 #JioMartTwitter  ·  14 hours ago ","url":"https://twitter.com/JioMart/status/1663197169460080640?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet","published_date":"14 hours ago"},{"tweet":"Tag a fashion queen whose closet looks like this 🤩  #JioMart Twitter  ·  2 days ago ","url":"https://twitter.com/JioMart/status/1662798375027187712?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet","published_date":"2 days ago"},{"tweet":"Use this thread as Captain Cool&apos;s appreciation wall! Share your love for Thala in your own unique way. ❤️🏏  #IPLonJioCinema #ShoppingAisaIndiaJaisa #MatchMadness #MatchJaisaCelebrationWaisa #TATAIPL #TATAIPL2023 #JioMart #Dhoniappreciation #IPL2023Final #DhoniretirementTwitter  ·  16 hours ago ","url":"https://twitter.com/JioMart/status/1663170261888430081?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet","published_date":"16 hours ago"}]}'
+export const google_twitter = {
+  "tweets": [
+    {
+      "tweet": "Congratulations to Seema for securing a Bronze in the Women's Discus Throw event with a best throw of 58.65m. Her efforts have made India proud and motivated the youth of our nation. Wishing her the very best for the endeavours ahead.   #CWG2026 ",
+      "url": "https://x.com/narendramodi/status/2083107247056650552?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "published_date": "2 hours ago"
+    },
+    {
+      "tweet": "Exceptional performance by Lovepreet Singh for winning a Silver in the Men's +110kg event. His outstanding effort in the snatch set a new Commonwealth Games record too. His dedication and determination are truly admirable. My best wishes to him for the endeavours ahead.  #CWG2026 ",
+      "url": "https://x.com/narendramodi/status/2083106862426378287?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "published_date": "2 hours ago"
+    }
+  ]
+};

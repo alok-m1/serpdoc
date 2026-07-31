@@ -1,1 +1,20 @@
-export const People_also_ask='{"people_also_ask":[{"question":"Is Mango a Superfood? ","answer":null},{"question":"What is the Mango fruit? ","answer":null},{"question":"How did mangoes get to Mexico? ","answer":null},{"question":"Is Mango and Zara the same company? ","answer":null}]}'
+export const People_also_ask = {
+  "people_also_ask": [
+    {
+      "question": "How can I create my own app? ",
+      "answer": ""
+    },
+    {
+      "question": "Do app owners make money? ",
+      "answer": ""
+    },
+    {
+      "question": "How can I create my own AI app? ",
+      "answer": ""
+    },
+    {
+      "question": "Can I build apps for free? ",
+      "answer": ""
+    }
+  ]
+};

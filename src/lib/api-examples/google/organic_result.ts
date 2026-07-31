@@ -1,1 +1,43 @@
-export const oganic_result='{"organic":[{"position":1,"site_title":"Wikipedia","title":"Black tea","link":"https://en.wikipedia.org/wiki/Black_tea","displayed_link":"https://en.wikipedia.org › wiki › Black_tea ","cached_page":"","snippet":"Black tea is a type of tea that is more oxidized than oolong, yellow, white and green teas. Black tea is generally stronger in flavour than other teas.","sitelinks":{"inline":[{"link":"https://en.wikipedia.org/wiki/Yellow_tea","title":"Yellow tea"},{"link":"https://en.wikipedia.org/wiki/Compressed_tea","title":"Compressed tea"},{"link":"https://en.wikipedia.org/wiki/Gunfire_(drink)","title":"Gunfire (drink)"}]}},{"position":2,"site_title":"Healthline","title":"10 Evidence-Based Health Benefits of Black Tea","link":"https://www.healthline.com/nutrition/black-tea-benefits","displayed_link":"https://www.healthline.com › ... › Nutrition ","cached_page":"","snippet":"Black tea is rich in antioxidants and may provide health benefits, including improved heart and gut health and a reduced risk for certain diseases."}]}'
+export const oganic_result = {
+  "organic": [
+    {
+      "position": 1,
+      "site_title": "Reddit&nbsp;·&nbsp;r/learnprogramming",
+      "title": "How do I build an app from scratch? : r/learnprogramming",
+      "link": "https://www.reddit.com/r/learnprogramming/comments/1byvl25/how_do_i_build_an_app_from_scratch/",
+      "displayed_link": "40+ comments  ·  2 years ago",
+      "cached_page": null,
+      "snippet": "Hello folks!  I'm thinking about building an app for my personal use and perhaps even share with a larger user-base, if it's come out decent and presentable. ..."
+    },
+    {
+      "position": 2,
+      "site_title": "AppSheet",
+      "title": "How to create an app",
+      "link": "https://about.appsheet.com/how-to-create-an-app/",
+      "displayed_link": "https://about.appsheet.com › how-to-create-an-app ",
+      "cached_page": null,
+      "snippet": "The easiest and fastest way to get started is to select Create &gt; App &gt; Blank app, to generate a simple app with default data in AppSheet's first-party, native ..."
+    },
+    {
+      "position": 3,
+      "site_title": "Android Developers",
+      "title": "Create your first Android app",
+      "link": "https://developer.android.com/codelabs/basic-android-kotlin-compose-first-app",
+      "displayed_link": "https://developer.android.com › codelabs › basic-androi... ",
+      "cached_page": null,
+      "snippet": "Create your first Android app · 1. Before you begin · 2. Create a project using the template · 3. Find project files · 4. Update the text · 5.",
+      "snippet_extension": [
+        "Mar 30, 2026"
+      ]
+    },
+    {
+      "position": 4,
+      "site_title": "Microsoft",
+      "title": "How to Make and Create an App",
+      "link": "https://www.microsoft.com/en-us/power-platform/products/power-apps/topics/app-building/how-to-make-an-app",
+      "displayed_link": "https://www.microsoft.com › en-us › topics › app-building ",
+      "cached_page": null,
+      "snippet": "How to make an app · Step 1. Set your goals before creating an app · Step 2. Sketch features and functions for the new app · Step 3. Research existing apps."
+    }
+  ]
+};

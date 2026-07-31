@@ -1,7 +1,13 @@
-import { Tabs, TabsList, TabsTrigger, TabsContent } from 'fumadocs-ui/components/tabs';
+'use client';
+
+import { Tabs as ControlledTabs, TabsContent as ControlledTabsContent } from 'fumadocs-ui/components/ui/tabs';
+import { TabsList, TabsTrigger } from 'fumadocs-ui/components/tabs';
 import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock';
+import { CodeBlock } from 'fumadocs-ui/components/codeblock';
 import { renderRequest, formatResponse, REQUEST_TABS, TRAFFIC_DOTS, type Fmt } from '@/lib/request';
-import { Children, type ReactNode } from 'react';
+import { Children, useState, type ReactNode } from 'react';
+
+const MAX_HIGHLIGHT_CHARS = 80_000;
 
 type RequestExampleProps = {
   mode?: 'request';
@@ -29,7 +35,15 @@ function parseParams(params: string) {
   }
 }
 
-export function ApiTab({ label, response }: { label: string; response: string | Record<string, unknown> }) {
+export function ApiTab({
+  label,
+  response,
+  lang = 'json',
+}: {
+  label: string;
+  response: string | Record<string, unknown>;
+  lang?: string;
+}) {
   return null;
 }
 
@@ -61,6 +75,17 @@ export function ApiCodeBlock({
   );
 }
 
+function ResponseCodeBlock({ lang, code }: { lang: string; code: string }) {
+  if (code.length > MAX_HIGHLIGHT_CHARS) {
+    return (
+      <CodeBlock allowCopy>
+        <pre className="px-4 whitespace-pre">{code}</pre>
+      </CodeBlock>
+    );
+  }
+  return <DynamicCodeBlock lang={lang} code={code} codeblock={{ allowCopy: true }} />;
+}
+
 function ResponseExample({
   response,
   children,
@@ -74,15 +99,24 @@ function ResponseExample({
       ? childArray.map((child: any) => ({
           label: child.props?.label ?? 'Response',
           response: child.props?.response,
+          lang: child.props?.lang ?? 'json',
         }))
       : response
-        ? [{ label: 'Response', response }]
+        ? [{ label: 'Response', response, lang: 'json' }]
         : [];
+
+  const [active, setActive] = useState<string>();
 
   if (tabs.length === 0) return null;
 
+  const current = tabs.find((t) => t.label === active) ?? tabs[0];
+
   return (
-    <Tabs defaultValue={tabs[0].label}>
+    <ControlledTabs
+      value={current.label}
+      onValueChange={(v) => setActive(v)}
+      className="flex flex-col overflow-hidden rounded-xl border bg-fd-secondary my-4"
+    >
       <TabsList>
         {TRAFFIC_DOTS}
         {tabs.map((t) => (
@@ -91,16 +125,16 @@ function ResponseExample({
           </TabsTrigger>
         ))}
       </TabsList>
-      {tabs.map((t) => (
-        <TabsContent key={t.label} value={t.label}>
-          <DynamicCodeBlock
-            lang="json"
-            code={formatResponse(t.response)}
-            codeblock={{ allowCopy: true }}
-          />
-        </TabsContent>
-      ))}
-    </Tabs>
+      <ControlledTabsContent
+        value={current.label}
+        className="p-4 text-[0.9375rem] bg-fd-background rounded-xl outline-none prose-no-margin [&>figure:only-child]:-m-4 [&>figure:only-child]:border-none"
+      >
+        <ResponseCodeBlock
+          lang={current.lang}
+          code={formatResponse(current.response, current.lang)}
+        />
+      </ControlledTabsContent>
+    </ControlledTabs>
   );
 }
 
@@ -115,7 +149,7 @@ function RequestExample({
   const extraParams = parseParams(params);
 
   return (
-    <Tabs defaultValue={REQUEST_TABS[0].label}>
+    <ControlledTabs defaultValue={REQUEST_TABS[0].label} className="flex flex-col overflow-hidden rounded-xl border bg-fd-secondary my-4">
       <TabsList>
         {TRAFFIC_DOTS}
         {REQUEST_TABS.map((t) => (
@@ -125,21 +159,25 @@ function RequestExample({
         ))}
       </TabsList>
       {REQUEST_TABS.map((t) => (
-        <TabsContent key={t.label} value={t.label}>
+        <ControlledTabsContent
+          key={t.label}
+          value={t.label}
+          className="p-4 text-[0.9375rem] bg-fd-background rounded-xl outline-none prose-no-margin [&>figure:only-child]:-m-4 [&>figure:only-child]:border-none"
+        >
           <DynamicCodeBlock
             lang={t.codeLang}
             code={renderRequest(endpoint, query, domain, lang, extraParams, t.fmt, method)}
             codeblock={{ allowCopy: true }}
           />
-        </TabsContent>
+        </ControlledTabsContent>
       ))}
-    </Tabs>
+    </ControlledTabs>
   );
 }
 
 export function ApiExample(props: ApiExampleProps) {
   if (props.mode === 'response') {
-    return <ResponseExample response={props.response} children={props.children} />;
+    return <ResponseExample response={props.response}>{props.children}</ResponseExample>;
   }
   return <RequestExample {...props} />;
 }

@@ -1,1 +1,44 @@
-export const google_ads='{"ads":[{"position":1,"block_position":"top","title":"Apple - Official Site","link":"https://www.apple.com/","displayed_link":"https://www.apple.com","description":"Discover the innovative world of Apple and shop everything iPhone, iPad, Apple Watch, Mac, and Apple TV, plus explore accessories, entertainment, and expert device support.","source":"Apple","sitelinks":[{"link":"https://www.apple.com/iphone/","title":"iPhone"},{"link":"https://www.apple.com/ipad/","title":"iPad"},{"link":"https://www.apple.com/mac/","title":"Mac"}]},{"position":2,"block_position":"top","title":"Buy Apple Products | Best Buy","link":"https://www.bestbuy.com/site/electronics/apple/pcmcat2035030023.c?id=pcmcat2035030023","displayed_link":"https://www.bestbuy.com › Apple","description":"Shop the latest Apple products at Best Buy, including iPhone, iPad, Mac, Apple Watch, and AirPods. Free shipping on qualifying orders.","source":"Best Buy","sitelinks":null},{"position":3,"block_position":"bottom","title":"Apple Deals & Offers | Verizon","link":"https://www.verizon.com/products/apple/","displayed_link":"https://www.verizon.com › Apple","description":"Get the latest iPhone at Verizon. Trade in your old device and save. Free shipping and a 30-day money back guarantee.","source":"Verizon","sitelinks":null}]}'
+export const google_ads = {
+  "ads": [
+    {
+      "position": 1,
+      "block_position": "top",
+      "title": "Bluehost® Web Hosting - Bluehost® WordPress Hosting",
+      "link": "https://www.google.com/aclk?sa=L&amp;ai=DChsSEwjrkoLtiPyVAxUNPgYAHUQLJfYYACICCAEQABoCd3M&amp;ae=2&amp;co=1&amp;ase=2&amp;gclid=EAIaIQobChMI65KC7Yj8lQMVDT4GAB1ECyX2EAAYASAAEgIG5vD_BwE&amp;cid=CAASugHkaPSQylMl9KSQ-33zqfMnhkQIzmG-lhwQSUIqHqkAS3o3k0RDGosZ-fT8QMo3M7WZMYKjOYS5AAEX57djNZlenKvitIO8qFz7QxsuF6tQcm9154aRwnfa2juig0z5Mko7MEoI39GRUGccY12Ywl0vetmc85NjE05JYGhf5wd9jew4VInEd7SN5LbUlF6ECNeESjCz1TRwLEIBUWzPaqaMFh5CZTU8Z6Lh5Y6Huc78CgvzPehcIfVkxn8&amp;cce=2&amp;category=acrcp_v1_71&amp;sig=AOD64_1880Zpi_tPs2CEJSZi2YoZZZ5fMA&amp;q&amp;nis=4&amp;adurl&amp;ved=2ahUKEwiIuf3siPyVAxWPTKQEHcqSLKoQ0Qx6BAgNEAE",
+      "displayed_link": "https://www.bluehost.com ",
+      "description": "Power your website with reliable, secure hosting - trusted by millions for peace of mind.",
+      "source": "Bluehost",
+      "sitelinks": [
+        {
+          "title": "Web Hosting, Done Right ",
+          "link": "https://www.google.com/aclk?sa=L&ai=DChsSEwjrkoLtiPyVAxUNPgYAHUQLJfYYACICCAEQBBoCd3M&ae=2&co=1&ase=2&gclid=EAIaIQobChMI65KC7Yj8lQMVDT4GAB1ECyX2EAAYASAEEgKw6fD_BwE&cid=CAASugHkaPSQylMl9KSQ-33zqfMnhkQIzmG-lhwQSUIqHqkAS3o3k0RDGosZ-fT8QMo3M7WZMYKjOYS5AAEX57djNZlenKvitIO8qFz7QxsuF6tQcm9154aRwnfa2juig0z5Mko7MEoI39GRUGccY12Ywl0vetmc85NjE05JYGhf5wd9jew4VInEd7SN5LbUlF6ECNeESjCz1TRwLEIBUWzPaqaMFh5CZTU8Z6Lh5Y6Huc78CgvzPehcIfVkxn8&cce=2&category=acrcp_v1_71&sig=AOD64_1I7vx8oYWLO6pjHXHzcj4BuPjZUQ&adurl=&q="
+        },
+        {
+          "title": "Bluehost® Official Site ",
+          "link": "https://www.google.com/aclk?sa=L&ai=DChsSEwjrkoLtiPyVAxUNPgYAHUQLJfYYACICCAEQBRoCd3M&ae=2&co=1&ase=2&gclid=EAIaIQobChMI65KC7Yj8lQMVDT4GAB1ECyX2EAAYASAFEgLAoPD_BwE&cid=CAASugHkaPSQylMl9KSQ-33zqfMnhkQIzmG-lhwQSUIqHqkAS3o3k0RDGosZ-fT8QMo3M7WZMYKjOYS5AAEX57djNZlenKvitIO8qFz7QxsuF6tQcm9154aRwnfa2juig0z5Mko7MEoI39GRUGccY12Ywl0vetmc85NjE05JYGhf5wd9jew4VInEd7SN5LbUlF6ECNeESjCz1TRwLEIBUWzPaqaMFh5CZTU8Z6Lh5Y6Huc78CgvzPehcIfVkxn8&cce=2&category=acrcp_v1_71&sig=AOD64_00Hv2biWXToKK-XOY7PVQxteTndA&adurl=&q="
+        },
+        {
+          "title": "WordPress Hosting ",
+          "link": "https://www.bluehost.com/in/cs/special/wordpress-campaigns1"
+        },
+        {
+          "title": "Managed Cloud Hosting ",
+          "link": "https://www.bluehost.com/cloud-hosting"
+        },
+        {
+          "title": "Migrate to Bluehost Cloud ",
+          "link": "https://www.bluehost.com/migrate-wordpress-website"
+        }
+      ]
+    },
+    {
+      "position": 2,
+      "block_position": "bottom",
+      "title": "Bluehost® WordPress Hosting - Bluehost® Web Hosting",
+      "link": "https://www.google.com/aclk?sa=L&amp;ai=DChsSEwjrkoLtiPyVAxUNPgYAHUQLJfYYACICCAIQARoCd3M&amp;ae=2&amp;co=1&amp;ase=2&amp;gclid=EAIaIQobChMI65KC7Yj8lQMVDT4GAB1ECyX2EAMYASABEgIUOvD_BwE&amp;cid=CAASugHkaPSQylMl9KSQ-33zqfMnhkQIzmG-lhwQSUIqHqkAS3o3k0RDGosZ-fT8QMo3M7WZMYKjOYS5AAEX57djNZlenKvitIO8qFz7QxsuF6tQcm9154aRwnfa2juig0z5Mko7MEoI39GRUGccY12Ywl0vetmc85NjE05JYGhf5wd9jew4VInEd7SN5LbUlF6ECNeESjCz1TRwLEIBUWzPaqaMFh5CZTU8Z6Lh5Y6Huc78CgvzPehcIfVkxn8&amp;cce=2&amp;category=acrcp_v1_71&amp;sig=AOD64_259igoIVYsV8D_19ZITjgb8HFEmA&amp;q=&amp;nis=4&amp;ved=2ahUKEwiIuf3siPyVAxWPTKQEHcqSLKoQh78CegQIWxAB&amp;adurl=",
+      "displayed_link": "https://www.bluehost.com ",
+      "description": "Power your website with reliable, secure hosting - trusted by millions for peace of...",
+      "source": "Bluehost"
+    }
+  ]
+};

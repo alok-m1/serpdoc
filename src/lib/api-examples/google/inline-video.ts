@@ -1,1 +1,32 @@
-export const inline_video='{"inline_videos":[{"title":"HOW TO MAKE BREAD // STEP BY STEP INSTRUCTIONS ... YouTube ·  Sheri Hemingway  23 minutes, 30 secondsNov 20, 2020 ","source":"YouTube","channel":" ·  Sheri Hemingway","url":"#fpstate=ive&vld=cid:dae2020e,vid:wh3cs85ow1A","date":"Nov 20, 2020"},{"title":"How To Make Bread, Step By Step Instructions YouTube ·  Grandma and Grandpa Griffiths  20 minutes, 44 secondsJun 17, 2019 ","source":"YouTube","channel":" ·  Grandma and Grandpa Griffiths","url":"#fpstate=ive&vld=cid:3240e2fb,vid:MVb1Tfsdcr0","date":"Jun 17, 2019"},{"title":"How to Make Bread with Step by Step Instructions - Easy ... YouTube ·  Mary&apos;s Nest  24 minutes, 31 secondsMay 14, 2020 ","source":"YouTube","channel":" ·  Mary&apos;s Nest","url":"#fpstate=ive&vld=cid:ee5b83cf,vid:U6dw28UtSHw","date":"May 14, 2020"}]}'
+export const inline_video = {
+  "inline_videos": [
+    {
+      "title": "The Easiest Way to Build Android Apps (Beginner&#39;s Tutorial) ",
+      "source": "YouTube",
+      "channel": "The Cutting Edge School",
+      "date": "2 days ago",
+      "url": "https://www.youtube.com/watch?v=9BRlhyAlvEU"
+    },
+    {
+      "title": "How To Build An App In 2026 (Complete Guide) ",
+      "source": "YouTube",
+      "channel": "Chris Raroque",
+      "date": "Jan 15, 2026",
+      "url": "https://www.youtube.com/watch?v=cXIWx1eYA9w"
+    },
+    {
+      "title": "How to Make an App in 8 Days (2025 Full Tutorial) ",
+      "source": "YouTube",
+      "channel": "CodeWithChris",
+      "date": "Dec 12, 2024",
+      "url": "https://www.youtube.com/watch?v=uvLUJev1F20"
+    },
+    {
+      "title": "How to Make an App for Beginners - 2025 Roadmap ",
+      "source": "YouTube",
+      "channel": "Flutter Mapp",
+      "date": "Apr 21, 2025",
+      "url": "https://www.youtube.com/watch?v=KiLdMEtZdBQ"
+    }
+  ]
+};

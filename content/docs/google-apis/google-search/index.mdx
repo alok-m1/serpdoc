@@ -2,7 +2,11 @@
 title: Google Search API
 description: Access Google's search results in real time, providing relevant web pages and search listings.
 ---
-import { googleWebSearchResponse } from '@/lib/api-examples/googleWebSearch';
+import {
+  googleSearchApiJsonResponse,
+  googleSearchApiHtmlResponse,
+  googleSearchApiMarkdownResponse,
+} from '@/lib/api-examples/google/google-search-api';
 
 Access Google's search results in real time, providing relevant web pages, search listings, and content from across the internet.
 
@@ -52,13 +56,17 @@ Access Google's search results in real time, providing relevant web pages, searc
 
 <ApiExample
   endpoint="https://api.serphouse.com/google-web"
-  query="Fresh Bagels"
+  query="how to create app"
   params='{"device": "desktop", "loc": "New York,United States"}'
 />
 
 ## Example Response
 
-<ApiExample mode="response" response={googleWebSearchResponse} />
+<ApiExample mode="response">
+  <ApiTab label="JSON" response={googleSearchApiJsonResponse} />
+  <ApiTab label="HTML" response={googleSearchApiHtmlResponse} lang="html" />
+  <ApiTab label="Markdown" response={googleSearchApiMarkdownResponse} lang="markdown" />
+</ApiExample>
 
 
 ## Related Links

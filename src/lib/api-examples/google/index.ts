@@ -12,3 +12,8 @@ export { People_also_ask } from "./people-also-ask";
 export { related_search } from "./related_search";
 export { top_stories } from "./top-story";
 export { inline_shopping } from "./inline_shopping";
+export {
+  googleSearchApiJsonResponse,
+  googleSearchApiHtmlResponse,
+  googleSearchApiMarkdownResponse,
+} from "./google-search-api";
