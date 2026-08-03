@@ -1,0 +1,230 @@
+---
+title: FAQ
+description: People frequently ask these questions as well.
+icon: CircleQuestionMark
+---
+
+import {
+  FaqAccordion,
+  FaqItem,
+  FaqTrigger,
+  FaqContent,
+} from "@/components/ui/faq-accordion";
+
+## Frequently asked questions
+
+<FaqAccordion defaultValue={["first-api-request"]}>
+
+  <FaqItem value="first-api-request" index={0}>
+    <FaqTrigger>
+      How do I register, authenticate, and make my first API request?
+    </FaqTrigger>
+    <FaqContent>
+      **1. Register** at [serphouse.com](https://serphouse.com) and confirm the
+      email link sent to your inbox. Only one account is allowed per user — if
+      you need extra testing credits, contact support instead of creating
+      duplicates.
+
+      **2. Get your API key** — it appears on your account dashboard once your
+      email is confirmed. Keep it secret and never commit it to public scripts.
+
+      **3. Authenticate.** Send your key as a `Bearer` token in the
+      `Authorization` header of every request, or pass `api_token=<YOUR_API_KEY>`
+      as a query string:
+
+      ```http
+      POST /serp/live HTTP/1.1
+      Host: api.serphouse.com
+      Authorization: Bearer <YOUR_API_KEY>
+      Content-Type: application/json
+      ```
+
+      **4. Minimal live request:**
+
+      ```bash
+      curl -X POST "https://api.serphouse.com/serp/live" \
+        -H "Authorization: Bearer <YOUR_API_KEY>" \
+        -H "Content-Type: application/json" \
+        -d '{"q": "coffee", "domain": "google.com", "lang": "en", "device": "desktop", "serp_type": "web", "loc": "Alba,Texas,United States"}'
+      ```
+
+      A `200` status means success and returns SERP data in the `results` field.
+      See [Getting Started](/getting-started) and
+      [Live (HTTP POST)](/extra-apis/live-http-post) for full field tables.
+    </FaqContent>
+  </FaqItem>
+
+  <FaqItem value="endpoints-and-fields" index={1}>
+    <FaqTrigger>Where are the endpoints, payload fields, docs, and code examples?</FaqTrigger>
+    <FaqContent>
+      Everything lives in this docs site:
+
+      - **Endpoints** — [Getting Started](/getting-started), [Google](/google-apis), [Bing](/bing-apis), [Yahoo](/yahoo-apis), [Extra APIs](/extra-apis)
+      - **Fields** — every page documents required parameters (marked with an asterisk) and shows sample responses
+      - **Examples** — interactive snippets per page, plus [Node.js](/node.js-sdk), [PHP](/php-sdk), and [Python](/python-sdk) SDKs
+
+      | Endpoint                    | Purpose                        |
+      | --------------------------- | ------------------------------ |
+      | `POST` / `GET` / `serp/live` | Real-time search               |
+      | `POST /serp/schedule`        | Queue delayed / batch tasks    |
+      | `GET /serp/check?id=`        | Check task status              |
+      | `GET /serp/get?id=`          | Retrieve task results          |
+      | `GET /account/info`          | Plan and credit usage          |
+      | `GET /location/search`       | Look up locations / `loc_id`   |
+      | `GET /language/list/{type}`  | List supported languages       |
+      | `GET /domain/list`           | List supported domains         |
+    </FaqContent>
+  </FaqItem>
+
+  <FaqItem value="credits-and-pricing" index={2}>
+    <FaqTrigger>How do credits, plans, trial allowances, and rate limits work?</FaqTrigger>
+    <FaqContent>
+      Credits are charged **only on successful responses** — failed requests,
+      retries, and blocks are free.
+
+      | Serp type         | Free       | Basic       | Regular     | Custom  |
+      | ----------------- | :--------: | :---------: | :---------: | :-----: |
+      | Price             | $0 / month | $29.99      | $49.99      | Custom  |
+      | API credits       | 4,000      | 400,000     | 800,000     | Custom  |
+      | SERP / 1k          | —          | $0.75       | $0.62       | Custom  |
+      | Autocomplete / 1k | —          | $0.37       | $0.31       | Custom  |
+      | Top 100 SERP / 1k | —          | $7.50       | $6.25       | Custom  |
+
+      - **Rate limit** is **60 req/min** on Free, Basic, and Regular plans (Custom scales as needed)
+      - Credits **do not** roll over month to month
+      - Running out of credits returns a **`402`** response
+      - Custom plans scale credits, rate limits, and pricing to your volume — contact support
+      - Check usage anytime with [Account Info](/extra-apis/account-info)
+    </FaqContent>
+  </FaqItem>
+
+  <FaqItem value="live-vs-scheduled" index={3}>
+    <FaqTrigger>What is the difference between live, scheduled, and batch requests?</FaqTrigger>
+    <FaqContent>
+      - **Live** — synchronous. Results come back in the same HTTP response. Best for dashboards and single lookups (available over `GET` & `POST`).
+      - **Scheduled / delayed** — asynchronous. Submit with `POST /serp/schedule`, then poll [Check SERP Status](/extra-apis/check-serp-status) and fetch with [Get SERP Result](/extra-apis/get-serp-result).
+      - **Batch** — up to **100 keywords** per scheduled request, optionally delivering via `postback_url` / `pingback_url`.
+
+      |            | Scheduled        |  Live            |
+      | ---------- | :-----:          | :----:           |
+      | Model      | Polling         | Immediate        |
+      | Task IDs   | Persistent      | N/A              |
+      | HTTP       | POST            | GET & POST       |
+      | Throughput | Built-in queuing | Per-minute throttle |
+
+      Full comparison: [About SERPHouse](/about-the-serp-api).
+    </FaqContent>
+  </FaqItem>
+
+  <FaqItem value="webhooks-pingbacks-postbacks" index={4}>
+    <FaqTrigger>How do webhooks, pingbacks, and postbacks work, and what about retries?</FaqTrigger>
+    <FaqContent>
+      Delayed jobs complete **as capacity allows** — there is no fixed completion SLA. Notifications beat polling:
+
+      - **Pingback** — an HTTP `GET` to your `pingback_url` when results are ready (then fetch them with Get SERP Result)
+      - **Postback** — an HTTP `POST` with JSON results to your `postback_url`
+      - **Webhooks** — configure on the [Webhook](/webhook) page, with retries at **0s**, **100s**, **1,000s**, and **1,800s** (4 failures = permanent fail)
+
+      SERPHouse uses **at-least-once** delivery, so your endpoint may get the same event multiple times. Deduplicate with the `x-serphouse-task-id` header. If your server doesn't respond within **5 seconds** the delivery is treated as failed and resent.
+
+      Payloads are signed with HMAC-SHA256 in the `x-serphouse-signature` header — validate it to confirm the request really came from SERPHouse.
+    </FaqContent>
+  </FaqItem>
+
+  <FaqItem value="errors-and-stuck-tasks" index={5}>
+    <FaqTrigger>Why did my request time out, error out, or return empty or stuck results?</FaqTrigger>
+    <FaqContent>
+      | Code | Meaning                       |
+      | ---- | ----------------------------- |
+      | 200  | Success (SERP in `results`)     |
+      | 400  | Invalid body / validation error |
+      | 401  | Bad or missing API key          |
+      | 402  | Insufficient credits            |
+      | 404  | Invalid SERP ID / endpoint  |
+      | 405  | Method not allowed              |
+      | 429  | Rate limit — slow down        |
+      | 500  | Internal server error           |
+
+      - A `200` with `"msg": "Please try again"` is a momentary failure — retry after a short wait
+      - Scheduled tasks: poll `/serp/check` until status is `Completed`, then call `/serp/get` to fetch results
+      - Empty results usually mean the task is still processing or the engine returned nothing
+      - If a task id seems stuck, re-check after a few minutes before contacting support
+      - Permanently-failed webhooks can always be fetched manually with the Get SERP Result API
+    </FaqContent>
+  </FaqItem>
+
+  <FaqItem value="results-and-pagination" index={6}>
+    <FaqTrigger>How many results return, how does pagination work, and why do result types differ?</FaqTrigger>
+    <FaqContent>
+      - **Live / single-request** — default **10 results per page**, maximum `num_result` is **10**
+      - **Pagination** — use the `page` parameter (`1`, `2`, …), each page is a separate request
+      - **Top 100** — the [Google Top 100](/google-apis/google-serp-top-100-results) endpoint fetches up to **100 results** across pages with `max_pages` (1 page ≈ 10 results, each page costs 10 credits)
+      - **`serp_type`** shapes the response:
+        - `web` — organic results, ads, knowledge panels, related searches
+        - `news` — source and published date
+        - `image` — image URLs and thumbnails
+        - `shop` — price, rating, and shop
+      - Different result types expose different fields, so the response shape varies by `serp_type` — likewise `verbatim`, `gfilter`, and `date_range` affect what comes back
+    </FaqContent>
+  </FaqItem>
+
+</FaqAccordion>
+
+## More questions
+
+<FaqAccordion defaultValue={[]}>
+
+  <FaqItem value="account-verification-and-captcha" index={0}>
+    <FaqTrigger>How do I verify my account, get my key, or get past signup or CAPTCHA problems?</FaqTrigger>
+    <FaqContent>
+      - **Verify** — click the confirmation link emailed after signup at [serphouse.com](https://serphouse.com)
+      - **API key** — shown on your dashboard once your email is confirmed
+      - **One account per user** — request extra testing credits from support instead of creating duplicates
+      - **CAPTCHAs** — handled entirely by SERPHouse; you never solve or forward them
+      - **No email?** Check spam, then contact support
+    </FaqContent>
+  </FaqItem>
+
+  <FaqItem value="billing-invoices-tax" index={1}>
+    <FaqTrigger>How do I update billing, get invoices, or set tax / VAT details?</FaqTrigger>
+    <FaqContent>
+      Manage payment methods, invoices, and tax/VAT information from the **billing section** of your dashboard. Invoices are generated each billing cycle.
+
+      For tax registration changes, invoice address updates, or custom billing arrangements, contact support.
+    </FaqContent>
+  </FaqItem>
+
+  <FaqItem value="cancel-subscription" index={2}>
+    <FaqTrigger>How do I cancel or unsubscribe from a plan?</FaqTrigger>
+    <FaqContent>
+      Cancel anytime from the **billing section** of your dashboard — the plan stays active until the end of the current period.
+
+      After cancelling or downgrading, running out of credits returns a `402`. Contact support for plan migrations or custom contracts.
+    </FaqContent>
+  </FaqItem>
+
+  <FaqItem value="locations-languages-devices" index={3}>
+    <FaqTrigger>Which locations, languages, devices, and search settings are supported?</FaqTrigger>
+    <FaqContent>
+      - **Locations** — [Locations List](/extra-apis/locations-list) or the CSV files ([Google](https://serphouse-space.nyc3.digitaloceanspaces.com/google_locations.csv), [Bing](https://serphouse-space.nyc3.digitaloceanspaces.com/bing_locations.csv)). Pass `loc` or `loc_id`.
+      - **Languages** — [Languages List](/extra-apis/languages-list); pass codes like `en`, `fr`
+      - **Devices** — `desktop` or `mobile`
+      - **Domains** — [Domains List](/extra-apis/domains-list) for Google, Bing, and Yahoo
+      - **Settings** — `verbatim`, `gfilter`, `page`, `num_result`, `date_range` (`h`/`d`/`w`/`m`/`y` or `YYYY-MM-DD,YYYY-MM-DD`)
+    </FaqContent>
+  </FaqItem>
+
+  <FaqItem value="sheets-and-export" index={4}>
+    <FaqTrigger>Can I connect the API to Google Sheets or other export workflows?</FaqTrigger>
+    <FaqContent>
+      Yes — the API is plain HTTP:
+
+      - **Google Sheets** — use Apps Script + `UrlFetchApp` with a `Bearer` header (`IMPORTDATA` can't send headers)
+      - **Excel / Power Query** — call the live `GET` endpoint and parse the returned JSON
+      - **Pipelines** — scheduled tasks, webhooks, or the SDKs ([Node.js](/node.js-sdk), [PHP](/php-sdk), [Python](/python-sdk))
+
+      Never hardcode your API key in a shared sheet or a public script.
+    </FaqContent>
+  </FaqItem>
+
+</FaqAccordion>

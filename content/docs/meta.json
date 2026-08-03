@@ -24,7 +24,7 @@
     "(agent-harnesses)/opencode",
     "(agent-harnesses)/vs-code",
     "(agent-harnesses)/smithery",
-     "(agent-harnesses)/open-web-ui",
+    "(agent-harnesses)/open-web-ui",
 
     "--- Personal Agents ---",
     "(personal-agents)/hermes",
@@ -36,7 +36,8 @@
     "llamaindex",
 
     "--- Contribute ---",
-    "contributing"
-
+    "contributing",
+    "--- People Ask for---",
+    "faq"
   ]
 }

@@ -1,4 +1,5 @@
 import type { FC, SVGProps } from "react";
+import { CircleQuestionMark } from "lucide-react";
 import {
   LangChainIcon,
   LlamaIndexIcon,
@@ -24,7 +25,7 @@ import {
   PhpIcon,
   OpenWebUI,
   HermesIcon,
-  OpenClawIcon
+  OpenClawIcon,
 } from "./brand";
 
 export {
@@ -52,7 +53,7 @@ export {
   PhpIcon,
   OpenWebUI,
   HermesIcon,
-  OpenClawIcon
+  OpenClawIcon,
 };
 
 export const brandIcons: Record<string, FC<SVGProps<SVGSVGElement>>> = {
@@ -78,7 +79,8 @@ export const brandIcons: Record<string, FC<SVGProps<SVGSVGElement>>> = {
   AgentSkills: AgentSkillsIcon,
   Nodejs: Nodejs,
   Php: PhpIcon,
-  OpenWebUI:OpenWebUI,
+  OpenWebUI: OpenWebUI,
   Hermes: HermesIcon,
-  OpenClaw: OpenClawIcon
+  OpenClaw: OpenClawIcon,
+  CircleQuestionMark,
 };
