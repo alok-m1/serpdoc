@@ -1,73 +1,75 @@
-export const googleLiteWebSearchResponse = {
+const jsonResponse = {
   "status": "success",
   "msg": "Completed",
   "results": {
     "search_parameters": {
-      "q": "AI coding assistant"
+      "q": "Best ai tools"
     },
     "results": {
       "organic": [
         {
-          "title": "8 Best AI Coding Assistants [Updated May 2026]",
-          "site_title": "Augment Code",
-          "link": "https://www.augmentcode.com/tools/8-top-ai-coding-assistants-and-their-best-use-cases",
-          "snippet": "8 Best AI Coding Assistants [Updated May 2026] · 1. Augment Code · 2. Cursor · 3. GitHub Copilot · 4. Amazon Q Developer · 5. JetBrains AI Assistant."
+          "title": "What are the best AI tools by category? : r/AI_Agents",
+          "site_title": "Reddit&nbsp;·&nbsp;r/AI_Agents",
+          "link": "https://www.reddit.com/r/AI_Agents/comments/1tzw7gx/what_are_the_best_ai_tools_by_category/",
+          "snippet": "Hey all, there are many AI hype out there, I’ve been trying a lot of stuff for my work and life. I would love to hear what you are leveraging and what ..."
         },
         {
-          "title": "AI Code",
-          "site_title": "DeepAI",
-          "link": "https://deepai.org/chat/ai-code",
-          "snippet": "An AI coding assistant designed to help with programming-related queries. Provides assistance by suggesting code snippets, debugging code, explaining ..."
+          "title": "15 best AI apps I can&#39;t live without in 2026 (free + paid)",
+          "site_title": "Gumloop",
+          "link": "https://www.gumloop.com/blog/best-ai-apps",
+          "snippet": "15 best AI apps and tools in 2026 (free + paid). Here are the best AI apps: Google Labs; Gumloop; Claude; Cursor; Higgsfield; Weavy; ElevenLabs ..."
         },
         {
-          "title": "Best AI assistant for coding right now? (Beginner who ...",
-          "site_title": "Reddit&nbsp;·&nbsp;r/vibecoding",
-          "link": "https://www.reddit.com/r/vibecoding/comments/1mqd4zx/best_ai_assistant_for_coding_right_now_beginner/",
-          "snippet": "(Edit: am looking and no problem with paid ai assistant for best results ) Hey everyone, I am sorry if this question have been asked many times before, ..."
+          "title": "The best AI productivity tools in 2026",
+          "site_title": "Zapier",
+          "link": "https://zapier.com/blog/best-ai-productivity-tools/",
+          "snippet": "The best AI productivity tools in 2026 · Zapier · ChatGPT · Claude · Meta AI · Zapier · Botpress · Perplexity · Komo. Komo, one of the best AI ..."
         },
         {
-          "title": "I Tested Every AI Coding Assistant: Here&#39;s What Actually ...",
-          "site_title": "Stackademic",
-          "link": "https://blog.stackademic.com/i-tested-every-ai-coding-assistant-heres-what-actually-works-a87b50c78852",
-          "snippet": "Cursor wins on speed, but Copilot had fewer bugs in the generated code. I spent 8 extra minutes debugging Cursor&apos;s suggestions vs 3 minutes with ..."
+          "title": "10 Best AI Platforms Reviewed in 2026",
+          "site_title": "People Managing People",
+          "link": "https://peoplemanagingpeople.com/tools/best-ai-platforms/",
+          "snippet": "Discover the top AI platforms and find the best option for your team. Compare features, pros &amp; cons, prices, and more in my complete guide."
         },
         {
-          "title": "Gemini Code Assist",
-          "site_title": "codeassist.google",
-          "link": "https://codeassist.google/products/business",
-          "snippet": "Secure generative AI coding assistance and agents to help you with tasks across the Software Development Lifecycle."
+          "title": "12 Best AI Tools (2026): Ranked &amp; Reviewed",
+          "site_title": "Efficient App",
+          "link": "https://efficient.app/best/ai",
+          "snippet": "As of 2026, ChatGPT is the best overall AI tool for most people. It's the most versatile, has the best memory features, and works well for ..."
         },
         {
-          "title": "Code Assist",
-          "site_title": "Oracle",
-          "link": "https://www.oracle.com/application-development/code-assist/",
-          "snippet": "Oracle Code Assist is an AI code companion to boost developer velocity, enhance code consistency, and is optimized for Java, SuiteScript, PL/SQL, and ..."
+          "title": "AI Tool Comparison",
+          "site_title": "Harvard University Information Technology",
+          "link": "https://www.huit.harvard.edu/ai/tools",
+          "snippet": "Compare by feature ; AI Sandbox. Free for eligible users. ✓ ; Google Gemini (Basic). Free for Harvard Google Workspace users ; Microsoft Copilot (Basic). Free for ..."
         },
         {
-          "title": "CodeGPT - AI Coding Assistant with Your Own API Key",
-          "site_title": "CodeGPT",
-          "link": "https://codegpt.co/",
-          "snippet": "CodeGPT empowers developers and businesses to build and deploy AI coding agents securely and flexibly. It integrates directly into Visual Studio Code with a ..."
+          "title": "The Only AI Tools You Need (12-Minute Guide)",
+          "site_title": "YouTube&nbsp;·&nbsp;Jeff Su",
+          "link": "https://www.youtube.com/watch?v=htZRCE2GgIs",
+          "snippet": "Every AI tool excels at one thing. #Gemini handles video, audio, and massive files other models can't process. #Claude produces working code. ..."
         },
         {
-          "title": "The Best AI Coding Assistants: 20 Tools Reviewed for 2026",
-          "site_title": "Axify",
-          "link": "https://axify.io/blog/the-best-ai-coding-assistants-a-full-comparison-of-20-tools",
-          "snippet": "An AI coding assistant is a tool that helps you generate code. It interprets your natural language prompts and offers you intelligent code ..."
+          "title": "10+ Free AI tools for 2026",
+          "site_title": "Google Cloud",
+          "link": "https://cloud.google.com/use-cases/free-ai-tools",
+          "snippet": "Google Cloud offers free usage of many AI products up to monthly limits, including Translation, Speech-to-Text, Natural Language, and Video Intelligence."
         },
         {
-          "title": "Best AI Coding Agents Summer 2025 - Martin ter Haak - Medium",
-          "site_title": "Medium&nbsp;·&nbsp;Martin ter Haak",
-          "link": "https://martinterhaak.medium.com/best-ai-coding-agents-summer-2025-c4d20cd0c846",
-          "snippet": "Out of all AI tools, I found Windsurf to be the best at helping you write code quickly. Its suggestions save you lots of clicking and typing ( ..."
+          "title": "I tried 70+ best AI tools in 2026",
+          "site_title": "TechRadar",
+          "link": "https://www.techradar.com/best/best-ai-tools",
+          "snippet": "I tried 70+ best AI tools in 2026 · 1. Chat GPT · 2. Google Gemini · 3. Grok AI · 1. Wix · 2. Hostinger · 3. GoDaddy · 1. Google Imagen · 2."
         },
         {
-          "title": "We Tier Ranked Every AI Coding Assistant",
-          "site_title": "YouTube&nbsp;·&nbsp;Syntax",
-          "link": "https://www.youtube.com/watch?v=tCGju2JB5Fw",
-          "snippet": "We put today&apos;s biggest AI coding assistants to the test, Copilot, Cursor, Claude, bolt.new, v0, and more, and ranked them from S-tier to ..."
+          "title": "The Best AI Tools for 2026",
+          "site_title": "Medium&nbsp;·&nbsp;The PyCoach",
+          "link": "https://medium.com/artificial-corner/the-best-ai-tools-for-2026-933535a44f8b",
+          "snippet": "Without a doubt, ChatGPT, Gemini, and Claude are the best AI tools to date. They can provide answers to your everyday questions, do web searches ..."
         }
       ]
     }
   }
 } as const;
+
+export const googleLiteWebSearchJsonResponse = jsonResponse as Record<string, unknown>;

@@ -1,273 +1,281 @@
-export const googleWebSearchResponse = {
-  "status": "success",
-  "msg": "Completed",
-  "results": {
-    "search_metadata": {
-      "id": 246222307,
-      "status": "success",
-      "created_at": "2026-06-18T04:23:38.000000Z",
-      "processed_at": "2026-06-18 04:23:38"
+export const googleWebSearchJsonResponse = {
+  status: "success",
+  msg: "Completed",
+  results: {
+    search_metadata: {
+      id: 246222307,
+      status: "success",
+      created_at: "2026-06-18T04:23:38.000000Z",
+      processed_at: "2026-06-18 04:23:38",
     },
-    "search_parameters": {
-      "domain": "google.com",
-      "lang": "en",
-      "country": "US",
-      "location": "New York,United States",
-      "q": "Fresh Bagels",
-      "device": "desktop",
-      "url": "https://www.google.com/search?q=Fresh+Bagels&uule=w+CAIQICIWTmV3IFlvcmssVW5pdGVkIFN0YXRlcw==&hl=en&gl=US&ie=UTF-8",
-      "page": "1",
-      "num": 10,
-      "ie": "UTF-8"
+    search_parameters: {
+      domain: "google.com",
+      lang: "en",
+      country: "US",
+      location: "New York,United States",
+      q: "Fresh Bagels",
+      device: "desktop",
+      url: "https://www.google.com/search?q=Fresh+Bagels&uule=w+CAIQICIWTmV3IFlvcmssVW5pdGVkIFN0YXRlcw==&hl=en&gl=US&ie=UTF-8",
+      page: "1",
+      num: 10,
+      ie: "UTF-8",
     },
-    "results": {
-      "search_information": [
+    results: {
+      search_information: [
         {
-          "total_results": "166",
-          "time_taken_displayed": "0.27"
-        }
+          total_results: "166",
+          time_taken_displayed: "0.27",
+        },
       ],
-      "local_pack": [
+      local_pack: [
         {
-          "position": 1,
-          "title": "Tribeca Bagels",
-          "rating": "3.9",
-          "reviews_count": "(466)",
-          "type": "Bagel shop",
-          "address": "374 Canal St",
-          "open_state": "        \"The roll was fresh and the portion of bacon and egg was generous.\"  ",
-          "url": "https://www.google.com/searchviewer/10?sca_esv=753862decbe9c4a6&hl=en&gl=US&output=search&svid=CAwSGxIZCgNwdnESEkNnc3ZaeTh4ZEdOM09USjBZZxgK&lqi=CgxGcmVzaCBCYWdlbHNIqpbSveWAgIAIWhQQABABGAEiDGZyZXNoIGJhZ2Vsc5IBCmJhZ2VsX3Nob3CaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVUkVkMlZNVG5kM1JSQUK6AQgKBkJhZ2Vsc-ABAPoBBQiRAhBB&phdesc=RQGuBcENEVY",
-          "website": null,
-          "map_url": null
+          position: 1,
+          title: "Tribeca Bagels",
+          rating: "3.9",
+          reviews_count: "(466)",
+          type: "Bagel shop",
+          address: "374 Canal St",
+          open_state:
+            '        "The roll was fresh and the portion of bacon and egg was generous."  ',
+          url: "https://www.google.com/searchviewer/10?sca_esv=753862decbe9c4a6&hl=en&gl=US&output=search&svid=CAwSGxIZCgNwdnESEkNnc3ZaeTh4ZEdOM09USjBZZxgK&lqi=CgxGcmVzaCBCYWdlbHNIqpbSveWAgIAIWhQQABABGAEiDGZyZXNoIGJhZ2Vsc5IBCmJhZ2VsX3Nob3CaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVUkVkMlZNVG5kM1JSQUK6AQgKBkJhZ2Vsc-ABAPoBBQiRAhBB&phdesc=RQGuBcENEVY",
+          website: null,
+          map_url: null,
         },
         {
-          "position": 2,
-          "title": "Lamar&apos;s Bagel Express",
-          "rating": "4.9",
-          "reviews_count": "(185)",
-          "type": "Bagel shop",
-          "address": "197 Madison St",
-          "open_state": "        \"The staff are friendly, the place is clean, and the food is always fresh.\"  ",
-          "url": "https://www.google.com/searchviewer/10?sca_esv=753862decbe9c4a6&hl=en&gl=US&output=search&svid=CAwSHRIbCgNwdnESFENnMHZaeTh4TVdOdVpHSXhiRGw2GAo&lqi=CgxGcmVzaCBCYWdlbHNIvpKDxdGrgIAIWhQQABABGAEiDGZyZXNoIGJhZ2Vsc5IBCmJhZ2VsX3Nob3CaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMjFhZFU5WGFFMVZWVFZxVjIxb2EwNVZjRTVVTUdSU1RVUlNNbVJGUlJBQroBCAoGQmFnZWxz4AEA-gEECBwQSQ&phdesc=d9uQP4vcBp4",
-          "website": null,
-          "map_url": null
+          position: 2,
+          title: "Lamar&apos;s Bagel Express",
+          rating: "4.9",
+          reviews_count: "(185)",
+          type: "Bagel shop",
+          address: "197 Madison St",
+          open_state:
+            '        "The staff are friendly, the place is clean, and the food is always fresh."  ',
+          url: "https://www.google.com/searchviewer/10?sca_esv=753862decbe9c4a6&hl=en&gl=US&output=search&svid=CAwSHRIbCgNwdnESFENnMHZaeTh4TVdOdVpHSXhiRGw2GAo&lqi=CgxGcmVzaCBCYWdlbHNIvpKDxdGrgIAIWhQQABABGAEiDGZyZXNoIGJhZ2Vsc5IBCmJhZ2VsX3Nob3CaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMjFhZFU5WGFFMVZWVFZxVjIxb2EwNVZjRTVVTUdSU1RVUlNNbVJGUlJBQroBCAoGQmFnZWxz4AEA-gEECBwQSQ&phdesc=d9uQP4vcBp4",
+          website: null,
+          map_url: null,
         },
         {
-          "position": 3,
-          "title": "Liberty Bagels NOHO SOHO",
-          "rating": "4.8",
-          "reviews_count": "(111)",
-          "type": "Bagel shop",
-          "address": "650 Broadway",
-          "open_state": "Closed  · Opens 7 AM ",
-          "url": "https://www.google.com/searchviewer/10?sca_esv=753862decbe9c4a6&hl=en&gl=US&output=search&svid=CAwSHRIbCgNwdnESFENnMHZaeTh4TVc1aWFEZHJOSFp5GAo&lqi=CgxGcmVzaCBCYWdlbHNI16bi86m0gIAIWhQQABABGAEiDGZyZXNoIGJhZ2Vsc5IBCmJhZ2VsX3Nob3C6AQgKBkJhZ2Vsc-ABAA&phdesc=QfHs2ruOfYA",
-          "website": null,
-          "map_url": null
-        }
+          position: 3,
+          title: "Liberty Bagels NOHO SOHO",
+          rating: "4.8",
+          reviews_count: "(111)",
+          type: "Bagel shop",
+          address: "650 Broadway",
+          open_state: "Closed  · Opens 7 AM ",
+          url: "https://www.google.com/searchviewer/10?sca_esv=753862decbe9c4a6&hl=en&gl=US&output=search&svid=CAwSHRIbCgNwdnESFENnMHZaeTh4TVc1aWFEZHJOSFp5GAo&lqi=CgxGcmVzaCBCYWdlbHNI16bi86m0gIAIWhQQABABGAEiDGZyZXNoIGJhZ2Vsc5IBCmJhZ2VsX3Nob3C6AQgKBkJhZ2Vsc-ABAA&phdesc=QfHs2ruOfYA",
+          website: null,
+          map_url: null,
+        },
       ],
-      "inline_shopping": [
+      inline_shopping: [
         {
-          "rank": 1,
-          "title": "Rainbow Bagels",
-          "link": null,
-          "image": "src:BASE64",
-          "price": "$32.95",
-          "rating": "Rated 4.2 out of 5,",
-          "shop": "Cozy Farm"
+          rank: 1,
+          title: "Rainbow Bagels",
+          link: null,
+          image: "src:BASE64",
+          price: "$32.95",
+          rating: "Rated 4.2 out of 5,",
+          shop: "Cozy Farm",
         },
         {
-          "rank": 2,
-          "title": "Fresh New York City Bagels",
-          "link": null,
-          "image": "src:BASE64",
-          "price": "$49.00",
-          "rating": "Rated 4.8 out of 5,",
-          "shop": "New Yorker Bagels"
+          rank: 2,
+          title: "Fresh New York City Bagels",
+          link: null,
+          image: "src:BASE64",
+          price: "$49.00",
+          rating: "Rated 4.8 out of 5,",
+          shop: "New Yorker Bagels",
         },
         {
-          "rank": 3,
-          "title": "Freshly Baked Bagels",
-          "link": null,
-          "image": "src:BASE64",
-          "price": "$3.47",
-          "rating": null,
-          "shop": "Madretierra"
+          rank: 3,
+          title: "Freshly Baked Bagels",
+          link: null,
+          image: "src:BASE64",
+          price: "$3.47",
+          rating: null,
+          shop: "Madretierra",
         },
         {
-          "rank": 4,
-          "title": "National Brand Fresh Bagels",
-          "link": null,
-          "image": "src:BASE64",
-          "price": "$15.79",
-          "rating": "Rated 2.0 out of 5,",
-          "shop": "Staples"
+          rank: 4,
+          title: "National Brand Fresh Bagels",
+          link: null,
+          image: "src:BASE64",
+          price: "$15.79",
+          rating: "Rated 2.0 out of 5,",
+          shop: "Staples",
         },
         {
-          "rank": 5,
-          "title": "New York Plain Bagels",
-          "link": null,
-          "image": "src:BASE64",
-          "price": "$32.95",
-          "rating": "Rated 4.8 out of 5,",
-          "shop": "New Yorker Bagels"
+          rank: 5,
+          title: "New York Plain Bagels",
+          link: null,
+          image: "src:BASE64",
+          price: "$32.95",
+          rating: "Rated 4.8 out of 5,",
+          shop: "New Yorker Bagels",
         },
         {
-          "rank": 6,
-          "title": "Roche Bros. Fresh Baked Loose Bagels",
-          "link": null,
-          "image": "src:BASE64",
-          "price": "$1.39",
-          "rating": null,
-          "shop": "Instacart"
+          rank: 6,
+          title: "Roche Bros. Fresh Baked Loose Bagels",
+          link: null,
+          image: "src:BASE64",
+          price: "$1.39",
+          rating: null,
+          shop: "Instacart",
         },
         {
-          "rank": 7,
-          "title": "New Yorker Bagels Sesame Bagels",
-          "link": null,
-          "image": "src:BASE64",
-          "price": "$32.95",
-          "rating": "Rated 4.7 out of 5,",
-          "shop": "New Yorker Bagels"
+          rank: 7,
+          title: "New Yorker Bagels Sesame Bagels",
+          link: null,
+          image: "src:BASE64",
+          price: "$32.95",
+          rating: "Rated 4.7 out of 5,",
+          shop: "New Yorker Bagels",
         },
         {
-          "rank": 8,
-          "title": "New Yorker Bagels Everything Bagels",
-          "link": null,
-          "image": "src:BASE64",
-          "price": "$32.95",
-          "rating": "Rated 4.7 out of 5,",
-          "shop": "New Yorker Bagels"
-        }
+          rank: 8,
+          title: "New Yorker Bagels Everything Bagels",
+          link: null,
+          image: "src:BASE64",
+          price: "$32.95",
+          rating: "Rated 4.7 out of 5,",
+          shop: "New Yorker Bagels",
+        },
       ],
-      "organic": [
+      organic: [
         {
-          "position": 1,
-          "site_title": "New Yorker Bagels",
-          "title": "New York Bagels - Free 2-Day Shipping - NYC",
-          "link": "https://www.newyorkerbagels.com/?srsltid=AfmBOoozmciWrqs82aJ_zagwwbXr9nrJodRi0Kn8FMbzE2aoU3t_pC7o",
-          "displayed_link": "https://www.newyorkerbagels.com",
-          "cached_page": null,
-          "snippet": "Authentic NYC bagels: Kosher, boiled &apos;n baked in New York City. FREE 2-day shipping."
+          position: 1,
+          site_title: "New Yorker Bagels",
+          title: "New York Bagels - Free 2-Day Shipping - NYC",
+          link: "https://www.newyorkerbagels.com/?srsltid=AfmBOoozmciWrqs82aJ_zagwwbXr9nrJodRi0Kn8FMbzE2aoU3t_pC7o",
+          displayed_link: "https://www.newyorkerbagels.com",
+          cached_page: null,
+          snippet:
+            "Authentic NYC bagels: Kosher, boiled &apos;n baked in New York City. FREE 2-day shipping.",
         },
         {
-          "position": 2,
-          "site_title": "Eater New York",
-          "title": "Best Bagels in New York City, According to Eater Editors",
-          "link": "https://ny.eater.com/maps/best-bagels-nyc",
-          "displayed_link": "https://ny.eater.com › maps › best-bagels-nyc ",
-          "cached_page": null,
-          "snippet": "Where to find the best bagels in New York City at the beg bagel shops like Apollo Bagels, Utopia Bagels, Hudson Bagel, and Murray&apos;s Bagels."
+          position: 2,
+          site_title: "Eater New York",
+          title: "Best Bagels in New York City, According to Eater Editors",
+          link: "https://ny.eater.com/maps/best-bagels-nyc",
+          displayed_link: "https://ny.eater.com › maps › best-bagels-nyc ",
+          cached_page: null,
+          snippet:
+            "Where to find the best bagels in New York City at the beg bagel shops like Apollo Bagels, Utopia Bagels, Hudson Bagel, and Murray&apos;s Bagels.",
         },
         {
-          "position": 3,
-          "site_title": "Yelp",
-          "title": "TOP 10 BEST Bagels in New York, NY - Updated 2026",
-          "link": "https://www.yelp.com/search?find_desc=Bagels&find_loc=New+York%2C+NY",
-          "displayed_link": "https://www.yelp.com › Food ",
-          "cached_page": null,
-          "snippet": "Top 10 Best Bagels Near New York, New York · 1. Ess-a-Bagel · 2. Best Bagel &amp; Coffee · 3. Russ &amp; Daughters · 4. Apollo Bagels · 5. Liberty Bagels Midtown · 6."
+          position: 3,
+          site_title: "Yelp",
+          title: "TOP 10 BEST Bagels in New York, NY - Updated 2026",
+          link: "https://www.yelp.com/search?find_desc=Bagels&find_loc=New+York%2C+NY",
+          displayed_link: "https://www.yelp.com › Food ",
+          cached_page: null,
+          snippet:
+            "Top 10 Best Bagels Near New York, New York · 1. Ess-a-Bagel · 2. Best Bagel &amp; Coffee · 3. Russ &amp; Daughters · 4. Apollo Bagels · 5. Liberty Bagels Midtown · 6.",
         },
         {
-          "position": 4,
-          "site_title": "Bergen Bagels",
-          "title": "Bergen Bagels - Brooklyn",
-          "link": "https://www.bergenbagels.com/",
-          "displayed_link": "https://www.bergenbagels.com",
-          "cached_page": null,
-          "snippet": "473 BERGEN ST. Bergen Bagels is always making fresh foods from scratch. From cooking bagels &apos;round the clock, to making our own fresh cream cheeses and muffins."
+          position: 4,
+          site_title: "Bergen Bagels",
+          title: "Bergen Bagels - Brooklyn",
+          link: "https://www.bergenbagels.com/",
+          displayed_link: "https://www.bergenbagels.com",
+          cached_page: null,
+          snippet:
+            "473 BERGEN ST. Bergen Bagels is always making fresh foods from scratch. From cooking bagels &apos;round the clock, to making our own fresh cream cheeses and muffins.",
         },
         {
-          "position": 5,
-          "site_title": "Substack&nbsp;·&nbsp;Kaitlyn Eats!",
-          "title": "My Top 10 NYC Bagels - by Kaitlyn Lavery",
-          "link": "https://kaitlynlavery.substack.com/p/my-top-10-nyc-bagels",
-          "displayed_link": "130+ likes  ·  1 year ago",
-          "cached_page": null,
-          "snippet": "A fresh bagel will be crispy on the outside and soft inside. Absolute is a well known shop. The bagels are fresh and the whole experience is ..."
+          position: 5,
+          site_title: "Substack&nbsp;·&nbsp;Kaitlyn Eats!",
+          title: "My Top 10 NYC Bagels - by Kaitlyn Lavery",
+          link: "https://kaitlynlavery.substack.com/p/my-top-10-nyc-bagels",
+          displayed_link: "130+ likes  ·  1 year ago",
+          cached_page: null,
+          snippet:
+            "A fresh bagel will be crispy on the outside and soft inside. Absolute is a well known shop. The bagels are fresh and the whole experience is ...",
         },
         {
-          "position": 6,
-          "site_title": "Just Bagels",
-          "title": "Just Bagels | New York Bagels Delivered To You - NYC",
-          "link": "https://justbagels.com/?srsltid=AfmBOoqXnhYdPUQ08FqL3qrcqYDiVyTz780etXJXdvSzX7ErLcq0fQEJ",
-          "displayed_link": "https://justbagels.com",
-          "cached_page": null,
-          "snippet": "Shop authentic NYC bagels shipped nationwide. Just Bagels brings you kettle-boiled, hearth-baked bagels made with premium ingredients for that classic ..."
+          position: 6,
+          site_title: "Just Bagels",
+          title: "Just Bagels | New York Bagels Delivered To You - NYC",
+          link: "https://justbagels.com/?srsltid=AfmBOoqXnhYdPUQ08FqL3qrcqYDiVyTz780etXJXdvSzX7ErLcq0fQEJ",
+          displayed_link: "https://justbagels.com",
+          cached_page: null,
+          snippet:
+            "Shop authentic NYC bagels shipped nationwide. Just Bagels brings you kettle-boiled, hearth-baked bagels made with premium ingredients for that classic ...",
         },
         {
-          "position": 7,
-          "site_title": "YouTube&nbsp;·&nbsp;PIX11 News",
-          "title": "Bo&apos;s Bagels | New York&apos;s Best Bagel",
-          "link": "https://www.youtube.com/watch?v=axv1aoY_ZjE",
-          "displayed_link": "180+ views  ·  12 hours ago",
-          "cached_page": null,
-          "snippet": "8:01  LOCATION: 235 W. 116th Street, Harlem in Manhattan with a second location in Ann Arbor, Michigan with eggs, bacon, sausage, scallion cream&nbsp;..."
+          position: 7,
+          site_title: "YouTube&nbsp;·&nbsp;PIX11 News",
+          title: "Bo&apos;s Bagels | New York&apos;s Best Bagel",
+          link: "https://www.youtube.com/watch?v=axv1aoY_ZjE",
+          displayed_link: "180+ views  ·  12 hours ago",
+          cached_page: null,
+          snippet:
+            "8:01  LOCATION: 235 W. 116th Street, Harlem in Manhattan with a second location in Ann Arbor, Michigan with eggs, bacon, sausage, scallion cream&nbsp;...",
         },
         {
-          "position": 8,
-          "site_title": "The Infatuation",
-          "title": "The 22 Best Bagels In New York City",
-          "link": "https://www.theinfatuation.com/new-york/guides/best-bagels-nyc",
-          "displayed_link": "https://www.theinfatuation.com › new-york › guides ",
-          "cached_page": null,
-          "snippet": "We&apos;re here to tell you about the best boiled and baked specimens: from shops that have been around for decades, as well as the contentious newcomers.",
-          "snippet_extension": [
-            "6 days ago"
-          ]
-        }
+          position: 8,
+          site_title: "The Infatuation",
+          title: "The 22 Best Bagels In New York City",
+          link: "https://www.theinfatuation.com/new-york/guides/best-bagels-nyc",
+          displayed_link: "https://www.theinfatuation.com › new-york › guides ",
+          cached_page: null,
+          snippet:
+            "We&apos;re here to tell you about the best boiled and baked specimens: from shops that have been around for decades, as well as the contentious newcomers.",
+          snippet_extension: ["6 days ago"],
+        },
       ],
-      "people_also_ask": [
+      people_also_ask: [
         {
-          "question": "What bagels are best for diabetics? ",
-          "answer": ""
+          question: "What bagels are best for diabetics? ",
+          answer: "",
         },
         {
-          "question": "Are fresh bagels healthy? ",
-          "answer": ""
+          question: "Are fresh bagels healthy? ",
+          answer: "",
         },
         {
-          "question": "Do bagels have folic acid? ",
-          "answer": ""
+          question: "Do bagels have folic acid? ",
+          answer: "",
         },
         {
-          "question": "Are fresh bagels better than store-bought? ",
-          "answer": ""
-        }
+          question: "Are fresh bagels better than store-bought? ",
+          answer: "",
+        },
       ],
-      "related_search": [
+      related_search: [
         {
-          "title": "fresh bagels near new york, ny  ",
-          "link": "https://www.google.com/search?sca_esv=753862decbe9c4a6&amp;hl=en&amp;gl=US&amp;q=fresh+bagels+near+new+york,+ny&amp;sa=X&amp;ved=2ahUKEwiRvofR-I-VAxWV38kDHZM2HOwQ1QJ6BAg7EAE"
+          title: "fresh bagels near new york, ny  ",
+          link: "https://www.google.com/search?sca_esv=753862decbe9c4a6&amp;hl=en&amp;gl=US&amp;q=fresh+bagels+near+new+york,+ny&amp;sa=X&amp;ved=2ahUKEwiRvofR-I-VAxWV38kDHZM2HOwQ1QJ6BAg7EAE",
         },
         {
-          "title": "Fresh bagels near me  ",
-          "link": "https://www.google.com/search?sca_esv=753862decbe9c4a6&amp;hl=en&amp;gl=US&amp;q=Fresh+bagels+near+me&amp;sa=X&amp;ved=2ahUKEwiRvofR-I-VAxWV38kDHZM2HOwQ1QJ6BAhPEAE"
+          title: "Fresh bagels near me  ",
+          link: "https://www.google.com/search?sca_esv=753862decbe9c4a6&amp;hl=en&amp;gl=US&amp;q=Fresh+bagels+near+me&amp;sa=X&amp;ved=2ahUKEwiRvofR-I-VAxWV38kDHZM2HOwQ1QJ6BAhPEAE",
         },
         {
-          "title": "Where to buy fresh bagels  ",
-          "link": "https://www.google.com/search?sca_esv=753862decbe9c4a6&amp;hl=en&amp;gl=US&amp;q=Where+to+buy+fresh+bagels&amp;sa=X&amp;ved=2ahUKEwiRvofR-I-VAxWV38kDHZM2HOwQ1QJ6BAhOEAE"
+          title: "Where to buy fresh bagels  ",
+          link: "https://www.google.com/search?sca_esv=753862decbe9c4a6&amp;hl=en&amp;gl=US&amp;q=Where+to+buy+fresh+bagels&amp;sa=X&amp;ved=2ahUKEwiRvofR-I-VAxWV38kDHZM2HOwQ1QJ6BAhOEAE",
         },
         {
-          "title": "Fresh bagels online  ",
-          "link": "https://www.google.com/search?sca_esv=753862decbe9c4a6&amp;hl=en&amp;gl=US&amp;q=Fresh+bagels+online&amp;sa=X&amp;ved=2ahUKEwiRvofR-I-VAxWV38kDHZM2HOwQ1QJ6BAhNEAE"
+          title: "Fresh bagels online  ",
+          link: "https://www.google.com/search?sca_esv=753862decbe9c4a6&amp;hl=en&amp;gl=US&amp;q=Fresh+bagels+online&amp;sa=X&amp;ved=2ahUKEwiRvofR-I-VAxWV38kDHZM2HOwQ1QJ6BAhNEAE",
         },
         {
-          "title": "Fresh bagels wholesale  ",
-          "link": "https://www.google.com/search?sca_esv=753862decbe9c4a6&amp;hl=en&amp;gl=US&amp;q=Fresh+bagels+wholesale&amp;sa=X&amp;ved=2ahUKEwiRvofR-I-VAxWV38kDHZM2HOwQ1QJ6BAhLEAE"
+          title: "Fresh bagels wholesale  ",
+          link: "https://www.google.com/search?sca_esv=753862decbe9c4a6&amp;hl=en&amp;gl=US&amp;q=Fresh+bagels+wholesale&amp;sa=X&amp;ved=2ahUKEwiRvofR-I-VAxWV38kDHZM2HOwQ1QJ6BAhLEAE",
         },
         {
-          "title": "Best NYC bagels shipped  ",
-          "link": "https://www.google.com/search?sca_esv=753862decbe9c4a6&amp;hl=en&amp;gl=US&amp;q=Best+NYC+bagels+shipped&amp;sa=X&amp;ved=2ahUKEwiRvofR-I-VAxWV38kDHZM2HOwQ1QJ6BAhFEAE"
+          title: "Best NYC bagels shipped  ",
+          link: "https://www.google.com/search?sca_esv=753862decbe9c4a6&amp;hl=en&amp;gl=US&amp;q=Best+NYC+bagels+shipped&amp;sa=X&amp;ved=2ahUKEwiRvofR-I-VAxWV38kDHZM2HOwQ1QJ6BAhFEAE",
         },
         {
-          "title": "Ess a bagel  ",
-          "link": "https://www.google.com/search?sca_esv=753862decbe9c4a6&amp;hl=en&amp;gl=US&amp;q=Ess+a+bagel&amp;sa=X&amp;ved=2ahUKEwiRvofR-I-VAxWV38kDHZM2HOwQ1QJ6BAhAEAE"
+          title: "Ess a bagel  ",
+          link: "https://www.google.com/search?sca_esv=753862decbe9c4a6&amp;hl=en&amp;gl=US&amp;q=Ess+a+bagel&amp;sa=X&amp;ved=2ahUKEwiRvofR-I-VAxWV38kDHZM2HOwQ1QJ6BAhAEAE",
         },
         {
-          "title": "Best bagels shipped  ",
-          "link": "https://www.google.com/search?sca_esv=753862decbe9c4a6&amp;hl=en&amp;gl=US&amp;q=Best+bagels+shipped&amp;sa=X&amp;ved=2ahUKEwiRvofR-I-VAxWV38kDHZM2HOwQ1QJ6BAg_EAE"
-        }
-      ]
-    }
-  }
+          title: "Best bagels shipped  ",
+          link: "https://www.google.com/search?sca_esv=753862decbe9c4a6&amp;hl=en&amp;gl=US&amp;q=Best+bagels+shipped&amp;sa=X&amp;ved=2ahUKEwiRvofR-I-VAxWV38kDHZM2HOwQ1QJ6BAg_EAE",
+        },
+      ],
+    },
+  },
 } as const;

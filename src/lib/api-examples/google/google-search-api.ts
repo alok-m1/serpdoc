@@ -1,4 +1,257 @@
-import jsonResponse from "./google-search-api.json";
+const jsonResponse = {
+  "search_metadata": {
+    "id": 258196398,
+    "status": "success",
+    "created_at": "2026-07-31T07:20:32.000000Z",
+    "processed_at": "2026-07-31 07:20:32"
+  },
+  "search_parameters": {
+    "domain": "google.com",
+    "lang": "en",
+    "country": "US",
+    "location": "New York,United States",
+    "q": "how to create app",
+    "device": "desktop",
+    "url": "https://www.google.com/search?q=how+to+create+app&uule=w+CAIQICIWTmV3IFlvcmssVW5pdGVkIFN0YXRlcw==&hl=en&gl=US&ie=UTF-8",
+    "page": "1",
+    "num": 10,
+    "ie": "UTF-8"
+  },
+  "results": {
+    "search_information": [
+      {
+        "total_results": "107",
+        "time_taken_displayed": "0.17"
+      }
+    ],
+    "ai_overview": {
+      "title": "AI Overview",
+      "contents": [
+        {
+          "type": "heading",
+          "snippet": "Making an app involves  defining your idea, choosing a build path (coding, no-code, or AI), and launching it. The main steps are:  CodeWithChris"
+        },
+        {
+          "type": "video",
+          "link": "https://www.youtube.com/watch?v=FiWmcZ8gQ8c&t=30",
+          "snippet": "For tips on how to design and build a mobile app from start to finish in under an hour:",
+          "source": "YouTube ",
+          "channel": "Starter Story Build",
+          "date": " 5 months ago"
+        },
+        {
+          "type": "heading",
+          "snippet": "Would you like to explore no-code builders or learn how to write the code yourself"
+        },
+        {
+          "type": "paragraph_list",
+          "list": [
+            {
+              "title": "Plan and Design",
+              "snippet": "Figure out who your user is, what problem your app solves, and sketch the screen layouts."
+            },
+            {
+              "title": "Choose a Build Method",
+              "snippet": "Build it yourself with code (Android Studio  for Android or Xcode  for iOS), use a visual drag-and-drop no-code tool, or use an AI app builder."
+            },
+            {
+              "title": "Test and Launch",
+              "snippet": "Try the app on a real phone or simulator, then publish it to the Apple App Store or Google Play Store.   YouTube · CodeWithChris   +4"
+            }
+          ]
+        }
+      ],
+      "references": [
+        {
+          "title": "How to Make an App in 8 Days (2025 Full Tutorial)",
+          "link": "https://www.youtube.com/watch?v=uvLUJev1F20",
+          "description": "welcome to how to make an app for beginners. now it doesn't matter if you've never coded. before by the end of this video you will...",
+          "source": "YouTube  · CodeWithChris",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU1SMfhYqm_DbRlETAWu97ESTt9PsEEAwICR7vVaKZwLDcwlis"
+        },
+        {
+          "title": "How to Create an App - 7 Steps to Make apps without coding",
+          "link": "https://www.goodbarber.com/blog/how-to-make-an-app/",
+          "description": "A 7-step guide, from idea to the app stores, with the best no-code app builders, real costs, and timelines compared. Quick answer:",
+          "source": "GoodBarber App Builder",
+          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSG4dxb6m6CbsGZTcazZaEzgd3at9owxDjRPzrOnfYeQn3J9s8D8uIAxgyh-e3gS_Y7-jBT4A"
+        },
+        {
+          "title": "How To Design an App in 5 Steps - Figma",
+          "link": "https://www.figma.com/resource-library/how-to-design-an-app/",
+          "description": "Step 1: Define your app idea. Identify the problem or need. Conduct market research. Define your target audience. Create user pers...",
+          "source": "Figma",
+          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRuEb0kwnhohoZJ29ZKcxzupBcbmIC-o2AqKFbAQl3MLhSusCfZXqzeE-Y4kyoPdm3jeDmZpw"
+        },
+        {
+          "title": "Create your first Android app - Android Developers",
+          "link": "https://developer.android.com/codelabs/basic-android-kotlin-compose-first-app",
+          "description": "Create your first Android app * Before you begin. * Create a project using the template. * Find project files. * Update the text. ...",
+          "source": "Android Developers",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSKtWxZo4BkVrEo9u_hWYivUC1--rN8hoqV94BrGPcIHqVB8IDYtcRs7J6pvo4nL3MW3a6e9g"
+        },
+        {
+          "title": "How to Make an App: A Complete Beginner's Guide (2026)",
+          "link": "https://codewithchris.com/how-to-make-iphone-apps-with-no-programming-experience/",
+          "description": "Table of contents * Step 1. Define Your App Idea. * Step 2. Choose Your Platform: iOS or Android? * Step 3. Pick Your Build Path. ...",
+          "source": "CodeWithChris",
+          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRkKYOxQBkClWYPuLFP3w1jaalRRktGSTQuHXZlWjFVEyDOWNX7L8xImWlwdo02y_rfopw3Vg"
+        },
+        {
+          "title": "How to Make an App with Xcode 26 (Day 1)",
+          "link": "https://www.youtube.com/watch?v=MzUTDrSucZ8&vl=en",
+          "description": "so you write Swift UI code to describe. the screen and to build the screen of your app now as you're coding your app inside Xcode ...",
+          "source": "www.youtube.com",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy09k92wqP_PGq0msM9jX64n1K8jgPGr-cbvr9NyROegp3vHJdoSyHbkQwnA"
+        }
+      ]
+    },
+    "inline_videos": [
+      {
+        "title": "The Easiest Way to Build Android Apps (Beginner's Tutorial) ",
+        "source": "YouTube",
+        "channel": "The Cutting Edge School",
+        "date": "2 days ago",
+        "url": "https://www.youtube.com/watch?v=9BRlhyAlvEU"
+      },
+      {
+        "title": "How To Build An App In 2026 (Complete Guide) ",
+        "source": "YouTube",
+        "channel": "Chris Raroque",
+        "date": "Jan 15, 2026",
+        "url": "https://www.youtube.com/watch?v=cXIWx1eYA9w"
+      },
+      {
+        "title": "How to Make an App in 8 Days (2025 Full Tutorial) ",
+        "source": "YouTube",
+        "channel": "CodeWithChris",
+        "date": "Dec 12, 2024",
+        "url": "https://www.youtube.com/watch?v=uvLUJev1F20"
+      },
+      {
+        "title": "How to Make an App for Beginners - 2025 Roadmap ",
+        "source": "YouTube",
+        "channel": "Flutter Mapp",
+        "date": "Apr 21, 2025",
+        "url": "https://www.youtube.com/watch?v=KiLdMEtZdBQ"
+      }
+    ],
+    "organic": [
+      {
+        "position": 1,
+        "site_title": "Reddit · r/learnprogramming",
+        "title": "How do I build an app from scratch? : r/learnprogramming",
+        "link": "https://www.reddit.com/r/learnprogramming/comments/1byvl25/how_do_i_build_an_app_from_scratch/",
+        "displayed_link": "40+ comments  ·  2 years ago",
+        "cached_page": null,
+        "snippet": "Hello folks!  I'm thinking about building an app for my personal use and perhaps even share with a larger user-base, if it's come out decent and presentable. ..."
+      },
+      {
+        "position": 2,
+        "site_title": "AppSheet",
+        "title": "How to create an app",
+        "link": "https://about.appsheet.com/how-to-create-an-app/",
+        "displayed_link": "https://about.appsheet.com › how-to-create-an-app ",
+        "cached_page": null,
+        "snippet": "The easiest and fastest way to get started is to select Create > App > Blank app, to generate a simple app with default data in AppSheet's first-party, native ..."
+      },
+      {
+        "position": 3,
+        "site_title": "Android Developers",
+        "title": "Create your first Android app",
+        "link": "https://developer.android.com/codelabs/basic-android-kotlin-compose-first-app",
+        "displayed_link": "https://developer.android.com › codelabs › basic-androi... ",
+        "cached_page": null,
+        "snippet": "Create your first Android app · 1. Before you begin · 2. Create a project using the template · 3. Find project files · 4. Update the text · 5.",
+        "snippet_extension": [
+          "Mar 30, 2026"
+        ]
+      },
+      {
+        "position": 4,
+        "site_title": "Microsoft",
+        "title": "How to Make and Create an App",
+        "link": "https://www.microsoft.com/en-us/power-platform/products/power-apps/topics/app-building/how-to-make-an-app",
+        "displayed_link": "https://www.microsoft.com › en-us › topics › app-building ",
+        "cached_page": null,
+        "snippet": "How to make an app · Step 1. Set your goals before creating an app · Step 2. Sketch features and functions for the new app · Step 3. Research existing apps."
+      },
+      {
+        "position": 5,
+        "site_title": "CodeWithChris",
+        "title": "How to Make an App: A Complete Beginner's Guide (2026)",
+        "link": "https://codewithchris.com/how-to-make-iphone-apps-with-no-programming-experience/",
+        "displayed_link": "https://codewithchris.com › how-to-make-iphone-apps-... ",
+        "cached_page": null,
+        "snippet": "Step 1. Define Your App Idea Step 2. Choose Your Platform: iOS or Android? Step 3. Pick Your Build Path Step 4. Plan Your App Step 5. Build ...",
+        "snippet_extension": [
+          "Apr 24, 2026"
+        ]
+      },
+      {
+        "position": 6,
+        "site_title": "AppYourself",
+        "title": "Create an Android App",
+        "link": "https://appyourself.net/en/create-android-app/",
+        "displayed_link": "https://appyourself.net › create-android-app ",
+        "cached_page": null,
+        "snippet": "Simply create your own Android app. Without programming with the app maker. For Google Play and Amazon Store. Try it out for free."
+      }
+    ],
+    "people_also_ask": [
+      {
+        "question": "How can I create my own app? ",
+        "answer": ""
+      },
+      {
+        "question": "Do app owners make money? ",
+        "answer": ""
+      },
+      {
+        "question": "How can I create my own AI app? ",
+        "answer": ""
+      },
+      {
+        "question": "Can I build apps for free? ",
+        "answer": ""
+      }
+    ],
+    "related_search": [
+      {
+        "title": "How to make an app for free  ",
+        "link": "https://www.google.com/search?sca_esv=e96488df961ebe08&hl=en&gl=US&q=How+to+make+an+app+for+free&sa=X&ved=2ahUKEwj-iaKvsPyVAxWlxQIHHdvQD0kQ1QJ6BAgxEAE"
+      },
+      {
+        "title": "How to create app on Play Store  ",
+        "link": "https://www.google.com/search?sca_esv=e96488df961ebe08&hl=en&gl=US&q=How+to+create+app+on+Play+Store&sa=X&ved=2ahUKEwj-iaKvsPyVAxWlxQIHHdvQD0kQ1QJ6BAhEEAE"
+      },
+      {
+        "title": "How to create an app for Android  ",
+        "link": "https://www.google.com/search?sca_esv=e96488df961ebe08&hl=en&gl=US&q=How+to+create+an+app+for+Android&sa=X&ved=2ahUKEwj-iaKvsPyVAxWlxQIHHdvQD0kQ1QJ6BAhCEAE"
+      },
+      {
+        "title": "How to make an app with coding  ",
+        "link": "https://www.google.com/search?sca_esv=e96488df961ebe08&hl=en&gl=US&q=How+to+make+an+app+with+coding&sa=X&ved=2ahUKEwj-iaKvsPyVAxWlxQIHHdvQD0kQ1QJ6BAg6EAE"
+      },
+      {
+        "title": "I want to create an app where do I start  ",
+        "link": "https://www.google.com/search?sca_esv=e96488df961ebe08&hl=en&gl=US&q=I+want+to+create+an+app+where+do+I+start&sa=X&ved=2ahUKEwj-iaKvsPyVAxWlxQIHHdvQD0kQ1QJ6BAg5EAE"
+      },
+      {
+        "title": "How to create an app for Android free  ",
+        "link": "https://www.google.com/search?sca_esv=e96488df961ebe08&hl=en&gl=US&q=How+to+create+an+app+for+Android+free&sa=X&ved=2ahUKEwj-iaKvsPyVAxWlxQIHHdvQD0kQ1QJ6BAg4EAE"
+      },
+      {
+        "title": "How to create an app for iPhone  ",
+        "link": "https://www.google.com/search?sca_esv=e96488df961ebe08&hl=en&gl=US&q=How+to+create+an+app+for+iPhone&sa=X&ved=2ahUKEwj-iaKvsPyVAxWlxQIHHdvQD0kQ1QJ6BAg3EAE"
+      },
+      {
+        "title": "How to build a web app  ",
+        "link": "https://www.google.com/search?sca_esv=e96488df961ebe08&hl=en&gl=US&q=How+to+build+a+web+app&sa=X&ved=2ahUKEwj-iaKvsPyVAxWlxQIHHdvQD0kQ1QJ6BAgyEAE"
+      }
+    ]
+  }
+} as const;
 
 export const googleSearchApiJsonResponse = jsonResponse as Record<string, unknown>;
 export const googleSearchApiHtmlResponse = "<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Google Search API — Example Response</title>\n  <style>\n\n:root {\n  --bg: #f6f7fb;\n  --card: #ffffff;\n  --ink: #0f172a;\n  --muted: #64748b;\n  --accent: #4f46e5;\n  --accent-soft: #eef2ff;\n  --line: #e2e8f0;\n  --chip: #f1f5f9;\n  --shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 8px 24px rgba(15, 23, 42, 0.06);\n}\n* { box-sizing: border-box; }\nbody {\n  margin: 0;\n  font-family: \"Inter\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif;\n  background: var(--bg);\n  color: var(--ink);\n  line-height: 1.55;\n  -webkit-font-smoothing: antialiased;\n}\n.topbar {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 14px 28px;\n  background: linear-gradient(120deg, #312e81 0%, #4f46e5 55%, #7c3aed 100%);\n  color: #fff;\n}\n.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.02em; }\n.brand .dot { width: 9px; height: 9px; border-radius: 99px; background: #c7d2fe; box-shadow: 0 0 0 4px rgba(199, 210, 254, 0.25); }\n.brand .sep { color: rgba(255,255,255,0.55); font-weight: 400; }\n.badge {\n  font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em;\n  padding: 5px 12px; border-radius: 99px;\n  background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.28);\n}\n.wrap { max-width: 860px; margin: 0 auto; padding: 32px 24px 56px; }\n.hero { padding: 8px 4px 20px; }\n.hero h1 { margin: 0 0 8px; font-size: 30px; font-weight: 800; letter-spacing: -0.02em; }\n.meta { margin: 0; color: var(--muted); font-size: 14px; }\n.card {\n  background: var(--card);\n  border: 1px solid var(--line);\n  border-radius: 16px;\n  box-shadow: var(--shadow);\n  padding: 22px 24px;\n  margin: 0 0 18px;\n}\n.eyebrow {\n  font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em;\n  color: var(--accent); font-weight: 700; margin-bottom: 4px;\n}\n.card h2 { margin: 0 0 14px; font-size: 19px; font-weight: 700; letter-spacing: -0.01em; }\n.lead { margin: 0 0 14px; font-size: 15px; }\n.muted { color: var(--muted); }\n.steps { display: grid; gap: 10px; margin-bottom: 14px; }\n.step { background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }\n.step-title { font-weight: 650; font-size: 14px; margin-bottom: 2px; }\n.step p { margin: 0; font-size: 13.5px; color: #334155; }\n.video {\n  display: flex; align-items: center; gap: 12px;\n  text-decoration: none; color: inherit;\n  padding: 10px 12px; border-radius: 12px; margin-bottom: 6px;\n  border: 1px solid transparent;\n}\n.video:hover { background: var(--accent-soft); border-color: #c7d2fe; }\n.video svg { flex: none; width: 30px; height: 30px; fill: var(--accent); }\n.video-title { font-size: 14px; font-weight: 600; }\n.video-meta { font-size: 12.5px; color: var(--muted); }\n.sources { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 6px; }\n.sources-label { font-size: 12.5px; color: var(--muted); margin-right: 2px; }\n.chip {\n  display: inline-block; text-decoration: none; color: var(--ink);\n  font-size: 13px; padding: 7px 13px; border-radius: 99px;\n  background: var(--chip); border: 1px solid var(--line);\n}\n.chip:hover { background: var(--accent-soft); border-color: #c7d2fe; color: var(--accent); }\n.results { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }\n.result { display: flex; gap: 16px; padding: 16px 2px; border-top: 1px solid var(--line); }\n.result:first-child { border-top: 0; }\n.rank {\n  flex: none; width: 30px; height: 30px; border-radius: 9px;\n  display: grid; place-items: center;\n  font-size: 12px; font-weight: 700; color: var(--accent);\n  background: var(--accent-soft); border: 1px solid #c7d2fe;\n}\n.site { font-size: 12.5px; color: var(--muted); margin-bottom: 2px; }\n.result .title {\n  display: block; text-decoration: none; color: #4338ca;\n  font-size: 16px; font-weight: 650; margin-bottom: 4px;\n}\n.result .title:hover { text-decoration: underline; }\n.result p { margin: 0 0 6px; font-size: 14px; color: #334155; }\n.snippet-ext { font-size: 12.5px; color: var(--muted); }\n.paa details { border-bottom: 1px solid var(--line); }\n.paa details:last-child { border-bottom: 0; }\n.paa summary {\n  cursor: pointer; list-style: none; padding: 12px 2px;\n  font-size: 14.5px; font-weight: 600; display: flex; align-items: center; gap: 10px;\n}\n.paa summary::-webkit-details-marker { display: none; }\n.paa summary::before {\n  content: \"+\"; flex: none; width: 22px; height: 22px; border-radius: 7px;\n  display: grid; place-items: center; font-size: 15px; font-weight: 700;\n  background: var(--accent-soft); color: var(--accent); border: 1px solid #c7d2fe;\n}\n.paa details[open] summary::before { content: \"\\2013\"; }\n.paa p { margin: 0 0 12px 32px; font-size: 14px; color: #334155; }\n.chips { display: flex; flex-wrap: wrap; gap: 8px; }\n.foot { text-align: center; color: var(--muted); font-size: 12.5px; padding: 0 24px 40px; }\n@media (prefers-color-scheme: dark) {\n  :root {\n    --bg: #0b1120; --card: #111a2e; --ink: #e2e8f0; --muted: #94a3b8;\n    --accent: #818cf8; --accent-soft: #1e293b; --line: #1e293b; --chip: #1a2440;\n  }\n  .result .title { color: #a5b4fc; }\n  .step p, .result p, .paa p { color: #cbd5e1; }\n  .topbar { background: linear-gradient(120deg, #1e1b4b 0%, #312e81 55%, #4c1d95 100%); }\n  .rank, .paa summary::before { color: #a5b4fc; }\n  .step, .card, .chip { box-shadow: none; }\n}\n\n  </style>\n</head>\n<body>\n  <header class=\"topbar\">\n    <div class=\"brand\"><span class=\"dot\"></span> SERPHouse <span class=\"sep\">/</span> Google Search API</div>\n    <div class=\"badge\">example response</div>\n  </header>\n  <main class=\"wrap\">\n    <section class=\"hero\">\n      <h1>how to create app</h1>\n      <p class=\"meta\">About 107 results (0.17 s) &nbsp;·&nbsp; google.com &nbsp;·&nbsp; en &nbsp;·&nbsp; New York,United States</p>\n    </section>\n    <section class=\"card\">\n      <div class=\"eyebrow\">ai overview</div>\n      <h2>AI Overview</h2>\n      <p class=\"lead\">Making an app involves  defining your idea, choosing a build path (coding, no-code, or AI), and launching it. The main steps are:  CodeWithChris</p>\n      <a class=\"video\" href=\"https://www.youtube.com/watch?v=FiWmcZ8gQ8c&amp;t=30\">\n        <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M8 5v14l11-7z\"/></svg>\n        <div>\n          <div class=\"video-title\">For tips on how to design and build a mobile app from start to finish in under an hour:</div>\n          <div class=\"video-meta\">Starter Story Build &middot;  5 months ago</div>\n        </div>\n      </a>\n      <p class=\"lead\">Would you like to explore no-code builders or learn how to write the code yourself</p>\n      <div class=\"steps\">\n        <div class=\"step\">\n          <div class=\"step-title\">Plan and Design</div>\n          <p>Figure out who your user is, what problem your app solves, and sketch the screen layouts.</p>\n        </div>\n        <div class=\"step\">\n          <div class=\"step-title\">Choose a Build Method</div>\n          <p>Build it yourself with code (Android Studio  for Android or Xcode  for iOS), use a visual drag-and-drop no-code tool, or use an AI app builder.</p>\n        </div>\n        <div class=\"step\">\n          <div class=\"step-title\">Test and Launch</div>\n          <p>Try the app on a real phone or simulator, then publish it to the Apple App Store or Google Play Store.   YouTube · CodeWithChris   +4</p>\n        </div>\n      </div>\n      <div class=\"sources\">\n        <span class=\"sources-label\">Sources</span>\n        <a class=\"chip\" href=\"https://www.youtube.com/watch?v=uvLUJev1F20\">How to Make an App in 8 Days (2025 Full Tutorial)</a>\n        <a class=\"chip\" href=\"https://www.goodbarber.com/blog/how-to-make-an-app/\">How to Create an App - 7 Steps to Make apps without coding</a>\n        <a class=\"chip\" href=\"https://www.figma.com/resource-library/how-to-design-an-app/\">How To Design an App in 5 Steps - Figma</a>\n        <a class=\"chip\" href=\"https://developer.android.com/codelabs/basic-android-kotlin-compose-first-app\">Create your first Android app - Android Developers</a>\n        <a class=\"chip\" href=\"https://codewithchris.com/how-to-make-iphone-apps-with-no-programming-experience/\">How to Make an App: A Complete Beginner's Guide (2026)</a>\n        <a class=\"chip\" href=\"https://www.youtube.com/watch?v=MzUTDrSucZ8&amp;vl=en\">How to Make an App with Xcode 26 (Day 1)</a>\n      </div>\n    </section>\n    <section class=\"card\">\n      <div class=\"eyebrow\">inline videos</div>\n      <h2>Videos</h2>\n      <div class=\"videos\">\n        <a class=\"video\" href=\"https://www.youtube.com/watch?v=9BRlhyAlvEU\">\n          <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M8 5v14l11-7z\"/></svg>\n          <div>\n            <div class=\"video-title\">The Easiest Way to Build Android Apps (Beginner's Tutorial) </div>\n            <div class=\"video-meta\">The Cutting Edge School &middot; 2 days ago</div>\n          </div>\n        </a>\n        <a class=\"video\" href=\"https://www.youtube.com/watch?v=cXIWx1eYA9w\">\n          <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M8 5v14l11-7z\"/></svg>\n          <div>\n            <div class=\"video-title\">How To Build An App In 2026 (Complete Guide) </div>\n            <div class=\"video-meta\">Chris Raroque &middot; Jan 15, 2026</div>\n          </div>\n        </a>\n        <a class=\"video\" href=\"https://www.youtube.com/watch?v=uvLUJev1F20\">\n          <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M8 5v14l11-7z\"/></svg>\n          <div>\n            <div class=\"video-title\">How to Make an App in 8 Days (2025 Full Tutorial) </div>\n            <div class=\"video-meta\">CodeWithChris &middot; Dec 12, 2024</div>\n          </div>\n        </a>\n        <a class=\"video\" href=\"https://www.youtube.com/watch?v=KiLdMEtZdBQ\">\n          <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M8 5v14l11-7z\"/></svg>\n          <div>\n            <div class=\"video-title\">How to Make an App for Beginners - 2025 Roadmap </div>\n            <div class=\"video-meta\">Flutter Mapp &middot; Apr 21, 2025</div>\n          </div>\n        </a>\n      </div>\n    </section>\n    <section class=\"card\">\n      <div class=\"eyebrow\">organic results</div>\n      <h2>Top Results</h2>\n      <ol class=\"results\">\n        <li class=\"result\">\n          <span class=\"rank\">01</span>\n          <div>\n            <div class=\"site\">Reddit · r/learnprogramming</div>\n            <a class=\"title\" href=\"https://www.reddit.com/r/learnprogramming/comments/1byvl25/how_do_i_build_an_app_from_scratch/\">How do I build an app from scratch? : r/learnprogramming</a>\n            <p>Hello folks!  I'm thinking about building an app for my personal use and perhaps even share with a larger user-base, if it's come out decent and presentable. ...</p>\n          </div>\n        </li>\n        <li class=\"result\">\n          <span class=\"rank\">02</span>\n          <div>\n            <div class=\"site\">AppSheet</div>\n            <a class=\"title\" href=\"https://about.appsheet.com/how-to-create-an-app/\">How to create an app</a>\n            <p>The easiest and fastest way to get started is to select Create &gt; App &gt; Blank app, to generate a simple app with default data in AppSheet's first-party, native ...</p>\n          </div>\n        </li>\n        <li class=\"result\">\n          <span class=\"rank\">03</span>\n          <div>\n            <div class=\"site\">Android Developers</div>\n            <a class=\"title\" href=\"https://developer.android.com/codelabs/basic-android-kotlin-compose-first-app\">Create your first Android app</a>\n            <p>Create your first Android app · 1. Before you begin · 2. Create a project using the template · 3. Find project files · 4. Update the text · 5.</p>\n            <div class=\"snippet-ext\">Mar 30, 2026</div>\n          </div>\n        </li>\n        <li class=\"result\">\n          <span class=\"rank\">04</span>\n          <div>\n            <div class=\"site\">Microsoft</div>\n            <a class=\"title\" href=\"https://www.microsoft.com/en-us/power-platform/products/power-apps/topics/app-building/how-to-make-an-app\">How to Make and Create an App</a>\n            <p>How to make an app · Step 1. Set your goals before creating an app · Step 2. Sketch features and functions for the new app · Step 3. Research existing apps.</p>\n          </div>\n        </li>\n        <li class=\"result\">\n          <span class=\"rank\">05</span>\n          <div>\n            <div class=\"site\">CodeWithChris</div>\n            <a class=\"title\" href=\"https://codewithchris.com/how-to-make-iphone-apps-with-no-programming-experience/\">How to Make an App: A Complete Beginner's Guide (2026)</a>\n            <p>Step 1. Define Your App Idea Step 2. Choose Your Platform: iOS or Android? Step 3. Pick Your Build Path Step 4. Plan Your App Step 5. Build ...</p>\n            <div class=\"snippet-ext\">Apr 24, 2026</div>\n          </div>\n        </li>\n        <li class=\"result\">\n          <span class=\"rank\">06</span>\n          <div>\n            <div class=\"site\">AppYourself</div>\n            <a class=\"title\" href=\"https://appyourself.net/en/create-android-app/\">Create an Android App</a>\n            <p>Simply create your own Android app. Without programming with the app maker. For Google Play and Amazon Store. Try it out for free.</p>\n          </div>\n        </li>\n      </ol>\n    </section>\n    <section class=\"card\">\n      <div class=\"eyebrow\">related questions</div>\n      <h2>People Also Ask</h2>\n      <div class=\"paa\">\n        <details>\n          <summary>How can I create my own app? </summary>\n          <p class=\"muted\">Answer available on request.</p>\n        </details>\n        <details>\n          <summary>Do app owners make money? </summary>\n          <p class=\"muted\">Answer available on request.</p>\n        </details>\n        <details>\n          <summary>How can I create my own AI app? </summary>\n          <p class=\"muted\">Answer available on request.</p>\n        </details>\n        <details>\n          <summary>Can I build apps for free? </summary>\n          <p class=\"muted\">Answer available on request.</p>\n        </details>\n      </div>\n    </section>\n    <section class=\"card\">\n      <div class=\"eyebrow\">related searches</div>\n      <h2>Explore more</h2>\n      <div class=\"chips\">\n        <a class=\"chip\" href=\"https://www.google.com/search?sca_esv=e96488df961ebe08&amp;hl=en&amp;gl=US&amp;q=How+to+make+an+app+for+free&amp;sa=X&amp;ved=2ahUKEwj-iaKvsPyVAxWlxQIHHdvQD0kQ1QJ6BAgxEAE\">How to make an app for free  </a>\n        <a class=\"chip\" href=\"https://www.google.com/search?sca_esv=e96488df961ebe08&amp;hl=en&amp;gl=US&amp;q=How+to+create+app+on+Play+Store&amp;sa=X&amp;ved=2ahUKEwj-iaKvsPyVAxWlxQIHHdvQD0kQ1QJ6BAhEEAE\">How to create app on Play Store  </a>\n        <a class=\"chip\" href=\"https://www.google.com/search?sca_esv=e96488df961ebe08&amp;hl=en&amp;gl=US&amp;q=How+to+create+an+app+for+Android&amp;sa=X&amp;ved=2ahUKEwj-iaKvsPyVAxWlxQIHHdvQD0kQ1QJ6BAhCEAE\">How to create an app for Android  </a>\n        <a class=\"chip\" href=\"https://www.google.com/search?sca_esv=e96488df961ebe08&amp;hl=en&amp;gl=US&amp;q=How+to+make+an+app+with+coding&amp;sa=X&amp;ved=2ahUKEwj-iaKvsPyVAxWlxQIHHdvQD0kQ1QJ6BAg6EAE\">How to make an app with coding  </a>\n        <a class=\"chip\" href=\"https://www.google.com/search?sca_esv=e96488df961ebe08&amp;hl=en&amp;gl=US&amp;q=I+want+to+create+an+app+where+do+I+start&amp;sa=X&amp;ved=2ahUKEwj-iaKvsPyVAxWlxQIHHdvQD0kQ1QJ6BAg5EAE\">I want to create an app where do I start  </a>\n        <a class=\"chip\" href=\"https://www.google.com/search?sca_esv=e96488df961ebe08&amp;hl=en&amp;gl=US&amp;q=How+to+create+an+app+for+Android+free&amp;sa=X&amp;ved=2ahUKEwj-iaKvsPyVAxWlxQIHHdvQD0kQ1QJ6BAg4EAE\">How to create an app for Android free  </a>\n        <a class=\"chip\" href=\"https://www.google.com/search?sca_esv=e96488df961ebe08&amp;hl=en&amp;gl=US&amp;q=How+to+create+an+app+for+iPhone&amp;sa=X&amp;ved=2ahUKEwj-iaKvsPyVAxWlxQIHHdvQD0kQ1QJ6BAg3EAE\">How to create an app for iPhone  </a>\n        <a class=\"chip\" href=\"https://www.google.com/search?sca_esv=e96488df961ebe08&amp;hl=en&amp;gl=US&amp;q=How+to+build+a+web+app&amp;sa=X&amp;ved=2ahUKEwj-iaKvsPyVAxWlxQIHHdvQD0kQ1QJ6BAgyEAE\">How to build a web app  </a>\n      </div>\n    </section>\n  </main>\n  <footer class=\"foot\">\n    Generated from the SERPHouse Google Search API &middot; 2026-07-31T07:20:32.000000Z\n  </footer>\n</body>\n</html>\n";

@@ -2,53 +2,67 @@
 title: Bing Search API
 description: Access real-time web search data from Bing with the Bing Web Search API.
 ---
-import { bingWebSearchResponse } from '@/lib/api-examples/bingWebSearch';
+
+import {
+  bingWebSearchJsonResponse,
+  bingWebSearchMarkdownResponse,
+} from "@/lib/api-examples/bingWebSearch";
 
 Access real-time web search data from Bing, delivering relevant search results from a wide range of websites and online sources.
 
 <Callout type="warn">
-  Requires authentication → provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the
+  Authorization header.
 </Callout>
 
 `POST` `https://api.serphouse.com/bing-web`
 
 ## Path Parameters
 
-| Name | Type | Description |
-|------|------|-------------|
+| Name         | Type   | Description      |
+| ------------ | ------ | ---------------- |
 | responseType | String | `html` or `json` |
 
 ## Headers
 
-| Name | Type | Description |
-|------|------|-------------|
-| Authorization <span style={{color: "red"}}>*</span> | String | Bearer `<YOUR_API_KEY>` |
-| Content-Type <span style={{color: "red"}}>*</span> | String | application/json |
+| Name                                                 | Type   | Description             |
+| ---------------------------------------------------- | ------ | ----------------------- |
+| Authorization <span style={{color: "red"}}>\*</span> | String | Bearer `<YOUR_API_KEY>` |
+| Content-Type <span style={{color: "red"}}>\*</span>  | String | application/json        |
 
 ## Request Body
 
-| Name | Type | Description |
-|------|------|-------------|
-| q <span style={{color: "red"}}>*</span> | string | Search phrase that you want to search |
-| lang <span style={{color: "red"}}>*</span> | string | You can set language for e.g. `en-US` for english `fr-FR` for french.<br />Get the list of available languages by making a separate request to the [Languages List](/extra-apis/languages-list) |
-| device <span style={{color: "red"}}>*</span> | string | `desktop` To extract desktop result `mobile` To extract mobile result |
-| loc <span style={{color: "red"}}>*</span> | string | Optional field if you specify `loc_id`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list) |
-| loc_id <span style={{color: "red"}}>*</span> | integer | Optional field if you specify `loc`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list) |
-| page | integer | Give specific page to get the result of that page number. By default it will get you first page. |
-| date_range | String | Sometimes you may want to only find information published during a specific time frame.<br /><br />Parameter values can be comma separated date range `YYYY-MM-DD,YYYY-MM-DD` OR<br /><br />`d` Past 24 hours<br />`w` Past week<br />`m` Past month<br />`y` Past year |
-| no_trace | string \| integer | Enterprise only. Enables NoTrace mode. Accepted values: `0`, `1`, `true`, and `false`. When enabled (`1` or `true`), search parameters, files, and metadata are not stored on our servers. |
+| Name                                          | Type              | Description                                                                                                                                                                                                                                                                    |
+| --------------------------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| q <span style={{color: "red"}}>\*</span>      | string            | Search phrase that you want to search                                                                                                                                                                                                                                          |
+| lang <span style={{color: "red"}}>\*</span>   | string            | You can set language for e.g. `en-US` for english `fr-FR` for french.<br />Get the list of available languages by making a separate request to the [Languages List](/extra-apis/languages-list)                                                                                |
+| device <span style={{color: "red"}}>\*</span> | string            | `desktop` To extract desktop result `mobile` To extract mobile result                                                                                                                                                                                                          |
+| loc <span style={{color: "red"}}>\*</span>    | string            | Optional field if you specify `loc_id`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list) |
+| loc_id <span style={{color: "red"}}>\*</span> | integer           | Optional field if you specify `loc`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list)    |
+| page                                          | integer           | Give specific page to get the result of that page number. By default it will get you first page.                                                                                                                                                                               |
+| date_range                                    | String            | Sometimes you may want to only find information published during a specific time frame.<br /><br />Parameter values can be comma separated date range `YYYY-MM-DD,YYYY-MM-DD` OR<br /><br />`d` Past 24 hours<br />`w` Past week<br />`m` Past month<br />`y` Past year        |
+| no_trace                                      | string \| integer | Enterprise only. Enables NoTrace mode. Accepted values: `0`, `1`, `true`, and `false`. When enabled (`1` or `true`), search parameters, files, and metadata are not stored on our servers.                                                                                     |
 
 ## Example Request
 
 <ApiExample
   endpoint="https://api.serphouse.com/bing-web"
   query="Coffee"
-  params='{"device": "desktop", "loc": "United States"}'
+  domain=""
+  lang="en-US"
+  params='{"device": "desktop", "loc": "Mumbai,Maharashtra,India", "page": 1}'
 />
 
 ## Example Response
 
-<ApiExample mode="response" response={bingWebSearchResponse} />
+<ApiExample mode="response">
+  <ApiTab label="JSON" response={bingWebSearchJsonResponse} />
+  <ApiTab
+    label="Markdown"
+    response={bingWebSearchMarkdownResponse}
+    lang="markdown"
+  />
+</ApiExample>
 
 ## Related Links
 

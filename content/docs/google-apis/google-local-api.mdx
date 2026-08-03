@@ -2,45 +2,59 @@
 title: Google Local API
 description: Structured local business results from Google Search including ratings, reviews, and addresses.
 ---
-import { googleLocalResponse } from '@/lib/api-examples/googleLocal';
+
+import {
+  googleLocalJsonResponse,
+  googleLocalMarkdownResponse,
+} from "@/lib/api-examples/googleLocal";
 
 Google Local API provides structured local business results from Google Search, including position, business name, rating, reviews count, address, GPS coordinates, service options, and direct map navigation links.
 
 <Callout type="warn">
-  Requires authentication → provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the
+  Authorization header.
 </Callout>
 
 `POST` `https://api.serphouse.com/google-local-api`
 
 ## Headers
 
-| Name | Type | Description |
-|------|------|-------------|
-| Authorization <span style={{color: "red"}}>*</span> | String | Bearer `<YOUR_API_KEY>` |
-| Content-Type <span style={{color: "red"}}>*</span> | String | application/json |
+| Name                                                 | Type   | Description             |
+| ---------------------------------------------------- | ------ | ----------------------- |
+| Authorization <span style={{color: "red"}}>\*</span> | String | Bearer `<YOUR_API_KEY>` |
+| Content-Type <span style={{color: "red"}}>\*</span>  | String | application/json        |
 
 ## Request Body
 
-| Name | Type | Description |
-|------|------|-------------|
-| q <span style={{color: "red"}}>*</span> | string | Search phrase that you want to search |
-| domain <span style={{color: "red"}}>*</span> | string | Choose google domain.<br /><br />You can retrieve the list of supported Google domains by making a separate request to the [Domains List](/extra-apis/domains-list) |
-| lang <span style={{color: "red"}}>*</span> | string | You can set language for e.g. `en` for english `fr` for french.<br />Get the list of available languages by making a separate request to the [Languages List](/extra-apis/languages-list) |
-| loc <span style={{color: "red"}}>*</span> | string | Optional field if you specify `loc_id`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list) |
-| loc_id <span style={{color: "red"}}>*</span> | integer | Optional field if you specify `loc`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list) |
-| page | integer | Give specific page to get the result of that page number. By default it will get you first page. (up to 20 local results per page) |
+| Name                                          | Type    | Description                                                                                                                                                                                                                                                                    |
+| --------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| q <span style={{color: "red"}}>\*</span>      | string  | Search phrase that you want to search                                                                                                                                                                                                                                          |
+| domain <span style={{color: "red"}}>\*</span> | string  | Choose google domain.<br /><br />You can retrieve the list of supported Google domains by making a separate request to the [Domains List](/extra-apis/domains-list)                                                                                                            |
+| lang <span style={{color: "red"}}>\*</span>   | string  | You can set language for e.g. `en` for english `fr` for french.<br />Get the list of available languages by making a separate request to the [Languages List](/extra-apis/languages-list)                                                                                      |
+| loc <span style={{color: "red"}}>\*</span>    | string  | Optional field if you specify `loc_id`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list) |
+| loc_id <span style={{color: "red"}}>\*</span> | integer | Optional field if you specify `loc`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list)    |
+| page                                          | integer | Give specific page to get the result of that page number. By default it will get you first page. (up to 20 local results per page)                                                                                                                                             |
 
 ## Example Request
 
 <ApiExample
   endpoint="https://api.serphouse.com/google-local-api"
   query="Restaurants"
-  params='{"loc": "Austin,Texas,United States"}'
+  domain="google.com"
+  lang="en"
+  params='{"loc": "Mumbai,Maharashtra,India"}'
 />
 
 ## Example Response
 
-<ApiExample mode="response" response={googleLocalResponse} />
+<ApiExample mode="response">
+  <ApiTab label="JSON" response={googleLocalJsonResponse} />
+  <ApiTab
+    label="Markdown"
+    response={googleLocalMarkdownResponse}
+    lang="markdown"
+  />
+</ApiExample>
 
 ## Related Links
 

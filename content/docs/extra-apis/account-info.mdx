@@ -2,12 +2,14 @@
 title: Account Info
 description: Retrieve your SERPHouse account information, plan details, and credit usage.
 ---
-import { accountInfoResponse } from '@/lib/api-examples/accountInfo';
+
+import { accountInfoJsonResponse } from "@/lib/api-examples/accountInfo";
 
 Retrieve your account information, including active plan, credit usage information and more.
 
 <Callout type="warn">
-  Requires authentication → provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the
+  Authorization header.
 </Callout>
 
 ## Get Account Information
@@ -16,23 +18,22 @@ Retrieve your account information, including active plan, credit usage informati
 
 ### Headers
 
-| Name | Type | Description |
-|------|------|-------------|
+| Name          | Type   | Description             |
+| ------------- | ------ | ----------------------- |
 | Authorization | String | Bearer `<YOUR_API_KEY>` |
 
 <Callout type="info">
-  Returns account details including email, name, API key, and plan information with credit totals.
+  Returns account details including email, name, API key, and plan information
+  with credit totals.
 </Callout>
 
 ## Example Request
 
-<ApiExample
-  endpoint="https://api.serphouse.com/account/info"
-/>
+<ApiExample endpoint="https://api.serphouse.com/account/info" />
 
 ## Example Response
 
-<ApiExample mode="response" response={accountInfoResponse} />
+<ApiExample mode="response" response={accountInfoJsonResponse} />
 ## Related Links
 
 <Cards>

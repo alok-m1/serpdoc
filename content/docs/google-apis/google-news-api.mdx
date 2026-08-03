@@ -2,47 +2,61 @@
 title: Google News API
 description: Fast and reliable access to real-time Google News search results.
 ---
-import { googleNewsResponse } from '@/lib/api-examples/googleNews';
+
+import {
+  googleNewsJsonResponse,
+  googleNewsMarkdownResponse,
+} from "@/lib/api-examples/googleNews";
 
 The Google News API endpoint provides fast and reliable access to real-time Google News search results.
 
 <Callout type="warn">
-  Requires authentication → provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the
+  Authorization header.
 </Callout>
 
 `POST` `https://api.serphouse.com/google-news`
 
 ## Headers
 
-| Name | Type | Description |
-|------|------|-------------|
-| Authorization <span style={{color: "red"}}>*</span> | String | Bearer `<YOUR_API_KEY>` |
-| Content-Type <span style={{color: "red"}}>*</span> | String | application/json |
+| Name                                                 | Type   | Description             |
+| ---------------------------------------------------- | ------ | ----------------------- |
+| Authorization <span style={{color: "red"}}>\*</span> | String | Bearer `<YOUR_API_KEY>` |
+| Content-Type <span style={{color: "red"}}>\*</span>  | String | application/json        |
 
 ## Request Body
 
-| Name | Type | Description |
-|------|------|-------------|
-| q <span style={{color: "red"}}>*</span> | string | Search phrase that you want to search |
-| domain <span style={{color: "red"}}>*</span> | string | Choose google domain.<br /><br />You can retrieve the list of supported Google domains by making a separate request to the [Domains List](/extra-apis/domains-list) |
-| device <span style={{color: "red"}}>*</span> | string | `desktop` To extract desktop result `mobile` To extract mobile result |
-| lang <span style={{color: "red"}}>*</span> | string | You can set language for e.g. `en` for english `fr` for french.<br />Get the list of available languages by making a separate request to the [Languages List](/extra-apis/languages-list) |
-| loc <span style={{color: "red"}}>*</span> | string | Optional field if you specify `loc_id`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list) |
-| loc_id <span style={{color: "red"}}>*</span> | integer | Optional field if you specify `loc`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list) |
-| page | integer | Give specific page to get the result of that page number. By default it will get you first page. |
-| date_range | String | Sometimes you may want to only find information published during a specific time frame. To limit Google results by date<br /><br />Parameter values can be comma separated date range `YYYY-MM-DD,YYYY-MM-DD` OR<br /><br />`h` Past hour<br />`d` Past 24 hours<br />`w` Past week<br />`m` Past month<br />`y` Past year |
-| no_trace | string \| integer | Enterprise only. Enables NoTrace mode. Accepted values: `0`, `1`, `true`, and `false`. When enabled (`1` or `true`), search parameters, files, and metadata are not stored on our servers. |
+| Name                                          | Type              | Description                                                                                                                                                                                                                                                                                                                |
+| --------------------------------------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| q <span style={{color: "red"}}>\*</span>      | string            | Search phrase that you want to search                                                                                                                                                                                                                                                                                      |
+| domain <span style={{color: "red"}}>\*</span> | string            | Choose google domain.<br /><br />You can retrieve the list of supported Google domains by making a separate request to the [Domains List](/extra-apis/domains-list)                                                                                                                                                        |
+| device <span style={{color: "red"}}>\*</span> | string            | `desktop` To extract desktop result `mobile` To extract mobile result                                                                                                                                                                                                                                                      |
+| lang <span style={{color: "red"}}>\*</span>   | string            | You can set language for e.g. `en` for english `fr` for french.<br />Get the list of available languages by making a separate request to the [Languages List](/extra-apis/languages-list)                                                                                                                                  |
+| loc <span style={{color: "red"}}>\*</span>    | string            | Optional field if you specify `loc_id`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list)                                             |
+| loc_id <span style={{color: "red"}}>\*</span> | integer           | Optional field if you specify `loc`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list)                                                |
+| page                                          | integer           | Give specific page to get the result of that page number. By default it will get you first page.                                                                                                                                                                                                                           |
+| date_range                                    | String            | Sometimes you may want to only find information published during a specific time frame. To limit Google results by date<br /><br />Parameter values can be comma separated date range `YYYY-MM-DD,YYYY-MM-DD` OR<br /><br />`h` Past hour<br />`d` Past 24 hours<br />`w` Past week<br />`m` Past month<br />`y` Past year |
+| no_trace                                      | string \| integer | Enterprise only. Enables NoTrace mode. Accepted values: `0`, `1`, `true`, and `false`. When enabled (`1` or `true`), search parameters, files, and metadata are not stored on our servers.                                                                                                                                 |
 
 ## Example Request
 
 <ApiExample
   endpoint="https://api.serphouse.com/google-news"
-  query="Donald Trump"
-  params='{"device": "desktop",domain="google.com",loc="New York,United States"}'
+  query="top headlines"
+  domain="google.com"
+  lang="en"
+  params='{"device": "desktop", "loc": "United Kingdom"}'
 />
 ## Example Response
 
-<ApiExample mode="response" response={googleNewsResponse} />
+<ApiExample mode="response">
+  <ApiTab label="JSON" response={googleNewsJsonResponse} />
+  <ApiTab
+    label="Markdown"
+    response={googleNewsMarkdownResponse}
+    lang="markdown"
+  />
+</ApiExample>
 
 ## Related Links
 

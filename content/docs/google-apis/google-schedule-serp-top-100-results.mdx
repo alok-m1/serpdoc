@@ -3,7 +3,7 @@ title: Google Batch SERP (Top 100 Results)
 description: Schedule multi-page Google SERP searches with credit refund for unused pages.
 ---
 
-import { googleScheduleSerpTop100Response } from "@/lib/api-examples/googleScheduleSerpTop100";
+import { googleScheduleSerpTop100JsonResponse } from "@/lib/api-examples/googleScheduleSerpTop100";
 
 <Callout type="idea" title="Why this endpoint?">
   Google recently restricted the `num` parameter to a maximum of 10 results per
@@ -64,13 +64,39 @@ import { googleScheduleSerpTop100Response } from "@/lib/api-examples/googleSched
 
 <ApiExample
   endpoint="https://api.serphouse.com/serp/google_advanced_scheduled"
-  query="Cold Coffee"
-  params='{"device": "desktop", "loc": "London,England,United Kingdom", "verbatim": 0, "max_pages": 5}'
+  items='[
+  {
+    "q": "donlad trump",
+    "domain": "google.com",
+    "lang": "en",
+    "device": "desktop",
+    "loc": "London,England,United Kingdom",
+    "max_pages": 10
+  },
+  {
+    "q": "Tesla",
+    "domain": "google.com",
+    "lang": "ru",
+    "device": "mobile",
+    "loc": "Russia",
+    "max_pages": 4
+  },
+  {
+    "q": "Artificial Intelligence",
+    "domain": "google.com",
+    "lang": "en",
+    "device": "desktop",
+    "loc": "Alba,Texas,United States",
+    "max_pages": 7
+  }
+]'
 />
 
 ## Example Response
 
-<ApiExample mode="response" response={googleScheduleSerpTop100Response} />
+<ApiExample mode="response">
+  <ApiTab label="JSON" response={googleScheduleSerpTop100JsonResponse} />
+</ApiExample>
 
 ## Related Links
 

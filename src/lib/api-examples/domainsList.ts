@@ -1,7 +1,7 @@
-export const domainsListResponse = {
-  "status": "success",
-  "msg": "",
-  "results": [
+export const domainsListJsonResponse = {
+  status: "success",
+  msg: "",
+  results: [
     "bing.com",
     "google.com.af",
     "google.al",
@@ -228,6 +228,6 @@ export const domainsListResponse = {
     "hk.yahoo.com",
     "tw.yahoo.com",
     "malaysia.yahoo.com",
-    "espanol.yahoo.com"
-  ]
+    "espanol.yahoo.com",
+  ],
 } as const;

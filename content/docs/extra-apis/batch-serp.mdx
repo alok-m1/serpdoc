@@ -3,7 +3,7 @@ title: Batch SERP
 description: Schedule SERP tasks for delayed retrieval with postback and pingback support.
 ---
 
-import { scheduleSerpResponse } from "@/lib/api-examples/scheduleSerp";
+import { scheduleSerpJsonResponse } from "@/lib/api-examples/scheduleSerp";
 
 Below you will find a detailed description of the fields you can use for setting a task.
 
@@ -48,13 +48,39 @@ All POST data should be sent in JSON format (UTF-8 encoding). The task setting i
 
 <ApiExample
   endpoint="https://api.serphouse.com/serp/schedule"
-  query="Coffee"
-  domain="google.com"
-  params='{"device": "desktop", "loc": "Alba,Texas,United States", "serp_type": "web", "page": 1, "num_result": 10}'
+  items='[
+  {
+    "q": "Electric Vehicles",
+    "domain": "bing.com",
+    "lang": "en-IN",
+    "device": "desktop",
+    "serp_type": "web",
+    "loc": "Surat,Gujarat,India",
+    "page": 1
+  },
+  {
+    "q": "TeOlympicsa",
+    "domain": "google.com",
+    "lang": "en",
+    "device": "mobile",
+    "serp_type": "web",
+    "loc": "Surat,Gujarat,India",
+    "page": 1
+  },
+  {
+    "domain": "us.yahoo.com",
+    "lang": "lang_en",
+    "q": "Healthy Recipes",
+    "device": "desktop",
+    "serp_type": "web"
+  }
+]'
 />
 ## Example Response
 
-<ApiExample mode="response" response={scheduleSerpResponse} />
+<ApiExample mode="response">
+  <ApiTab label="JSON" response={scheduleSerpJsonResponse} />
+</ApiExample>
 
 ## Related Links
 

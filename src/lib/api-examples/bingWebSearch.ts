@@ -1,12 +1,12 @@
-export const bingWebSearchResponse = {
+const jsonResponse = {
   "status": "success",
   "msg": "Completed",
   "results": {
     "search_metadata": {
-      "id": 245725463,
+      "id": 259398511,
       "status": "success",
-      "created_at": "2026-06-17T09:48:27.000000Z",
-      "processed_at": "2026-06-17 09:48:27"
+      "created_at": "2026-08-03T08:13:31.000000Z",
+      "processed_at": "2026-08-03 08:13:31"
     },
     "search_parameters": {
       "domain": "bing.com",
@@ -23,123 +23,84 @@ export const bingWebSearchResponse = {
     "results": {
       "search_information": [
         {
-          "total_results": "198,000"
-        }
-      ],
-      "ads": [
-        {
-          "position": 1,
-          "block_position": "top",
-          "title": "Premium Coffee Awaits You | Your Bean Paradise Here!",
-          "link": "https://www.bing.com/aclk?ld=e8o885gsiKtAM02Vc2F34kejVUCUxCcf4BIWPXjxtAO3w0FQGXdXuzN7B19cWI68BD0MYVQJxga998-TkcQfnlH0M1FmLAgzSW4ZkhH3UZ4WLYrsqyov2eO2SOphWtW-g8AiOff-9NqEYD5K4eJ1YiIcTaZ9DZdC_HS1veg43puYN01aSSJpp8XVPjM4cURM-FOFD55B967I5_8sXEFgrRVILRb7g&amp;u=aHR0cHMlM2ElMmYlMmZ3d3cuZ2VudWluZW9yaWdpbi5jb20lM2Ztc2Nsa2lkJTNkNGFmNTEwMWI4OTc0MWUzYmM1MWI3YTI5ZTQxMzYwMTA&amp;rlid=4af5101b89741e3bc51b7a29e4136010&amp;ntb=1",
-          "displayed_link": "https://www.genuineorigin.com",
-          "description": "Sponsored  Shop now for premium green coffee beans from the finest coffee origins worldwide! Shop online for green coffee from 20 origins. Get Free Delivery to your roastery\nTypes: Organic Green Coffees, Micro-lots, Decaf, Roastery Essentials\n"
-        },
-        {
-          "position": 2,
-          "block_position": "top",
-          "title": "Buy Coffee on Amazon.com | Amazon®  Official Site",
-          "link": "https://www.bing.com/aclk?ld=e8hN1bUMI8cilfcOA_eVL3uDVUCUwQc-sobLEcX997ICWVlCKRE--Mwv7HxEIMag52kykTBs1hYxuaSc50Iu8b3xuUF_ViDJdZdLMeiq6l9ggTJq5-GP4VVe85ItoqHDbfEKPzUDxfsY5CKeQkbGxisr-6OnsDBlo6nfYfm-4labt_InLxgSZl1g3NxJHM9Ndv7EZOaQ-UAivmgsENdTVAYze_19w&amp;u=aHR0cHMlM2ElMmYlMmZ3d3cuYW1hem9uLmNvbSUyZnMlMmYlM2ZpZSUzZFVURjglMjZrZXl3b3JkcyUzZGNvZmZlZSUyNmluZGV4JTNkYXBzJTI2dGFnJTNkbWgwYi0yMCUyNnJlZiUzZHBkX3NsXzZpbmlpbnNmdV9lJTI2YWRncnBpZCUzZDEzNDY5MDQzMDIwODY2NzElMjZodmFkaWQlM2Q4NDE4MTgwMjg5MTYyNiUyNmh2bmV0dyUzZG8lMjZodnFtdCUzZGUlMjZodmJtdCUzZGJlJTI2aHZkZXYlM2RjJTI2aHZsb2NpbnQlM2QlMjZodmxvY3BoeSUzZDQ1OTQwJTI2aHZ0YXJnaWQlM2Rrd2QtODQxODI3MjQ0Mjk5NTglM2Fsb2MtMTkwJTI2aHlkYWRjciUzZDI2MDMxXzEzNzUxMjU2JTI2bWNpZCUzZDZjY2E2MDAyOGQ4NTNmMzg4Y2M0MzFjZWMyNjdhNzQzJTI2bXNjbGtpZCUzZGNiNjAyNmM3ZDllNTFkMGU3NDIwNGNmNWI0ODIxNjc1&amp;rlid=cb6026c7d9e51d0e74204cf5b4821675&amp;ntb=1",
-          "displayed_link": "https://www.amazon.com › Shop › coffee",
-          "description": "Sponsored  Delight your senses with our premium coffee selection. Elevate your daily routine. Order now and enjoy the convenience of cafe-quality coffee, delivered to your door.\n"
-        },
-        {
-          "position": 3,
-          "block_position": "bottom",
-          "title": "Coffee made easy | Take your pick of pods",
-          "link": "https://www.bing.com/aclk?ld=e89CBl8TSJioE4kKT0vNm6jTVUCUzLc9iRsFSgjsRz0RGu1L4tqKsk_5cWOBRt8E6CiZy40MmhhfX_elgikIEXAueoUfGVWzhiZLGJtLkOwZT4ZU23ggfOQTCS6UmDziCEGyzL14Ba_5kjYK41kv9-uSkn7uwlTcbV8Bkx0SPTXw6hgvw5REoA9ftr0jU3Fn6UHn6obFs8PQpmOPgA1hVrH_YhtsI&amp;u=aHR0cHMlM2ElMmYlMmZ3d3cuY29mZmVlaG91c2VleHByZXNzLmNvbSUyZmMlMmZjb2ZmZWUtcG9kcy5odG1sJTNmUGVyX1BhZ2UlM2QxMiUyNlNvcnRfQnklM2RkaXNwX29yZGVyJTI2YnJhbmQlM2RCYXJvbmV0JTI2X3ZzcmVmZG9tJTNkYWR3b3JkcyUyNm1zY2xraWQlM2RmN2M5MTM5ZWJkZjgxYzA1NmQyNTc5YWNkMDlmM2Y2NSUyNnV0bV9zb3VyY2UlM2RiaW5nJTI2dXRtX21lZGl1bSUzZGNwYyUyNnV0bV9jYW1wYWlnbiUzZCoqTFAlMjUyMEJyYW5kcyUyNTIwLSUyNTIwQSUyNnV0bV90ZXJtJTNkY29mZmVlJTI1MjBpbiUyNTIwcG9kcyUyNnV0bV9jb250ZW50JTNkKkJhcm9uZXQlMjUyMENvZmZlZSUyNTIwUG9k&amp;rlid=f7c9139ebdf81c056d2579acd09f3f65&amp;ntb=1",
-          "displayed_link": "https://www.coffeehouseexpress.com › Baronet_Pods",
-          "description": "Sponsored  For More Than 60 Years We Have Served Customers With The Best Coffee And Tea Products. We Are A One Stop Shop For Your Home, Office, Or Hospitality Coffee Supplies. Shop Now!\n"
-        },
-        {
-          "position": 4,
-          "block_position": "bottom",
-          "title": "Java Coffee - Dark Roast Coffee Pods",
-          "link": "https://www.bing.com/aclk?ld=e8T6NO97yWY_QM1hXlJL2B2jVUCUzIij9M9Ysmgs9etYqk_QGd6QWP5VyeUAmzhRpK2LxB2aeLVO2y05Bf9MOwnE9otNI20489tDi9Vyzhh-3ik08eRMxY_Rvmbs5qBt9nBK7c6M4E6GBy44hwgpNXte1cbNQ3Tagz0U3NWWoNDH9ptW0HKeYbvXn9_SpfQgX3M7lakC5qMoPd0U_fkjYfzOGiCFY&amp;u=aHR0cHMlM2ElMmYlMmZ3d3cua3JvZ2VyLmNvbSUyZnAlMmZqYXZhLWZhY3RvcnktZXh0cmEtYm9sZC1kb3VibGUtY2FmZmluYXRlZC1jb2ZmZWUtcG9kcy1kYS1ib21iLTQwLWNvdW50JTJmMDA4MTA2ODMwMjA4MiUzZmdjbGlkJTNkNjFjYTlkZDQzNmJjMTY2OWY1NmNmN2U2NWJkYjc1NzMlMjZnY2xzcmMlM2QzcC5kcyUyNiUyNmNpZCUzZHBzLnBhaS5tc19jb3JldGV4dF9wJTNhYXdhcl8yMDI2MDAwMF9yJTNhMF90JTNhZW50X2IlM2FhbGxfZSUzYTBfZiUzYUZZMjQuMDFfc2VhcmNoX2VudF9zYWxlcy5uaF9hbGxlbnQubmFfY29yZXRleHRfa3JvZ2VyLnQxX2JfZHNhX2FsbF9hY3FfZXZnbl9hbGxfYWxsX3Jldl9yb2FzX3NmX2JldmVyYWdlcyUyNm1zY2xraWQlM2Q2MWNhOWRkNDM2YmMxNjY5ZjU2Y2Y3ZTY1YmRiNzU3Mw&amp;rlid=61ca9dd436bc1669f56cf7e65bdb7573&amp;ntb=1",
-          "displayed_link": "https://www.kroger.com",
-          "description": "Sponsored  Explore juice, coffee, tea, sodas, nutrition drinks, water &amp; more at Kroger®. Get the app &amp; save $20 on your first pickup or delivery order of $75+. Shop now!\nAmenities: Curbside Pickup, Delivery, Browse Available Items, Low Prices, Weekly Deal\n"
-        },
-        {
-          "position": 5,
-          "block_position": "bottom",
-          "title": "Nespresso | Up to 40% Off Vertuo Machines",
-          "link": "https://www.bing.com/aclk?ld=e87fo8umSqrXzlqT_6-2jFmzVUCUwSTLxKDwcgq8OKuRrQi_Lf_HyhBIx_ib5gvPre9uJexA3FnNfOT7zeW_sjJ0kiS91q-MMMKQI2ILUzwZqJ7O3TjvBHG0FDUIa_0AodvNrpEWOL853ca2PXbVMgGq-li5CMM7uf_fjFsemXm7SBvozuYXlmn0-iCS0OdkorOCyTtx7urmVo_fNKFBJbgktbAoE&amp;u=aHR0cHMlM2ElMmYlMmZ3d3cubmVzcHJlc3NvLmNvbSUyZnVzJTJmZW4lMmZ2ZXJ0dW8tY29mZmVlLW1hY2hpbmVzJTNmZ2NsaWQlM2RlY2NiMTU3NmQxN2UxMWY0NDNiMDdmNDRiYzE5NTM4NiUyNmdjbHNyYyUzZDNwLmRzJTI2bXNjbGtpZCUzZGVjY2IxNTc2ZDE3ZTExZjQ0M2IwN2Y0NGJjMTk1Mzg2&amp;rlid=eccb1576d17e11f443b07f44bc195386&amp;ntb=1",
-          "displayed_link": "https://www.nespresso.com",
-          "description": "Sponsored  Brew All Your Iced Coffee Faves with Up to 40% on Select Vertuo Machines &amp; Pop+ from $99. Become Your Own Barista and Create the Perfect Coffee From the Comfort of Your Home.\n"
+          "total_results": "262,000"
         }
       ],
       "organic": [
         {
           "position": 1,
           "title": "Coffee - Wikipedia",
-          "link": "https://www.bing.com/ck/a?!&&p=b002a445a2c24ebd670a3d138665b32c039ce02273175ba04951b627d8d4c6deJmltdHM9MTc4MTY1NDQwMA&ptn=3&ver=2&hsh=4&fclid=0ef1ad5e-fd75-64cd-3a8c-ba25fcad6507&u=a1aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvQ29mZmVl&ntb=1",
+          "link": "https://www.bing.com/ck/a?!&&p=6ce8b92f52bd68757135686c717089a393a28c372ff3ce0bbc5cafcdcd1363c7JmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvQ29mZmVl&ntb=1",
           "displayed_link": "https://en.wikipedia.org › wiki › Coffee",
-          "snippet": "Coffee is a beverage brewed from roasted, ground coffee beans. Darkly colored, bitter, and slightly acidic, coffee has a stimulating effect on humans, primarily due to its caffeine content, but …"
+          "snippet": "Coffee is a beverage brewed from roasted ground coffee beans. Darkly colored and bitter, coffee has a stimulating effect on humans …"
         },
         {
           "position": 2,
-          "title": "THE 10 BEST Cafés in Quezon City (Updated 2026) - Tripadvisor",
-          "link": "https://www.bing.com/ck/a?!&&p=13a7df794e3051fc1795b82d5702854fe9325f4647e979449bcc609a48a447f5JmltdHM9MTc4MTY1NDQwMA&ptn=3&ver=2&hsh=4&fclid=0ef1ad5e-fd75-64cd-3a8c-ba25fcad6507&u=a1aHR0cHM6Ly93d3cudHJpcGFkdmlzb3IuY29tL1Jlc3RhdXJhbnRzLWcyOTg1NzQtYzgtUXVlem9uX0NpdHlfTWV0cm9fTWFuaWxhX0x1em9uLmh0bWw&ntb=1",
-          "displayed_link": "https://www.tripadvisor.com",
-          "snippet": "Best Cafés in Quezon City, Metro Manila: Find Tripadvisor traveller reviews of Quezon City Cafés and search by price, location, and more."
+          "title": "Top 20 Best Coffee Shops In Mumbai",
+          "link": "https://www.bing.com/ck/a?!&&p=80aa59a9925bba74b914fef30cfc53a9182bfd1ab9c84d3f26e87a7a704f298fJmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly9tdW1iYWk3LmNvbS9iZXN0LWNvZmZlZS1zaG9wcy1pbi1tdW1iYWkv&ntb=1",
+          "displayed_link": "https://mumbai7.com › best-coffee-shops-in-mumbai",
+          "snippet": "Nov 6, 2025 &nbsp;· From third-wave specialty roasters in Bandra to century-old Irani cafés in Colaba — Mumbai’s coffee scene has never …"
         },
         {
           "position": 3,
-          "title": "Home - ZUS Coffee",
-          "link": "https://www.bing.com/ck/a?!&&p=0aeed0cdccaec3d53b69bd29bbfa072bab94c7f9fd70476269a5a205bbb995e8JmltdHM9MTc4MTY1NDQwMA&ptn=3&ver=2&hsh=4&fclid=0ef1ad5e-fd75-64cd-3a8c-ba25fcad6507&u=a1aHR0cHM6Ly96dXNjb2ZmZWUucGgv&ntb=1",
-          "displayed_link": "https://zuscoffee.ph",
-          "snippet": "We believe that premium coffee should be accessible to everyone, and we’re committed to delivering exceptional quality at an affordable price. Handa ka na ba for the ultimate kape experience? Fuel …"
+          "title": "Subko Specialty Coffee Roasters, Craft Bakehouse &amp; Fine Cacao",
+          "link": "https://www.bing.com/ck/a?!&&p=63a43604071569e7d25032dc1dc94f5510f805142fb810d8388fc2edf04c63a9JmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly93d3cuc3Via28uY29mZmVlLw&ntb=1",
+          "displayed_link": "https://www.subko.coffee",
+          "snippet": "Subko Specialty Coffee Roasters, Craft Bakehouse, and Fine Cacao is at its core, committed to an ideal: to help reimagine and …"
         },
         {
           "position": 4,
-          "title": "The Best 10 Coffee &amp; Tea near Quezon City, Manila, Metro Manila",
-          "link": "https://www.bing.com/ck/a?!&&p=91118f3c872038a340b2a5431da4810edaac5b0f73a5b2e050579b2908fca777JmltdHM9MTc4MTY1NDQwMA&ptn=3&ver=2&hsh=4&fclid=0ef1ad5e-fd75-64cd-3a8c-ba25fcad6507&u=a1aHR0cHM6Ly93d3cueWVscC5jb20vc2VhcmNoP2NmbHQ9Y29mZmVlJmZpbmRfbG9jPVF1ZXpvbitDaXR5JTJDK01hbmlsYSUyQytNZXRybytNYW5pbGEmbXNvY2tpZD0wZWYxYWQ1ZWZkNzU2NGNkM2E4Y2JhMjVmY2FkNjUwNw&ntb=1",
-          "displayed_link": "https://www.yelp.com › search",
-          "snippet": "Best Coffee &amp; Tea in Quezon City, Manila, Metro Manila, Philippines - Last Updated June 2026 - The Hideout Cafe, Craft Coffee Revolution, Antonio&apos;s Coffee and Bibingka, Habitual Coffee, Cool Beans …"
+          "title": "Top Coffee Cafe in Mumbai | Third Wave Coffee",
+          "link": "https://www.bing.com/ck/a?!&&p=fbb7b7ddca65192525d3fe9497af8d00258aeb0359e76221e72ac170c271e0b8JmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly9jYWZlLnRoaXJkd2F2ZWNvZmZlZS5pbi9sb2NhdGlvbi9tYWhhcmFzaHRyYS9tdW1iYWk&ntb=1",
+          "displayed_link": "https://cafe.thirdwavecoffee.in › location › maharashtra › mumbai",
+          "snippet": "Third Wave Coffee Café in Mumbai allows people to engage in sparking discussions and gaining a deeper understanding of each …"
         },
         {
           "position": 5,
-          "title": "Best Coffee &amp; Cafes near Quezon City, Manila, Metro Manila ... - Yelp",
-          "link": "https://www.bing.com/ck/a?!&&p=d3181fbee99cffd0bd673206fa1ccb6874cd16616a8d6910a97db4f7b7f407b7JmltdHM9MTc4MTY1NDQwMA&ptn=3&ver=2&hsh=4&fclid=0ef1ad5e-fd75-64cd-3a8c-ba25fcad6507&u=a1aHR0cHM6Ly93d3cueWVscC5jb20vc2VhcmNoP2ZpbmRfZGVzYz1Db2ZmZWUrJTI2K0NhZmVzJmZpbmRfbG9jPVF1ZXpvbitDaXR5JTJDK01hbmlsYSUyQytNZXRybytNYW5pbGEmbXNvY2tpZD0wZWYxYWQ1ZWZkNzU2NGNkM2E4Y2JhMjVmY2FkNjUwNw&ntb=1",
-          "displayed_link": "https://www.yelp.com › search",
-          "snippet": "We Ranked the Top 10 Best Coffee &amp; Cafes near Quezon City, Manila, Metro Manila, Philippines - Last Updated June 2026 - Yelp - The Hideout Cafe, Cafe I&apos;m Here, Figaro Coffee"
+          "title": "15 Best Coffee Places In Mumbai To Bookmark - LBB",
+          "link": "https://www.bing.com/ck/a?!&&p=c436381458cace7743434fc57f8463d4dc83c852a9f5e1c7c140155f0f2264b3JmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly9sYmIuaW4vbXVtYmFpL2Jlc3QtY29mZmVlLXBsYWNlcy1tdW1iYWkv&ntb=1",
+          "displayed_link": "https://lbb.in › mumbai › best-coffee-places-mumbai",
+          "snippet": "Mumbai, a city that never sleeps, possibly because it always finds a good cup of coffee. Whether you’re fighting the Monday slump or …"
         },
         {
           "position": 6,
-          "title": "23 Best Cafes in Manila for Coffee, Brunch, &amp; Dessert",
-          "link": "https://www.bing.com/ck/a?!&&p=16b735649ba7ae12ed55c41d2b64cdfc75f787cece3bafeb45906d97dfc4f48eJmltdHM9MTc4MTY1NDQwMA&ptn=3&ver=2&hsh=4&fclid=0ef1ad5e-fd75-64cd-3a8c-ba25fcad6507&u=a1aHR0cHM6Ly93d3cudHJpcHppbGxhLnBoL2Jlc3QtY2FmZXMtbWV0cm8tbWFuaWxhLzg5ODY&ntb=1",
-          "displayed_link": "https://www.tripzilla.ph › best-cafes-metro-manila",
-          "snippet": "Sep 14, 2025 &nbsp;· If you’re a coffee lover, definitely make a beeline for Metro Manila. The Philippines’ capital region has quite the burgeoning coffee scene, after all. From hipster coffee shops to trendy …"
+          "title": "ARAKU Coffee India • Buy Freshly Roasted Premium Coffee",
+          "link": "https://www.bing.com/ck/a?!&&p=c352a951449a848a8cd67210994518764edf52024a9e4aeda7defa8ad41e429aJmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly93d3cuYXJha3Vjb2ZmZWUuaW4v&ntb=1",
+          "displayed_link": "https://www.arakucoffee.in",
+          "snippet": "Crafted from a blend of washed and natural coffees and roasted as a light-medium omni roast, it brings together the clarity and …"
         },
         {
           "position": 7,
-          "title": "15+ Best Cafes in Quezon City for Your Perfect Coffee Break",
-          "link": "https://www.bing.com/ck/a?!&&p=9d99c0f5f6116d5718da23f43a396dbd48f7ac57f4c11f5107a7e1038b79f935JmltdHM9MTc4MTY1NDQwMA&ptn=3&ver=2&hsh=4&fclid=0ef1ad5e-fd75-64cd-3a8c-ba25fcad6507&u=a1aHR0cHM6Ly93d3cub3ZlcmhlcmVtYW5pbGEuY29tL2Jlc3QtY2FmZXMtaW4tcXVlem9uLWNpdHkv&ntb=1",
-          "displayed_link": "https://www.overheremanila.com › best-cafes-in-quezon-city",
-          "snippet": "Jul 15, 2025 &nbsp;· Need a good cup of coffee and a cozy place to escape the chaos of Manila? Quezon City has plenty of great cafés to choose from. From remote work spots with strong Wi-Fi to cafés with …"
+          "title": "Coffee | Origin, Types, Uses, History, &amp; Facts | Britannica",
+          "link": "https://www.bing.com/ck/a?!&&p=e05d6716bda8fddbdca7f1b6bd1fcb6a69ead19af1fd4611fc87a8f38bbe4c78JmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly93d3cuYnJpdGFubmljYS5jb20vdG9waWMvY29mZmVl&ntb=1",
+          "displayed_link": "https://www.britannica.com › topic › coffee",
+          "snippet": "3 days ago &nbsp;· Coffee, beverage brewed from the roasted and ground seeds of the tropical evergreen coffee plant of African origin. …"
         },
         {
           "position": 8,
-          "title": "7 Healthiest Ways to Drink Coffee for Maximum Benefits, According to …",
-          "link": "https://www.bing.com/ck/a?!&&p=a4711602784e38bb5bac309eb4e47bc6a723638c3cee80fb2c49d65edced1de9JmltdHM9MTc4MTY1NDQwMA&ptn=3&ver=2&hsh=4&fclid=0ef1ad5e-fd75-64cd-3a8c-ba25fcad6507&u=a1aHR0cHM6Ly93d3cudmVyeXdlbGxoZWFsdGguY29tL2hlYWx0aGllc3Qtd2F5cy10by1kcmluay15b3VyLWNvZmZlZS0xMTkzNzI4OA&ntb=1",
-          "displayed_link": "https://www.verywellhealth.com",
-          "snippet": "Apr 7, 2026 &nbsp;· What you add to your coffee could have potential health perks. Coffee can be more than just a comforting morning ritual—it’s packed with antioxidants and can even provide potential health …"
+          "title": "Buy Freshly Roasted Coffee Beans | Blue Tokai Coffee Roasters",
+          "link": "https://www.bing.com/ck/a?!&&p=bcc445094623ce4bfac706a3b1171fa3f38ee0c92c52cbe9ca775748400f9d3bJmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly9ibHVldG9rYWljb2ZmZWUuY29tLw&ntb=1",
+          "displayed_link": "https://bluetokaicoffee.com",
+          "snippet": "Blue Tokai Coffee brings you fresh single estate 100% Arabica coffee beans, roasted with care, from the best farms across India. …"
         },
         {
           "position": 9,
-          "title": "High Grounds Cafe | Quezon City - Facebook",
-          "link": "https://www.bing.com/ck/a?!&&p=e9bf2395b0752169e9d912d67455bd007edc91956c187242b7014d6524aa3a33JmltdHM9MTc4MTY1NDQwMA&ptn=3&ver=2&hsh=4&fclid=0ef1ad5e-fd75-64cd-3a8c-ba25fcad6507&u=a1aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL2hpZ2hncm91bmRzb2ZmaWNpYWwv&ntb=1",
-          "displayed_link": "https://www.facebook.com › highgroundsofficial",
-          "snippet": "Serving you til 4am every Fridays and Saturdays! See. Cafe. Grounds! Which one would you try? 🤤. Grounds! Which one would you try? …"
+          "title": "Starbucks Coffee Company",
+          "link": "https://www.bing.com/ck/a?!&&p=844b6f1999c1ce0467107a7986a6955ed9a55a9233053bea8d9c2e37b8ecc47dJmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly93d3cuc3RhcmJ1Y2tzLmluLw&ntb=1",
+          "displayed_link": "https://www.starbucks.in",
+          "snippet": "We at Starbucks use cookies to enhance browser experience, serve personalized ads/content and analyze traffic. By choosing below …"
         },
         {
           "position": 10,
-          "title": "The 10 Best Cafés in Quezon City - Tripadvisor",
-          "link": "https://www.bing.com/ck/a?!&&p=495a6e2542fa90ac108b4922e54c02b3734bc09eb5897cc9a43fbebc63bd67f7JmltdHM9MTc4MTY1NDQwMA&ptn=3&ver=2&hsh=4&fclid=0ef1ad5e-fd75-64cd-3a8c-ba25fcad6507&u=a1aHR0cHM6Ly93d3cudHJpcGFkdmlzb3IuY29tLnBoL1Jlc3RhdXJhbnRzLWcyOTg1NzQtYzgtUXVlem9uX0NpdHlfTWV0cm9fTWFuaWxhX0x1em9uLmh0bWw&ntb=1",
-          "displayed_link": "https://www.tripadvisor.com.ph",
-          "snippet": "Best Cafés in Quezon City, Metro Manila: Find Tripadvisor traveller reviews of Quezon City Cafés and search by price, location, and more."
+          "title": "10 Best Cafés in Bandra Kurla Complex (Mumbai) - Tripadvisor",
+          "link": "https://www.bing.com/ck/a?!&&p=15bf699c09c6c87d582237421907e8d30bcf3d9fd3dad8b6a2079fd487e41152JmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly93d3cudHJpcGFkdmlzb3IuaW4vUmVzdGF1cmFudHMtZzMwNDU1NC1jOC16Zm4xMzA4ODA3NS1NdW1iYWlfTWFoYXJhc2h0cmEuaHRtbA&ntb=1",
+          "displayed_link": "https://www.tripadvisor.in",
+          "snippet": "Best Cafés in Bandra Kurla Complex Mumbai, Maharashtra: Find Tripadvisor traveller reviews of Bandra Kurla Complex Mumbai …"
         }
       ]
     }
   }
 } as const;
+
+export const bingWebSearchJsonResponse = jsonResponse as Record<string, unknown>;
+export const bingWebSearchMarkdownResponse = "Coffee - SearchAbout 262,000 results\n\nOpen links in new tab\n\n[Any time](javascript:)\n\n1. [wikipedia.org https://en.wikipedia.org › wiki ›\nCoffee](https://www.bing.com/ck/a?!&&p=6ce8b92f52bd68757135686c717089a393a28c372ff3ce0bbc5cafcdcd1363c7JmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvQ29mZmVl&ntb=1)\n\n## [**Coffee** -\nWikipedia](https://www.bing.com/ck/a?!&&p=6ce8b92f52bd68757135686c717089a393a28c372ff3ce0bbc5cafcdcd1363c7JmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvQ29mZmVl&ntb=1)\n\nCoffee is a beverage brewed from roasted ground coffee beans. Darkly colored and bitter, coffee has a stimulating effect\non humans …\n2. [mumbai7.com https://mumbai7.com ›\nbest-coffee-shops-in-mumbai](https://www.bing.com/ck/a?!&&p=80aa59a9925bba74b914fef30cfc53a9182bfd1ab9c84d3f26e87a7a704f298fJmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly9tdW1iYWk3LmNvbS9iZXN0LWNvZmZlZS1zaG9wcy1pbi1tdW1iYWkv&ntb=1)\n\n## [Top 20 Best **Coffee** Shops In\n**Mumbai**](https://www.bing.com/ck/a?!&&p=80aa59a9925bba74b914fef30cfc53a9182bfd1ab9c84d3f26e87a7a704f298fJmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly9tdW1iYWk3LmNvbS9iZXN0LWNvZmZlZS1zaG9wcy1pbi1tdW1iYWkv&ntb=1)\n\nNov 6, 2025 · From third-wave specialty roasters in Bandra to century-old Irani cafés in Colaba — Mumbai’s coffee scene\nhas never …\n3. [subko.coffee\nhttps://www.subko.coffee](https://www.bing.com/ck/a?!&&p=63a43604071569e7d25032dc1dc94f5510f805142fb810d8388fc2edf04c63a9JmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly93d3cuc3Via28uY29mZmVlLw&ntb=1)\n\n## [Subko Specialty **Coffee** Roasters, Craft Bakehouse &amp; Fine\nCacao](https://www.bing.com/ck/a?!&&p=63a43604071569e7d25032dc1dc94f5510f805142fb810d8388fc2edf04c63a9JmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly93d3cuc3Via28uY29mZmVlLw&ntb=1)\n\nSubko Specialty Coffee Roasters, Craft Bakehouse, and Fine Cacao is at its core, committed to an ideal: to help\nreimagine and …\n4. [thirdwavecoffee.in https://cafe.thirdwavecoffee.in › location › maharashtra ›\nmumbai](https://www.bing.com/ck/a?!&&p=fbb7b7ddca65192525d3fe9497af8d00258aeb0359e76221e72ac170c271e0b8JmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly9jYWZlLnRoaXJkd2F2ZWNvZmZlZS5pbi9sb2NhdGlvbi9tYWhhcmFzaHRyYS9tdW1iYWk&ntb=1)\n\n## [Top **Coffee** Cafe in **Mumbai** | Third Wave\n**Coffee**](https://www.bing.com/ck/a?!&&p=fbb7b7ddca65192525d3fe9497af8d00258aeb0359e76221e72ac170c271e0b8JmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly9jYWZlLnRoaXJkd2F2ZWNvZmZlZS5pbi9sb2NhdGlvbi9tYWhhcmFzaHRyYS9tdW1iYWk&ntb=1)\n\nThird Wave Coffee Café in Mumbai allows people to engage in sparking discussions and gaining a deeper understanding of\neach …\n5. [lbb.in https://lbb.in › mumbai ›\nbest-coffee-places-mumbai](https://www.bing.com/ck/a?!&&p=c436381458cace7743434fc57f8463d4dc83c852a9f5e1c7c140155f0f2264b3JmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly9sYmIuaW4vbXVtYmFpL2Jlc3QtY29mZmVlLXBsYWNlcy1tdW1iYWkv&ntb=1)\n\n## [15 Best **Coffee** Places In **Mumbai** To Bookmark -\nLBB](https://www.bing.com/ck/a?!&&p=c436381458cace7743434fc57f8463d4dc83c852a9f5e1c7c140155f0f2264b3JmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly9sYmIuaW4vbXVtYmFpL2Jlc3QtY29mZmVlLXBsYWNlcy1tdW1iYWkv&ntb=1)\n\nMumbai, a city that never sleeps, possibly because it always finds a good cup of coffee. Whether you’re fighting the\nMonday slump or …\n6. [arakucoffee.in\nhttps://www.arakucoffee.in](https://www.bing.com/ck/a?!&&p=c352a951449a848a8cd67210994518764edf52024a9e4aeda7defa8ad41e429aJmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly93d3cuYXJha3Vjb2ZmZWUuaW4v&ntb=1)\n\n## [ARAKU **Coffee** India • Buy Freshly Roasted Premium\n**Coffee**](https://www.bing.com/ck/a?!&&p=c352a951449a848a8cd67210994518764edf52024a9e4aeda7defa8ad41e429aJmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly93d3cuYXJha3Vjb2ZmZWUuaW4v&ntb=1)\n\nCrafted from a blend of washed and natural coffees and roasted as a light-medium omni roast, it brings together the\nclarity and …\n7. [britannica.com https://www.britannica.com › topic ›\ncoffee](https://www.bing.com/ck/a?!&&p=e05d6716bda8fddbdca7f1b6bd1fcb6a69ead19af1fd4611fc87a8f38bbe4c78JmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly93d3cuYnJpdGFubmljYS5jb20vdG9waWMvY29mZmVl&ntb=1)\n\n## [**Coffee** | Origin, Types, Uses, History, &amp; Facts |\nBritannica](https://www.bing.com/ck/a?!&&p=e05d6716bda8fddbdca7f1b6bd1fcb6a69ead19af1fd4611fc87a8f38bbe4c78JmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly93d3cuYnJpdGFubmljYS5jb20vdG9waWMvY29mZmVl&ntb=1)\n\n3 days ago · Coffee, beverage brewed from the roasted and ground seeds of the tropical evergreen coffee plant of African\norigin. …\n8. [bluetokaicoffee.com\nhttps://bluetokaicoffee.com](https://www.bing.com/ck/a?!&&p=bcc445094623ce4bfac706a3b1171fa3f38ee0c92c52cbe9ca775748400f9d3bJmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly9ibHVldG9rYWljb2ZmZWUuY29tLw&ntb=1)\n\n## [Buy Freshly Roasted **Coffee** Beans | Blue Tokai **Coffee**\nRoasters](https://www.bing.com/ck/a?!&&p=bcc445094623ce4bfac706a3b1171fa3f38ee0c92c52cbe9ca775748400f9d3bJmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly9ibHVldG9rYWljb2ZmZWUuY29tLw&ntb=1)\n\nBlue Tokai Coffee brings you fresh single estate 100% Arabica coffee beans, roasted with care, from the best farms\nacross India. …\n9. [starbucks.in\nhttps://www.starbucks.in](https://www.bing.com/ck/a?!&&p=844b6f1999c1ce0467107a7986a6955ed9a55a9233053bea8d9c2e37b8ecc47dJmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly93d3cuc3RhcmJ1Y2tzLmluLw&ntb=1)\n\n## [Starbucks **Coffee**\nCompany](https://www.bing.com/ck/a?!&&p=844b6f1999c1ce0467107a7986a6955ed9a55a9233053bea8d9c2e37b8ecc47dJmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly93d3cuc3RhcmJ1Y2tzLmluLw&ntb=1)\n\nWe at Starbucks use cookies to enhance browser experience, serve personalized ads/content and analyze traffic. By\nchoosing below …\n10. [tripadvisor.in\nhttps://www.tripadvisor.in](https://www.bing.com/ck/a?!&&p=15bf699c09c6c87d582237421907e8d30bcf3d9fd3dad8b6a2079fd487e41152JmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly93d3cudHJpcGFkdmlzb3IuaW4vUmVzdGF1cmFudHMtZzMwNDU1NC1jOC16Zm4xMzA4ODA3NS1NdW1iYWlfTWFoYXJhc2h0cmEuaHRtbA&ntb=1)\n\n## [10 Best **Cafés in Bandra Kurla Complex (Mumbai**) -\nTripadvisor](https://www.bing.com/ck/a?!&&p=15bf699c09c6c87d582237421907e8d30bcf3d9fd3dad8b6a2079fd487e41152JmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly93d3cudHJpcGFkdmlzb3IuaW4vUmVzdGF1cmFudHMtZzMwNDU1NC1jOC16Zm4xMzA4ODA3NS1NdW1iYWlfTWFoYXJhc2h0cmEuaHRtbA&ntb=1)\n\nBest Cafés in Bandra Kurla Complex Mumbai, Maharashtra: Find Tripadvisor traveller reviews of Bandra Kurla Complex\nMumbai …\n11.\n\nContent was generated with AI. [Learn\nmore](https://www.bing.com/ck/a?!&&p=e013e8dc1d0889f9f44fce5e3effb1b55373729b955c36cd21ce4903da125c49JmltdHM9MTc4NTcxNTIwMA&ptn=3&ver=2&hsh=4&fclid=144bdd91-bffd-6f04-34e7-ca3bbe5b6e35&u=a1aHR0cHM6Ly9zdXBwb3J0Lm1pY3Jvc29mdC5jb20vdG9waWMvaG93LWJpbmctZGVsaXZlcnMtc2VhcmNoLXJlc3VsdHMtZDE4ZmM4MTUtYWMzNy00NzIzLWJjNjctOTIyOWNlM2ViNmEzPw&ntb=1)\n\n[](/copilotsearch?q=Coffee&form=CSBSBX)\n\n[All](/search?q=Coffee&FORM=000017&cc=US&setlang=en-US&count=100&qpvt=Coffee)[Past 24\nhours](/search?q=Coffee&filters=ex1%3a%22ez1%22&FORM=000017&cc=US&setlang=en-US&count=100)[Past\nweek](/search?q=Coffee&filters=ex1%3a%22ez2%22&FORM=000017&cc=US&setlang=en-US&count=100)[Past\nmonth](/search?q=Coffee&filters=ex1%3a%22ez3%22&FORM=000017&cc=US&setlang=en-US&count=100)[Past\nyear](/search?q=Coffee&filters=ex1%3a%22ez5_20303_20668%22&FORM=000017&cc=US&setlang=en-US&count=100)\n";

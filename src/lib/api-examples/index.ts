@@ -1,27 +1,74 @@
-export { accountInfoResponse } from './accountInfo';
-export { bingImageResponse } from './bingImage';
-export { bingNewsResponse } from './bingNews';
-export { bingWebSearchResponse } from './bingWebSearch';
-export { domainsListResponse } from './domainsList';
-export { getSerpResultResponse } from './getSerpResult';
-export { googleAutocompleteResponse } from './googleAutocomplete';
-export { googleForumsResponse } from './googleForums';
-export { googleImageResponse } from './googleImage';
-export { googleJobsResponse } from './googleJobs';
-export { googleLiteWebSearchResponse } from './googleLiteWebSearch';
-export { googleLocalResponse } from './googleLocal';
-export { googleNewsResponse } from './googleNews';
-export { googleScheduleSerpTop100Response } from './googleScheduleSerpTop100';
-export { googleSerpTop100Response } from './googleSerpTop100';
-export { googleShoppingResponse } from './googleShopping';
-export { googleShortVideosResponse } from './googleShortVideos';
-export { googleVideosResponse } from './googleVideos';
-export { googleWebSearchResponse } from './googleWebSearch';
-export { languagesListResponse } from './languagesList';
-export { liveHttpGetResponse } from './liveHttpGet';
-export { liveHttpPostResponse } from './liveHttpPost';
-export { locationsListResponse } from './locationsList';
-export { scheduleSerpResponse } from './scheduleSerp';
-export { yahooImageResponse } from './yahooImage';
-export { yahooNewsResponse } from './yahooNews';
-export { yahooWebSearchResponse } from './yahooWebSearch';
+export { googleLiteWebSearchJsonResponse } from "./googleLiteWebSearch";
+export {
+  googleSerpTop100JsonResponse,
+  googleSerpTop100MarkdownResponse,
+} from "./googleSerpTop100";
+export { googleAutocompleteJsonResponse } from "./googleAutocomplete";
+export {
+  googleForumsJsonResponse,
+  googleForumsMarkdownResponse,
+} from "./googleForums";
+export {
+  googleImageJsonResponse,
+  googleImageMarkdownResponse,
+} from "./googleImage";
+export {
+  googleJobsJsonResponse,
+  googleJobsMarkdownResponse,
+} from "./googleJobs";
+export {
+  googleLocalJsonResponse,
+  googleLocalMarkdownResponse,
+} from "./googleLocal";
+export {
+  googleNewsJsonResponse,
+  googleNewsMarkdownResponse,
+} from "./googleNews";
+export { googleScheduleSerpTop100JsonResponse } from "./googleScheduleSerpTop100";
+export {
+  googleShoppingJsonResponse,
+  googleShoppingMarkdownResponse,
+} from "./googleShopping";
+export {
+  googleShortVideosJsonResponse,
+  googleShortVideosMarkdownResponse,
+} from "./googleShortVideos";
+export {
+  googleVideosJsonResponse,
+  googleVideosMarkdownResponse,
+} from "./googleVideos";
+export {
+  yahooWebSearchJsonResponse,
+  yahooWebSearchMarkdownResponse,
+} from "./yahooWebSearch";
+export {
+  yahooImageJsonResponse,
+  yahooImageMarkdownResponse,
+} from "./yahooImage";
+export { yahooNewsJsonResponse, yahooNewsMarkdownResponse } from "./yahooNews";
+export {
+  bingWebSearchJsonResponse,
+  bingWebSearchMarkdownResponse,
+} from "./bingWebSearch";
+export { bingImageJsonResponse, bingImageMarkdownResponse } from "./bingImage";
+export { bingNewsJsonResponse, bingNewsMarkdownResponse } from "./bingNews";
+export {
+  liveHttpPostJsonResponse,
+  liveHttpPostMarkdownResponse,
+} from "./liveHttpPost";
+export {
+  liveHttpGetJsonResponse,
+  liveHttpGetMarkdownResponse,
+} from "./liveHttpGet";
+export { scheduleSerpJsonResponse } from "./scheduleSerp";
+export { googleWebSearchJsonResponse } from "./googleWebSearch";
+export {
+  googleSearchApiJsonResponse,
+  googleSearchApiHtmlResponse,
+  googleSearchApiMarkdownResponse,
+} from "./google/google-search-api";
+export { accountInfoJsonResponse } from "./accountInfo";
+export { domainsListJsonResponse } from "./domainsList";
+export { getSerpResultJsonResponse } from "./getSerpResult";
+export { languagesListJsonResponse } from "./languagesList";
+export { locationsListJsonResponse } from "./locationsList";

@@ -2,52 +2,59 @@
 title: Google Lite Web Search API
 description: Fast, lightweight Google Web Search results with organic listings, titles, and snippets.
 ---
-import { googleLiteWebSearchResponse } from '@/lib/api-examples/googleLiteWebSearch';
+
+import { googleLiteWebSearchJsonResponse } from "@/lib/api-examples/googleLiteWebSearch";
 
 Retrieve real-time Google Web Search results with a fast, lightweight response, including organic listings, website titles, links, and snippets.
 
 <Callout type="warn">
-  Requires authentication → provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the
+  Authorization header.
 </Callout>
 
 `POST` `https://api.serphouse.com/web-search-lite`
 
 ## Headers
 
-| Name | Type | Description |
-|------|------|-------------|
-| Authorization <span style={{color: "red"}}>*</span> | String | Bearer `<YOUR_API_KEY>` |
-| Content-Type <span style={{color: "red"}}>*</span> | String | application/json |
+| Name                                                 | Type   | Description             |
+| ---------------------------------------------------- | ------ | ----------------------- |
+| Authorization <span style={{color: "red"}}>\*</span> | String | Bearer `<YOUR_API_KEY>` |
+| Content-Type <span style={{color: "red"}}>\*</span>  | String | application/json        |
 
 ## Request Body
 
-| Name | Type | Description |
-|------|------|-------------|
-| q <span style={{color: "red"}}>*</span> | string | Search phrase that you want to search |
-| domain <span style={{color: "red"}}>*</span> | string | Choose google domain.<br /><br />You can retrieve the list of supported Google domains by making a separate request to the [Domains List](/extra-apis/domains-list) |
-| lang <span style={{color: "red"}}>*</span> | string | You can set language for e.g. `en` for english `fr` for french.<br />Get the list of available languages by making a separate request to the [Languages List](/extra-apis/languages-list) |
-| gl <span style={{color: "red"}}>*</span> | string | Optional field if you specify `loc`<br />**The request must include either `loc` or `gl`**<br />The `gl` parameter accepts only two-letter ISO country codes (e.g. `IN`, `US`, `GB`). You can retrieve the list of supported country codes from the [Locations List](/extra-apis/locations-list) |
-| loc <span style={{color: "red"}}>*</span> | string | Optional field if you specify `gl`<br />**The request must include either `loc` or `gl`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list) |
-| page | integer | Give specific page to get the result of that page number. By default it will get you first page. |
-| date_range | String | Sometimes you may want to only find information published during a specific time frame. To limit Google results by date<br /><br />Parameter values can be comma separated date range `YYYY-MM-DD,YYYY-MM-DD` OR<br /><br />`h` Past hour<br />`d` Past 24 hours<br />`w` Past week<br />`m` Past month<br />`y` Past year |
-| verbatim | integer | Set Google Verbatim search, Parameter value can be `0` or `1` |
-| no_trace | string \| integer | Enterprise only. Enables NoTrace mode. Accepted values: `0`, `1`, `true`, and `false`. When enabled (`1` or `true`), search parameters, files, and metadata are not stored on our servers. |
+| Name                                          | Type              | Description                                                                                                                                                                                                                                                                                                                |
+| --------------------------------------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| q <span style={{color: "red"}}>\*</span>      | string            | Search phrase that you want to search                                                                                                                                                                                                                                                                                      |
+| domain <span style={{color: "red"}}>\*</span> | string            | Choose google domain.<br /><br />You can retrieve the list of supported Google domains by making a separate request to the [Domains List](/extra-apis/domains-list)                                                                                                                                                        |
+| lang <span style={{color: "red"}}>\*</span>   | string            | You can set language for e.g. `en` for english `fr` for french.<br />Get the list of available languages by making a separate request to the [Languages List](/extra-apis/languages-list)                                                                                                                                  |
+| gl <span style={{color: "red"}}>\*</span>     | string            | Optional field if you specify `loc`<br />**The request must include either `loc` or `gl`**<br />The `gl` parameter accepts only two-letter ISO country codes (e.g. `IN`, `US`, `GB`). You can retrieve the list of supported country codes from the [Locations List](/extra-apis/locations-list)                           |
+| loc <span style={{color: "red"}}>\*</span>    | string            | Optional field if you specify `gl`<br />**The request must include either `loc` or `gl`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list)                                                        |
+| page                                          | integer           | Give specific page to get the result of that page number. By default it will get you first page.                                                                                                                                                                                                                           |
+| date_range                                    | String            | Sometimes you may want to only find information published during a specific time frame. To limit Google results by date<br /><br />Parameter values can be comma separated date range `YYYY-MM-DD,YYYY-MM-DD` OR<br /><br />`h` Past hour<br />`d` Past 24 hours<br />`w` Past week<br />`m` Past month<br />`y` Past year |
+| verbatim                                      | integer           | Set Google Verbatim search, Parameter value can be `0` or `1`                                                                                                                                                                                                                                                              |
+| no_trace                                      | string \| integer | Enterprise only. Enables NoTrace mode. Accepted values: `0`, `1`, `true`, and `false`. When enabled (`1` or `true`), search parameters, files, and metadata are not stored on our servers.                                                                                                                                 |
 
 ## Response
 
 <Callout type="info">
-  Returns lightweight JSON with organic search results including title, site title, link, and snippet.
+  Returns lightweight JSON with organic search results including title, site
+  title, link, and snippet.
 </Callout>
 
 ## Example Request
 
 <ApiExample
   endpoint="https://api.serphouse.com/web-search-lite"
-  query="AI coding assistant"
-  params='{"loc": "US"}'
+  query="Best ai tools"
+  domain="google.com"
+  lang="en"
+  params='{"gl": "us", "page": 1}'
 />
 ## Example Response
-<ApiExample mode="response" response={googleLiteWebSearchResponse} />
+<ApiExample mode="response">
+  <ApiTab label="JSON" response={googleLiteWebSearchJsonResponse} />
+</ApiExample>
 
 ## Related Links
 

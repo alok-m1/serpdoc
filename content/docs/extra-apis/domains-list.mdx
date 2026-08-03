@@ -2,12 +2,14 @@
 title: Domains List
 description: Get the full list of supported search engine domains for Google, Bing, and Yahoo.
 ---
-import { domainsListResponse } from '@/lib/api-examples/domainsList';
+
+import { domainsListJsonResponse } from "@/lib/api-examples/domainsList";
 
 Get the full list of supported domains by our SERP API. This list also contains Bing and Yahoo domains.
 
 <Callout type="warn">
-  Requires authentication → provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the
+  Authorization header.
 </Callout>
 
 ## Get a List of Domains
@@ -16,24 +18,22 @@ Get the full list of supported domains by our SERP API. This list also contains 
 
 ### Headers
 
-| Name | Type | Description |
-|------|------|-------------|
-| Authorization <span style={{color: "red"}}>*</span> | String | Bearer `<YOUR_API_KEY>` |
+| Name                                                 | Type   | Description             |
+| ---------------------------------------------------- | ------ | ----------------------- |
+| Authorization <span style={{color: "red"}}>\*</span> | String | Bearer `<YOUR_API_KEY>` |
 
 <Callout type="info">
-  Returns a JSON object with a `results` array containing all supported domain strings for Google, Bing, and Yahoo.
+  Returns a JSON object with a `results` array containing all supported domain
+  strings for Google, Bing, and Yahoo.
 </Callout>
 
 ## Example Request
 
-<ApiExample
-  endpoint="https://api.serphouse.com/domain/list"
-  method="GET"
-/>
+<ApiExample endpoint="https://api.serphouse.com/domain/list" method="GET" />
 
 ## Example Response
 
-<ApiExample mode="response" response={domainsListResponse} />
+<ApiExample mode="response" response={domainsListJsonResponse} />
 
 ## Related Links
 

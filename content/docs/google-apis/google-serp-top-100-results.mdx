@@ -2,10 +2,16 @@
 title: Google SERP (Top 100 Results)
 description: Fetch up to 100 Google search results across multiple pages with the Google Advanced endpoint.
 ---
-import { googleSerpTop100Response } from '@/lib/api-examples/googleSerpTop100';
+
+import {
+  googleSerpTop100JsonResponse,
+  googleSerpTop100MarkdownResponse,
+} from "@/lib/api-examples/googleSerpTop100";
 
 <Callout type="idea" title="Why this endpoint?">
-  Google recently restricted the `num` parameter to a maximum of 10 results per request. To overcome this limitation, we introduced a new endpoint that can fetch results from multiple pages.
+  Google recently restricted the `num` parameter to a maximum of 10 results per
+  request. To overcome this limitation, we introduced a new endpoint that can
+  fetch results from multiple pages.
 </Callout>
 
 ## How It Works
@@ -25,53 +31,66 @@ import { googleSerpTop100Response } from '@/lib/api-examples/googleSerpTop100';
 - If `max_pages` is set to 7 but only 2 pages are available, 20 credits are charged.
 
 <Callout type="warn">
-  Requires authentication → provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the
+  Authorization header.
 </Callout>
 
 `POST` `https://api.serphouse.com/serp/google_advanced`
 
 ## Path Parameters
 
-| Name | Type | Description |
-|------|------|-------------|
+| Name         | Type   | Description      |
+| ------------ | ------ | ---------------- |
 | responseType | String | `html` or `json` |
 
 ## Headers
 
-| Name | Type | Description |
-|------|------|-------------|
-| Authorization <span style={{color: "red"}}>*</span> | String | Bearer `<YOUR_API_KEY>` |
-| Content-Type <span style={{color: "red"}}>*</span> | String | application/json |
+| Name                                                 | Type   | Description             |
+| ---------------------------------------------------- | ------ | ----------------------- |
+| Authorization <span style={{color: "red"}}>\*</span> | String | Bearer `<YOUR_API_KEY>` |
+| Content-Type <span style={{color: "red"}}>\*</span>  | String | application/json        |
 
 ## Request Body
 
-| Name | Type | Description |
-|------|------|-------------|
-| q <span style={{color: "red"}}>*</span> | string | Search phrase that you want to search |
-| domain <span style={{color: "red"}}>*</span> | string | Choose google domain.<br /><br />You can retrieve the list of supported Google domains by making a separate request to the [Domains List](/extra-apis/domains-list) |
-| lang <span style={{color: "red"}}>*</span> | string | You can set language for e.g. `en` for english `fr` for french.<br />Get the list of available languages by making a separate request to the [Languages List](/extra-apis/languages-list) |
-| device <span style={{color: "red"}}>*</span> | string | `desktop` To extract desktop result `mobile` To extract mobile result |
-| loc <span style={{color: "red"}}>*</span> | string | Optional field if you specify `loc_id`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list) |
-| loc_id <span style={{color: "red"}}>*</span> | integer | Optional field if you specify `loc`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list) |
-| verbatim | integer | Google Verbatim (`0` or `1`) |
-| gfilter | integer | Filter on/off (`1` or `0`) |
-| max_pages | integer | Pages to return (1–10, default 10) |
-| date_range | String | Sometimes you may want to only find information published during a specific time frame. To limit Google results by date<br /><br />Parameter values can be comma separated date range `YYYY-MM-DD,YYYY-MM-DD` OR<br /><br />`h` Past hour<br />`d` Past 24 hours<br />`w` Past week<br />`m` Past month<br />`y` Past year |
+| Name                                          | Type    | Description                                                                                                                                                                                                                                                                                                                |
+| --------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| q <span style={{color: "red"}}>\*</span>      | string  | Search phrase that you want to search                                                                                                                                                                                                                                                                                      |
+| domain <span style={{color: "red"}}>\*</span> | string  | Choose google domain.<br /><br />You can retrieve the list of supported Google domains by making a separate request to the [Domains List](/extra-apis/domains-list)                                                                                                                                                        |
+| lang <span style={{color: "red"}}>\*</span>   | string  | You can set language for e.g. `en` for english `fr` for french.<br />Get the list of available languages by making a separate request to the [Languages List](/extra-apis/languages-list)                                                                                                                                  |
+| device <span style={{color: "red"}}>\*</span> | string  | `desktop` To extract desktop result `mobile` To extract mobile result                                                                                                                                                                                                                                                      |
+| loc <span style={{color: "red"}}>\*</span>    | string  | Optional field if you specify `loc_id`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list)                                             |
+| loc_id <span style={{color: "red"}}>\*</span> | integer | Optional field if you specify `loc`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list)                                                |
+| verbatim                                      | integer | Google Verbatim (`0` or `1`)                                                                                                                                                                                                                                                                                               |
+| gfilter                                       | integer | Filter on/off (`1` or `0`)                                                                                                                                                                                                                                                                                                 |
+| max_pages                                     | integer | Pages to return (1–10, default 10)                                                                                                                                                                                                                                                                                         |
+| date_range                                    | String  | Sometimes you may want to only find information published during a specific time frame. To limit Google results by date<br /><br />Parameter values can be comma separated date range `YYYY-MM-DD,YYYY-MM-DD` OR<br /><br />`h` Past hour<br />`d` Past 24 hours<br />`w` Past week<br />`m` Past month<br />`y` Past year |
 
 ## Example Request
 
 <ApiExample
   endpoint="https://api.serphouse.com/serp/google_advanced"
-  query="apple"
-  params='{"device": "desktop", "loc": "Alba,Texas,United States", "max_pages": 5}'
+  query="best place in texas to visit"
+  domain="google.com"
+  lang="en"
+  params='{"device": "desktop", "loc": "Texas,United States", "max_pages": 4}'
 />
 ## Example Response
 
-<ApiExample mode="response" response={googleSerpTop100Response} />
+<ApiExample mode="response">
+  <ApiTab label="JSON" response={googleSerpTop100JsonResponse} />
+  <ApiTab
+    label="Markdown"
+    response={googleSerpTop100MarkdownResponse}
+    lang="markdown"
+  />
+</ApiExample>
 
 ## Related Links
 
 <Cards>
-  <Card title="Google Schedule SERP (Top 100)" href="/google-apis/google-schedule-serp-top-100-results" />
+  <Card
+    title="Google Schedule SERP (Top 100)"
+    href="/google-apis/google-schedule-serp-top-100-results"
+  />
   <Card title="Google Search API" href="/google-apis/google-search-api" />
 </Cards>

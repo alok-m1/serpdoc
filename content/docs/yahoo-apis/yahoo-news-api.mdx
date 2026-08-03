@@ -2,49 +2,56 @@
 title: Yahoo News API
 description: Access real-time Yahoo News search results with the latest headlines and breaking stories.
 ---
-import { yahooNewsResponse } from '@/lib/api-examples/yahooNews';
+
+import {
+  yahooNewsJsonResponse,
+  yahooNewsMarkdownResponse,
+} from "@/lib/api-examples/yahooNews";
 
 Retrieve real-time news results from the Yahoo News search page, providing access to the latest headlines, breaking news, and stories from trusted publishers.
 
 <Callout type="warn">
-  Requires authentication → provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the
+  Authorization header.
 </Callout>
 
 `POST` `https://api.serphouse.com/yahoo-news`
 
 ## Path Parameters
 
-| Name | Type | Description |
-|------|------|-------------|
+| Name         | Type   | Description      |
+| ------------ | ------ | ---------------- |
 | responseType | String | `html` or `json` |
 
 ## Headers
 
-| Name | Type | Description |
-|------|------|-------------|
-| Authorization <span style={{color: "red"}}>*</span> | String | Bearer `<YOUR_API_KEY>` |
-| Content-Type <span style={{color: "red"}}>*</span> | String | application/json |
+| Name                                                 | Type   | Description             |
+| ---------------------------------------------------- | ------ | ----------------------- |
+| Authorization <span style={{color: "red"}}>\*</span> | String | Bearer `<YOUR_API_KEY>` |
+| Content-Type <span style={{color: "red"}}>\*</span>  | String | application/json        |
 
 ## Request Body
 
-| Name | Type | Description |
-|------|------|-------------|
-| q <span style={{color: "red"}}>*</span> | string | Search phrase that you want to search |
-| domain <span style={{color: "red"}}>*</span> | string | Choose yahoo domain (e.g. `in.yahoo.com`).<br /><br />You can retrieve the list of supported Yahoo domains by making a separate request to the [Domains List](/extra-apis/domains-list) |
-| lang <span style={{color: "red"}}>*</span> | string | You can set language for e.g. `lang_en` for english `lang_fr` for french.<br />Get the list of available languages by making a separate request to the [Languages List](/extra-apis/languages-list) |
-| device <span style={{color: "red"}}>*</span> | string | `desktop` To extract desktop result `mobile` To extract mobile result |
-| page | integer | Give specific page to get the result of that page number. By default it will get you first page. |
-| no_trace | string \| integer | Enterprise only. Enables NoTrace mode. Accepted values: `0`, `1`, `true`, and `false`. When enabled (`1` or `true`), search parameters, files, and metadata are not stored on our servers. |
+| Name                                          | Type              | Description                                                                                                                                                                                         |
+| --------------------------------------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| q <span style={{color: "red"}}>\*</span>      | string            | Search phrase that you want to search                                                                                                                                                               |
+| domain <span style={{color: "red"}}>\*</span> | string            | Choose yahoo domain (e.g. `in.yahoo.com`).<br /><br />You can retrieve the list of supported Yahoo domains by making a separate request to the [Domains List](/extra-apis/domains-list)             |
+| lang <span style={{color: "red"}}>\*</span>   | string            | You can set language for e.g. `lang_en` for english `lang_fr` for french.<br />Get the list of available languages by making a separate request to the [Languages List](/extra-apis/languages-list) |
+| device <span style={{color: "red"}}>\*</span> | string            | `desktop` To extract desktop result `mobile` To extract mobile result                                                                                                                               |
+| page                                          | integer           | Give specific page to get the result of that page number. By default it will get you first page.                                                                                                    |
+| no_trace                                      | string \| integer | Enterprise only. Enables NoTrace mode. Accepted values: `0`, `1`, `true`, and `false`. When enabled (`1` or `true`), search parameters, files, and metadata are not stored on our servers.          |
 
 <Callout type="info">
-  Yahoo requires regional domains → use <code>serphouse_domain_list</code> to find the right domain for your target region. <code>yahoo.com</code> is not valid.
+  Yahoo requires regional domains → use <code>serphouse_domain_list</code> to
+  find the right domain for your target region. <code>yahoo.com</code> is not
+  valid.
 </Callout>
 
 ## Example Request
 
 <ApiExample
   endpoint="https://api.serphouse.com/yahoo-news"
-  query="football world cup 2026"
+  query="tesla in india"
   domain="in.yahoo.com"
   lang="lang_en"
   params='{"device": "desktop"}'
@@ -52,7 +59,14 @@ Retrieve real-time news results from the Yahoo News search page, providing acces
 
 ## Example Response
 
-<ApiExample mode="response" response={yahooNewsResponse} />
+<ApiExample mode="response">
+  <ApiTab label="JSON" response={yahooNewsJsonResponse} />
+  <ApiTab
+    label="Markdown"
+    response={yahooNewsMarkdownResponse}
+    lang="markdown"
+  />
+</ApiExample>
 
 ## Related Links
 

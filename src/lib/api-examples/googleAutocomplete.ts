@@ -1,16 +1,16 @@
-export const googleAutocompleteResponse = {
+const jsonResponse = {
   "status": "success",
   "msg": "Completed",
   "results": {
     "search_metadata": {
-      "id": 230200211,
+      "id": 259261371,
       "status": "success",
-      "created_at": "2026-03-16T11:52:50.000000Z",
-      "processed_at": "2026-03-16 11:52:50"
+      "created_at": "2026-08-03T05:16:23.000000Z",
+      "processed_at": "2026-08-03 05:16:23"
     },
     "search_parameters": {
-      "q": "football",
-      "url": "https://www.google.com/complete/search?q=football&client=chrome&dpr=1&hl=en&gl=US",
+      "q": "coffee",
+      "url": "https://www.google.com/complete/search?q=coffee&client=chrome&dpr=1&hl=en&gl=US",
       "client": "chrome",
       "lang": "en",
       "country": "US",
@@ -19,97 +19,99 @@ export const googleAutocompleteResponse = {
     "results": {
       "suggestions": [
         {
-          "value": "football games today",
+          "value": "coffee near me",
           "relevance": 1250,
           "type": "QUERY",
-          "link": "https://www.google.com/search?q=football+games+today"
+          "link": "https://www.google.com/search?q=coffee+near+me"
         },
         {
-          "value": "football games",
-          "relevance": 701,
+          "value": "coffee shops near me",
+          "relevance": 950,
           "type": "QUERY",
-          "link": "https://www.google.com/search?q=football+games"
+          "link": "https://www.google.com/search?q=coffee+shops+near+me"
         },
         {
-          "value": "football today",
-          "relevance": 700,
-          "type": "QUERY",
-          "link": "https://www.google.com/search?q=football+today"
-        },
-        {
-          "value": "football tonight",
+          "value": "coffee table",
           "relevance": 601,
           "type": "QUERY",
-          "link": "https://www.google.com/search?q=football+tonight"
+          "link": "https://www.google.com/search?q=coffee+table"
         },
         {
-          "value": "football game tonight",
+          "value": "coffee shop",
           "relevance": 600,
           "type": "QUERY",
-          "link": "https://www.google.com/search?q=football+game+tonight"
+          "link": "https://www.google.com/search?q=coffee+shop"
         },
         {
-          "value": "football scores",
+          "value": "coffee bean",
+          "relevance": 560,
+          "type": "QUERY",
+          "link": "https://www.google.com/search?q=coffee+bean"
+        },
+        {
+          "value": "coffee maker",
           "relevance": 559,
           "type": "QUERY",
-          "link": "https://www.google.com/search?q=football+scores"
+          "link": "https://www.google.com/search?q=coffee+maker"
         },
         {
-          "value": "football games this weekend",
+          "value": "coffee places near me",
           "relevance": 558,
           "type": "QUERY",
-          "link": "https://www.google.com/search?q=football+games+this+weekend"
+          "link": "https://www.google.com/search?q=coffee+places+near+me"
         },
         {
-          "value": "football games tomorrow",
+          "value": "coffee grinder",
           "relevance": 557,
           "type": "QUERY",
-          "link": "https://www.google.com/search?q=football+games+tomorrow"
+          "link": "https://www.google.com/search?q=coffee+grinder"
         },
         {
-          "value": "football schedule",
+          "value": "coffee machine",
           "relevance": 556,
           "type": "QUERY",
-          "link": "https://www.google.com/search?q=football+schedule"
+          "link": "https://www.google.com/search?q=coffee+machine"
         },
         {
-          "value": "football playoffs",
+          "value": "coffee cake recipe",
           "relevance": 555,
           "type": "QUERY",
-          "link": "https://www.google.com/search?q=football+playoffs"
+          "link": "https://www.google.com/search?q=coffee+cake+recipe"
         },
         {
-          "value": "football on tv today",
+          "value": "coffee bar",
           "relevance": 554,
           "type": "QUERY",
-          "link": "https://www.google.com/search?q=football+on+tv+today"
+          "link": "https://www.google.com/search?q=coffee+bar"
         },
         {
-          "value": "football games today on tv",
+          "value": "coffee creamer",
           "relevance": 553,
           "type": "QUERY",
-          "link": "https://www.google.com/search?q=football+games+today+on+tv"
+          "link": "https://www.google.com/search?q=coffee+creamer"
         },
         {
-          "value": "football cleats",
+          "value": "coffee cake",
           "relevance": 552,
           "type": "QUERY",
-          "link": "https://www.google.com/search?q=football+cleats"
+          "link": "https://www.google.com/search?q=coffee+cake"
         },
         {
-          "value": "football bros",
+          "value": "coffee pot",
           "relevance": 551,
           "type": "QUERY",
-          "link": "https://www.google.com/search?q=football+bros"
+          "link": "https://www.google.com/search?q=coffee+pot"
         },
         {
-          "value": "football tomorrow",
+          "value": "coffee meets bagel",
           "relevance": 550,
           "type": "QUERY",
-          "link": "https://www.google.com/search?q=football+tomorrow"
+          "link": "https://www.google.com/search?q=coffee+meets+bagel"
         }
       ],
       "verbatim_relevance": 1300
     }
   }
 } as const;
+
+export const googleAutocompleteJsonResponse = jsonResponse as Record<string, unknown>;

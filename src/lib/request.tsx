@@ -133,6 +133,189 @@ const engineFrom = (endpoint: string): string =>
 const formatValue = (v: string | number | boolean) =>
   typeof v === "string" ? JSON.stringify(v) : String(v);
 
+const jsonFields = (
+  query: string,
+  domain: string,
+  lang: string,
+  entries: [string, string | number | boolean][],
+): string[] => {
+  const fields: string[] = [];
+  if (query) fields.push(`"q": ${JSON.stringify(query)}`);
+  if (query && domain) fields.push(`"domain": ${JSON.stringify(domain)}`);
+  if (query && lang) fields.push(`"lang": ${JSON.stringify(lang)}`);
+  for (const [k, v] of entries) fields.push(`"${k}": ${formatValue(v)}`);
+  return fields;
+};
+
+type BatchItem = Record<string, string | number | boolean>;
+
+const batchItemCompact = (item: BatchItem, style: "js" | "php" | "json") => {
+  const entries = Object.entries(item);
+  if (style === "js")
+    return entries.map(([k, v]) => `${k}: ${formatValue(v)}`).join(", ");
+  if (style === "php")
+    return entries.map(([k, v]) => `"${k}" => ${formatValue(v)}`).join(", ");
+  return entries.map(([k, v]) => `"${k}": ${formatValue(v)}`).join(", ");
+};
+
+export function renderBatchRequest(
+  endpoint: string,
+  items: BatchItem[],
+  fmt: Fmt,
+) {
+  if (fmt === "curl") {
+    const itemBlocks = items.map((item) => {
+      const fields = Object.entries(item).map(
+        ([k, v], i) =>
+          `            "${k}": ${formatValue(v)}${i < Object.keys(item).length - 1 ? "," : ""}`,
+      );
+      return [`        {`, ...fields, `        }`].join("\n");
+    });
+    return [
+      `curl --location --request POST '${endpoint}' \\`,
+      `--header 'Authorization: Bearer <YOUR_API_KEY>' \\`,
+      `--header 'Content-Type: application/json' \\`,
+      `--data-raw '{`,
+      `    "data": [`,
+      itemBlocks.join(",\n"),
+      `    ]`,
+      `}'`,
+    ].join("\n");
+  }
+
+  if (fmt === "js") {
+    const itemLines = items
+      .map(
+        (item, i) =>
+          `        { ${batchItemCompact(item, "js")} }${i < items.length - 1 ? "," : ""}`,
+      )
+      .join("\n");
+    return [
+      `const API_KEY = "<YOUR_API_KEY>";`,
+      ``,
+      `async function main() {`,
+      `  const response = await fetch("${endpoint}", {`,
+      `    method: "POST",`,
+      `    headers: {`,
+      `      Authorization: \`Bearer \${API_KEY}\`,`,
+      `      "Content-Type": "application/json",`,
+      `    },`,
+      `    body: JSON.stringify({`,
+      `      data: [`,
+      itemLines,
+      `      ],`,
+      `    }),`,
+      `  });`,
+      ``,
+      `  const data = await response.json();`,
+      `  console.log(data);`,
+      `}`,
+      ``,
+      `main();`,
+    ].join("\n");
+  }
+
+  if (fmt === "py") {
+    const itemLines = items
+      .map(
+        (item, i) =>
+          `        { ${batchItemCompact(item, "json")} }${i < items.length - 1 ? "," : ""}`,
+      )
+      .join("\n");
+    return [
+      `import requests`,
+      ``,
+      `url = "${endpoint}"`,
+      `headers = {`,
+      `    "Authorization": "Bearer <YOUR_API_KEY>",`,
+      `    "Content-Type": "application/json"`,
+      `}`,
+      `payload = {`,
+      `    "data": [`,
+      itemLines,
+      `    ]`,
+      `}`,
+      ``,
+      `response = requests.post(url, json=payload, headers=headers)`,
+      `print(response.json())`,
+    ].join("\n");
+  }
+
+  if (fmt === "php") {
+    const itemLines = items
+      .map(
+        (item, i) =>
+          `        [ ${batchItemCompact(item, "php")} ]${i < items.length - 1 ? "," : ""}`,
+      )
+      .join("\n");
+    return [
+      `<?php`,
+      ``,
+      `$apiKey = "<YOUR_API_KEY>";`,
+      `$url = "${endpoint}";`,
+      ``,
+      `$payload = json_encode([`,
+      `    "data" => [`,
+      itemLines,
+      `    ]`,
+      `]);`,
+      ``,
+      `$ch = curl_init($url);`,
+      `curl_setopt($ch, CURLOPT_POST, true);`,
+      `curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);`,
+      `curl_setopt($ch, CURLOPT_HTTPHEADER, [`,
+      `    "Authorization: Bearer $apiKey",`,
+      `    "Content-Type: application/json"`,
+      `]);`,
+      `curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);`,
+      ``,
+      `$response = curl_exec($ch);`,
+      `curl_close($ch);`,
+      ``,
+      `echo $response;`,
+    ].join("\n");
+  }
+
+  const itemLines = items
+    .map(
+      (item) =>
+        `            map[string]interface{}{ ${batchItemCompact(item, "json")} },`,
+    )
+    .join("\n");
+  return [
+    `package main`,
+    ``,
+    `import (`,
+    `    "bytes"`,
+    `    "encoding/json"`,
+    `    "fmt"`,
+    `    "net/http"`,
+    `)`,
+    ``,
+    `func main() {`,
+    `    url := "${endpoint}"`,
+    `    payload := map[string]interface{}{`,
+    `        "data": []interface{}{`,
+    itemLines,
+    `        },`,
+    `    }`,
+    `    jsonData, _ := json.Marshal(payload)`,
+    ``,
+    `    req, _ := http.NewRequest("POST", url, bytes.NewBuffer(jsonData))`,
+    `    req.Header.Set("Authorization", "Bearer <YOUR_API_KEY>")`,
+    `    req.Header.Set("Content-Type", "application/json")`,
+    ``,
+    `    client := &http.Client{}`,
+    `    resp, _ := client.Do(req)`,
+    `    defer resp.Body.Close()`,
+    ``,
+    `    var result map[string]interface{}`,
+    `    json.NewDecoder(resp.Body).Decode(&result)`,
+    `    fmt.Println(result)`,
+    `}`,
+  ].join("\n");
+}
+
 const nodeArgs = (
   call: SdkCall,
   query: string,
@@ -260,9 +443,6 @@ export function renderRequest(
   method: "GET" | "POST" = "POST",
 ) {
   const entries = Object.entries(extraParams);
-  const q = JSON.stringify(query);
-  const d = JSON.stringify(domain);
-  const l = JSON.stringify(lang);
 
   const buildQueryString = () => {
     const parts: string[] = [];
@@ -372,20 +552,15 @@ export function renderRequest(
   }
 
   if (fmt === "curl") {
-    const lines = entries.map(
-      ([k, v], i) =>
-        `            "${k}": ${formatValue(v)}${i < entries.length - 1 ? "," : ""}`,
-    );
+    const fields = jsonFields(query, domain, lang, entries);
+    const body = fields.map((f) => `        ${f}`).join(",\n");
     return [
       `curl --location --request POST '${endpoint}' \\`,
       `--header 'Authorization: Bearer <YOUR_API_KEY>' \\`,
       `--header 'Content-Type: application/json' \\`,
       `--data-raw '{`,
       `    "data": {`,
-      `        "q": ${q},`,
-      `        "domain": ${d},`,
-      `        "lang": ${l}${entries.length > 0 ? "," : ""}`,
-      ...lines,
+      body,
       `    }`,
       `}'`,
     ].join("\n");
@@ -396,11 +571,12 @@ export function renderRequest(
     if (call) {
       return renderNodeSdk(call, query, domain, lang, extraParams, endpoint);
     }
-    const lines = entries.map(([k, v], i) =>
-      typeof v === "string"
-        ? `            ${k}: "${v}"${i < entries.length - 1 ? "," : ""}`
-        : `            ${k}: ${v}${i < entries.length - 1 ? "," : ""}`,
-    );
+    const fields: string[] = [];
+    if (query) fields.push(`q: ${JSON.stringify(query)}`);
+    if (query && domain) fields.push(`domain: ${JSON.stringify(domain)}`);
+    if (query && lang) fields.push(`lang: ${JSON.stringify(lang)}`);
+    for (const [k, v] of entries) fields.push(`${k}: ${formatValue(v)}`);
+    const body = fields.map((f) => `        ${f}`).join(",\n");
     return [
       `const API_KEY = "<YOUR_API_KEY>";`,
       ``,
@@ -413,10 +589,7 @@ export function renderRequest(
       `    },`,
       `    body: JSON.stringify({`,
       `      data: {`,
-      `        q: ${q},`,
-      `        domain: ${d},`,
-      `        lang: ${l}${entries.length > 0 ? "," : ""}`,
-      ...lines,
+      body,
       `      },`,
       `    }),`,
       `  });`,
@@ -430,7 +603,8 @@ export function renderRequest(
   }
 
   if (fmt === "py") {
-    const lines = entries.map(([k, v]) => `        "${k}": ${formatValue(v)},`);
+    const fields = jsonFields(query, domain, lang, entries);
+    const body = fields.map((f) => `        ${f},`).join("\n");
     return [
       `import requests`,
       ``,
@@ -441,10 +615,7 @@ export function renderRequest(
       `}`,
       `payload = {`,
       `    "data": {`,
-      `        "q": ${q},`,
-      `        "domain": ${d},`,
-      `        "lang": ${l},`,
-      ...lines,
+      body,
       `    }`,
       `}`,
       ``,
@@ -458,9 +629,12 @@ export function renderRequest(
     if (call) {
       return renderPhpSdk(call, query, domain, lang, extraParams, endpoint);
     }
-    const lines = entries.map(
-      ([k, v]) => `            "${k}" => ${formatValue(v)},`,
-    );
+    const fields: string[] = [];
+    if (query) fields.push(`"q" => ${JSON.stringify(query)},`);
+    if (query && domain) fields.push(`"domain" => ${JSON.stringify(domain)},`);
+    if (query && lang) fields.push(`"lang" => ${JSON.stringify(lang)},`);
+    for (const [k, v] of entries) fields.push(`"${k}" => ${formatValue(v)},`);
+    const body = fields.map((f) => `        ${f}`).join("\n");
     return [
       `<?php`,
       ``,
@@ -469,10 +643,7 @@ export function renderRequest(
       ``,
       `$payload = json_encode([`,
       `    "data" => [`,
-      `        "q" => ${q},`,
-      `        "domain" => ${d},`,
-      `        "lang" => ${l},`,
-      ...lines,
+      body,
       `    ]`,
       `]);`,
       ``,
@@ -492,9 +663,12 @@ export function renderRequest(
     ].join("\n");
   }
 
-  const lines = entries.map(
-    ([k, v]) => `                "${k}": ${formatValue(v)},`,
-  );
+  const fields: string[] = [];
+  if (query) fields.push(`"q":      ${JSON.stringify(query)},`);
+  if (query && domain) fields.push(`"domain": ${JSON.stringify(domain)},`);
+  if (query && lang) fields.push(`"lang":   ${JSON.stringify(lang)},`);
+  for (const [k, v] of entries) fields.push(`"${k}": ${formatValue(v)},`);
+  const body = fields.map((f) => `            ${f}`).join("\n");
   return [
     `package main`,
     ``,
@@ -509,10 +683,7 @@ export function renderRequest(
     `    url := "${endpoint}"`,
     `    payload := map[string]interface{}{`,
     `        "data": map[string]interface{}{`,
-    `            "q":      ${q},`,
-    `            "domain": ${d},`,
-    `            "lang":   ${l},`,
-    ...lines,
+    body,
     `        },`,
     `    }`,
     `    jsonData, _ := json.Marshal(payload)`,
@@ -532,11 +703,16 @@ export function renderRequest(
   ].join("\n");
 }
 
-export function formatResponse(response: string | Record<string, unknown>, lang = 'json') {
-  if (lang !== 'json') {
-    return typeof response === 'string' ? response : JSON.stringify(response, null, 2);
+export function formatResponse(
+  response: string | Record<string, unknown>,
+  lang = "json",
+) {
+  if (lang !== "json") {
+    return typeof response === "string"
+      ? response
+      : JSON.stringify(response, null, 2);
   }
-  if (typeof response === 'string') {
+  if (typeof response === "string") {
     try {
       return JSON.stringify(JSON.parse(response), null, 2);
     } catch {
