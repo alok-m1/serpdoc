@@ -12,11 +12,17 @@ export function baseOptions(): BaseLayoutProps {
     nav: {
       title: (
         <div className="flex items-center gap-2">
-          <Image src="/serphouse-logo.svg" alt="SERPHouse" width={25} height={25} className="size-7" />
+          <Image
+            src="/serphouse-logo.svg"
+            alt="SERPHouse"
+            width={25}
+            height={25}
+            className="size-7"
+          />
           <span className="font-semibold text-xl">{appName}</span>
         </div>
       ),
-      url:"/about-the-serp-api"
+      url: "/about-the-serp-api",
     },
 
     githubUrl: `https://github.com/${gitConfig.user}/${gitConfig.repo}`,
@@ -42,5 +48,6 @@ export function baseOptions(): BaseLayoutProps {
 export function sidebarOptions(): DocsLayoutProps["sidebar"] {
   return {
     banner: <AppSwitcher key="alok" />,
+    collapsible: false,
   };
 }
