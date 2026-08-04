@@ -72,6 +72,8 @@ const systemPrompt = [
   "Use the `search` tool to retrieve relevant docs context before answering when needed.",
   "The `search` tool returns raw JSON results from documentation. Use those results to ground your answer and cite sources as markdown links using the document `url` field when available.",
   "If you cannot find the answer in search results, say you do not know and suggest a better search query.",
+  "Always format your response in Markdown. Use fenced code blocks with a language tag (e.g. ```json, ```bash, ```python) for any code, API requests, response bodies, or command examples so they render with syntax highlighting.",
+  "Structure long answers with short headings and bullet lists. Put inline code, parameter names, and endpoint paths in backticks. Format external links as \"link text\" using Markdown link syntax.",
 ].join("\n");
 
 export async function POST(req: Request, ctx: RouteContext<"/api/chat">) {
