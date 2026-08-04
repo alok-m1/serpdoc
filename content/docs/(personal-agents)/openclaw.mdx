@@ -14,7 +14,7 @@ icon: openclaw
 
 <Callout type="success" title="Why SERPHouse + OpenClaw">
   The Gateway runs 24/7 on your own hardware, so SERPHouse search is always one
-  message away — no browser, no scraping, no maintenance.
+  message away. No browser, no scraping, no maintenance.
 </Callout>
 
 ## What You'll Build
@@ -29,22 +29,22 @@ icon: openclaw
 ## Prerequisites
 
 - A machine running **Linux or macOS** to host the Gateway
-- An active **SERPHouse account** — free credits included on signup
+- An active **SERPHouse account** (free credits included on signup)
 - A **SERPHouse API key** from your [dashboard](https://serphouse.com)
 
 <Callout type="info">
   OpenClaw's install wizard asks for a model provider and API key during
-  onboarding — have those ready.
+  onboarding. Have those ready.
 </Callout>
 
-## Step 1 — Get Your SERPHouse API Key
+## Step 1: Get Your SERPHouse API Key
 
 <Steps>
   <Step>
     Sign up at [serphouse.com](https://serphouse.com) and confirm your email.
   </Step>
   <Step>Open your **Dashboard** and copy the **API key** shown there.</Step>
-  <Step>Keep it handy — you'll add it to OpenClaw next.</Step>
+  <Step>Keep it handy. You'll add it to OpenClaw next.</Step>
 </Steps>
 
 <Callout type="error" title="Keep your key secure">
@@ -52,7 +52,7 @@ icon: openclaw
   repository, share it in public channels, or paste it into a screenshot.
 </Callout>
 
-## Step 2 — Install OpenClaw
+## Step 2: Install OpenClaw
 
 If you haven't set OpenClaw up yet:
 
@@ -82,11 +82,11 @@ openclaw onboard --install-daemon
 </Steps>
 
 <Callout type="info" title="Already running OpenClaw?">
-  Skip straight to the next step — the SERPHouse server plugs into an existing
+  Skip straight to the next step. The SERPHouse server plugs into an existing
   install without re-onboarding.
 </Callout>
 
-## Step 3 — Add the SERPHouse MCP Server
+## Step 3: Add the SERPHouse MCP Server
 
 MCP server definitions live under `mcp.servers` in `~/.openclaw/openclaw.json`. Add the SERPHouse hosted endpoint:
 
@@ -130,7 +130,7 @@ openclaw mcp add serphouse \
   server**, or in a chat via **+ → Connectors → Add MCP server…**.
 </Callout>
 
-## Step 4 — Verify the Server
+## Step 4: Verify the Server
 
 Probe the server to confirm it connects and advertises tools:
 
@@ -198,7 +198,7 @@ Once connected, message your assistant from any channel. OpenClaw picks the righ
 | **401 Unauthorized**                    | Verify your API key is valid and active in your [dashboard](https://serphouse.com).                 |
 | **Changes don't reach the agent**       | Restart the Gateway or run `openclaw mcp reload`.                                                   |
 | **Credits exhausted**                   | Check your account credit balance in the SERPHouse dashboard.                                       |
-| **Yahoo search fails**                  | Use a regional domain — call the domain list tool first; `yahoo.com` is invalid.                    |
+| **Yahoo search fails**                  | Use a regional domain: call the domain list tool first; `yahoo.com` is invalid.                     |
 
 <Callout type="info" title="Still stuck?">
   Re-verify your API key, credit balance, and the endpoint URL first. If it

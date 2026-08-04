@@ -154,6 +154,20 @@
     --color-fd-ring: var(--color-fd-ring);
 }
 
+/* Widen the main MDX content column (default 900px / 1168px for `full` pages) */
+#nd-page {
+    max-width: 800px;
+}
+
+#nd-page[data-full] {
+    max-width: 850px;
+}
+
+/* Clear the top-right corner for the fixed social-links / theme-toggle cluster */
+#nd-toc {
+    padding-top: 5rem;
+}
+
 html {
     scrollbar-gutter: stable;
     /*scroll-behavior: smooth;*/

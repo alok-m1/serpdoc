@@ -14,8 +14,8 @@ icon: hermes
 
 <Callout type="success" title="Why SERPHouse + Hermes">
   No browser, no scraping, no rate-limit headaches. Hermes gets structured,
-  real-time SERP data from 30+ search engines with a single hosted MCP endpoint
-  — zero extra infrastructure to run.
+  real-time SERP data from 30+ search engines with a single hosted MCP endpoint.
+  Zero extra infrastructure to run.
 </Callout>
 
 ## What You'll Build
@@ -29,7 +29,7 @@ icon: hermes
 
 ## Prerequisites
 
-- An active **SERPHouse account** — free credits included on signup
+- An active **SERPHouse account** (free credits included on signup)
 - A **SERPHouse API key** from your [dashboard](https://serphouse.com)
 - A machine with **Bash** and **network access** to install Hermes
 
@@ -37,7 +37,7 @@ icon: hermes
   Hermes supports macOS and Linux. Windows users can use WSL2.
 </Callout>
 
-## Step 1 — Get Your SERPHouse API Key
+## Step 1: Get Your SERPHouse API Key
 
 <Steps>
   <Step>
@@ -45,7 +45,7 @@ icon: hermes
   </Step>
   <Step>Open your **Dashboard** and copy the **API key** shown there.</Step>
   <Step>
-    Keep it somewhere safe — you'll paste it into the Hermes config next.
+    Keep it somewhere safe. You'll paste it into the Hermes config next.
   </Step>
 </Steps>
 
@@ -54,7 +54,7 @@ icon: hermes
   repository, share it in public channels, or paste it into a screenshot.
 </Callout>
 
-## Step 2 — Install Hermes
+## Step 2: Install Hermes
 
 Install the latest Hermes Agent with the official script:
 
@@ -88,7 +88,7 @@ curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
   to see every option.
 </Callout>
 
-## Step 3 — Add the SERPHouse MCP Server
+## Step 3: Add the SERPHouse MCP Server
 
 MCP servers are declared in `~/.hermes/config.yaml` under `mcp_servers`. Open the file and add the SERPHouse hosted endpoint:
 
@@ -103,7 +103,7 @@ mcp_servers:
   key. The key is forwarded to the SERPHouse API as a Bearer token.
 </Callout>
 
-## Step 4 — Start (or Restart) Hermes
+## Step 4: Start (or Restart) Hermes
 
 ```bash
 hermes chat
@@ -115,7 +115,7 @@ hermes chat
   <code>mcp_serphouse_search</code>.
 </Callout>
 
-## Step 5 — Verify the Server
+## Step 5: Verify the Server
 
 To confirm the server is reachable before using it, reload the MCP config inside a session:
 
@@ -133,11 +133,11 @@ Any connection error will be reported immediately.
     Watch for a confirmation that <code>serphouse</code> connected with no
     errors.
   </Step>
-  <Step>Ask your first search query — see below.</Step>
+  <Step>Ask your first search query (see below).</Step>
 </Steps>
 
 <Callout type="info" title="Tune the tool surface">
-  You can narrow the tool surface at any time by editing the server entry — see
+  You can narrow the tool surface at any time by editing the server entry. See
   the [Hermes MCP
   docs](https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp).
 </Callout>
@@ -186,19 +186,19 @@ Hermes has built-in cron. Combine it with SERPHouse for daily briefings delivere
 ```
 
 <Callout type="idea" title="Make it yours">
-  Swap the time, query, or channel in the cron expression to fit your routine —
-  e.g. a Monday-morning competitor digest or a Friday industry roundup.
+  Swap the time, query, or channel in the cron expression to fit your routine,
+  like a Monday-morning competitor digest or a Friday industry roundup.
 </Callout>
 
 ## Troubleshooting
 
-| Issue                   | Solution                                                                                             |
-| ----------------------- | ---------------------------------------------------------------------------------------------------- |
-| **Server doesn't load** | Verify the entry is valid YAML under `mcp_servers` and restart Hermes.                               |
-| **401 Unauthorized**    | Verify your API key is valid and active in your [dashboard](https://serphouse.com).                  |
-| **Tools not appearing** | Run `/reload-mcp` or restart Hermes; then ask for a search.                                          |
-| **Credits exhausted**   | Check your account credit balance in the SERPHouse dashboard.                                        |
-| **Yahoo search fails**  | Call the domain list tool first — `yahoo.com` is invalid; use a regional domain like `uk.yahoo.com`. |
+| Issue                   | Solution                                                                                            |
+| ----------------------- | --------------------------------------------------------------------------------------------------- |
+| **Server doesn't load** | Verify the entry is valid YAML under `mcp_servers` and restart Hermes.                              |
+| **401 Unauthorized**    | Verify your API key is valid and active in your [dashboard](https://serphouse.com).                 |
+| **Tools not appearing** | Run `/reload-mcp` or restart Hermes; then ask for a search.                                         |
+| **Credits exhausted**   | Check your account credit balance in the SERPHouse dashboard.                                       |
+| **Yahoo search fails**  | Call the domain list tool first. `yahoo.com` is invalid; use a regional domain like `uk.yahoo.com`. |
 
 <Callout type="info" title="Still stuck?">
   Most issues are fixed by re-verifying your API key, credit balance, and the
