@@ -6,6 +6,7 @@ description: Access real-time forum discussions from Google Search including Red
 import {
   googleForumsJsonResponse,
   googleForumsMarkdownResponse,
+  googleForumsHtmlResponse,
 } from "@/lib/api-examples/googleForums";
 
 Access real-time forum discussions from Google Search with the Google Forums API. Fetch conversations from platforms like Reddit, Stack Exchange, and other communities.
@@ -52,6 +53,7 @@ Access real-time forum discussions from Google Search with the Google Forums API
 
 <ApiExample mode="response">
   <ApiTab label="JSON" response={googleForumsJsonResponse} />
+  <ApiTab label="HTML" response={googleForumsHtmlResponse} lang="html" />
   <ApiTab
     label="Markdown"
     response={googleForumsMarkdownResponse}

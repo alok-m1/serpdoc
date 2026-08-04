@@ -6,6 +6,7 @@ description: Perform real-time Google Jobs searches for structured job listings 
 import {
   googleJobsJsonResponse,
   googleJobsMarkdownResponse,
+  googleJobsHtmlResponse,
 } from "@/lib/api-examples/googleJobs";
 
 Performing a real-time Google Jobs search using HTTP POST is very simple with the Google Jobs API endpoint.
@@ -62,6 +63,11 @@ Performing a real-time Google Jobs search using HTTP POST is very simple with th
 
 <ApiExample mode="response">
   <ApiTab label="JSON" response={googleJobsJsonResponse} />
+  <ApiTab
+    label="HTML"
+    response={googleJobsHtmlResponse}
+    lang="html"
+  />
   <ApiTab
     label="Markdown"
     response={googleJobsMarkdownResponse}

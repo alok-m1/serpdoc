@@ -109,4 +109,133 @@ const jsonResponse = {
 } as const;
 
 export const googleNewsJsonResponse = jsonResponse as Record<string, unknown>;
+export const googleNewsHtmlResponse = `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Google News API — Example Response</title>
+  <style>
+
+:root {
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --ink: #0f172a;
+  --muted: #64748b;
+  --accent: #4f46e5;
+  --accent-soft: #eef2ff;
+  --line: #e2e8f0;
+  --shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+.topbar { display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; background: linear-gradient(120deg, #312e81 0%, #4f46e5 55%, #7c3aed 100%); color: #fff; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.02em; }
+.brand .dot { width: 9px; height: 9px; border-radius: 99px; background: #c7d2fe; box-shadow: 0 0 0 4px rgba(199, 210, 254, 0.25); }
+.brand .sep { color: rgba(255,255,255,0.55); font-weight: 400; }
+.badge { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; padding: 5px 12px; border-radius: 99px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.28); }
+.wrap { max-width: 860px; margin: 0 auto; padding: 32px 24px 56px; }
+.hero { padding: 8px 4px 20px; }
+.hero h1 { margin: 0 0 8px; font-size: 30px; font-weight: 800; letter-spacing: -0.02em; }
+.meta { margin: 0; color: var(--muted); font-size: 14px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); padding: 22px 24px; margin: 0 0 18px; }
+.eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--accent); font-weight: 700; margin-bottom: 4px; }
+.card h2 { margin: 0 0 14px; font-size: 19px; font-weight: 700; letter-spacing: -0.01em; }
+.news-items { list-style: none; margin: 0; padding: 0; }
+.news-item { display: flex; gap: 16px; padding: 16px 2px; border-top: 1px solid var(--line); }
+.news-item:first-child { border-top: 0; }
+.news-rank { flex: none; width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; font-size: 12px; font-weight: 700; color: var(--accent); background: var(--accent-soft); border: 1px solid #c7d2fe; }
+.news-source { font-size: 12.5px; color: var(--muted); margin-bottom: 2px; }
+.news-title { display: block; text-decoration: none; color: #4338ca; font-size: 16px; font-weight: 650; margin-bottom: 4px; }
+.news-title:hover { text-decoration: underline; }
+.news-item p { margin: 0; font-size: 14px; color: #334155; }
+.news-time { font-size: 12.5px; color: var(--muted); margin-top: 6px; }
+.foot { text-align: center; color: var(--muted); font-size: 12.5px; padding: 0 24px 40px; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0b1120; --card: #111a2e; --ink: #e2e8f0; --muted: #94a3b8; --accent: #818cf8; --accent-soft: #1e293b; --line: #1e293b; --chip: #1a2440; }
+  .news-title { color: #a5b4fc; }
+  .news-item p { color: #cbd5e1; }
+  .topbar { background: linear-gradient(120deg, #1e1b4b 0%, #312e81 55%, #4c1d95 100%); }
+  .news-rank { color: #a5b4fc; }
+  .card { box-shadow: none; }
+}
+
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="dot"></span> SERPHouse <span class="sep">/</span> Google News API</div>
+    <div class="badge">example response</div>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <h1>top headlines</h1>
+      <p class="meta">google.com &nbsp;·&nbsp; en &nbsp;·&nbsp; United Kingdom</p>
+    </section>
+    <section class="card">
+      <div class="eyebrow">news</div>
+      <h2>Latest Headlines</h2>
+      <ol class="news-items">
+        <li class="news-item">
+          <span class="news-rank">01</span>
+          <div>
+            <div class="news-source">ITVX</div>
+            <a class="news-title" href="https://www.itv.com/watch/news/the-latest-headlines-as-monster-funeral-director-jailed/sjtrqrx">The latest headlines - as 'monster' funeral director jailed - Latest From ITV News</a>
+            <p>The latest headlines - as 'monster' funeral director jailed. Fri 31 Jul 7.36pm • Catch up with the latest UK and international headlines from the ITV News...</p>
+            <div class="news-time">2 days ago</div>
+          </div>
+        </li>
+        <li class="news-item">
+          <span class="news-rank">02</span>
+          <div>
+            <div class="news-source">Newark Advertiser</div>
+            <a class="news-title" href="https://www.newarkadvertiser.co.uk/news/top-headlines-market-place-revamp-scaled-back-popular-land-9476709/">Top Headlines: Market Place revamp scaled back, popular landlord returns, and drug dealer jailed</a>
+            <p>Last week's biggest stories included a drug dealer being jailed and a major revamp of Newark's Market Place being scaled back.</p>
+            <div class="news-time">2 hours ago</div>
+          </div>
+        </li>
+        <li class="news-item">
+          <span class="news-rank">03</span>
+          <div>
+            <div class="news-source">Sky Sports</div>
+            <a class="news-title" href="https://www.skysports.com/football/transfer-paper-talk/12709/13568924/vinicius-junior-transfer-news-real-madrid-open-to-possibility-of-arsenal-target-leaving-paper-talk">Vinicius Junior transfer news: Real Madrid open to possibility of Arsenal target leaving - Paper Talk | Football News</a>
+            <p>Back Pages is a review of the sports headlines from the national newspapers, every Monday to Friday, live on Sky Sports News from 10.30pm.</p>
+            <div class="news-time">2 days ago</div>
+          </div>
+        </li>
+        <li class="news-item">
+          <span class="news-rank">04</span>
+          <div>
+            <div class="news-source">Expats.cz</div>
+            <a class="news-title" href="https://www.expats.cz/czech-news/article/czech-news-in-brief-for-august-2-2026-sunday-top-afternoon-headlines">Czech news in brief for August 2: Sunday's top afternoon headlines</a>
+            <p>Heat wave to grip Czechia this week, CNB expected to hold interest rates steady, invasive beetle nears Czech border, and more top headlines.</p>
+            <div class="news-time">15 hours ago</div>
+          </div>
+        </li>
+        <li class="news-item">
+          <span class="news-rank">05</span>
+          <div>
+            <div class="news-source">ABC7 New York</div>
+            <a class="news-title" href="https://abc7ny.com/">ABC7 Eyewitness News - WABC-TV New York</a>
+            <p>Watch ABC News live news stream and get 24/7 latest, breaking news coverage, and live video. Localish. We celebrate the good in America's...</p>
+            <div class="news-time">3 hours ago</div>
+          </div>
+        </li>
+        <li class="news-item">
+          <span class="news-rank">06</span>
+          <div>
+            <div class="news-source">EnergyNow.com</div>
+            <a class="news-title" href="https://energynow.com/2026/08/exxonmobil-chevron-steer-windfall-profits-into-debt-reduction/">ExxonMobil, Chevron Steer Windfall Profits into Debt Reduction</a>
+            <p>Big Oil's windfall profits are becoming a political flashpoint as inflated energy prices stoke inflation around the world. Bloomberg News.</p>
+            <div class="news-time">7 hours ago</div>
+          </div>
+        </li>
+      </ol>
+    </section>
+  </main>
+  <footer class="foot">
+    Generated from the SERPHouse Google News API &middot; 2026-08-03T06:05:01.000000Z
+  </footer>
+</body>
+</html>`;
 export const googleNewsMarkdownResponse = "top headlines - Google Search Skip to main content[Accessibility\nhelp](https://support.google.com/websearch/answer/181196?hl=en-GB)\n\n[AI\nMode](/search?q=top+headlines&sca_esv=daf998d8db52a0ce&hl=en&gl=GB&udm=50&aep=1&ntc=1&cs=0&sa=X&ved=2ahUKEwjin7GK5YOWAxUkNxAIHUWPL9IQ2J8OegQIAxAD)\n\n[All](/search?q=top+headlines&sca_esv=daf998d8db52a0ce&hl=en&gl=GB&source=lnms&sa=X&ved=2ahUKEwjin7GK5YOWAxUkNxAIHUWPL9IQ0pQJegQIAxAF)\n\n[Images](/search?q=top+headlines&sca_esv=daf998d8db52a0ce&hl=en&gl=GB&udm=2&source=lnms&sa=X&ved=2ahUKEwjin7GK5YOWAxUkNxAIHUWPL9IQ0pQJegQIAxAH)\n\n[Videos](/search?q=top+headlines&sca_esv=daf998d8db52a0ce&hl=en&gl=GB&udm=7&source=lnms&sa=X&ved=2ahUKEwjin7GK5YOWAxUkNxAIHUWPL9IQ0pQJegQIAxAJ)\n\nNews\n\n[Shopping](/search?q=top+headlines&sca_esv=daf998d8db52a0ce&hl=en&gl=GB&udm=28&source=lnms&ved=1t:200715&ictx=111)\n\n[Books](/search?q=top+headlines&sca_esv=daf998d8db52a0ce&hl=en&gl=GB&udm=36&source=lnms&sa=X&ved=2ahUKEwjin7GK5YOWAxUkNxAIHUWPL9IQ0pQJegQIAxAP)\n\nMore\n\n# Search Results\n\n[ITVX The latest headlines - as 'monster' funeral director jailed - Latest From ITV News The latest headlines - as\n'monster' funeral director jailed. Fri 31 Jul 7.36pm • Catch up with the latest UK and international headlines from the\nITV News... .2 days ago](https://www.itv.com/watch/news/the-latest-headlines-as-monster-funeral-director-jailed/sjtrqrx)\n\n[Newark Advertiser Top Headlines: Market Place revamp scaled back, popular landlord returns, and drug dealer jailed Last\nweek's biggest stories included a drug dealer being jailed and a major revamp of Newark's Market Place being scaled\nback. .2 hours\nago](https://www.newarkadvertiser.co.uk/news/top-headlines-market-place-revamp-scaled-back-popular-land-9476709/)\n\n[Sky Sports Vinicius Junior transfer news: Real Madrid open to possibility of Arsenal target leaving - Paper Talk |\nFootball News Back Pages is a review of the sports headlines from the national newspapers, every Monday to Friday, live\non Sky Sports News from 10.30pm. .2 days\nago](https://www.skysports.com/football/transfer-paper-talk/12709/13568924/vinicius-junior-transfer-news-real-madrid-open-to-possibility-of-arsenal-target-leaving-paper-talk)\n\n[Expats.cz Czech news in brief for August 2: Sunday's top afternoon headlines Heat wave to grip Czechia this week, CNB\nexpected to hold interest rates steady, invasive beetle nears Czech border, and more top headlines. .15 hours\nago](https://www.expats.cz/czech-news/article/czech-news-in-brief-for-august-2-2026-sunday-top-afternoon-headlines)\n\n[ABC7 New York ABC7 Eyewitness News - WABC-TV New York Watch ABC News live news stream and get 24/7 latest, breaking\nnews coverage, and live video. Localish. We celebrate the good in America's... .3 hours ago](https://abc7ny.com/)\n\n[EnergyNow.com ExxonMobil, Chevron Steer Windfall Profits into Debt Reduction Big Oil's windfall profits are becoming a\npolitical flashpoint as inflated energy prices stoke inflation around the world. Bloomberg News. .7 hours\nago](https://energynow.com/2026/08/exxonmobil-chevron-steer-windfall-profits-into-debt-reduction/)\n\n[bernama Top News Headlines In Indonesia, Philippines, Singapore &amp; Thailand: Aug 3, 2026 Indonesia's National Search\nand Rescue Agency (Basarnas) said 232 people were evacuated from the passenger ferry Mutiara Sentosa 2 after it... .5\nhours ago](https://asean.bernama.com/news.php?id=2589496)\n\n[Tampa Bay 28 News Tonight - Top Headlines and Weather for August 2 Victim and suspect identified in PSTA bus shooting,\nMetroCon 2026 draws thousands, and flooding threat continues overnight. .7 hours\nago](https://www.tampabay28.com/news/local-news/news-tonight-top-headlines-and-weather-for-august-2)\n\n[BMI Top Advertising, Marketing and Media news headlines of today - August 3, 2026 Follow BestMediaInfo, stay ahead with\nthe latest developments, including top people movements, in the domain of advertising and marketing... .3 hours\nago](https://bestmediainfo.com/mediainfo/advertising/top-advertising-marketing-and-media-news-headlines-of-today-august-3-2026-12222445)\n\n[NDTV School Assembly News Headlines (August 3): Top National, International, Sports News Today's News Bulletin: Watch\nhow leaders call on youth to shape a drugfree future and a landmark mountain pass reopens after six years. .15 hours\nago](https://www.ndtv.com/education/school-assembly-news-headlines-august-3-top-national-international-sports-news-11856361)\n\n# Page navigation\n\n1[2](/search?q=top+headlines&sca_esv=daf998d8db52a0ce&hl=en&gl=GB&tbm=nws&ei=iC9wauK7HaTuwPAPxZ6-kQ0&start=10&sa=N&ved=2ahUKEwjin7GK5YOWAxUkNxAIHUWPL9IQ8tMDegQIHRAE)[3](/search?q=top+headlines&sca_esv=daf998d8db52a0ce&hl=en&gl=GB&tbm=nws&ei=iC9wauK7HaTuwPAPxZ6-kQ0&start=20&sa=N&ved=2ahUKEwjin7GK5YOWAxUkNxAIHUWPL9IQ8tMDegQIHRAG)[4](/search?q=top+headlines&sca_esv=daf998d8db52a0ce&hl=en&gl=GB&tbm=nws&ei=iC9wauK7HaTuwPAPxZ6-kQ0&start=30&sa=N&ved=2ahUKEwjin7GK5YOWAxUkNxAIHUWPL9IQ8tMDegQIHRAI)[5](/search?q=top+headlines&sca_esv=daf998d8db52a0ce&hl=en&gl=GB&tbm=nws&ei=iC9wauK7HaTuwPAPxZ6-kQ0&start=40&sa=N&ved=2ahUKEwjin7GK5YOWAxUkNxAIHUWPL9IQ8tMDegQIHRAK)[6](/search?q=top+headlines&sca_esv=daf998d8db52a0ce&hl=en&gl=GB&tbm=nws&ei=iC9wauK7HaTuwPAPxZ6-kQ0&start=50&sa=N&ved=2ahUKEwjin7GK5YOWAxUkNxAIHUWPL9IQ8tMDegQIHRAM)[7](/search?q=top+headlines&sca_esv=daf998d8db52a0ce&hl=en&gl=GB&tbm=nws&ei=iC9wauK7HaTuwPAPxZ6-kQ0&start=60&sa=N&ved=2ahUKEwjin7GK5YOWAxUkNxAIHUWPL9IQ8tMDegQIHRAO)[8](/search?q=top+headlines&sca_esv=daf998d8db52a0ce&hl=en&gl=GB&tbm=nws&ei=iC9wauK7HaTuwPAPxZ6-kQ0&start=70&sa=N&ved=2ahUKEwjin7GK5YOWAxUkNxAIHUWPL9IQ8tMDegQIHRAQ)[9](/search?q=top+headlines&sca_esv=daf998d8db52a0ce&hl=en&gl=GB&tbm=nws&ei=iC9wauK7HaTuwPAPxZ6-kQ0&start=80&sa=N&ved=2ahUKEwjin7GK5YOWAxUkNxAIHUWPL9IQ8tMDegQIHRAS)[10](/search?q=top+headlines&sca_esv=daf998d8db52a0ce&hl=en&gl=GB&tbm=nws&ei=iC9wauK7HaTuwPAPxZ6-kQ0&start=90&sa=N&ved=2ahUKEwjin7GK5YOWAxUkNxAIHUWPL9IQ8tMDegQIHRAU)[Next](/search?q=top+headlines&sca_esv=daf998d8db52a0ce&hl=en&gl=GB&tbm=nws&ei=iC9wauK7HaTuwPAPxZ6-kQ0&start=10&sa=N&ved=2ahUKEwjin7GK5YOWAxUkNxAIHUWPL9IQ8NMDegQIHRAW)\n\n# Footer links\n\nGoogle apps\n";

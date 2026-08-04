@@ -6,6 +6,7 @@ description: Perform real-time SERP searches using HTTP POST requests with a JSO
 import {
   liveHttpPostJsonResponse,
   liveHttpPostMarkdownResponse,
+  liveHttpPostHtmlResponse,
 } from "@/lib/api-examples/liveHttpPost";
 
 <DeprecatedNotice />
@@ -66,6 +67,7 @@ Performing a realtime search using HTTP POST is very simple with the SERPHouse l
 
 <ApiExample mode="response">
   <ApiTab label="JSON" response={liveHttpPostJsonResponse} />
+  <ApiTab label="HTML" response={liveHttpPostHtmlResponse} lang="html" />
   <ApiTab
     label="Markdown"
     response={liveHttpPostMarkdownResponse}

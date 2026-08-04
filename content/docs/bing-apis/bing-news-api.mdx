@@ -6,6 +6,7 @@ description: Access real-time Bing News search results and stay informed with th
 import {
   bingNewsJsonResponse,
   bingNewsMarkdownResponse,
+  bingNewsHtmlResponse,
 } from "@/lib/api-examples/bingNews";
 
 Access real-time Bing News search results and stay informed with the latest news articles, headlines, and trending stories from trusted sources across the web.
@@ -56,6 +57,7 @@ Access real-time Bing News search results and stay informed with the latest news
 
 <ApiExample mode="response">
   <ApiTab label="JSON" response={bingNewsJsonResponse} />
+  <ApiTab label="HTML" response={bingNewsHtmlResponse} lang="html" />
   <ApiTab
     label="Markdown"
     response={bingNewsMarkdownResponse}

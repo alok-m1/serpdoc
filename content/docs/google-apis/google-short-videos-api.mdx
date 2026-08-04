@@ -6,6 +6,7 @@ description: Retrieve real-time short video results from Google Search for fast,
 import {
   googleShortVideosJsonResponse,
   googleShortVideosMarkdownResponse,
+  googleShortVideosHtmlResponse,
 } from "@/lib/api-examples/googleShortVideos";
 
 The Google Short Videos API enables you to retrieve real-time short video results from Google Search, delivering structured data in a simple HTTP request. It is designed for fast, scalable, and reliable access to short-form video SERP data.
@@ -53,6 +54,7 @@ The Google Short Videos API enables you to retrieve real-time short video result
 
 <ApiExample mode="response">
   <ApiTab label="JSON" response={googleShortVideosJsonResponse} />
+  <ApiTab label="HTML" response={googleShortVideosHtmlResponse} lang="html" />
   <ApiTab
     label="Markdown"
     response={googleShortVideosMarkdownResponse}

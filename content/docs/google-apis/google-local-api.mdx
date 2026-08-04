@@ -6,6 +6,7 @@ description: Structured local business results from Google Search including rati
 import {
   googleLocalJsonResponse,
   googleLocalMarkdownResponse,
+  googleLocalHtmlResponse,
 } from "@/lib/api-examples/googleLocal";
 
 Google Local API provides structured local business results from Google Search, including position, business name, rating, reviews count, address, GPS coordinates, service options, and direct map navigation links.
@@ -49,6 +50,7 @@ Google Local API provides structured local business results from Google Search, 
 
 <ApiExample mode="response">
   <ApiTab label="JSON" response={googleLocalJsonResponse} />
+  <ApiTab label="HTML" response={googleLocalHtmlResponse} lang="html" />
   <ApiTab
     label="Markdown"
     response={googleLocalMarkdownResponse}

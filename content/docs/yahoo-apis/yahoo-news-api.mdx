@@ -6,6 +6,7 @@ description: Access real-time Yahoo News search results with the latest headline
 import {
   yahooNewsJsonResponse,
   yahooNewsMarkdownResponse,
+  yahooNewsHtmlResponse,
 } from "@/lib/api-examples/yahooNews";
 
 Retrieve real-time news results from the Yahoo News search page, providing access to the latest headlines, breaking news, and stories from trusted publishers.
@@ -61,6 +62,7 @@ Retrieve real-time news results from the Yahoo News search page, providing acces
 
 <ApiExample mode="response">
   <ApiTab label="JSON" response={yahooNewsJsonResponse} />
+  <ApiTab label="HTML" response={yahooNewsHtmlResponse} lang="html" />
   <ApiTab
     label="Markdown"
     response={yahooNewsMarkdownResponse}

@@ -166,5 +166,189 @@ const jsonResponse = {
   }
 } as const;
 
+export const googleShortVideosHtmlResponse = `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Google Short Videos API — Example Response</title>
+  <style>
+
+:root {
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --ink: #0f172a;
+  --muted: #64748b;
+  --accent: #4f46e5;
+  --accent-soft: #eef2ff;
+  --line: #e2e8f0;
+  --chip: #f1f5f9;
+  --shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 28px;
+  background: linear-gradient(120deg, #312e81 0%, #4f46e5 55%, #7c3aed 100%);
+  color: #fff;
+}
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.02em; }
+.brand .dot { width: 9px; height: 9px; border-radius: 99px; background: #c7d2fe; box-shadow: 0 0 0 4px rgba(199, 210, 254, 0.25); }
+.brand .sep { color: rgba(255,255,255,0.55); font-weight: 400; }
+.badge {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em;
+  padding: 5px 12px; border-radius: 99px;
+  background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.28);
+}
+.wrap { max-width: 860px; margin: 0 auto; padding: 32px 24px 56px; }
+.hero { padding: 8px 4px 20px; }
+.hero h1 { margin: 0 0 8px; font-size: 30px; font-weight: 800; letter-spacing: -0.02em; }
+.meta { margin: 0; color: var(--muted); font-size: 14px; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 22px 24px;
+  margin: 0 0 18px;
+}
+.eyebrow {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em;
+  color: var(--accent); font-weight: 700; margin-bottom: 4px;
+}
+.card h2 { margin: 0 0 14px; font-size: 19px; font-weight: 700; letter-spacing: -0.01em; }
+.video {
+  display: flex; align-items: flex-start; gap: 14px;
+  text-decoration: none; color: inherit;
+  padding: 14px 12px; border-radius: 12px;
+  border: 1px solid transparent;
+}
+.video:hover { background: var(--accent-soft); border-color: #c7d2fe; }
+.thumb {
+  flex: none; width: 120px; height: 68px; border-radius: 10px;
+  display: grid; place-items: center;
+  background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+  border: 1px solid var(--line);
+}
+.thumb svg { width: 26px; height: 26px; fill: var(--accent); }
+.video-title { font-size: 15px; font-weight: 650; color: #4338ca; margin: 0 0 3px; }
+.video-title:hover { text-decoration: underline; }
+.video-meta { font-size: 12.5px; color: var(--muted); }
+.video-duration {
+  display: inline-block; font-size: 11px; font-weight: 700; margin-top: 6px;
+  padding: 2px 7px; border-radius: 6px;
+  background: #0f172a; color: #fff;
+}
+.src-chip {
+  display: inline-block; font-size: 11px; font-weight: 600; margin-left: 6px;
+  padding: 2px 8px; border-radius: 99px;
+  background: var(--chip); border: 1px solid var(--line); color: var(--muted);
+}
+.foot { text-align: center; color: var(--muted); font-size: 12.5px; padding: 0 24px 40px; }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1120; --card: #111a2e; --ink: #e2e8f0; --muted: #94a3b8;
+    --accent: #818cf8; --accent-soft: #1e293b; --line: #1e293b; --chip: #1a2440;
+  }
+  .video-title { color: #a5b4fc; }
+  .video-duration { background: #e2e8f0; color: #0f172a; }
+  .thumb { background: #1e293b; }
+  .topbar { background: linear-gradient(120deg, #1e1b4b 0%, #312e81 55%, #4c1d95 100%); }
+  .card, .video, .thumb, .src-chip { box-shadow: none; }
+}
+
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="dot"></span> SERPHouse <span class="sep">/</span> Google Short Videos API</div>
+    <div class="badge">example response</div>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <h1>cooking recipes</h1>
+      <p class="meta">About 153.000 results &nbsp;·&nbsp; google.com &nbsp;·&nbsp; de &nbsp;·&nbsp; Germany</p>
+    </section>
+    <section class="card">
+      <div class="eyebrow">short videos</div>
+      <h2>Short Videos</h2>
+      <a class="video" href="https://www.youtube.com/shorts/MAjCJ0nYJio">
+        <div class="thumb">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div>
+          <div class="video-title">Just few ingredients, Delicious dinner is ready in 5 mins ...</div>
+          <div class="video-meta">South Cookery <span class="src-chip">YouTube</span></div>
+          <div class="video-duration">0:29</div>
+        </div>
+      </a>
+      <a class="video" href="https://www.pinterest.com/pin/51791464459093848/">
+        <div class="thumb">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div>
+          <div class="video-title">Dinner recipe ideas #recipes #healthyfood #cooking #yummy ...</div>
+          <div class="video-meta">deliciouslyyoursfood <span class="src-chip">Pinterest</span></div>
+          <div class="video-duration">0:26</div>
+        </div>
+      </a>
+      <a class="video" href="https://www.tiktok.com/@thegoldenbalance/video/7586734563221589262">
+        <div class="thumb">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div>
+          <div class="video-title">Top 5 Best Recipes of 2025 to Try at Home</div>
+          <div class="video-meta">thegoldenbalance <span class="src-chip">TikTok</span></div>
+          <div class="video-duration">1:30</div>
+        </div>
+      </a>
+      <a class="video" href="https://www.facebook.com/ssuperyummy/videos/recipes-easyrecipe-food/625300236756866/">
+        <div class="thumb">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div>
+          <div class="video-title">#recipes #easyrecipe #food | SuperYummy</div>
+          <div class="video-meta">SuperYummy <span class="src-chip">Facebook</span></div>
+          <div class="video-duration">1:29</div>
+        </div>
+      </a>
+      <a class="video" href="https://www.instagram.com/reel/DNGezvSo-xK/?hl=de">
+        <div class="thumb">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div>
+          <div class="video-title">Quick meals? I'm there! You need to try this recipe. I will send ...</div>
+          <div class="video-meta">Sisi Yemmie | Cookbook Author | Lifestyle <span class="src-chip">Instagram</span></div>
+          <div class="video-duration">0:56</div>
+        </div>
+      </a>
+      <a class="video" href="https://www.youtube.com/shorts/SJyRf_8eN9s">
+        <div class="thumb">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div>
+          <div class="video-title">10 mins instant dinner recipes | Quick &amp; Easy Dinner Recipes ...</div>
+          <div class="video-meta">She Cooks <span class="src-chip">YouTube</span></div>
+          <div class="video-duration">2:32</div>
+        </div>
+      </a>
+    </section>
+  </main>
+  <footer class="foot">
+    Generated from the SERPHouse Google Short Videos API &middot; 2026-08-03T06:41:31.000000Z
+  </footer>
+</body>
+</html>
+`;
 export const googleShortVideosJsonResponse = jsonResponse as Record<string, unknown>;
 export const googleShortVideosMarkdownResponse = "cooking recipes - Google Suche Zu den Hauptinhalten springen [Kontinuierliches Scrollen\ndeaktivieren](#)[Kontinuierliches Scrollen aktivieren](#)[Hilfe zur\nBarrierefreiheit](https://support.google.com/websearch/answer/181196?hl=de)\n\n[KI‑Modus](/search?q=cooking+recipes&sca_esv=e9a52b70d8558faf&hl=de&gl=DE&udm=50&fbs=ABfTbFUyxjQn9bne4DuflY2dNqqK7N177jWgWpM5fkywM1UejB7tg32RbLFEmja3tIVUafSsABWtSJ4cz38lmHhClK_LnKMeEjwMZwAvHonqPjzxRoPSHKkUnV9HDnHKm3QJcK2aYCTvDQ_GDPf5dLlfBRHmXZuDGGN05u_KDx7SsEvlj2PNoBtfY3DedPtVslvt7rtLYIc6&aep=1&ntc=1&cs=0&sa=X&ved=2ahUKEwj5tZSa7YOWAxX0KRAIHTB3OQQQ2J8OegQIFhAD)\n\n[Alle](/search?sca_esv=e9a52b70d8558faf&hl=de&gl=DE&q=cooking+recipes&source=lnms&fbs=ABfTbFUyxjQn9bne4DuflY2dNqqK7N177jWgWpM5fkywM1UejB7tg32RbLFEmja3tIVUafSsABWtSJ4cz38lmHhClK_LnKMeEjwMZwAvHonqPjzxRoPSHKkUnV9HDnHKm3QJcK2aYCTvDQ_GDPf5dLlfBRHmXZuDGGN05u_KDx7SsEvlj2PNoBtfY3DedPtVslvt7rtLYIc6&sa=X&ved=2ahUKEwj5tZSa7YOWAxX0KRAIHTB3OQQQ0pQJegQIGBAB)\n\n[Videos](/search?sca_esv=e9a52b70d8558faf&hl=de&gl=DE&udm=7&fbs=ABfTbFUyxjQn9bne4DuflY2dNqqK7N177jWgWpM5fkywM1UejB7tg32RbLFEmja3tIVUafSsABWtSJ4cz38lmHhClK_LnKMeEjwMZwAvHonqPjzxRoPSHKkUnV9HDnHKm3QJcK2aYCTvDQ_GDPf5dLlfBRHmXZuDGGN05u_KDx7SsEvlj2PNoBtfY3DedPtVslvt7rtLYIc6&q=cooking+recipes&sa=X&ved=2ahUKEwj5tZSa7YOWAxX0KRAIHTB3OQQQtKgLegQIHBAB)\n\n[Bilder](/search?sca_esv=e9a52b70d8558faf&hl=de&gl=DE&udm=2&fbs=ABfTbFUyxjQn9bne4DuflY2dNqqK7N177jWgWpM5fkywM1UejB7tg32RbLFEmja3tIVUafSsABWtSJ4cz38lmHhClK_LnKMeEjwMZwAvHonqPjzxRoPSHKkUnV9HDnHKm3QJcK2aYCTvDQ_GDPf5dLlfBRHmXZuDGGN05u_KDx7SsEvlj2PNoBtfY3DedPtVslvt7rtLYIc6&q=cooking+recipes&sa=X&ved=2ahUKEwj5tZSa7YOWAxX0KRAIHTB3OQQQtKgLegQIGxAB)\n\n[Bücher](/search?sca_esv=e9a52b70d8558faf&hl=de&gl=DE&q=cooking+recipes&udm=36&source=lnms&fbs=ABfTbFUyxjQn9bne4DuflY2dNqqK7N177jWgWpM5fkywM1UejB7tg32RbLFEmja3tIVUafSsABWtSJ4cz38lmHhClK_LnKMeEjwMZwAvHonqPjzxRoPSHKkUnV9HDnHKm3QJcK2aYCTvDQ_GDPf5dLlfBRHmXZuDGGN05u_KDx7SsEvlj2PNoBtfY3DedPtVslvt7rtLYIc6&sa=X&ved=2ahUKEwj5tZSa7YOWAxX0KRAIHTB3OQQQ0pQJegQIGhAB)\n\n[News](/search?sca_esv=e9a52b70d8558faf&hl=de&gl=DE&q=cooking+recipes&tbm=nws&source=lnms&fbs=ABfTbFUyxjQn9bne4DuflY2dNqqK7N177jWgWpM5fkywM1UejB7tg32RbLFEmja3tIVUafSsABWtSJ4cz38lmHhClK_LnKMeEjwMZwAvHonqPjzxRoPSHKkUnV9HDnHKm3QJcK2aYCTvDQ_GDPf5dLlfBRHmXZuDGGN05u_KDx7SsEvlj2PNoBtfY3DedPtVslvt7rtLYIc6&sa=X&ved=2ahUKEwj5tZSa7YOWAxX0KRAIHTB3OQQQ0pQJegQIGRAB)\n\nKurze Videos\n\nMehr\n\n# Suchergebnisse\n\n[0:26](https://www.pinterest.com/pin/51791464459093848/)\n\n[Dinner recipe ideas #recipes #healthyfood #cooking #yummy ... Pinterest ·\ndeliciouslyyoursfood](https://www.pinterest.com/pin/51791464459093848/)\n\n[0:29](https://www.youtube.com/shorts/MAjCJ0nYJio)\n\n[Just few ingredients, Delicious dinner is ready in 5 mins ... YouTube · South\nCookery](https://www.youtube.com/shorts/MAjCJ0nYJio)\n\n[0:37](https://www.pinterest.com/pin/512425263870049190/)\n\n[Dinner recipe ideas #recipes #healthyfood #cooking #yummy ... Pinterest · Tawana\nWelch](https://www.pinterest.com/pin/512425263870049190/)\n\n[1:30](https://www.tiktok.com/@thegoldenbalance/video/7586734563221589262)\n\n[Top 5 Best Recipes of 2025 to Try at Home TikTok ·\nthegoldenbalance](https://www.tiktok.com/@thegoldenbalance/video/7586734563221589262)\n\n[1:29](https://www.facebook.com/ssuperyummy/videos/recipes-easyrecipe-food/625300236756866/)\n\n[\\#recipes #easyrecipe #food | SuperYummy Facebook ·\nSuperYummy](https://www.facebook.com/ssuperyummy/videos/recipes-easyrecipe-food/625300236756866/)\n\n[0:56](https://www.instagram.com/reel/DNGezvSo-xK/?hl=de)\n\n[Quick meals? I'm there! You need to try this recipe. I will send ... Instagram · Sisi Yemmie | Cookbook Author |\nLifestyle 🇳🇬](https://www.instagram.com/reel/DNGezvSo-xK/?hl=de)\n\n[2:32](https://www.youtube.com/shorts/SJyRf_8eN9s)\n\n[10 mins instant dinner recipes | Quick &amp; Easy Dinner Recipes ... YouTube · She\nCooks](https://www.youtube.com/shorts/SJyRf_8eN9s)\n\n[3:00](https://www.tiktok.com/@easy.food.recieps/video/7668883163745225997)\n\n[\\#recipes #easyrecipe #cooking #dinnerideas | cooking recipes TikTok ·\neasy.food.recieps](https://www.tiktok.com/@easy.food.recieps/video/7668883163745225997)\n\n[1:15](https://www.pinterest.com/pin/84301824269690044/)\n\n[The Easiest Recipe- recipe ideas Pinterest · ultimaterecipe56](https://www.pinterest.com/pin/84301824269690044/)\n\n[0:20](https://www.facebook.com/superrecipees/videos/food-recipes-easyrecipe/729627892924218/)\n\n[\\#food #recipes #easyrecipe | Super Recipes \\#food #recipes #easyrecipe | Super Recipes · Super\nRecipes](https://www.facebook.com/superrecipees/videos/food-recipes-easyrecipe/729627892924218/)\n\n[0:26](https://www.pinterest.com/pin/49821139623024124/)\n\n[Dinner recipe ideas #recipes #healthyfood #cooking #yummy ... Pinterest ·\ndeliciouslyyoursfood](https://www.pinterest.com/pin/49821139623024124/)\n\n[0:59](https://www.lemon8-app.com/@haileferris/7398350797819347462?region=us)\n\n[Easy and Simple Dinners to Make at Home: A Beginner's ... Lemon8 ·\nhaileferris](https://www.lemon8-app.com/@haileferris/7398350797819347462?region=us)\n\n# Page Navigation\n\n[--- Weitere\nErgebnisse](/search?q=cooking+recipes&sca_esv=e9a52b70d8558faf&hl=de&gl=DE&udm=39&ei=DThwarn7AvTTwPAPsO7lIQ&start=12&sa=N)---\n\nErneut versuchen\n\n# Fußzeilenlinks\n\nGoogle-Apps\n";

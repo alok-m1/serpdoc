@@ -6,6 +6,7 @@ description: Fast and reliable access to real-time Google News search results.
 import {
   googleNewsJsonResponse,
   googleNewsMarkdownResponse,
+  googleNewsHtmlResponse,
 } from "@/lib/api-examples/googleNews";
 
 The Google News API endpoint provides fast and reliable access to real-time Google News search results.
@@ -51,6 +52,7 @@ The Google News API endpoint provides fast and reliable access to real-time Goog
 
 <ApiExample mode="response">
   <ApiTab label="JSON" response={googleNewsJsonResponse} />
+  <ApiTab label="HTML" response={googleNewsHtmlResponse} lang="html" />
   <ApiTab
     label="Markdown"
     response={googleNewsMarkdownResponse}

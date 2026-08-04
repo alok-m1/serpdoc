@@ -545,4 +545,133 @@ const jsonResponse = {
 } as const;
 
 export const googleLocalJsonResponse = jsonResponse as Record<string, unknown>;
+export const googleLocalHtmlResponse = `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Google Local API — Example Response</title>
+  <style>
+
+:root {
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --ink: #0f172a;
+  --muted: #64748b;
+  --accent: #4f46e5;
+  --accent-soft: #eef2ff;
+  --line: #e2e8f0;
+  --shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+.topbar { display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; background: linear-gradient(120deg, #312e81 0%, #4f46e5 55%, #7c3aed 100%); color: #fff; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.02em; }
+.brand .dot { width: 9px; height: 9px; border-radius: 99px; background: #c7d2fe; box-shadow: 0 0 0 4px rgba(199, 210, 254, 0.25); }
+.brand .sep { color: rgba(255,255,255,0.55); font-weight: 400; }
+.badge { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; padding: 5px 12px; border-radius: 99px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.28); }
+.wrap { max-width: 860px; margin: 0 auto; padding: 32px 24px 56px; }
+.hero { padding: 8px 4px 20px; }
+.hero h1 { margin: 0 0 8px; font-size: 30px; font-weight: 800; letter-spacing: -0.02em; }
+.meta { margin: 0; color: var(--muted); font-size: 14px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); padding: 22px 24px; margin: 0 0 18px; }
+.eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--accent); font-weight: 700; margin-bottom: 4px; }
+.card h2 { margin: 0 0 14px; font-size: 19px; font-weight: 700; letter-spacing: -0.01em; }
+.biz { list-style: none; margin: 0; padding: 0; }
+.biz-item { display: flex; gap: 16px; padding: 16px 2px; border-top: 1px solid var(--line); }
+.biz-item:first-child { border-top: 0; }
+.biz-rank { flex: none; width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; font-size: 12px; font-weight: 700; color: var(--accent); background: var(--accent-soft); border: 1px solid #c7d2fe; }
+.biz-name { display: block; text-decoration: none; color: #4338ca; font-size: 16px; font-weight: 650; margin-bottom: 3px; }
+.biz-name:hover { text-decoration: underline; }
+.biz-meta { font-size: 12.5px; color: var(--muted); margin-bottom: 5px; }
+.stars { color: #f59e0b; }
+.biz-type, .biz-price { font-size: 13px; }
+.biz-price { font-weight: 700; color: var(--ink); }
+.biz p { margin: 0 0 5px; font-size: 14px; color: #334155; }
+.biz-addr { font-size: 12.5px; color: var(--muted); }
+.foot { text-align: center; color: var(--muted); font-size: 12.5px; padding: 0 24px 40px; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0b1120; --card: #111a2e; --ink: #e2e8f0; --muted: #94a3b8; --accent: #818cf8; --accent-soft: #1e293b; --line: #1e293b; }
+  .biz-name { color: #a5b4fc; }
+  .biz p { color: #cbd5e1; }
+  .topbar { background: linear-gradient(120deg, #1e1b4b 0%, #312e81 55%, #4c1d95 100%); }
+  .biz-rank { color: #a5b4fc; }
+  .card { box-shadow: none; }
+}
+
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="dot"></span> SERPHouse <span class="sep">/</span> Google Local API</div>
+    <div class="badge">example response</div>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <h1>Restaurants</h1>
+      <p class="meta">About 308 results (0.30 s) &nbsp;·&nbsp; google.com &nbsp;·&nbsp; en &nbsp;·&nbsp; Mumbai,Maharashtra,India</p>
+    </section>
+    <section class="card">
+      <div class="eyebrow">local results</div>
+      <h2>Nearby Restaurants</h2>
+      <ol class="biz">
+        <li class="biz-item">
+          <span class="biz-rank">01</span>
+          <div>
+            <a class="biz-name" href="#">B Bhagat Tarachand- Zaveri Bazaar</a>
+            <div class="biz-meta"><span class="stars">★</span> 4.3 &middot; 12K reviews &middot; North Indian &middot; <span class="biz-price">₹200–600</span></div>
+            <p>Jain &amp; vegetarian fast food outlet</p>
+            <div class="biz-addr">69/75,Mumbadevi Commercial Center, Sheikh Memon St</div>
+          </div>
+        </li>
+        <li class="biz-item">
+          <span class="biz-rank">02</span>
+          <div>
+            <a class="biz-name" href="#">Central Restaurant</a>
+            <div class="biz-meta"><span class="stars">★</span> 4.2 &middot; 3.7K reviews &middot; Mughlai &middot; <span class="biz-price">₹200–400</span></div>
+            <div class="biz-addr">86, Mohammed Ali Rd</div>
+          </div>
+        </li>
+        <li class="biz-item">
+          <span class="biz-rank">03</span>
+          <div>
+            <a class="biz-name" href="#">Mao Family Restaurant</a>
+            <div class="biz-meta"><span class="stars">★</span> 4.0 &middot; 7.8K reviews &middot; Family-friendly &middot; <span class="biz-price">₹200–400</span></div>
+            <p>Homey mixed-cuisine restaurant</p>
+            <div class="biz-addr">534 536, Kalbadevi Rd, near Metro Big Cinemas</div>
+          </div>
+        </li>
+        <li class="biz-item">
+          <span class="biz-rank">04</span>
+          <div>
+            <a class="biz-name" href="#">Greenfield Restaurant</a>
+            <div class="biz-meta"><span class="stars">★</span> 4.1 &middot; 721 reviews &middot; North Indian &middot; <span class="biz-price">₹200–400</span></div>
+            <div class="biz-addr">Ismail Waghoo Rd, opposite Gst Bhavan</div>
+          </div>
+        </li>
+        <li class="biz-item">
+          <span class="biz-rank">05</span>
+          <div>
+            <a class="biz-name" href="#">Gaylord Restaurant</a>
+            <div class="biz-meta"><span class="stars">★</span> 4.2 &middot; 8K reviews &middot; Continental restaurant</div>
+            <p>Snacks &amp; varied fare close to the sea</p>
+            <div class="biz-addr">V N Rd</div>
+          </div>
+        </li>
+        <li class="biz-item">
+          <span class="biz-rank">06</span>
+          <div>
+            <a class="biz-name" href="#">Queen Mary Restaurant</a>
+            <div class="biz-meta"><span class="stars">★</span> 4.3 &middot; 3.3K reviews &middot; Family-friendly &middot; <span class="biz-price">₹200–400</span></div>
+            <div class="biz-addr">SARKAR TOWER, 50, Nesbit Rd, opposite St. एन्नीस् चर्च</div>
+          </div>
+        </li>
+      </ol>
+    </section>
+  </main>
+  <footer class="foot">
+    Generated from the SERPHouse Google Local API &middot; 2026-08-03T05:57:19.000000Z
+  </footer>
+</body>
+</html>`;
 export const googleLocalMarkdownResponse = "Restaurants - Google Search Skip to main content[Accessibility\nhelp](https://support.google.com/websearch/answer/181196?hl=en-IN)\n\n[AI\nMode](/search?q=Restaurants&sca_esv=daf998d8db52a0ce&hl=en&gl=IN&udm=50&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cTs4PJElQ4Z4ROUfAdKhH1h8_bE4W8bMuyk4xKV8xDJft60L_cgunwTR4E8wbjGI8dSAmpty55IpwxNSShLEsKH3Sjxf8Q4qDVx9XX2G8L7ocGmOQHSBcsIsfAihl9UZohnJRM-AEqmw7JeKdLyjKTsL1MK2evKqODG8gFT4NKqxhjRnT&aep=1&ntc=1&cs=0&sa=X&ved=2ahUKEwja7syu44OWAxWGmGoFHfLsOqYQ2J8OegQIEhAD)\n\n[All](/search?sca_esv=daf998d8db52a0ce&hl=en&gl=IN&q=Restaurants&source=lnms&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cTs4PJElQ4Z4ROUfAdKhH1h8_bE4W8bMuyk4xKV8xDJft60L_cgunwTR4E8wbjGI8dSAmpty55IpwxNSShLEsKH3Sjxf8Q4qDVx9XX2G8L7ocGmOQHSBcsIsfAihl9UZohnJRM-AEqmw7JeKdLyjKTsL1MK2evKqODG8gFT4NKqxhjRnT&sa=X&ved=2ahUKEwja7syu44OWAxWGmGoFHfLsOqYQ0pQJegQIFBAB)\n\n[Maps](https://maps.google.com/maps?sca_esv=daf998d8db52a0ce&hl=en&gl=IN&output=search&q=Restaurants&source=lnms&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cTs4PJElQ4Z4ROUfAdKhH1h8_bE4W8bMuyk4xKV8xDJft60L_cgunwTR4E8wbjGI8dSAmpty55IpwxNSShLEsKH3Sjxf8Q4qDVx9XX2G8L7ocGmOQHSBcsIsfAihl9UZohnJRM-AEqmw7JeKdLyjKTsL1MK2evKqODG8gFT4NKqxhjRnT&entry=mc&ved=1t:200715&ictx=111)\n\n[Images](/search?sca_esv=daf998d8db52a0ce&hl=en&gl=IN&udm=2&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cTs4PJElQ4Z4ROUfAdKhH1h8_bE4W8bMuyk4xKV8xDJft60L_cgunwTR4E8wbjGI8dSAmpty55IpwxNSShLEsKH3Sjxf8Q4qDVx9XX2G8L7ocGmOQHSBcsIsfAihl9UZohnJRM-AEqmw7JeKdLyjKTsL1MK2evKqODG8gFT4NKqxhjRnT&q=Restaurants&sa=X&ved=2ahUKEwja7syu44OWAxWGmGoFHfLsOqYQtKgLegQIHBAB)\n\n[News](/search?sca_esv=daf998d8db52a0ce&hl=en&gl=IN&q=Restaurants&tbm=nws&source=lnms&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cTs4PJElQ4Z4ROUfAdKhH1h8_bE4W8bMuyk4xKV8xDJft60L_cgunwTR4E8wbjGI8dSAmpty55IpwxNSShLEsKH3Sjxf8Q4qDVx9XX2G8L7ocGmOQHSBcsIsfAihl9UZohnJRM-AEqmw7JeKdLyjKTsL1MK2evKqODG8gFT4NKqxhjRnT&sa=X&ved=2ahUKEwja7syu44OWAxWGmGoFHfLsOqYQ0pQJegQIFxAB)\n\n[Forums](/search?sca_esv=daf998d8db52a0ce&hl=en&gl=IN&udm=18&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cTs4PJElQ4Z4ROUfAdKhH1h8_bE4W8bMuyk4xKV8xDJft60L_cgunwTR4E8wbjGI8dSAmpty55IpwxNSShLEsKH3Sjxf8Q4qDVx9XX2G8L7ocGmOQHSBcsIsfAihl9UZohnJRM-AEqmw7JeKdLyjKTsL1MK2evKqODG8gFT4NKqxhjRnT&q=Restaurants&sa=X&ved=2ahUKEwja7syu44OWAxWGmGoFHfLsOqYQs6gLegQIGxAB)\n\nPlaces\n\nMore\n\n[Open\nnow](/search?sca_esv=daf998d8db52a0ce&hl=en&gl=IN&q=Restaurants+open+now&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r6mmoLkMLYSkC2PEO9iYiq2OWiG495xWeGCYcVRowfZ-_AAdNMdZSv0tSUGo6QnDPSxvKVV_QxU1Ph6y29QKCkONXTWwJyF1Z3GZPGOK2eiPpYnbWh5Ud49WdMOFsYCeliju81rfv7zsC4v1yIH-NMi1ShhnluTU7H1O0h-229XIvpnDF&udm=1&sa=X&ved=2ahUKEwja7syu44OWAxWGmGoFHfLsOqYQxKsJKAB6BAgjEAE&ictx=0)\n\n[Top\nrated](/search?sca_esv=daf998d8db52a0ce&hl=en&gl=IN&q=top+rated+Restaurants&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rqSnAA49QOFeU1_Vii_plUXWrOHKBZR36SYnsvyn1oFeD1fhTq3hQSvJCpaY_7ygaiq-DHRQt7Dkc4gbe6sDsTnpiqqBvgYWXMNdBEymvW14jOmcX1X3WjplLLksdQ7wL-ROS2o2GMMH7F2YOBPH1Yc0U8loYqqK3KVtFgCDp1Fu2v-JL&udm=1&sa=X&ved=2ahUKEwja7syu44OWAxWGmGoFHfLsOqYQxKsJKAF6BAggEAE&ictx=0)\n\n[Cheap](/search?sca_esv=daf998d8db52a0ce&hl=en&gl=IN&q=cheap+Restaurants&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r-GMv4eNXzaGgMpiN0GNsADdjvcs75i7R-Qbdtfqid7PhokCy9-E96uKve7VCIf8yhubzvdzfVfDZIzlhceJMUygoANHrthXDJQ358JQtl9kpAPuPuqARB4ZqWFHEbhWxyhqweRIAirRgJUIAWmr06uHsvkMlQ0q3aRHYWciNvOapJRuf&udm=1&sa=X&ved=2ahUKEwja7syu44OWAxWGmGoFHfLsOqYQxKsJKAJ6BAgfEAE&ictx=0)\n\n[Upscale](/search?sca_esv=daf998d8db52a0ce&hl=en&gl=IN&q=upscale+Restaurants&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r6mmoLkMLYSkC2PEO9iYiq2OWiG495xWeGCYcVRowfZ_PaM_RvSZxInIjnWrdkdfP6sENfp1Q6dPSGH_LL3OSl1JL94qSYqoS9pZau5sEBrP7vkY5dTXiOZkFHS9ZZeQIc7bb-1PspH6uxUFstUskpYi2gcmTmjrLLIuek-TMwPkiQQQv&udm=1&sa=X&ved=2ahUKEwja7syu44OWAxWGmGoFHfLsOqYQxKsJKAN6BAgiEAE&ictx=0)\n\nCuisine\n\n# Search Results\n\nB Bhagat Tarachand- Zaveri Bazaar\n\n4.3(12K) · ₹200–600 · North Indian\n\n69/75,Mumbadevi Commercial Center, Sheikh Memon St\n\nJain &amp; vegetarian fast food outlet\n\nCentral Restaurant\n\n4.2(3.7K) · ₹200–400 · Mughlai\n\n86, Mohammed Ali Rd\n\nDine-in·Takeaway\n\nMao Family Restaurant\n\n4.0(7.8K) · ₹200–400 · Family-friendly\n\n534 536, Kalbadevi Rd, near Metro Big Cinemas\n\nHomey mixed-cuisine restaurant\n\nGreenfield Restaurant\n\n4.1(721) · ₹200–400 · North Indian\n\nIsmail Waghoo Rd, opposite Gst Bhavan\n\nDine-in·Drive-through·No-contact delivery\n\nParamount Restaurant\n\n4.1(656) · ₹1–400 · North Indian\n\nGround Floor, Jariwala Building, S.V.P, Sardar Vallabhbhai Patel Rd\n\nDine-in·Takeaway·No-contact delivery\n\nFaham Restaurant &amp; lounge\n\n4.2(3.4K) · ₹400–1,400 · Arab restaurant\n\nGround Floor, Satkar Hotel Lane, 23, Sadguru Sadan, Masjid Station Street\n\nLow-key Mughlai restaurant\n\nAfzal Mao Restaurant\n\n4.1(12K) · ₹200–400 · Mughlai\n\nShop 36/37, XR9R+W5J Building, 9/A, Shivdas Chapsi Marg, opposite Sai Niketan\n\nDine-in·Drive-through·No-contact delivery\n\nRuhani restaurant\n\n3.9(688) · ₹1–200 · Indian\n\n70, Mohammed Ali Rd\n\nDine-in·Takeaway·Delivery\n\nGaylord Restaurant\n\n4.2(8K) · Continental restaurant\n\nV N Rd\n\nSnacks &amp; varied fare close to the sea\n\nQueen Mary Restaurant\n\n4.3(3.3K) · ₹200–400 · Family-friendly\n\nSARKAR TOWER, 50, Nesbit Rd, opposite St. एन्नीस् चर्च\n\nDine-in·Takeaway·Delivery\n\nGood Luck Restaurant\n\n4.0(1.8K) · ₹200–400 · Mughlai\n\nHarun Manzil, Dongri, Char Null, Sardar Vallabhbhai Patel Rd\n\nDine-in·Kerbside pickup·No-contact delivery\n\nBalwas’ Restaurant\n\n4.2(3.4K) · ₹400–1,400 · North Indian\n\nWRQH+R95 Maker Bhavan 3, Shop No. 1, Ground Floor, 19, Vitthaldas Thackersey Marg\n\nMixed-fare dining in a simple eatery\n\nShabbir's Tawakkal Sweets\n\n4.2(5K) · Restaurant\n\nA1, 45, Husainyah Marg\n\nDine-in·Kerbside pickup·No-contact delivery\n\nFAMOUS Restaurant\n\n4.0(322) · ₹200–1,400 · Family-friendly\n\nMohammed Ali Rd, opp. Minara Masjid\n\nDine-in·Drive-through·No-contact delivery\n\nPatel Restaurant\n\n4.0(6.8K) · ₹200–400 · Mughlai\n\nTopiwala Mansion, 95/97, Mohammed Ali Rd\n\nMixed-fare restaurant in basic surrounds\n\nSanaya Dhaba\n\n4.3(8.6K) · Dhaba\n\nNo.8, ghodbunder road, Ahmedabad - Mumbai Hwy\n\nClassic restaurant with outdoor dining\n\nShree Krishna Murari\n\n4.2(2.4K) · ₹200–400 · South Indian\n\n344, Kalbadevi Rd, opposite rj market\n\nDine-in·Takeaway·Delivery\n\nSAFEER MULTI CUISINE\n\n4.2(865) · Restaurant\n\nGround Floor, Bandukwala Manzil, 72, Mohammed Ali Rd\n\nDine-in·Takeaway·No-contact delivery\n\nAzad Restaurant\n\n3.9(1.1K) · ₹1–200 · Mughlai\n\nGround Floor, Pradhan Building, Sardar Vallabhbhai Patel Rd\n\nDine-in·Takeaway·Delivery\n\nZaika Darbar\n\n3.9(1K) · ₹200–1,000 · Non Vegetarian Restaurant\n\n259, Maulana Shaukat Ali Road, opposite Nishant Cinema 259\n\nDine-in·Drive-through·No-contact delivery\n\n# Page navigation\n\n[](/search?q=Restaurants&sca_esv=daf998d8db52a0ce&hl=en&gl=IN&udm=1&ei=uy1wapqlIoaxqtsP8tnrsQo&start=20&sa=N&sstk=AU9db-DMs1pdB6u9X8uvPy3jGIjun_tYcNDflJw18mxDtQzicWgOecvIUv20lI6dDG1LL82bmEG3BBa-Ks-BzxwhDyPdixwfUJyyGA&ved=2ahUKEwja7syu44OWAxWGmGoFHfLsOqYQ8NMDegQIOhAN)\n\n## Complementary results\n\n### Map\n\n# Footer links\n\nGoogle apps\n";

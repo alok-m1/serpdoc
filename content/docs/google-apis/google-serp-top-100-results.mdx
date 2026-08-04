@@ -6,6 +6,7 @@ description: Fetch up to 100 Google search results across multiple pages with th
 import {
   googleSerpTop100JsonResponse,
   googleSerpTop100MarkdownResponse,
+  googleSerpTop100HtmlResponse,
 } from "@/lib/api-examples/googleSerpTop100";
 
 <Callout type="idea" title="Why this endpoint?">
@@ -78,6 +79,7 @@ import {
 
 <ApiExample mode="response">
   <ApiTab label="JSON" response={googleSerpTop100JsonResponse} />
+  <ApiTab label="HTML" response={googleSerpTop100HtmlResponse} lang="html" />
   <ApiTab
     label="Markdown"
     response={googleSerpTop100MarkdownResponse}

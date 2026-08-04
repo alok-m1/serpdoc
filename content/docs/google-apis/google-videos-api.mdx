@@ -6,6 +6,7 @@ description: Fetch real-time video search results from Google with duration and 
 import {
   googleVideosJsonResponse,
   googleVideosMarkdownResponse,
+  googleVideosHtmlResponse,
 } from "@/lib/api-examples/googleVideos";
 
 The Google Video API allows you to fetch real-time video search results directly from Google using a simple HTTP POST request, making large-scale SERP data collection fast and reliable.
@@ -54,6 +55,7 @@ The Google Video API allows you to fetch real-time video search results directly
 
 <ApiExample mode="response">
   <ApiTab label="JSON" response={googleVideosJsonResponse} />
+  <ApiTab label="HTML" response={googleVideosHtmlResponse} lang="html" />
   <ApiTab
     label="Markdown"
     response={googleVideosMarkdownResponse}
