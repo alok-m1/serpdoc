@@ -4,283 +4,280 @@ description: People frequently ask these questions as well.
 icon: CircleQuestionMark
 ---
 
-import {
-  FaqAccordion,
-  FaqItem,
-  FaqTrigger,
-  FaqContent,
-} from "@/components/ui/faq-accordion";
-
 ## Frequently asked questions
 
 Quick answers to the questions developers ask most — from your first request to billing, webhooks, and result pagination.
 
-<FaqAccordion defaultValue={["first-api-request"]}>
+### 1. How do I authenticate and make my first API request?
 
-  <FaqItem value="first-api-request" index={0}>
-    <FaqTrigger>
-      How do I register, authenticate, and make my first API request?
-    </FaqTrigger>
-    <FaqContent>
-      **1. Register** at [serphouse.com](https://serphouse.com) and confirm the
-      email link sent to your inbox. Only one account is allowed per user — if
-      you need extra testing credits, contact support instead of creating
-      duplicates.
+**1. Register** at [serphouse.com](https://serphouse.com) and confirm the
+email link sent to your inbox. Only one account is allowed per user — if
+you need extra testing credits, contact support instead of creating
+duplicates.
 
-      **2. Get your API key** — it appears on your account dashboard once your
-      email is confirmed. Keep it secret and never commit it to public scripts.
+**2. Get your API key** — it appears on your account dashboard once your
+email is confirmed. Keep it secret and never commit it to public scripts.
 
-      **3. Authenticate.** Send your key as a `Bearer` token in the
-      `Authorization` header of every request, or pass `api_token=<YOUR_API_KEY>`
-      as a query string:
+**3. Authenticate.** Send your key as a `Bearer` token in the
+`Authorization` header of every request, or pass `api_token=<YOUR_API_KEY>`
+as a query string:
 
-      ```http
-      POST /serp/live HTTP/1.1
-      Host: api.serphouse.com
-      Authorization: Bearer <YOUR_API_KEY>
-      Content-Type: application/json
-      ```
+```http
+POST /serp/live HTTP/1.1
+Host: api.serphouse.com
+Authorization: Bearer <YOUR_API_KEY>
+Content-Type: application/json
+```
 
-      **4. Minimal live request:**
+**4. Minimal live request:**
 
-      ```bash
-      curl -X POST "https://api.serphouse.com/serp/live" \
-        -H "Authorization: Bearer <YOUR_API_KEY>" \
-        -H "Content-Type: application/json" \
-        -d '{"q": "coffee", "domain": "google.com", "lang": "en", "device": "desktop", "serp_type": "web", "loc": "Alba,Texas,United States"}'
-      ```
+```bash
+curl -X POST "https://api.serphouse.com/serp/live" \
+  -H "Authorization: Bearer <YOUR_API_KEY>" \
+  -H "Content-Type: application/json" \
+  -d '{"q": "coffee", "domain": "google.com", "lang": "en", "device": "desktop", "serp_type": "web", "loc": "Alba,Texas,United States"}'
+```
 
-      <Callout type="success" title="You only pay for successful responses">
-        A <code>200</code> status means success and returns SERP data in the
-        <code>results</code> field. Failed requests, retries, and blocks are always free.
-      </Callout>
+<Callout type="success" title="You only pay for successful responses">
+  A <code>200</code> status means success and returns SERP data in the
+  <code>results</code> field. Failed requests, retries, and blocks are always
+  free.
+</Callout>
 
-      See [Getting Started](/getting-started) and
-      [Live (HTTP POST)](/extra-apis/live-http-post) for full field tables.
-    </FaqContent>
+See [Getting Started](/getting-started) and
+[Live (HTTP POST)](/extra-apis/live-http-post) for full field tables.
 
-  </FaqItem>
+---
 
-  <FaqItem value="endpoints-and-fields" index={1}>
-    <FaqTrigger>Where are the endpoints, payload fields, docs, and code examples?</FaqTrigger>
-    <FaqContent>
-      Everything lives in this docs site:
+### 2. Where are the correct endpoints, payload fields, documentation, and code examples?
 
-      - **Endpoints** — [Getting Started](/getting-started), [Google](/google-apis), [Bing](/bing-apis), [Yahoo](/yahoo-apis), [Extra APIs](/extra-apis)
-      - **Fields** — every page documents required parameters (marked with an asterisk) and shows sample responses
-      - **Examples** — interactive snippets per page, plus [Node.js](/node.js-sdk), [PHP](/php-sdk), and [Python](/python-sdk) SDKs
+Everything lives in this docs site:
 
-      | Endpoint                    | Purpose                        |
-      | --------------------------- | ------------------------------ |
-      | `POST` / `GET` / `serp/live` | Real-time search               |
-      | `POST /serp/schedule`        | Queue delayed / batch tasks    |
-      | `GET /serp/check?id=`        | Check task status              |
-      | `GET /serp/get?id=`          | Retrieve task results          |
-      | `GET /account/info`          | Plan and credit usage          |
-      | `GET /location/search`       | Look up locations / `loc_id`   |
-      | `GET /language/list/{type}`  | List supported languages       |
-      | `GET /domain/list`           | List supported domains         |
-    </FaqContent>
+- **Endpoints** — [Getting Started](/getting-started), [Google](/google-apis), [Bing](/bing-apis), [Yahoo](/yahoo-apis), [Extra APIs](/extra-apis)
+- **Fields** — every page documents required parameters (marked with an asterisk) and shows sample responses
+- **Examples** — interactive snippets per page, plus [Node.js](/node.js-sdk), [PHP](/php-sdk), and [Python](/python-sdk) SDKs
 
-  </FaqItem>
+| Endpoint                     | Purpose                      |
+| ---------------------------- | ---------------------------- |
+| `POST` / `GET` / `serp/live` | Real-time search             |
+| `POST /serp/schedule`        | Queue delayed / batch tasks  |
+| `GET /serp/check?id=`        | Check task status            |
+| `GET /serp/get?id=`          | Retrieve task results        |
+| `GET /account/info`          | Plan and credit usage        |
+| `GET /location/search`       | Look up locations / `loc_id` |
+| `GET /language/list/{type}`  | List supported languages     |
+| `GET /domain/list`           | List supported domains       |
 
-  <FaqItem value="credits-and-pricing" index={2}>
-    <FaqTrigger>How do credits, plans, trial allowances, and rate limits work?</FaqTrigger>
-    <FaqContent>
-      <Callout type="success" title="You only pay for results">
-        Credits are charged <strong>only on successful responses</strong> — failed
-        requests, retries, and blocks are free.
-      </Callout>
+---
 
-      | Serp type         | Free       | Basic       | Regular     | Custom  |
-      | ----------------- | :--------: | :---------: | :---------: | :-----: |
-      | Price             | $0 / month | $29.99      | $49.99      | Custom  |
-      | API credits       | 4,000      | 400,000     | 800,000     | Custom  |
-      | SERP / 1k          | —          | $0.75       | $0.62       | Custom  |
-      | Autocomplete / 1k | —          | $0.37       | $0.31       | Custom  |
-      | Top 100 SERP / 1k | —          | $7.50       | $6.25       | Custom  |
+### 3. How do credits, trial allowances, plans, request limits, and custom pricing work?
 
-      - **Rate limit** is **60 req/min** on Free, Basic, and Regular plans (Custom scales as needed)
-      - Credits **do not** roll over month to month
-      - Running out of credits returns a **`402`** response
-      - Custom plans scale credits, rate limits, and pricing to your volume — contact support
-      - Check usage anytime with [Account Info](/extra-apis/account-info)
-    </FaqContent>
+<Callout type="success" title="You only pay for results">
+  Credits are charged <strong>only on successful responses</strong> — failed
+  requests, retries, and blocks are free.
+</Callout>
 
-  </FaqItem>
+| Serp type         |    Free    |  Basic  | Regular | Custom |
+| ----------------- | :--------: | :-----: | :-----: | :----: |
+| Price             | $0 / month | $29.99  | $49.99  | Custom |
+| API credits       |   4,000    | 400,000 | 800,000 | Custom |
+| SERP / 1k         |     —      |  $0.75  |  $0.62  | Custom |
+| Autocomplete / 1k |     —      |  $0.37  |  $0.31  | Custom |
+| Top 100 SERP / 1k |     —      |  $7.50  |  $6.25  | Custom |
 
-  <FaqItem value="live-vs-scheduled" index={3}>
-    <FaqTrigger>What is the difference between live, scheduled, and batch requests?</FaqTrigger>
-    <FaqContent>
-      - **Live** — synchronous. Results come back in the same HTTP response. Best for dashboards and single lookups (available over `GET` & `POST`).
-      - **Scheduled / delayed** — asynchronous. Submit with `POST /serp/schedule`, then poll [Check SERP Status](/extra-apis/check-serp-status) and fetch with [Get SERP Result](/extra-apis/get-serp-result).
-      - **Batch** — up to **100 keywords** per scheduled request, optionally delivering via `postback_url` / `pingback_url`.
+- **Rate limit** is **60 req/min** on Free, Basic, and Regular plans (Custom scales as needed)
+- Credits **do not** roll over month to month
+- Running out of credits returns a **`402`** response
+- Custom plans scale credits, rate limits, and pricing to your volume — contact support
+- Check usage anytime with [Account Info](/extra-apis/account-info)
 
-      <Callout type="idea" title="TL;DR">
-        Use <strong>live</strong> for instant single lookups and dashboards, and
-        <strong>scheduled</strong> when you need bulk jobs of up to 100 keywords.
-      </Callout>
+---
 
-      |            | Scheduled        |  Live            |
-      | ---------- | :-----:          | :----:           |
-      | Model      | Polling         | Immediate        |
-      | Task IDs   | Persistent      | N/A              |
-      | HTTP       | POST            | GET & POST       |
-      | Throughput | Built-in queuing | Per-minute throttle |
+### 4. What is the difference between live, delayed, and scheduled requests?
 
-      Full comparison: [About SERPHouse](/about-the-serp-api).
-    </FaqContent>
+- **Live** — synchronous. Results come back in the same HTTP response. Best for dashboards and single lookups (available over `GET` & `POST`).
+- **Scheduled / delayed** — asynchronous. Submit with `POST /serp/schedule`, then poll [Check SERP Status](/extra-apis/check-serp-status) and fetch with [Get SERP Result](/extra-apis/get-serp-result).
+- **Batch** — up to **100 keywords** per scheduled request, optionally delivering via `postback_url` / `pingback_url`.
 
-  </FaqItem>
+<Callout type="idea" title="TL;DR">
+  Use <strong>live</strong> for instant single lookups and dashboards, and
+  <strong>scheduled</strong> when you need bulk jobs of up to 100 keywords.
+</Callout>
 
-  <FaqItem value="webhooks-pingbacks-postbacks" index={4}>
-    <FaqTrigger>How do webhooks, pingbacks, and postbacks work, and what about retries?</FaqTrigger>
-    <FaqContent>
-      Delayed jobs complete **as capacity allows** — there is no fixed completion SLA. Notifications beat polling:
+|            |    Scheduled     |        Live         |
+| ---------- | :--------------: | :-----------------: |
+| Model      |     Polling      |      Immediate      |
+| Task IDs   |    Persistent    |         N/A         |
+| HTTP       |       POST       |     GET & POST      |
+| Throughput | Built-in queuing | Per-minute throttle |
 
-      - **Pingback** — an HTTP `GET` to your `pingback_url` when results are ready (then fetch them with Get SERP Result)
-      - **Postback** — an HTTP `POST` with JSON results to your `postback_url`
-      - **Webhooks** — configure on the [Webhook](/webhook) page, with retries at **0s**, **100s**, **1,000s**, and **1,800s** (4 failures = permanent fail)
+Full comparison: [About SERPHouse](/about-the-serp-api).
 
-      <Callout type="warn" title="At-least-once delivery">
-        Your endpoint may receive the same event <strong>multiple times</strong> —
-        deduplicate with the <code>x-serphouse-task-id</code> header.
-      </Callout>
+---
 
-      If your server doesn't respond within **5 seconds** the delivery is treated as failed and resent.
+### 5. How long do delayed requests take, and how do webhooks, postbacks, or pingbacks work?
 
-      Payloads are signed with HMAC-SHA256 in the `x-serphouse-signature` header — validate it to confirm the request really came from SERPHouse.
-    </FaqContent>
+Delayed jobs complete **as capacity allows** — there is no fixed completion SLA. Notifications beat polling:
 
-  </FaqItem>
+- **Pingback** — an HTTP `GET` to your `pingback_url` when results are ready (then fetch them with Get SERP Result)
+- **Postback** — an HTTP `POST` with JSON results to your `postback_url`
+- **Webhooks** — configure on the [Webhook](/webhook) page, with retries at **0s**, **100s**, **1,000s**, and **1,800s** (4 failures = permanent fail)
 
-  <FaqItem value="errors-and-stuck-tasks" index={5}>
-    <FaqTrigger>Why did my request time out, error out, or return empty or stuck results?</FaqTrigger>
-    <FaqContent>
-      | Code | Meaning                       |
-      | ---- | ----------------------------- |
-      | 200  | Success (SERP in `results`)     |
-      | 400  | Invalid body / validation error |
-      | 401  | Bad or missing API key          |
-      | 402  | Insufficient credits            |
-      | 404  | Invalid SERP ID / endpoint  |
-      | 405  | Method not allowed              |
-      | 429  | Rate limit — slow down        |
-      | 500  | Internal server error           |
+<Callout type="warn" title="At-least-once delivery">
+  Your endpoint may receive the same event <strong>multiple times</strong> —
+  deduplicate with the <code>x-serphouse-task-id</code> header.
+</Callout>
 
-      <Callout type="info" title="200 but nothing returned?">
-        A <code>200</code> with <code>"msg": "Please try again"</code> is a
-        momentary failure — just retry after a short wait. It is not billed.
-      </Callout>
+If your server doesn't respond within **5 seconds** the delivery is treated as failed and resent.
 
-      - Scheduled tasks: poll `/serp/check` until status is `Completed`, then call `/serp/get` to fetch results
-      - Empty results usually mean the task is still processing or the engine returned nothing
-      - If a task id seems stuck, re-check after a few minutes before contacting support
-      - Permanently-failed webhooks can always be fetched manually with the Get SERP Result API
-    </FaqContent>
+Payloads are signed with HMAC-SHA256 in the `x-serphouse-signature` header — validate it to confirm the request really came from SERPHouse.
 
-  </FaqItem>
+---
 
-<FaqItem value="results-and-pagination" index={6}>
-  <FaqTrigger>
-    How many results return, how does pagination work, and why do result types
-    differ?
-  </FaqTrigger>
-  <FaqContent>
-    - **Live / single-request** — default **10 results per page**, maximum
-    `num_result` is **10** - **Pagination** — use the `page` parameter (`1`,
-    `2`, …), each page is a separate request - **Top 100** — the [Google Top
-    100](/google-apis/google-serp-top-100-results) endpoint fetches up to **100
-    results** across pages with `max_pages` (1 page ≈ 10 results, each page
-    costs 10 credits) - **`serp_type`** shapes the response: - `web` — organic
-    results, ads, knowledge panels, related searches - `news` — source and
-    published date - `image` — image URLs and thumbnails - `shop` — price,
-    rating, and shop - Different result types expose different fields, so the
-    response shape varies by `serp_type` — likewise `verbatim`, `gfilter`, and
-    `date_range` affect what comes back
-  </FaqContent>
-</FaqItem>
+### 6. Why did my request time out, return an error, produce empty results, or remain stuck?
 
-</FaqAccordion>
+| Code | Meaning                         |
+| ---- | ------------------------------- |
+| 200  | Success (SERP in `results`)     |
+| 400  | Invalid body / validation error |
+| 401  | Bad or missing API key          |
+| 402  | Insufficient credits            |
+| 404  | Invalid SERP ID / endpoint      |
+| 405  | Method not allowed              |
+| 429  | Rate limit — slow down          |
+| 500  | Internal server error           |
+
+<Callout type="info" title="200 but nothing returned?">
+  A <code>200</code> with <code>"msg": "Please try again"</code> is a momentary
+  failure — just retry after a short wait. It is not billed.
+</Callout>
+
+- Scheduled tasks: poll `/serp/check` until status is `Completed`, then call `/serp/get` to fetch results
+- Empty results usually mean the task is still processing or the engine returned nothing
+- If a task id seems stuck, re-check after a few minutes before contacting support
+- Permanently-failed webhooks can always be fetched manually with the Get SERP Result API
+
+---
+
+### 7. How many results are returned, how does pagination work, and why can image, news, shopping, or other result types behave differently?
+
+- **Live / single-request** — default **10 results per page**, maximum `num_result` is **10**
+- **Pagination** — use the `page` parameter (`1`, `2`, …), each page is a separate request
+- **Top 100** — the [Google Top 100](/google-apis/google-serp-top-100-results) endpoint fetches up to **100 results** across pages with `max_pages` (1 page ≈ 10 results, each page costs 10 credits)
+- **`serp_type`** shapes the response:
+  - `web` — organic results, ads, knowledge panels, related searches
+  - `news` — source and published date
+  - `image` — image URLs and thumbnails
+  - `shop` — price, rating, and shop
+- Different result types expose different fields, so the response shape varies by `serp_type` — likewise `verbatim`, `gfilter`, and `date_range` affect what comes back
+
+## API and data
+
+### 1. Which search engines and domains do you support?
+
+- **Google** — `google.com` plus per-country domains (`google.co.uk`, `google.ca`, `google.co.in`, …)
+- **Bing** — `bing.com`
+- **Yahoo** — regional domains such as `uk.yahoo.com`
+- Browse every supported domain on the [Domains List](/extra-apis/domains-list) page or query the `GET /domain/list` endpoint at runtime
+
+---
+
+### 2. What format do API responses come in?
+
+- **JSON** is the default — a successful `200` response returns the SERP data in the `results` field
+- Some endpoints also support **HTML** and **Markdown** via the `responseType` parameter (`html`, `json`, or `md`)
+- Live requests over GET & POST accept all three formats; most other endpoints accept `html` or `json`
+- The fields inside `results` vary by `serp_type` — each endpoint page shows a sample response
+
+---
+
+### 3. Can I try the API for free?
+
+- **Yes** — the Free plan is **$0/month** and includes **4,000 API credits**
+- Failed requests, retries, and blocks are **never charged**
+- Track remaining credits anytime with [Account Info](/extra-apis/account-info)
+
+---
+
+### 4. How fast are live requests?
+
+- Live requests are **synchronous** — results come back in the same HTTP response, typically within seconds
+- Scheduled jobs run through a queue and complete **as capacity allows** (no fixed SLA) — use webhooks or pingbacks to be notified the moment results are ready
+
+---
+
+### 5. Can I run bulk or batch queries?
+
+- **Yes** — up to **100 keywords** per scheduled request
+- Deliver results straight to your server with `postback_url` / `pingback_url`
+- For deep SERPs, the [Google Top 100](/google-apis/google-serp-top-100-results) endpoint returns up to **100 results** via `max_pages`
+
+---
+
+### 6. Do I need proxies or CAPTCHA solving?
+
+- **No** — SERPHouse manages the proxies and handles CAPTCHAs for you
+- You never solve or forward CAPTCHAs — just send the query and read the results
 
 ## More questions
 
-<FaqAccordion defaultValue={[]}>
+### 1. How do I verify my account, retrieve my API key, or resolve signup and CAPTCHA issues?
 
-<FaqItem value="account-verification-and-captcha" index={0}>
-  <FaqTrigger>
-    How do I verify my account, get my key, or get past signup or CAPTCHA
-    problems?
-  </FaqTrigger>
-  <FaqContent>
-    - **Verify** — click the confirmation link emailed after signup at
-    [serphouse.com](https://serphouse.com) - **API key** — shown on your
-    dashboard once your email is confirmed - **One account per user** — request
-    extra testing credits from support instead of creating duplicates -
-    **CAPTCHAs** — handled entirely by SERPHouse; you never solve or forward
-    them - **No email?** Check spam, then contact support
-  </FaqContent>
-</FaqItem>
+- **Verify** — click the confirmation link emailed after signup at [serphouse.com](https://serphouse.com)
+- **API key** — shown on your dashboard once your email is confirmed
+- **One account per user** — request extra testing credits from support instead of creating duplicates
+- **CAPTCHAs** — handled entirely by SERPHouse; you never solve or forward them
+- **No email?** Check spam, then contact support
 
-  <FaqItem value="billing-invoices-tax" index={1}>
-    <FaqTrigger>How do I update billing, get invoices, or set tax / VAT details?</FaqTrigger>
-    <FaqContent>
-      Manage payment methods, invoices, and tax/VAT information from the **billing section** of your dashboard. Invoices are generated each billing cycle.
+---
 
-      For tax registration changes, invoice address updates, or custom billing arrangements, contact support.
-    </FaqContent>
+### 2. How do I update payment details, obtain invoices, or add tax/VAT information?
 
-  </FaqItem>
+Manage payment methods, invoices, and tax/VAT information from the **billing section** of your dashboard. Invoices are generated each billing cycle.
 
-  <FaqItem value="cancel-subscription" index={2}>
-    <FaqTrigger>How do I cancel or unsubscribe from a plan?</FaqTrigger>
-    <FaqContent>
-      Cancel anytime from the **billing section** of your dashboard — the plan stays active until the end of the current period.
+For tax registration changes, invoice address updates, or custom billing arrangements, contact support.
 
-      <Callout type="info">
-        After cancelling or downgrading, running out of credits returns a
-        <code>402</code>. Contact support for plan migrations or custom contracts.
-      </Callout>
-    </FaqContent>
+---
 
-  </FaqItem>
+### 3. How do I cancel or unsubscribe from my subscription?
 
-  <FaqItem value="locations-languages-devices" index={3}>
-    <FaqTrigger>Which locations, languages, devices, and search settings are supported?</FaqTrigger>
-    <FaqContent>
-      - **Locations** — [Locations List](/extra-apis/locations-list) or the CSV files ([Google](https://serphouse-space.nyc3.digitaloceanspaces.com/google_locations.csv), [Bing](https://serphouse-space.nyc3.digitaloceanspaces.com/bing_locations.csv)). Pass `loc` or `loc_id`.
+Cancel anytime from the **billing section** of your dashboard — the plan stays active until the end of the current period.
 
-      <Callout type="idea" title="loc or loc_id?">
-        Pass <code>loc_id</code> for stable, machine-readable targeting;
-        <code>loc</code> names are matched flexibly and can change over time.
-      </Callout>
+<Callout type="info">
+  After cancelling or downgrading, running out of credits returns a
+  <code>402</code>. Contact support for plan migrations or custom contracts.
+</Callout>
 
-      - **Languages** — [Languages List](/extra-apis/languages-list); pass codes like `en`, `fr`
-      - **Devices** — `desktop` or `mobile`
-      - **Domains** — [Domains List](/extra-apis/domains-list) for Google, Bing, and Yahoo
-      - **Settings** — `verbatim`, `gfilter`, `page`, `num_result`, `date_range` (`h`/`d`/`w`/`m`/`y` or `YYYY-MM-DD,YYYY-MM-DD`)
-    </FaqContent>
+---
 
-  </FaqItem>
+### 4. Which locations, languages, devices, and search settings are supported?
 
-  <FaqItem value="sheets-and-export" index={4}>
-    <FaqTrigger>Can I connect the API to Google Sheets or other export workflows?</FaqTrigger>
-    <FaqContent>
-      Yes — the API is plain HTTP:
+- **Locations** — [Locations List](/extra-apis/locations-list) or the CSV files ([Google](https://serphouse-space.nyc3.digitaloceanspaces.com/google_locations.csv), [Bing](https://serphouse-space.nyc3.digitaloceanspaces.com/bing_locations.csv)). Pass `loc` or `loc_id`.
 
-      - **Google Sheets** — use Apps Script + `UrlFetchApp` with a `Bearer` header (`IMPORTDATA` can't send headers)
-      - **Excel / Power Query** — call the live `GET` endpoint and parse the returned JSON
-      - **Pipelines** — scheduled tasks, webhooks, or the SDKs ([Node.js](/node.js-sdk), [PHP](/php-sdk), [Python](/python-sdk))
+<Callout type="idea" title="loc or loc_id?">
+  Pass <code>loc_id</code> for stable, machine-readable targeting;
+  <code>loc</code> names are matched flexibly and can change over time.
+</Callout>
 
-      <Callout type="warn" title="Keep your key private">
-        Never hardcode your API key in a shared sheet, a public script, or
-        anywhere it could leak. Use an environment variable or a secrets manager.
-      </Callout>
-    </FaqContent>
+- **Languages** — [Languages List](/extra-apis/languages-list); pass codes like `en`, `fr`
+- **Devices** — `desktop` or `mobile`
+- **Domains** — [Domains List](/extra-apis/domains-list) for Google, Bing, and Yahoo
+- **Settings** — `verbatim`, `gfilter`, `page`, `num_result`, `date_range` (`h`/`d`/`w`/`m`/`y` or `YYYY-MM-DD,YYYY-MM-DD`)
 
-  </FaqItem>
+---
 
-</FaqAccordion>
+### 5. Can I connect the API to Google Sheets, spreadsheets, or another export workflow?
+
+Yes — the API is plain HTTP:
+
+- **Google Sheets** — use Apps Script + `UrlFetchApp` with a `Bearer` header (`IMPORTDATA` can't send headers)
+- **Excel / Power Query** — call the live `GET` endpoint and parse the returned JSON
+- **Pipelines** — scheduled tasks, webhooks, or the SDKs ([Node.js](/node.js-sdk), [PHP](/php-sdk), [Python](/python-sdk))
+
+<Callout type="warn" title="Keep your key private">
+  Never hardcode your API key in a shared sheet, a public script, or anywhere it
+  could leak. Use an environment variable or a secrets manager.
+</Callout>
 
 ## Still have questions?
 
