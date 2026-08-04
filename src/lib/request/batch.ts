@@ -1,4 +1,4 @@
-import { pathFrom, type BatchItem, type Fmt } from "./types";
+import type { BatchItem, Fmt } from "./types";
 import { batchItemCompact, formatValue } from "./format";
 
 export function renderBatchRequest(
@@ -34,13 +34,16 @@ export function renderBatchRequest(
       )
       .join("\n");
     return [
-      `const API_KEY = "<YOUR_API_KEY>";`,
+      `const express = require("express");`,
+      `const app = express();`,
       ``,
-      `async function main() {`,
+      `app.use(express.json());`,
+      ``,
+      `app.post("/search", async (req, res) => {`,
       `  const response = await fetch("${endpoint}", {`,
       `    method: "POST",`,
       `    headers: {`,
-      `      Authorization: \`Bearer \${API_KEY}\`,`,
+      `      Authorization: \`Bearer <YOUR_API_KEY>\`,`,
       `      "Content-Type": "application/json",`,
       `    },`,
       `    body: JSON.stringify({`,
@@ -51,10 +54,10 @@ export function renderBatchRequest(
       `  });`,
       ``,
       `  const data = await response.json();`,
-      `  console.log(data);`,
-      `}`,
+      `  res.json(data);`,
+      `});`,
       ``,
-      `main();`,
+      `app.listen(3000);`,
     ].join("\n");
   }
 
@@ -62,21 +65,25 @@ export function renderBatchRequest(
     const itemLines = items
       .map(
         (item, i) =>
-          `    { ${batchItemCompact(item, "py")} }${i < items.length - 1 ? "," : ""}`,
+          `        { ${batchItemCompact(item, "py")} }${i < items.length - 1 ? "," : ""}`,
       )
       .join("\n");
     return [
-      `# pip install serphouse-ai-sdk`,
+      `import requests`,
       ``,
-      `from serphouse import SERPHouseClient`,
-      ``,
-      `client = SERPHouseClient(api_key="<YOUR_API_KEY>")`,
-      ``,
-      `response = client.post("${pathFrom(endpoint)}", [`,
+      `url = "${endpoint}"`,
+      `headers = {`,
+      `    "Authorization": "Bearer <YOUR_API_KEY>",`,
+      `    "Content-Type": "application/json"`,
+      `}`,
+      `payload = {`,
+      `    "data": [`,
       itemLines,
-      `])`,
+      `    ]`,
+      `}`,
       ``,
-      `print(response)`,
+      `response = requests.post(url, json=payload, headers=headers)`,
+      `print(response.json())`,
     ].join("\n");
   }
 

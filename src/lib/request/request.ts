@@ -1,8 +1,5 @@
 import { buildQueryString, formatValue, jsonFields } from "./format";
-import { renderNodeSdk } from "./node";
-import { renderPhpSdk } from "./php";
-import { renderPySdk } from "./py";
-import { sdkCallFor, type Fmt, type Params } from "./types";
+import type { Fmt, Params } from "./types";
 
 export function renderRequest(
   endpoint: string,
@@ -26,42 +23,27 @@ export function renderRequest(
     }
 
     if (fmt === "js") {
-      const call = sdkCallFor(endpoint);
-      if (call) {
-        return renderNodeSdk(call, query, domain, lang, extraParams, endpoint);
-      }
       return [
-        `const API_KEY = "<YOUR_API_KEY>";`,
+        `const express = require("express");`,
+        `const app = express();`,
         ``,
-        `async function main() {`,
+        `app.get("/search", async (req, res) => {`,
         `  const response = await fetch("${url}", {`,
         `    method: "GET",`,
         `    headers: {`,
-        `      Authorization: \`Bearer \${API_KEY}\`,`,
+        `      Authorization: \`Bearer <YOUR_API_KEY>\`,`,
         `    },`,
         `  });`,
         ``,
         `  const data = await response.json();`,
-        `  console.log(data);`,
-        `}`,
+        `  res.json(data);`,
+        `});`,
         ``,
-        `main();`,
+        `app.listen(3000);`,
       ].join("\n");
     }
 
     if (fmt === "py") {
-      const call = sdkCallFor(endpoint);
-      if (call) {
-        return renderPySdk(
-          call,
-          query,
-          domain,
-          lang,
-          extraParams,
-          endpoint,
-          method,
-        );
-      }
       return [
         `import requests`,
         ``,
@@ -76,10 +58,6 @@ export function renderRequest(
     }
 
     if (fmt === "php") {
-      const call = sdkCallFor(endpoint);
-      if (call) {
-        return renderPhpSdk(call, query, domain, lang, extraParams, endpoint);
-      }
       return [
         `<?php`,
         ``,
@@ -141,10 +119,6 @@ export function renderRequest(
   }
 
   if (fmt === "js") {
-    const call = sdkCallFor(endpoint);
-    if (call) {
-      return renderNodeSdk(call, query, domain, lang, extraParams, endpoint);
-    }
     const fields: string[] = [];
     if (query) fields.push(`q: ${JSON.stringify(query)}`);
     if (query && domain) fields.push(`domain: ${JSON.stringify(domain)}`);
@@ -152,13 +126,16 @@ export function renderRequest(
     for (const [k, v] of entries) fields.push(`${k}: ${formatValue(v)}`);
     const body = fields.map((f) => `        ${f}`).join(",\n");
     return [
-      `const API_KEY = "<YOUR_API_KEY>";`,
+      `const express = require("express");`,
+      `const app = express();`,
       ``,
-      `async function main() {`,
+      `app.use(express.json());`,
+      ``,
+      `app.post("/search", async (req, res) => {`,
       `  const response = await fetch("${endpoint}", {`,
       `    method: "POST",`,
       `    headers: {`,
-      `      Authorization: \`Bearer \${API_KEY}\`,`,
+      `      Authorization: \`Bearer <YOUR_API_KEY>\`,`,
       `      "Content-Type": "application/json",`,
       `    },`,
       `    body: JSON.stringify({`,
@@ -169,26 +146,14 @@ export function renderRequest(
       `  });`,
       ``,
       `  const data = await response.json();`,
-      `  console.log(data);`,
-      `}`,
+      `  res.json(data);`,
+      `});`,
       ``,
-      `main();`,
+      `app.listen(3000);`,
     ].join("\n");
   }
 
   if (fmt === "py") {
-    const call = sdkCallFor(endpoint);
-    if (call) {
-      return renderPySdk(
-        call,
-        query,
-        domain,
-        lang,
-        extraParams,
-        endpoint,
-        method,
-      );
-    }
     const fields = jsonFields(query, domain, lang, entries);
     const body = fields.map((f) => `        ${f},`).join("\n");
     return [
@@ -211,10 +176,6 @@ export function renderRequest(
   }
 
   if (fmt === "php") {
-    const call = sdkCallFor(endpoint);
-    if (call) {
-      return renderPhpSdk(call, query, domain, lang, extraParams, endpoint);
-    }
     const fields: string[] = [];
     if (query) fields.push(`"q" => ${JSON.stringify(query)},`);
     if (query && domain) fields.push(`"domain" => ${JSON.stringify(domain)},`);
