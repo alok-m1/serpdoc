@@ -106,6 +106,44 @@ export function ApiCodeBlock({
   );
 }
 
+export function ApiCodeTabs({
+  items,
+  defaultIndex = 0,
+}: {
+  items: { label: string; code: string; lang?: string }[];
+  defaultIndex?: number;
+}) {
+  const [active, setActive] = useState<string>();
+  const current = items.find((i) => i.label === active) ?? items[defaultIndex];
+
+  return (
+    <ControlledTabs
+      value={current.label}
+      onValueChange={(v) => setActive(v)}
+      className="flex flex-col overflow-hidden rounded-xl border bg-fd-secondary my-4"
+    >
+      <TabsList>
+        {TRAFFIC_DOTS}
+        {items.map((t) => (
+          <TabsTrigger key={t.label} value={t.label}>
+            {t.label}
+          </TabsTrigger>
+        ))}
+      </TabsList>
+      <ControlledTabsContent
+        value={current.label}
+        className="p-4 text-[0.9375rem] bg-fd-background rounded-xl outline-none prose-no-margin [&>figure:only-child]:-m-4 [&>figure:only-child]:border-none"
+      >
+        <DynamicCodeBlock
+          lang={current.lang ?? "bash"}
+          code={current.code}
+          codeblock={{ allowCopy: true }}
+        />
+      </ControlledTabsContent>
+    </ControlledTabs>
+  );
+}
+
 function ResponseCodeBlock({ lang, code }: { lang: string; code: string }) {
   if (code.length > MAX_HIGHLIGHT_CHARS) {
     return (

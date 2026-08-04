@@ -11,17 +11,12 @@ export const gitConfig = {
 };
 
 export const socialLinks = [
-
   {
     name: "LinkedIn",
     handle: "serphouse",
     href: "https://linkedin.com/company/serphouse",
   },
-  {
-    name: "GitHub",
-    handle: "SERPHouse",
-    href: "https://github.com/SERPHouse",
-  },
+
   {
     name: "Website",
     handle: "serphouse.com",
@@ -29,7 +24,7 @@ export const socialLinks = [
   },
   {
     name: "Email",
-    handle: "support@serphouse.com",
-    href: "mailto:support@serphouse.com",
+    handle: "getsupport@serphouse.com",
+    href: "mailto:getsupport@serphouse.com",
   },
 ] as const;

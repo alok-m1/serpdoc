@@ -13,17 +13,18 @@ icon: openclaw
 />
 
 <Callout type="success" title="Why SERPHouse + OpenClaw">
-  The Gateway runs 24/7 on your own hardware, so SERPHouse search is always one message away — no browser, no scraping, no maintenance.
+  The Gateway runs 24/7 on your own hardware, so SERPHouse search is always one
+  message away — no browser, no scraping, no maintenance.
 </Callout>
 
 ## What You'll Build
 
-| Capability | How it works |
-|---|---|
-| **Always-on search** | Message from any platform, get live Google / Bing / Yahoo results back |
-| **Local business data** | Google Local results for nearby businesses on demand |
-| **Media search** | Bing Images, Google News, Yahoo News from any channel |
-| **Multi-engine compare** | Ask for the same query across engines and get a comparison |
+| Capability               | How it works                                                           |
+| ------------------------ | ---------------------------------------------------------------------- |
+| **Always-on search**     | Message from any platform, get live Google / Bing / Yahoo results back |
+| **Local business data**  | Google Local results for nearby businesses on demand                   |
+| **Media search**         | Bing Images, Google News, Yahoo News from any channel                  |
+| **Multi-engine compare** | Ask for the same query across engines and get a comparison             |
 
 ## Prerequisites
 
@@ -32,7 +33,8 @@ icon: openclaw
 - A **SERPHouse API key** from your [dashboard](https://serphouse.com)
 
 <Callout type="info">
-  OpenClaw's install wizard asks for a model provider and API key during onboarding — have those ready.
+  OpenClaw's install wizard asks for a model provider and API key during
+  onboarding — have those ready.
 </Callout>
 
 ## Step 1 — Get Your SERPHouse API Key
@@ -41,16 +43,13 @@ icon: openclaw
   <Step>
     Sign up at [serphouse.com](https://serphouse.com) and confirm your email.
   </Step>
-  <Step>
-    Open your **Dashboard** and copy the **API key** shown there.
-  </Step>
-  <Step>
-    Keep it handy — you'll add it to OpenClaw next.
-  </Step>
+  <Step>Open your **Dashboard** and copy the **API key** shown there.</Step>
+  <Step>Keep it handy — you'll add it to OpenClaw next.</Step>
 </Steps>
 
 <Callout type="error" title="Keep your key secure">
-  Your API key maps directly to your credit usage. Never commit it to a repository, share it in public channels, or paste it into a screenshot.
+  Your API key maps directly to your credit usage. Never commit it to a
+  repository, share it in public channels, or paste it into a screenshot.
 </Callout>
 
 ## Step 2 — Install OpenClaw
@@ -78,11 +77,13 @@ openclaw onboard --install-daemon
     ```bash
     openclaw gateway status
     ```
+
   </Step>
 </Steps>
 
 <Callout type="info" title="Already running OpenClaw?">
-  Skip straight to the next step — the SERPHouse server plugs into an existing install without re-onboarding.
+  Skip straight to the next step — the SERPHouse server plugs into an existing
+  install without re-onboarding.
 </Callout>
 
 ## Step 3 — Add the SERPHouse MCP Server
@@ -104,7 +105,8 @@ MCP server definitions live under `mcp.servers` in `~/.openclaw/openclaw.json`. 
 ```
 
 <Callout type="info">
-  Replace <code>YOUR_SERPHouse_API_KEY</code> with your actual SERPHouse API key. The key is forwarded to the SERPHouse API as a Bearer token.
+  Replace <code>YOUR_SERPHouse_API_KEY</code> with your actual SERPHouse API
+  key. The key is forwarded to the SERPHouse API as a Bearer token.
 </Callout>
 
 Restart the Gateway to pick up the new definition:
@@ -124,7 +126,8 @@ openclaw mcp add serphouse \
 ```
 
 <Callout type="idea" title="Other ways to add it">
-  You can also add the server from the **Control UI: Settings → MCP → Add server**, or in a chat via **+ → Connectors → Add MCP server…**.
+  You can also add the server from the **Control UI: Settings → MCP → Add
+  server**, or in a chat via **+ → Connectors → Add MCP server…**.
 </Callout>
 
 ## Step 4 — Verify the Server
@@ -136,15 +139,15 @@ openclaw mcp doctor serphouse --probe
 ```
 
 <Callout type="success" title="Probe passes">
-  A successful probe lists the SERPHouse tools (search, images, news, and more) that OpenClaw can now call.
+  A successful probe lists the SERPHouse tools (search, images, news, and more)
+  that OpenClaw can now call.
 </Callout>
 
 <Steps>
+  <Step>Run the doctor probe above.</Step>
   <Step>
-    Run the doctor probe above.
-  </Step>
-  <Step>
-    Confirm <code>serphouse</code> reports <code>connected</code> and the tool list is non-empty.
+    Confirm <code>serphouse</code> reports <code>connected</code> and the tool
+    list is non-empty.
   </Step>
   <Step>
     Message your assistant from any channel and ask your first search query.
@@ -156,7 +159,8 @@ openclaw mcp doctor serphouse --probe
 Once connected, message your assistant from any channel. OpenClaw picks the right SERPHouse tool automatically.
 
 <Callout type="idea" title="Try these example prompts to get started">
-  Pick any prompt and send it from Discord, Telegram, WhatsApp, Slack, or the web chat.
+  Pick any prompt and send it from Discord, Telegram, WhatsApp, Slack, or the
+  web chat.
 </Callout>
 
 <Tabs items={['Rank Tracking', 'News & Media', 'Local SEO', 'Media Search', 'Multi-Engine']}>
@@ -165,20 +169,20 @@ Once connected, message your assistant from any channel. OpenClaw picks the righ
     - `Who owns the top 5 spots for "project management software" in London?`
   </Tab>
 
-  <Tab value="News & Media">
-    - `Search Google News for "OpenAI" and summarize the top stories.`
-    - `What is Yahoo News covering about "electric vehicles" right now?`
-  </Tab>
+<Tab value="News & Media">
+  - `Search Google News for "OpenAI" and summarize the top stories.` - `What is
+  Yahoo News covering about "electric vehicles" right now?`
+</Tab>
 
-  <Tab value="Local SEO">
-    - `Top Google Local results for "emergency plumber" in Chicago.`
-    - `Find the best-rated coffee shops near "Austin, Texas".`
-  </Tab>
+<Tab value="Local SEO">
+  - `Top Google Local results for "emergency plumber" in Chicago.` - `Find the
+  best-rated coffee shops near "Austin, Texas".`
+</Tab>
 
-  <Tab value="Media Search">
-    - `Search Bing Images for "minimalist desk setup".`
-    - `Show me Google Videos for "WebAssembly tutorial".`
-  </Tab>
+<Tab value="Media Search">
+  - `Search Bing Images for "minimalist desk setup".` - `Show me Google Videos
+  for "WebAssembly tutorial".`
+</Tab>
 
   <Tab value="Multi-Engine">
     - `Compare Yahoo and Google news results for "electric vehicles".`
@@ -188,16 +192,18 @@ Once connected, message your assistant from any channel. OpenClaw picks the righ
 
 ## Troubleshooting
 
-| Issue | Solution |
-|-------|----------|
+| Issue                                   | Solution                                                                                            |
+| --------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | **Server appears but exposes no tools** | Run `openclaw mcp doctor serphouse --probe`. Check `toolFilter.include`/`exclude` if you added one. |
-| **401 Unauthorized** | Verify your API key is valid and active in your [dashboard](https://serphouse.com). |
-| **Changes don't reach the agent** | Restart the Gateway or run `openclaw mcp reload`. |
-| **Credits exhausted** | Check your account credit balance in the SERPHouse dashboard. |
-| **Yahoo search fails** | Use a regional domain — call the domain list tool first; `yahoo.com` is invalid. |
+| **401 Unauthorized**                    | Verify your API key is valid and active in your [dashboard](https://serphouse.com).                 |
+| **Changes don't reach the agent**       | Restart the Gateway or run `openclaw mcp reload`.                                                   |
+| **Credits exhausted**                   | Check your account credit balance in the SERPHouse dashboard.                                       |
+| **Yahoo search fails**                  | Use a regional domain — call the domain list tool first; `yahoo.com` is invalid.                    |
 
 <Callout type="info" title="Still stuck?">
-  Re-verify your API key, credit balance, and the endpoint URL first. If it persists, contact [SERPHouse support](https://serphouse.com).
+  Re-verify your API key, credit balance, and the endpoint URL first. If it
+  persists, contact [SERPHouse support](https://serphouse.com) at
+  [getsupport@serphouse.com](mailto:getsupport@serphouse.com).
 </Callout>
 
 ## Related Links

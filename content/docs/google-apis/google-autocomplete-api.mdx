@@ -27,12 +27,12 @@ Retrieve real-time Google search suggestions (autocomplete results) using the Go
 
 ## Request Body
 
-| Name                                        | Type   | Description                                                                                                                                                                               |
-| ------------------------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| q <span style={{color: "red"}}>\*</span>    | string | Search phrase that you want to search                                                                                                                                                     |
-| lang <span style={{color: "red"}}>\*</span> | string | You can set language for e.g. `en` for english `fr` for french.<br />Get the list of available languages by making a separate request to the [Languages List](/extra-apis/languages-list) |
-| loc <span style={{color: "red"}}>\*</span>  | string | Location for localized suggestions<br />You can receive the list of available locations by making a separate request to the [Locations List](/extra-apis/locations-list)                  |
-| client                                      | string | `chrome` (default), `chrome-omni`, `home_page`, `safari`, `firefox`, `youtube`                                                                                                            |
+| Name                                     | Type   | Description                                                                                                                                                                               |
+| ---------------------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| q <span style={{color: "red"}}>\*</span> | string | Search phrase that you want to search                                                                                                                                                     |
+| lang                                     | string | You can set language for e.g. `en` for english `fr` for french.<br />Get the list of available languages by making a separate request to the [Languages List](/extra-apis/languages-list) |
+| loc                                      | string | Location for localized suggestions<br />You can receive the list of available locations by making a separate request to the [Locations List](/extra-apis/locations-list)                  |
+| client                                   | string | `chrome` (default), `chrome-omni`, `home_page`, `safari`, `firefox`, `youtube`                                                                                                            |
 
 ## Example Request
 

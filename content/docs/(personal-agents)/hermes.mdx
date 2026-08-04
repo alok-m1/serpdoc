@@ -13,16 +13,18 @@ icon: hermes
 />
 
 <Callout type="success" title="Why SERPHouse + Hermes">
-  No browser, no scraping, no rate-limit headaches. Hermes gets structured, real-time SERP data from 30+ search engines with a single hosted MCP endpoint — zero extra infrastructure to run.
+  No browser, no scraping, no rate-limit headaches. Hermes gets structured,
+  real-time SERP data from 30+ search engines with a single hosted MCP endpoint
+  — zero extra infrastructure to run.
 </Callout>
 
 ## What You'll Build
 
-| Capability | How it works |
-|---|---|
-| **Live web search** | Hermes calls `mcp_serphouse_search` for fresh Google results on demand |
-| **News & media** | Google / Bing / Yahoo news, images, and videos from any connected platform |
-| **Rank tracking** | Ask about your position for any keyword, engine, and location |
+| Capability          | How it works                                                               |
+| ------------------- | -------------------------------------------------------------------------- |
+| **Live web search** | Hermes calls `mcp_serphouse_search` for fresh Google results on demand     |
+| **News & media**    | Google / Bing / Yahoo news, images, and videos from any connected platform |
+| **Rank tracking**   | Ask about your position for any keyword, engine, and location              |
 | **Daily briefings** | Cron-scheduled SERPHouse searches delivered to Telegram, Discord, and more |
 
 ## Prerequisites
@@ -41,16 +43,15 @@ icon: hermes
   <Step>
     Sign up at [serphouse.com](https://serphouse.com) and confirm your email.
   </Step>
-  <Step>
-    Open your **Dashboard** and copy the **API key** shown there.
-  </Step>
+  <Step>Open your **Dashboard** and copy the **API key** shown there.</Step>
   <Step>
     Keep it somewhere safe — you'll paste it into the Hermes config next.
   </Step>
 </Steps>
 
 <Callout type="error" title="Keep your key secure">
-  Your API key maps directly to your credit usage. Never commit it to a repository, share it in public channels, or paste it into a screenshot.
+  Your API key maps directly to your credit usage. Never commit it to a
+  repository, share it in public channels, or paste it into a screenshot.
 </Callout>
 
 ## Step 2 — Install Hermes
@@ -74,11 +75,17 @@ curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
     ```bash
     hermes --version
     ```
+
   </Step>
 </Steps>
 
 <Callout type="info" title="Prefer a guided setup?">
-  The installer accepts flags like <code>--yes</code> for unattended installs. Run <code>curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash -- --help</code> to see every option.
+  The installer accepts flags like <code>--yes</code> for unattended installs.
+  Run{" "}
+  <code>
+    curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash -- --help
+  </code>{" "}
+  to see every option.
 </Callout>
 
 ## Step 3 — Add the SERPHouse MCP Server
@@ -92,7 +99,8 @@ mcp_servers:
 ```
 
 <Callout type="info">
-  Replace <code>YOUR_SERPHouse_API_KEY</code> with your actual SERPHouse API key. The key is forwarded to the SERPHouse API as a Bearer token.
+  Replace <code>YOUR_SERPHouse_API_KEY</code> with your actual SERPHouse API
+  key. The key is forwarded to the SERPHouse API as a Bearer token.
 </Callout>
 
 ## Step 4 — Start (or Restart) Hermes
@@ -102,7 +110,9 @@ hermes chat
 ```
 
 <Callout type="success" title="Tools auto-register">
-  SERPHouse tools are discovered and registered automatically at startup. Tools appear as <code>mcp_serphouse_*</code>, for example <code>mcp_serphouse_search</code>.
+  SERPHouse tools are discovered and registered automatically at startup. Tools
+  appear as <code>mcp_serphouse_*</code>, for example{" "}
+  <code>mcp_serphouse_search</code>.
 </Callout>
 
 ## Step 5 — Verify the Server
@@ -120,15 +130,16 @@ Any connection error will be reported immediately.
     Type <code>/reload-mcp</code> in the chat session.
   </Step>
   <Step>
-    Watch for a confirmation that <code>serphouse</code> connected with no errors.
+    Watch for a confirmation that <code>serphouse</code> connected with no
+    errors.
   </Step>
-  <Step>
-    Ask your first search query — see below.
-  </Step>
+  <Step>Ask your first search query — see below.</Step>
 </Steps>
 
 <Callout type="info" title="Tune the tool surface">
-  You can narrow the tool surface at any time by editing the server entry — see the [Hermes MCP docs](https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp).
+  You can narrow the tool surface at any time by editing the server entry — see
+  the [Hermes MCP
+  docs](https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp).
 </Callout>
 
 ## Using SERPHouse
@@ -145,20 +156,20 @@ Once connected, just ask. Hermes picks the right SERPHouse tool automatically.
     - `Show me the top 20 results for "AI SEO tools" using max_pages.`
   </Tab>
 
-  <Tab value="News & Media">
-    - `Search Google News for "OpenAI" and summarize the top stories.`
-    - `Find Bing Images for "minimalist desk setup" and list the sources.`
-  </Tab>
+<Tab value="News & Media">
+  - `Search Google News for "OpenAI" and summarize the top stories.` - `Find
+  Bing Images for "minimalist desk setup" and list the sources.`
+</Tab>
 
-  <Tab value="Local SEO">
-    - `Top Google Local results for "emergency plumber" in Chicago.`
-    - `Who owns the top 5 spots for "project management software" in London?`
-  </Tab>
+<Tab value="Local SEO">
+  - `Top Google Local results for "emergency plumber" in Chicago.` - `Who owns
+  the top 5 spots for "project management software" in London?`
+</Tab>
 
-  <Tab value="Keyword Research">
-    - `What does Autocomplete suggest for "best saas for"?`
-    - `Compare Google and Yahoo suggestions for "keyword tracking".`
-  </Tab>
+<Tab value="Keyword Research">
+  - `What does Autocomplete suggest for "best saas for"?` - `Compare Google and
+  Yahoo suggestions for "keyword tracking".`
+</Tab>
 
   <Tab value="Multi-Engine">
     - `Search Bing for "electric vehicles" and compare with Yahoo results.`
@@ -175,21 +186,25 @@ Hermes has built-in cron. Combine it with SERPHouse for daily briefings delivere
 ```
 
 <Callout type="idea" title="Make it yours">
-  Swap the time, query, or channel in the cron expression to fit your routine — e.g. a Monday-morning competitor digest or a Friday industry roundup.
+  Swap the time, query, or channel in the cron expression to fit your routine —
+  e.g. a Monday-morning competitor digest or a Friday industry roundup.
 </Callout>
 
 ## Troubleshooting
 
-| Issue | Solution |
-|-------|----------|
-| **Server doesn't load** | Verify the entry is valid YAML under `mcp_servers` and restart Hermes. |
-| **401 Unauthorized** | Verify your API key is valid and active in your [dashboard](https://serphouse.com). |
-| **Tools not appearing** | Run `/reload-mcp` or restart Hermes; then ask for a search. |
-| **Credits exhausted** | Check your account credit balance in the SERPHouse dashboard. |
-| **Yahoo search fails** | Call the domain list tool first — `yahoo.com` is invalid; use a regional domain like `uk.yahoo.com`. |
+| Issue                   | Solution                                                                                             |
+| ----------------------- | ---------------------------------------------------------------------------------------------------- |
+| **Server doesn't load** | Verify the entry is valid YAML under `mcp_servers` and restart Hermes.                               |
+| **401 Unauthorized**    | Verify your API key is valid and active in your [dashboard](https://serphouse.com).                  |
+| **Tools not appearing** | Run `/reload-mcp` or restart Hermes; then ask for a search.                                          |
+| **Credits exhausted**   | Check your account credit balance in the SERPHouse dashboard.                                        |
+| **Yahoo search fails**  | Call the domain list tool first — `yahoo.com` is invalid; use a regional domain like `uk.yahoo.com`. |
 
 <Callout type="info" title="Still stuck?">
-  Most issues are fixed by re-verifying your API key, credit balance, and the endpoint URL. If it persists, contact [SERPHouse support](https://serphouse.com).
+  Most issues are fixed by re-verifying your API key, credit balance, and the
+  endpoint URL. If it persists, contact [SERPHouse
+  support](https://serphouse.com) at
+  [getsupport@serphouse.com](mailto:getsupport@serphouse.com).
 </Callout>
 
 ## Related Links

@@ -12,14 +12,6 @@ import { googleScheduleSerpTop100JsonResponse } from "@/lib/api-examples/googleS
 
 `POST` `https://api.serphouse.com/serp/google_advanced_scheduled`
 
-<Callout type="info" title="Response format">
-  Append a suffix to the endpoint to choose the response format:
-
-  - **JSON** (default) — `https://api.serphouse.com/serp/google_advanced_scheduled`
-  - **Markdown** — `https://api.serphouse.com/serp/google_advanced_scheduled/md`
-  - **HTML** — `https://api.serphouse.com/serp/google_advanced_scheduled/html`
-</Callout>
-
 ## Headers
 
 | Name                                                 | Type   | Description             |
@@ -43,32 +35,6 @@ import { googleScheduleSerpTop100JsonResponse } from "@/lib/api-examples/googleS
 | pingback_url                                  | url     | GET notification URL when complete                                                                                                                                                                                                                                                                                         |
 | max_pages                                     | integer | Pages to return (1–10, default 10)                                                                                                                                                                                                                                                                                         |
 | date_range                                    | String  | Sometimes you may want to only find information published during a specific time frame. To limit Google results by date<br /><br />Parameter values can be comma separated date range `YYYY-MM-DD,YYYY-MM-DD` OR<br /><br />`h` Past hour<br />`d` Past 24 hours<br />`w` Past week<br />`m` Past month<br />`y` Past year |
-
-## Why this endpoint?
-
-<Callout type="idea" title="Why this endpoint?">
-  Google recently restricted the `num` parameter to a maximum of 10 results per
-  request. To overcome this limitation, we introduced a new endpoint that can
-  fetch results from multiple pages asynchronously.
-</Callout>
-
-## How It Works
-
-- **`max_pages`** defines how many result pages you want scraped.
-- Each page contains up to 10 results.
-- `max_pages=5` → up to 50 results (5 pages × 10 results per page)
-- `max_pages=10` → up to 100 results (10 pages × 10 results per page)
-
-## Pricing
-
-<Callout type="success" title="Auto Refund">
-  Credits are reserved upfront for each scheduled task based on the `max_pages`
-  value (1 page = 10 credits). If fewer pages are available than requested, the
-  unused reserved credits are **automatically refunded** after processing
-  completes.
-</Callout>
-
-- Example: If `max_pages=7` but only 2 pages are available, 20 credits will be used and the remaining 50 credits will be refunded once the task is completed.
 
 ## Example Request
 

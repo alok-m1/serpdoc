@@ -9,7 +9,9 @@ icon: Rocket
 To create a new account at SERPHouse is a easy and quick to get into the system, Simply navigate to the Sign Up page and use one of the available sign-up options. You will have access to API Playground and other learning resources.
 
 <Callout type="warn">
-  Our system allows single account per user. If you need more testing credits, contact our support.
+  Our system allows single account per user. If you need more testing credits,
+  contact our support at
+  [getsupport@serphouse.com](mailto:getsupport@serphouse.com).
 </Callout>
 
 ---
@@ -25,7 +27,10 @@ The API key for SERPHouse API is available after registration and confirming a e
 Passing the API key as a parameter is required in order to authorise your requests. Failing to pass an API key or passing an invalid API key will result in an error.
 
 <Callout type="error" title="Keep your key secure">
-  Your API key will directly impact the usage on your subscription plan. In order to prevent unauthorized access to your SERPHouse account, make sure you store your API key in a secure location and never include it in any public scripts or files.
+  Your API key will directly impact the usage on your subscription plan. In
+  order to prevent unauthorized access to your SERPHouse account, make sure you
+  store your API key in a secure location and never include it in any public
+  scripts or files.
 </Callout>
 
 ### Authentication Examples
@@ -50,31 +55,33 @@ Host: api.serphouse.com
 
 ## HTTP Status Codes
 
-| Code | Description |
-|------|-------------|
-| 200 | Request executed successfully. SERP data available in the `results` field. |
-| 400 | Invalid request body. Validation error. Check error details in the response. |
-| 401 | Unauthenticated. Check your API key and ensure it is sent as a Bearer token in the Authorization header. |
-| 402 | Insufficient credits. Your account has run out of available credits, or there is a payment issue. |
-| 404 | Endpoint not found. You may have provided an invalid SERP ID in Get or Check API. |
-| 405 | Method not allowed. Check the HTTP method used in your request. |
-| 429 | Rate limit exceeded. Slow down your request rate. |
-| 500 | Internal server error. Our team is notified automatically. |
+| Code | Description                                                                                              |
+| ---- | -------------------------------------------------------------------------------------------------------- |
+| 200  | Request executed successfully. SERP data available in the `results` field.                               |
+| 400  | Invalid request body. Validation error. Check error details in the response.                             |
+| 401  | Unauthenticated. Check your API key and ensure it is sent as a Bearer token in the Authorization header. |
+| 402  | Insufficient credits. Your account has run out of available credits, or there is a payment issue.        |
+| 404  | Endpoint not found. You may have provided an invalid SERP ID in Get or Check API.                        |
+| 405  | Method not allowed. Check the HTTP method used in your request.                                          |
+| 429  | Rate limit exceeded. Slow down your request rate.                                                        |
+| 500  | Internal server error. Our team is notified automatically.                                               |
 
 <Callout type="info" title="2xx only means success">
-  Only HTTP 200 indicates a successful request. All other status codes indicate an error that needs to be addressed.
+  Only HTTP 200 indicates a successful request. All other status codes indicate
+  an error that needs to be addressed.
 </Callout>
 
 <Callout type="warn" title="Response format">
    In some cases, a 200 status may also return this error  retry the request after some time.
 
-  ```json
-  {
-    "status": "error",
-    "msg": "Please try again",
-    "error": ""
-  }
-  ```
+```json
+{
+  "status": "error",
+  "msg": "Please try again",
+  "error": ""
+}
+```
+
 </Callout>
 
 ---
@@ -86,17 +93,18 @@ A rate limit is the number of API calls an app or user can make within a given t
 All API requests are subject to rate limits.
 
 <Callout type="idea" title="Need a higher limit?">
-  Contact us if you are on a custom monthly plan and need to increase your rate limit.
+  Contact us at [getsupport@serphouse.com](mailto:getsupport@serphouse.com) if
+  you are on a custom monthly plan and need to increase your rate limit.
 </Callout>
 
 ### Standard Rate Limit
 
-| Plan | Rate limit |
-|------|-----------:|
-| Free plan | 60 req/min |
-| Basic | 60 req/min |
-| Regular | 60 req/min |
-| Custom Plan | As needed |
+| Plan        | Rate limit |
+| ----------- | ---------: |
+| Free plan   | 60 req/min |
+| Basic       | 60 req/min |
+| Regular     | 60 req/min |
+| Custom Plan |  As needed |
 
 Rate limits are calculated per minute.
 
@@ -104,20 +112,20 @@ Rate limits are calculated per minute.
 
 ## Pricing
 
-| | Free | Basic | Regular | Custom |
-|---|:-:|:-:|:-:|:-:|
-| Price | $0 / month | $29.99 / month | $49.99 / month | Custom |
-| API credits | 4,000 | 400,000 | 800,000 | Custom |
-| SERP requests (per 1k) | — | $0.75 | $0.62 | Custom |
-| Auto Complete requests (per 1k) | — | $0.37 | $0.31 | Custom |
-| Top 100 Google SERP (per 1k) | — | $7.50 | $6.25 | Custom |
-| Google, Bing & Yahoo data | Included | Included | Included | Included |
-| HTTPS encryption | Included | Included | Included | Included |
-| Monthly credit rollover | No | No | No | — |
-| Uptime SLA | — | 99.95% | 99.95% | 99.95% |
-| Success rate | — | 100% | 100% | 100% |
-| Support | — | Priority | Dedicated | Dedicated |
-| Concurrency | 60 | 60 | 60 | Custom |
+|                                 |    Free    |     Basic      |    Regular     |  Custom   |
+| ------------------------------- | :--------: | :------------: | :------------: | :-------: |
+| Price                           | $0 / month | $29.99 / month | $49.99 / month |  Custom   |
+| API credits                     |   4,000    |    400,000     |    800,000     |  Custom   |
+| SERP requests (per 1k)          |     —      |     $0.75      |     $0.62      |  Custom   |
+| Auto Complete requests (per 1k) |     —      |     $0.37      |     $0.31      |  Custom   |
+| Top 100 Google SERP (per 1k)    |     —      |     $7.50      |     $6.25      |  Custom   |
+| Google, Bing & Yahoo data       |  Included  |    Included    |    Included    | Included  |
+| HTTPS encryption                |  Included  |    Included    |    Included    | Included  |
+| Monthly credit rollover         |     No     |       No       |       No       |     —     |
+| Uptime SLA                      |     —      |     99.95%     |     99.95%     |  99.95%   |
+| Success rate                    |     —      |      100%      |      100%      |   100%    |
+| Support                         |     —      |    Priority    |   Dedicated    | Dedicated |
+| Concurrency                     |     60     |       60       |       60       |  Custom   |
 
 ## Related Links
 

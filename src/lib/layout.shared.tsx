@@ -30,7 +30,6 @@ export function baseOptions(): BaseLayoutProps {
       const iconMap = {
         X: <XIcon className="size-4" />,
         LinkedIn: <LinkedInIcon className="size-4" />,
-        GitHub: <GitHubIcon className="size-4" />,
         Website: <Globe className="size-4" />,
         Email: <Mail className="size-4" />,
       };

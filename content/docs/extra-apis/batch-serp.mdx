@@ -20,29 +20,29 @@ All POST data should be sent in JSON format (UTF-8 encoding). The task setting i
 
 ### Headers
 
-| Name          | Type   | Description             |
-| ------------- | ------ | ----------------------- |
-| Authorization | String | Bearer `<YOUR_API_KEY>` |
-| Content-Type  | String | application/json        |
+| Name                                                 | Type   | Description             |
+| ---------------------------------------------------- | ------ | ----------------------- |
+| Authorization <span style={{color: "red"}}>\*</span> | String | Bearer `<YOUR_API_KEY>` |
+| Content-Type <span style={{color: "red"}}>\*</span>  | String | application/json        |
 
 ### Request Body
 
-| Name         | Type    | Description                            |
-| ------------ | ------- | -------------------------------------- |
-| q            | string  | Search phrase                          |
-| domain       | string  | Google, Bing, or Yahoo domain          |
-| lang         | string  | Language code e.g. `en`, `fr`          |
-| device       | string  | `desktop` or `mobile`                  |
-| serp_type    | string  | `web`, `news`, or `image`              |
-| loc          | string  | Optional if specifying `loc_id`        |
-| loc_id       | integer | Optional if specifying `loc`           |
-| verbatim     | integer | Google Verbatim (`0` or `1`)           |
-| gfilter      | integer | Filter on/off (`1` or `0`)             |
-| page         | integer | Page number                            |
-| num_result   | integer | Results per page                       |
-| postback_url | url     | POST results to this URL when complete |
-| pingback_url | url     | GET notification URL when complete     |
-| date_range   | String  | Date filter                            |
+| Name                                             | Type    | Description                            |
+| ------------------------------------------------ | ------- | -------------------------------------- |
+| q <span style={{color: "red"}}>\*</span>         | string  | Search phrase                          |
+| domain <span style={{color: "red"}}>\*</span>    | string  | Google, Bing, or Yahoo domain          |
+| lang <span style={{color: "red"}}>\*</span>      | string  | Language code e.g. `en`, `fr`          |
+| device <span style={{color: "red"}}>\*</span>    | string  | `desktop` or `mobile`                  |
+| serp_type <span style={{color: "red"}}>\*</span> | string  | `web`, `news`, or `image`              |
+| loc <span style={{color: "red"}}>\*</span>       | string  | Optional if specifying `loc_id`        |
+| loc_id <span style={{color: "red"}}>\*</span>    | integer | Optional if specifying `loc`           |
+| verbatim                                         | integer | Google Verbatim (`0` or `1`)           |
+| gfilter                                          | integer | Filter on/off (`1` or `0`)             |
+| page                                             | integer | Page number                            |
+| num_result                                       | integer | Results per page                       |
+| postback_url                                     | url     | POST results to this URL when complete |
+| pingback_url                                     | url     | GET notification URL when complete     |
+| date_range                                       | String  | Date filter                            |
 
 ## Example Request
 

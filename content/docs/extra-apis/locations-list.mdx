@@ -23,21 +23,22 @@ Download the CSV files:
 
 ### Query Parameters
 
-| Name | Type   | Description                     |
-| ---- | ------ | ------------------------------- |
-| q    | String | Search in our location database |
-| type | String | `google` or `bing`              |
+| Name                                        | Type   | Description                                                                                                                                                   |
+| ------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| q <span style={{color: "red"}}>\*</span>    | String | search in our location database                                                                                                                               |
+| type <span style={{color: "red"}}>\*</span> | String | Type can be `google` and `bing`.<br />Google and Bing have a different locations so if you are targeting on Bing then pass type as `bing` otherwise `google`. |
 
 ### Headers
 
-| Name          | Type   | Description             |
-| ------------- | ------ | ----------------------- |
-| Authorization | String | Bearer `<YOUR_API_KEY>` |
+| Name                                                 | Type   | Description             |
+| ---------------------------------------------------- | ------ | ----------------------- |
+| Authorization <span style={{color: "red"}}>\*</span> | String | Bearer `<YOUR_API_KEY>` |
 
 ## Example Request
 
 <ApiExample
   endpoint="https://api.serphouse.com/location/search"
+  method="GET"
   params='{"q": "texas", "type": "google"}'
 />
 

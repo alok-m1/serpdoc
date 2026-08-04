@@ -9,12 +9,23 @@ The official Python SDK makes it easy to integrate the SERPHouse API into any Py
 Instead of manually creating HTTP requests, the SDK handles authentication, request formatting, and response parsing so you can focus on building your application.
 
 <Callout type="info">
-  The SDK provides access to Google SERP, Google News, and Google Short Videos directly through a simple typed client.
+  The SDK provides access to Google SERP, Google News, and Google Short Videos
+  directly through a simple typed client.
 </Callout>
 
 <ResourceCards>
-  <ResourceCard title="GitHub" subtitle="SERPHouse/ai-sdk-python" href="https://github.com/SERPHouse/ai-sdk-python" icon="github" />
-  <ResourceCard title="PyPI" subtitle="serphouse-ai-sdk" href="https://pypi.org/project/serphouse-ai-sdk/" icon="pypi" />
+  <ResourceCard
+    title="GitHub"
+    subtitle="SERPHouse/ai-sdk-python"
+    href="https://github.com/SERPHouse/ai-sdk-python"
+    icon="github"
+  />
+  <ResourceCard
+    title="PyPI"
+    subtitle="serphouse-ai-sdk"
+    href="https://pypi.org/project/serphouse-ai-sdk/"
+    icon="pypi"
+  />
 </ResourceCards>
 
 ## Requirements
@@ -41,7 +52,8 @@ client = SERPHouseClient(api_key="YOUR_API_KEY")
 ```
 
 <Callout type="warn">
-  Using environment variables is recommended. Never hardcode your API key in source code.
+  Using environment variables is recommended. Never hardcode your API key in
+  source code.
 </Callout>
 
 The SDK reads the `SERPHOUSE_API_KEY` environment variable automatically, so the `api_key` argument is optional when it is set:
@@ -77,10 +89,10 @@ print(result)
 
 The client exposes `get` and `post` methods for the SERPHouse API.
 
-| Endpoint | Description |
-|----------|-------------|
-| `POST /web-search-lite` | Google organic web search |
-| `POST /google-news` | Google News search |
+| Endpoint                        | Description                  |
+| ------------------------------- | ---------------------------- |
+| `POST /web-search-lite`         | Google organic web search    |
+| `POST /google-news`             | Google News search           |
 | `POST /google-short-videos-api` | Google Short Videos (Shorts) |
 
 ## Web Search
@@ -128,22 +140,23 @@ result = client.post("/google-short-videos-api", {
 
 ## Request Parameters
 
-| Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
-| `q` | `str` | — | Search query (required) |
-| `domain` | `str` | `google.com` | Search domain |
-| `lang` | `str` | `en` | Language code |
-| `loc` | `str` | `New York,New York,United States` | Location in `City,State,Country` format |
-| `gl` | `str` | `US` | Country code (web search only) |
-| `device` | `str` | `desktop` | `desktop` or `mobile` |
-| `page` | `int` | — | Page number |
-| `date_range` | `str` | `y` | `h`, `d`, `w`, `m`, `y`, or `YYYY-MM-DD,YYYY-MM-DD` |
-| `num_result` | `int` | — | Number of results (1–10) |
+| Parameter    | Type  | Default                           | Description                                         |
+| ------------ | ----- | --------------------------------- | --------------------------------------------------- |
+| `q`          | `str` | —                                 | Search query (required)                             |
+| `domain`     | `str` | `google.com`                      | Search domain                                       |
+| `lang`       | `str` | `en`                              | Language code                                       |
+| `loc`        | `str` | `New York,New York,United States` | Location in `City,State,Country` format             |
+| `gl`         | `str` | `US`                              | Country code (web search only)                      |
+| `device`     | `str` | `desktop`                         | `desktop` or `mobile`                               |
+| `page`       | `int` | —                                 | Page number                                         |
+| `date_range` | `str` | `y`                               | `h`, `d`, `w`, `m`, `y`, or `YYYY-MM-DD,YYYY-MM-DD` |
+| `num_result` | `int` | —                                 | Number of results (1–10)                            |
 
 ## Error Handling
 
 <Callout type="idea" title="Always handle errors">
-  Network issues, invalid API keys, and rate limits can all cause requests to fail. Always wrap calls in try-catch.
+  Network issues, invalid API keys, and rate limits can all cause requests to
+  fail. Always wrap calls in try-catch.
 </Callout>
 
 ```python
@@ -191,7 +204,7 @@ if __name__ == "__main__":
 
 If you encounter any issues while installing, configuring, or using the SERPHouse Python SDK, we're here to help.
 
-- Contact the SERPHouse support team for assistance.
+- Contact the SERPHouse support team at [getsupport@serphouse.com](mailto:getsupport@serphouse.com) for assistance.
 - Report bugs or request features by opening an issue on the GitHub repository.
 
 ## Related Links
