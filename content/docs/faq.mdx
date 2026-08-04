@@ -185,7 +185,8 @@ Payloads are signed with HMAC-SHA256 in the `x-serphouse-signature` header — v
 ### 2. What format do API responses come in?
 
 - **JSON** is the default — a successful `200` response returns the SERP data in the `results` field
-- Some endpoints also support **HTML** and **Markdown** via the `responseType` parameter (`html`, `json`, or `md`)
+- Some endpoints also support **HTML** and **Markdown** — append a suffix to the endpoint URL to pick the format: `/md` for Markdown and `/html` for HTML (no suffix returns JSON)
+  - For example: `https://api.serphouse.com/google-web` → JSON, `https://api.serphouse.com/google-web/md` → Markdown, `https://api.serphouse.com/google-web/html` → HTML
 - Live requests over GET & POST accept all three formats; most other endpoints accept `html` or `json`
 - The fields inside `results` vary by `serp_type` — each endpoint page shows a sample response
 

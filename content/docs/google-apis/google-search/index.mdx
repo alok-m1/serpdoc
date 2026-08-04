@@ -16,11 +16,13 @@ Access Google's search results in real time, providing relevant web pages, searc
 
 `POST` `https://api.serphouse.com/google-web`
 
-## Path Parameters
+<Callout type="info" title="Response format">
+  Append a suffix to the endpoint to choose the response format:
 
-| Name | Type | Description |
-|------|------|-------------|
-| responseType | String | `html` or `json` |
+  - **JSON** (default) — `https://api.serphouse.com/google-web`
+  - **Markdown** — `https://api.serphouse.com/google-web/md`
+  - **HTML** — `https://api.serphouse.com/google-web/html`
+</Callout>
 
 ## Headers
 

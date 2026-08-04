@@ -48,6 +48,6 @@ export function baseOptions(): BaseLayoutProps {
 export function sidebarOptions(): DocsLayoutProps["sidebar"] {
   return {
     banner: <AppSwitcher key="alok" />,
-    collapsible: false,
+    // collapsible: false,
   };
 }

@@ -20,13 +20,15 @@ Performing a realtime search is as simple as making a GET HTTP request to the SE
 
 `GET` `https://api.serphouse.com/serp/live`
 
+<Callout type="info" title="Response format">
+  Append a suffix to the endpoint to choose the response format:
+
+  - **JSON** (default) — `https://api.serphouse.com/serp/live`
+  - **Markdown** — `https://api.serphouse.com/serp/live/md`
+  - **HTML** — `https://api.serphouse.com/serp/live/html`
+</Callout>
+
 ## Live SERP (GET)
-
-### Path Parameters
-
-| Name         | Type   | Description                                             |
-| ------------ | ------ | ------------------------------------------------------- |
-| responseType | String | responseType can be `html`, `json`, or `md` (Markdown). |
 
 ### Query Parameters
 

@@ -18,11 +18,13 @@ Retrieve real-time search results from the Yahoo search page, providing access t
 
 `POST` `https://api.serphouse.com/yahoo-web`
 
-## Path Parameters
+<Callout type="info" title="Response format">
+  Append a suffix to the endpoint to choose the response format:
 
-| Name         | Type   | Description      |
-| ------------ | ------ | ---------------- |
-| responseType | String | `html` or `json` |
+  - **JSON** (default) — `https://api.serphouse.com/yahoo-web`
+  - **Markdown** — `https://api.serphouse.com/yahoo-web/md`
+  - **HTML** — `https://api.serphouse.com/yahoo-web/html`
+</Callout>
 
 ## Headers
 
