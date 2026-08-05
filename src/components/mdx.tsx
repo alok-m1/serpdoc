@@ -10,6 +10,7 @@ import { ContributeHero } from "./ContributeHero";
 import { SocialLinks } from "./SocialLinks";
 import { VisualRef } from "./VisualRef";
 import { CustomLink } from "./CustomLink";
+import { FAQSchema } from "./FAQSchema";
 
 export function getMDXComponents(components?: MDXComponents) {
   return {
@@ -30,6 +31,7 @@ export function getMDXComponents(components?: MDXComponents) {
     ContributeHero,
     SocialLinks,
     VisualRef,
+    FAQSchema,
     ...components,
   } satisfies MDXComponents;
 }

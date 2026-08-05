@@ -1,14 +1,111 @@
 ---
 title: FAQ
-description: People frequently ask these questions as well.
+description: Answers to the most common questions about the SERPHouse SERP API — authentication, endpoints, pricing and credits, live vs. scheduled requests, webhooks, pagination, and supported search engines.
 icon: CircleQuestionMark
 ---
+
+<FAQSchema
+  items={[
+    {
+      question: "How do I authenticate and make my first API request?",
+      answer:
+        "Sign up at serphouse.com, confirm your email, and copy your API key from the dashboard. Send it as a Bearer token in the Authorization header (or as an api_token query parameter) on every request, then POST to https://api.serphouse.com/serp/live with your query. A 200 response returns the SERP data in the results field; failed requests are always free.",
+    },
+    {
+      question: "Where are the correct endpoints, payload fields, documentation, and code examples?",
+      answer:
+        "Everything lives in this docs site: endpoint references under Getting Started, Google, Bing, Yahoo, and Extra APIs; required fields are marked with an asterisk on every page; and interactive examples are included per endpoint plus Node.js, PHP, and Python SDKs.",
+    },
+    {
+      question: "How do credits, trial allowances, plans, request limits, and custom pricing work?",
+      answer:
+        "Credits are charged only on successful 200 responses; failed requests, retries, and blocks are free. The Free plan is $0/month with 4,000 credits, Basic is $29.99 with 400,000 credits, Regular is $49.99 with 800,000, and Custom scales to your volume. Standard plans are rate-limited to 60 requests per minute, and running out of credits returns HTTP 402.",
+    },
+    {
+      question: "What is the difference between live, delayed, and scheduled requests?",
+      answer:
+        "Live requests are synchronous and return results in the same HTTP response, ideal for dashboards and single lookups. Scheduled (delayed) requests are asynchronous: submit with POST /serp/schedule, poll /serp/check for status, and fetch results with /serp/get. Batches support up to 100 keywords per scheduled request.",
+    },
+    {
+      question: "How long do delayed requests take, and how do webhooks, postbacks, or pingbacks work?",
+      answer:
+        "Delayed jobs complete as capacity allows with no fixed SLA, so use notifications: pingbacks send an HTTP GET to your pingback_url when results are ready, postbacks POST the JSON results to your postback_url, and webhooks are configured on the Webhook page with automatic retries. Payloads are signed with HMAC-SHA256 in the x-serphouse-signature header.",
+    },
+    {
+      question: "Why did my request time out, return an error, produce empty results, or remain stuck?",
+      answer:
+        "Match the HTTP status code: 200 is success, 400 an invalid body, 401 a bad or missing API key, 402 insufficient credits, 404 an invalid SERP ID or endpoint, 429 a rate limit, and 500 a server error. A 200 with msg 'Please try again' is a momentary failure, so just retry after a short wait. For scheduled tasks, poll /serp/check until status is Completed, then fetch with /serp/get.",
+    },
+    {
+      question: "How many results are returned, how does pagination work, and why can image, news, shopping, or other result types behave differently?",
+      answer:
+        "Live requests return up to 10 results per page, and you paginate with the page parameter, where each page is a separate request. The Google Top 100 endpoint fetches up to 100 results across pages using max_pages. The serp_type parameter (web, news, image, shop) shapes which fields each result exposes, so the response structure varies by type.",
+    },
+    {
+      question: "Which search engines and domains do you support?",
+      answer:
+        "SERPHouse supports Google (google.com plus per-country domains such as google.co.uk and google.ca), Bing (bing.com), and Yahoo (regional domains such as uk.yahoo.com). Browse every supported domain on the Domains List page or query GET /domain/list at runtime.",
+    },
+    {
+      question: "What format do API responses come in?",
+      answer:
+        "JSON is the default, and a successful 200 response returns the SERP data in the results field. Many endpoints also support Markdown and HTML by appending /md or /html to the endpoint URL, for example https://api.serphouse.com/google-web/md for Markdown.",
+    },
+    {
+      question: "Can I try the API for free?",
+      answer:
+        "Yes, the Free plan is $0/month and includes 4,000 API credits. Failed requests, retries, and blocks are never charged, and you can track your remaining credits anytime with the Account Info endpoint.",
+    },
+    {
+      question: "How fast are live requests?",
+      answer:
+        "Live requests are synchronous and typically return results within seconds in the same HTTP response. Scheduled jobs run through a queue and complete as capacity allows, so use webhooks or pingbacks to be notified the moment results are ready.",
+    },
+    {
+      question: "Can I run bulk or batch queries?",
+      answer:
+        "Yes, up to 100 keywords per scheduled request, with optional postback_url or pingback_url delivery straight to your server. For deep SERPs, the Google Top 100 endpoint returns up to 100 results per query via max_pages.",
+    },
+    {
+      question: "Do I need proxies or CAPTCHA solving?",
+      answer:
+        "No. SERPHouse manages the proxies and handles CAPTCHAs for you. You never solve or forward CAPTCHAs; just send the query and read the results.",
+    },
+    {
+      question: "How do I verify my account, retrieve my API key, or resolve signup and CAPTCHA issues?",
+      answer:
+        "Click the confirmation link emailed after signup at serphouse.com, and your API key appears on the dashboard once your email is confirmed. CAPTCHAs are handled entirely by SERPHouse, so you never solve or forward them. If you did not receive the email, check spam and then contact support.",
+    },
+    {
+      question: "How do I update payment details, obtain invoices, or add tax/VAT information?",
+      answer:
+        "Manage payment methods, invoices, and tax/VAT information from the billing section of your dashboard; invoices are generated each billing cycle. For tax registration changes, invoice address updates, or custom billing arrangements, contact support.",
+    },
+    {
+      question: "How do I cancel or unsubscribe from my subscription?",
+      answer:
+        "Cancel anytime from the billing section of your dashboard, and the plan stays active until the end of the current period. After cancelling or downgrading, running out of credits returns a 402; contact support for plan migrations or custom contracts.",
+    },
+    {
+      question: "Which locations, languages, devices, and search settings are supported?",
+      answer:
+        "Pass a location with loc or loc_id (prefer loc_id for stable, machine-readable targeting), language codes such as en or fr, device as desktop or mobile, and settings like verbatim, gfilter, page, num_result, and date_range. Full lists are on the Locations, Languages, and Domains pages.",
+    },
+    {
+      question: "Can I connect the API to Google Sheets, spreadsheets, or another export workflow?",
+      answer:
+        "Yes, the API is plain HTTP. Use Apps Script with UrlFetchApp and a Bearer header for Google Sheets (IMPORTDATA cannot send headers), Excel or Power Query for the live GET endpoint, or pipelines with scheduled tasks, webhooks, and the Node.js, PHP, and Python SDKs.",
+    },
+  ]}
+/>
 
 ## Frequently asked questions
 
 Quick answers to the questions developers ask most, from your first request to billing, webhooks, and result pagination.
 
 ### 1. How do I authenticate and make my first API request?
+
+Send your API key as a `Bearer` token in the `Authorization` header — or pass `api_token=<YOUR_API_KEY>` as a query string — on every request. Sign up at [serphouse.com](https://serphouse.com), confirm your email, and copy the key from your dashboard, then send your first POST to `https://api.serphouse.com/serp/live`.
 
 **1. Register** at [serphouse.com](https://serphouse.com) and confirm the
 email link sent to your inbox. Only one account is allowed per user; if
@@ -51,7 +148,7 @@ See [Getting Started](/getting-started) and
 
 ### 2. Where are the correct endpoints, payload fields, documentation, and code examples?
 
-Everything lives in this docs site:
+Everything lives in this docs site: endpoint references under [Getting Started](/getting-started), [Google](/google-apis), [Bing](/bing-apis), and [Yahoo](/yahoo-apis); required fields are marked with an asterisk on every page; and interactive examples are included per endpoint plus [Node.js](/node.js-sdk), [PHP](/php-sdk), and [Python](/python-sdk) SDKs.
 
 - **Endpoints:** [Getting Started](/getting-started), [Google](/google-apis), [Bing](/bing-apis), [Yahoo](/yahoo-apis), [Extra APIs](/extra-apis)
 - **Fields:** every page documents required parameters (marked with an asterisk) and shows sample responses
@@ -71,6 +168,8 @@ Everything lives in this docs site:
 ---
 
 ### 3. How do credits, trial allowances, plans, request limits, and custom pricing work?
+
+Credits are charged **only on successful responses** — failed requests, retries, and blocks are free. The Free plan is $0/month with 4,000 credits, Basic is $29.99/month with 400,000, and Regular is $49.99/month with 800,000; all standard plans allow 60 req/min, and running out of credits returns a `402`.
 
 <Callout type="success" title="You only pay for results">
   Credits are charged <strong>only on successful responses</strong>. Failed
@@ -95,6 +194,8 @@ Everything lives in this docs site:
 
 ### 4. What is the difference between live, delayed, and scheduled requests?
 
+**Live** requests are synchronous and return results in the same HTTP response — best for dashboards and single lookups. **Scheduled** (delayed) requests are asynchronous: submit with `POST /serp/schedule`, poll [Check SERP Status](/extra-apis/check-serp-status), and fetch with [Get SERP Result](/extra-apis/get-serp-result); each batch supports up to 100 keywords.
+
 - **Live:** synchronous. Results come back in the same HTTP response. Best for dashboards and single lookups (available over `GET` & `POST`).
 - **Scheduled / delayed:** asynchronous. Submit with `POST /serp/schedule`, then poll [Check SERP Status](/extra-apis/check-serp-status) and fetch with [Get SERP Result](/extra-apis/get-serp-result).
 - **Batch:** up to **100 keywords** per scheduled request, optionally delivering via `postback_url` / `pingback_url`.
@@ -117,7 +218,7 @@ Full comparison: [About SERPHouse](/about-the-serp-api).
 
 ### 5. How long do delayed requests take, and how do webhooks, postbacks, or pingbacks work?
 
-Delayed jobs complete **as capacity allows**; there is no fixed completion SLA. Notifications beat polling:
+Delayed jobs complete **as capacity allows** — there is no fixed SLA, so use notifications instead of polling: pingbacks send an HTTP `GET` to your `pingback_url` when results are ready, postbacks `POST` the JSON results to your `postback_url`, and webhooks are configured on the [Webhook](/webhook) page with automatic retries. Every payload is signed with HMAC-SHA256 in the `x-serphouse-signature` header.
 
 - **Pingback:** an HTTP `GET` to your `pingback_url` when results are ready (then fetch them with Get SERP Result)
 - **Postback:** an HTTP `POST` with JSON results to your `postback_url`
@@ -135,6 +236,8 @@ Payloads are signed with HMAC-SHA256 in the `x-serphouse-signature` header. Vali
 ---
 
 ### 6. Why did my request time out, return an error, produce empty results, or remain stuck?
+
+Match the HTTP status code: `200` is success, `400` an invalid body, `401` a bad or missing API key, `402` insufficient credits, `404` an invalid SERP ID or endpoint, `429` a rate limit, and `500` a server error. A `200` with `"msg": "Please try again"` is a momentary failure — just retry after a short wait. For scheduled tasks, poll `/serp/check` until status is `Completed`, then fetch with `/serp/get`.
 
 | Code | Meaning                         |
 | ---- | ------------------------------- |
@@ -161,6 +264,8 @@ Payloads are signed with HMAC-SHA256 in the `x-serphouse-signature` header. Vali
 
 ### 7. How many results are returned, how does pagination work, and why can image, news, shopping, or other result types behave differently?
 
+Live requests return up to **10 results per page**, and you paginate with the `page` parameter, where each page is a separate request. The [Google Top 100](/google-apis/google-serp-top-100-results) endpoint fetches up to 100 results across pages with `max_pages`. The `serp_type` parameter (`web`, `news`, `image`, `shop`) shapes which fields each result exposes, so the response structure varies by type.
+
 - **Live / single-request:** default **10 results per page**, maximum `num_result` is **10**
 - **Pagination:** use the `page` parameter (`1`, `2`, …), each page is a separate request
 - **Top 100:** the [Google Top 100](/google-apis/google-serp-top-100-results) endpoint fetches up to **100 results** across pages with `max_pages` (1 page ≈ 10 results, each page costs 10 credits)
@@ -175,6 +280,8 @@ Payloads are signed with HMAC-SHA256 in the `x-serphouse-signature` header. Vali
 
 ### 1. Which search engines and domains do you support?
 
+SERPHouse supports **Google** (`google.com` plus per-country domains like `google.co.uk` and `google.ca`), **Bing** (`bing.com`), and **Yahoo** (regional domains such as `uk.yahoo.com`). Browse the full list on the [Domains List](/extra-apis/domains-list) page or query `GET /domain/list` at runtime.
+
 - **Google:** `google.com` plus per-country domains (`google.co.uk`, `google.ca`, `google.co.in`, …)
 - **Bing:** `bing.com`
 - **Yahoo:** regional domains such as `uk.yahoo.com`
@@ -183,6 +290,8 @@ Payloads are signed with HMAC-SHA256 in the `x-serphouse-signature` header. Vali
 ---
 
 ### 2. What format do API responses come in?
+
+**JSON** is the default — a successful `200` response returns the SERP data in the `results` field. Many endpoints also support **Markdown** and **HTML** by appending a suffix to the endpoint URL: `/md` for Markdown and `/html` for HTML (no suffix returns JSON), for example `https://api.serphouse.com/google-web/md`.
 
 - **JSON** is the default; a successful `200` response returns the SERP data in the `results` field
 - Some endpoints also support **HTML** and **Markdown**; append a suffix to the endpoint URL to pick the format: `/md` for Markdown and `/html` for HTML (no suffix returns JSON)
@@ -194,6 +303,8 @@ Payloads are signed with HMAC-SHA256 in the `x-serphouse-signature` header. Vali
 
 ### 3. Can I try the API for free?
 
+**Yes** — the Free plan is **$0/month** and includes **4,000 API credits**, and failed requests, retries, and blocks are **never charged**. Track your remaining credits anytime with [Account Info](/extra-apis/account-info).
+
 - **Yes:** the Free plan is **$0/month** and includes **4,000 API credits**
 - Failed requests, retries, and blocks are **never charged**
 - Track remaining credits anytime with [Account Info](/extra-apis/account-info)
@@ -202,12 +313,16 @@ Payloads are signed with HMAC-SHA256 in the `x-serphouse-signature` header. Vali
 
 ### 4. How fast are live requests?
 
+Live requests are **synchronous** and typically return results within seconds in the same HTTP response. Scheduled jobs run through a queue and complete **as capacity allows**, so use webhooks or pingbacks to be notified the moment results are ready.
+
 - Live requests are **synchronous**; results come back in the same HTTP response, typically within seconds
 - Scheduled jobs run through a queue and complete **as capacity allows** (no fixed SLA). Use webhooks or pingbacks to be notified the moment results are ready
 
 ---
 
 ### 5. Can I run bulk or batch queries?
+
+**Yes** — up to **100 keywords** per scheduled request, with optional `postback_url` / `pingback_url` delivery straight to your server. For deep SERPs, the [Google Top 100](/google-apis/google-serp-top-100-results) endpoint returns up to **100 results** per query via `max_pages`.
 
 - **Yes:** up to **100 keywords** per scheduled request
 - Deliver results straight to your server with `postback_url` / `pingback_url`
@@ -217,12 +332,16 @@ Payloads are signed with HMAC-SHA256 in the `x-serphouse-signature` header. Vali
 
 ### 6. Do I need proxies or CAPTCHA solving?
 
+**No.** SERPHouse manages the proxies and handles CAPTCHAs for you — you never solve or forward CAPTCHAs, just send the query and read the results.
+
 - **No:** SERPHouse manages the proxies and handles CAPTCHAs for you
 - You never solve or forward CAPTCHAs; just send the query and read the results
 
 ## More questions
 
 ### 1. How do I verify my account, retrieve my API key, or resolve signup and CAPTCHA issues?
+
+Click the **confirmation link** emailed after signup at [serphouse.com](https://serphouse.com), and your **API key** appears on the dashboard once your email is confirmed. **CAPTCHAs** are handled entirely by SERPHouse — you never solve or forward them. No email? Check spam, then contact support.
 
 - **Verify:** click the confirmation link emailed after signup at [serphouse.com](https://serphouse.com)
 - **API key:** shown on your dashboard once your email is confirmed
@@ -234,6 +353,8 @@ Payloads are signed with HMAC-SHA256 in the `x-serphouse-signature` header. Vali
 
 ### 2. How do I update payment details, obtain invoices, or add tax/VAT information?
 
+Manage payment methods, invoices, and tax/VAT information from the **billing section** of your dashboard; invoices are generated each billing cycle. For tax registration changes, invoice address updates, or custom billing arrangements, contact support.
+
 Manage payment methods, invoices, and tax/VAT information from the **billing section** of your dashboard. Invoices are generated each billing cycle.
 
 For tax registration changes, invoice address updates, or custom billing arrangements, contact support.
@@ -241,6 +362,8 @@ For tax registration changes, invoice address updates, or custom billing arrange
 ---
 
 ### 3. How do I cancel or unsubscribe from my subscription?
+
+Cancel anytime from the **billing section** of your dashboard, and the plan stays active until the end of the current period. After cancelling or downgrading, running out of credits returns a `402`; contact support for plan migrations or custom contracts.
 
 Cancel anytime from the **billing section** of your dashboard; the plan stays active until the end of the current period.
 
@@ -252,6 +375,8 @@ Cancel anytime from the **billing section** of your dashboard; the plan stays ac
 ---
 
 ### 4. Which locations, languages, devices, and search settings are supported?
+
+Pass a location with `loc` or `loc_id` (prefer `loc_id` for stable, machine-readable targeting), language codes such as `en` or `fr`, device as `desktop` or `mobile`, and settings like `verbatim`, `gfilter`, `page`, `num_result`, and `date_range`. Full lists are on the [Locations](/extra-apis/locations-list), [Languages](/extra-apis/languages-list), and [Domains](/extra-apis/domains-list) pages.
 
 - **Locations:** [Locations List](/extra-apis/locations-list) or the CSV files ([Google](https://serphouse-space.nyc3.digitaloceanspaces.com/google_locations.csv), [Bing](https://serphouse-space.nyc3.digitaloceanspaces.com/bing_locations.csv)). Pass `loc` or `loc_id`.
 
@@ -268,6 +393,8 @@ Cancel anytime from the **billing section** of your dashboard; the plan stays ac
 ---
 
 ### 5. Can I connect the API to Google Sheets, spreadsheets, or another export workflow?
+
+**Yes** — the API is plain HTTP. Use Apps Script + `UrlFetchApp` with a `Bearer` header for Google Sheets (`IMPORTDATA` can't send headers), Excel/Power Query for the live `GET` endpoint, or pipelines with scheduled tasks, webhooks, and the [Node.js](/node.js-sdk), [PHP](/php-sdk), and [Python](/python-sdk) SDKs.
 
 Yes, the API is plain HTTP:
 
