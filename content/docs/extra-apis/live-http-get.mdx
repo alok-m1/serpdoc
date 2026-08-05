@@ -6,7 +6,6 @@ description: Perform real-time SERP searches using HTTP GET requests with query 
 import {
   liveHttpGetJsonResponse,
   liveHttpGetMarkdownResponse,
-  liveHttpGetHtmlResponse,
 } from "@/lib/api-examples/liveHttpGet";
 
 <DeprecatedNotice />
@@ -26,7 +25,7 @@ Performing a realtime search is as simple as making a GET HTTP request to the SE
   - **JSON** (default) — `https://api.serphouse.com/serp/live`
   - **Markdown** — `https://api.serphouse.com/serp/live/md`
   - **HTML** — `https://api.serphouse.com/serp/live/html`
-</Callout>
+  </Callout>
 
 ## Live SERP (GET)
 
@@ -68,7 +67,6 @@ Performing a realtime search is as simple as making a GET HTTP request to the SE
 
 <ApiExample mode="response">
   <ApiTab label="JSON" response={liveHttpGetJsonResponse} />
-  <ApiTab label="HTML" response={liveHttpGetHtmlResponse} lang="html" />
   <ApiTab
     label="Markdown"
     response={liveHttpGetMarkdownResponse}

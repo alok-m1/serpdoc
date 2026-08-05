@@ -6,7 +6,6 @@ description: Access real-time web search data from Bing with the Bing Web Search
 import {
   bingWebSearchJsonResponse,
   bingWebSearchMarkdownResponse,
-  bingWebSearchHtmlResponse,
 } from "@/lib/api-examples/bingWebSearch";
 
 Access real-time web search data from Bing, delivering relevant search results from a wide range of websites and online sources.
@@ -24,7 +23,7 @@ Access real-time web search data from Bing, delivering relevant search results f
   - **JSON** (default) — `https://api.serphouse.com/bing-web`
   - **Markdown** — `https://api.serphouse.com/bing-web/md`
   - **HTML** — `https://api.serphouse.com/bing-web/html`
-</Callout>
+  </Callout>
 
 ## Headers
 
@@ -60,7 +59,6 @@ Access real-time web search data from Bing, delivering relevant search results f
 
 <ApiExample mode="response">
   <ApiTab label="JSON" response={bingWebSearchJsonResponse} />
-  <ApiTab label="HTML" response={bingWebSearchHtmlResponse} lang="html" />
   <ApiTab
     label="Markdown"
     response={bingWebSearchMarkdownResponse}

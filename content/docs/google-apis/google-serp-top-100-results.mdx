@@ -6,7 +6,6 @@ description: Fetch up to 100 Google search results across multiple pages with th
 import {
   googleSerpTop100JsonResponse,
   googleSerpTop100MarkdownResponse,
-  googleSerpTop100HtmlResponse,
 } from "@/lib/api-examples/googleSerpTop100";
 
 <Callout type="warn">
@@ -19,9 +18,9 @@ import {
 <Callout type="info" title="Response format">
   Append a suffix to the endpoint to choose the response format:
 
-- **JSON** (default) — `https://api.serphouse.com/serp/google_advanced`
-- **Markdown** — `https://api.serphouse.com/serp/google_advanced/md`
-- **HTML** — `https://api.serphouse.com/serp/google_advanced/html`
+  - **JSON** (default) — `https://api.serphouse.com/serp/google_advanced`
+  - **Markdown** — `https://api.serphouse.com/serp/google_advanced/md`
+  - **HTML** — `https://api.serphouse.com/serp/google_advanced/html`
 </Callout>
 
 ## Headers
@@ -83,7 +82,6 @@ import {
 
 <ApiExample mode="response">
   <ApiTab label="JSON" response={googleSerpTop100JsonResponse} />
-  <ApiTab label="HTML" response={googleSerpTop100HtmlResponse} lang="html" />
   <ApiTab
     label="Markdown"
     response={googleSerpTop100MarkdownResponse}

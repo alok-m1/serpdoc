@@ -167,11 +167,13 @@ function ResponseExample({
   const childArray = Children.toArray(children);
   const tabs =
     childArray.length > 0
-      ? childArray.map((child: any) => ({
-          label: child.props?.label ?? "Response",
-          response: child.props?.response,
-          lang: child.props?.lang ?? "json",
-        }))
+      ? childArray
+          .map((child: any) => ({
+            label: child.props?.label ?? "Response",
+            response: child.props?.response,
+            lang: child.props?.lang ?? "json",
+          }))
+          .filter((t) => t.lang !== "html")
       : response
         ? [{ label: "Response", response, lang: "json" }]
         : [];

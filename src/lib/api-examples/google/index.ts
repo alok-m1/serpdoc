@@ -14,6 +14,5 @@ export { top_stories } from "./top-story";
 export { inline_shopping } from "./inline_shopping";
 export {
   googleSearchApiJsonResponse,
-  googleSearchApiHtmlResponse,
   googleSearchApiMarkdownResponse,
 } from "./google-search-api";
