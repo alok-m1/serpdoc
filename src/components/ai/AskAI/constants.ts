@@ -9,7 +9,7 @@ export const brandGradient =
 
 export const suggestions = [
   "How do I get an API key?",
-  "Which search engines are supported?",
+  "How can i Contact Serphouse Team",
   "How much does it cost?",
   "how can i use with AI agents",
 ];
