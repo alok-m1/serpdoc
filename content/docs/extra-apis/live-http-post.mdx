@@ -20,15 +20,15 @@ Performing a realtime search using HTTP POST is very simple with the SERPHouse l
 `POST` `https://api.serphouse.com/serp/live`
 
 <Callout type="info" title="Response types">
-  These are the response types we support. Append a suffix to the endpoint
-  to choose the response format.
+  These are the response types we support. Append a suffix to the endpoint to
+  choose the response format.
 </Callout>
 
-| Format | Endpoint |
-| --- | --- |
-| JSON (default) | `https://api.serphouse.com/serp/live` |
-| Markdown | `https://api.serphouse.com/serp/live/md` |
-| HTML | `https://api.serphouse.com/serp/live/html` |
+| Format         | Endpoint                                   |
+| -------------- | ------------------------------------------ |
+| JSON (default) | `https://api.serphouse.com/serp/live`      |
+| Markdown       | `https://api.serphouse.com/serp/live/md`   |
+| HTML           | `https://api.serphouse.com/serp/live/html` |
 
 ## Live SERP (POST)
 
@@ -56,6 +56,12 @@ Performing a realtime search using HTTP POST is very simple with the SERPHouse l
 | num_result                                       | integer           | Define the number of results you want to get per page. By default, you will get up to 10 results.<br />Maximum 10 results are available.                                                                                                                                                                                                |
 | date_range                                       | String            | Sometimes you may want to only find information published during a specific time frame. To limit Google results by date<br /><br />Parameter values can be comma separated date range `YYYY-MM-DD,YYYY-MM-DD` OR<br /><br />`h` Past hour<br />`d` Past 24 hours<br />`w` Past week<br />`m` Past month<br />`y` Past year              |
 | no_trace                                         | string \| integer | Enterprise only. Enables NoTrace mode.                                                                                                                                                                                                                                                                                                  |
+
+<VisualRef
+  title="Live SERP (HTTP POST)"
+  src="/images/extra/live-http-post-api.png"
+  alt="Live SERP results from an HTTP POST request"
+/>
 
 ## Example Request
 

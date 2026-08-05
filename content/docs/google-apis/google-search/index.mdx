@@ -2,59 +2,68 @@
 title: Google Search
 description: Access Google's search results in real time, providing relevant web pages and search listings.
 ---
+
 import {
   googleSearchApiJsonResponse,
   googleSearchApiMarkdownResponse,
-} from '@/lib/api-examples/google/google-search-api';
+} from "@/lib/api-examples/google/google-search-api";
 
 Access Google's search results in real time, providing relevant web pages, search listings, and content from across the internet.
 
 <Callout type="warn">
-  Requires authentication → provide your API key as a Bearer token in the Authorization header.
+  Requires authentication → provide your API key as a Bearer token in the
+  Authorization header.
 </Callout>
 
 `POST` `https://api.serphouse.com/google-web`
 
 <Callout type="info" title="Response types">
-  These are the response types we support. Append a suffix to the endpoint
-  to choose the response format.
+  These are the response types we support. Append a suffix to the endpoint to
+  choose the response format.
 </Callout>
 
-| Format | Endpoint |
-| --- | --- |
-| JSON (default) | `https://api.serphouse.com/google-web` |
-| Markdown | `https://api.serphouse.com/google-web/md` |
-| HTML | `https://api.serphouse.com/google-web/html` |
+| Format         | Endpoint                                    |
+| -------------- | ------------------------------------------- |
+| JSON (default) | `https://api.serphouse.com/google-web`      |
+| Markdown       | `https://api.serphouse.com/google-web/md`   |
+| HTML           | `https://api.serphouse.com/google-web/html` |
 
 ## Headers
 
-| Name | Type | Description |
-|------|------|-------------|
-| Authorization <span style={{color: "red"}}>*</span> | String | Bearer `<YOUR_API_KEY>` |
-| Content-Type <span style={{color: "red"}}>*</span> | String | application/json |
+| Name                                                 | Type   | Description             |
+| ---------------------------------------------------- | ------ | ----------------------- |
+| Authorization <span style={{color: "red"}}>\*</span> | String | Bearer `<YOUR_API_KEY>` |
+| Content-Type <span style={{color: "red"}}>\*</span>  | String | application/json        |
 
 ## Request Body
 
-| Name | Type | Description |
-|------|------|-------------|
-| q <span style={{color: "red"}}>*</span> | string | Search phrase that you want to search |
-| domain <span style={{color: "red"}}>*</span> | string | Choose google domain.<br /><br />You can retrieve the list of supported Google domains by making a separate request to the [Domains List](/extra-apis/domains-list) |
-| device <span style={{color: "red"}}>*</span> | string | `desktop` To extract desktop result `mobile` To extract mobile result |
-| lang <span style={{color: "red"}}>*</span> | string | You can set language for e.g. `en` for english `fr` for french.<br />Get the list of available languages by making a separate request to the [Languages List](/extra-apis/languages-list) |
-| loc <span style={{color: "red"}}>*</span> | string | Optional field if you specify `loc_id`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list) |
-| loc_id <span style={{color: "red"}}>*</span> | integer | Optional field if you specify `loc`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list) |
-| page | integer | Give specific page to get the result of that page number. By default it will get you first page. |
-| date_range | String | Sometimes you may want to only find information published during a specific time frame. To limit Google results by date<br /><br />Parameter values can be comma separated date range `YYYY-MM-DD,YYYY-MM-DD` OR<br /><br />`h` Past hour<br />`d` Past 24 hours<br />`w` Past week<br />`m` Past month<br />`y` Past year |
-| verbatim | integer | Set Google Verbatim search, Parameter value can be `0` or `1` |
-| gfilter | integer | `1` (default) to enable filters, `0` to disable |
-| num_result | integer | Number of results per page (1–10) |
-| no_trace | string \| integer | Enterprise only. Enables NoTrace mode. Accepted values: `0`, `1`, `true`, and `false`. When enabled (`1` or `true`), search parameters, files, and metadata are not stored on our servers. |
+| Name                                          | Type              | Description                                                                                                                                                                                                                                                                                                                |
+| --------------------------------------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| q <span style={{color: "red"}}>\*</span>      | string            | Search phrase that you want to search                                                                                                                                                                                                                                                                                      |
+| domain <span style={{color: "red"}}>\*</span> | string            | Choose google domain.<br /><br />You can retrieve the list of supported Google domains by making a separate request to the [Domains List](/extra-apis/domains-list)                                                                                                                                                        |
+| device <span style={{color: "red"}}>\*</span> | string            | `desktop` To extract desktop result `mobile` To extract mobile result                                                                                                                                                                                                                                                      |
+| lang <span style={{color: "red"}}>\*</span>   | string            | You can set language for e.g. `en` for english `fr` for french.<br />Get the list of available languages by making a separate request to the [Languages List](/extra-apis/languages-list)                                                                                                                                  |
+| loc <span style={{color: "red"}}>\*</span>    | string            | Optional field if you specify `loc_id`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list)                                             |
+| loc_id <span style={{color: "red"}}>\*</span> | integer           | Optional field if you specify `loc`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list)                                                |
+| page                                          | integer           | Give specific page to get the result of that page number. By default it will get you first page.                                                                                                                                                                                                                           |
+| date_range                                    | String            | Sometimes you may want to only find information published during a specific time frame. To limit Google results by date<br /><br />Parameter values can be comma separated date range `YYYY-MM-DD,YYYY-MM-DD` OR<br /><br />`h` Past hour<br />`d` Past 24 hours<br />`w` Past week<br />`m` Past month<br />`y` Past year |
+| verbatim                                      | integer           | Set Google Verbatim search, Parameter value can be `0` or `1`                                                                                                                                                                                                                                                              |
+| gfilter                                       | integer           | `1` (default) to enable filters, `0` to disable                                                                                                                                                                                                                                                                            |
+| num_result                                    | integer           | Number of results per page (1–10)                                                                                                                                                                                                                                                                                          |
+| no_trace                                      | string \| integer | Enterprise only. Enables NoTrace mode. Accepted values: `0`, `1`, `true`, and `false`. When enabled (`1` or `true`), search parameters, files, and metadata are not stored on our servers.                                                                                                                                 |
 
 ## Response
 
 <Callout type="info">
-  Returns structured JSON with search metadata, parameters, and results including organic listings, local pack, and inline shopping.
+  Returns structured JSON with search metadata, parameters, and results
+  including organic listings, local pack, and inline shopping.
 </Callout>
+
+<VisualRef
+  title="Google Search API"
+  src="/images/google/google-search-api.png"
+  alt="Google search results"
+/>
 
 ## Example Request
 
@@ -68,14 +77,20 @@ Access Google's search results in real time, providing relevant web pages, searc
 
 <ApiExample mode="response">
   <ApiTab label="JSON" response={googleSearchApiJsonResponse} />
-  <ApiTab label="Markdown" response={googleSearchApiMarkdownResponse} lang="markdown" />
+  <ApiTab
+    label="Markdown"
+    response={googleSearchApiMarkdownResponse}
+    lang="markdown"
+  />
 </ApiExample>
-
 
 ## Related Links
 
 <Cards>
   <Card title="Google News API" href="/google-apis/google-news-api" />
   <Card title="Google Image API" href="/google-apis/google-image-api" />
-  <Card title="Google Lite Web Search API" href="/google-apis/google-lite-web-search-api" />
+  <Card
+    title="Google Lite Web Search API"
+    href="/google-apis/google-lite-web-search-api"
+  />
 </Cards>

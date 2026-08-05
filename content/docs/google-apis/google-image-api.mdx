@@ -18,15 +18,15 @@ Retrieve real-time Google Image search results quickly and reliably using the Go
 `POST` `https://api.serphouse.com/google-image`
 
 <Callout type="info" title="Response types">
-  These are the response types we support. Append a suffix to the endpoint
-  to choose the response format.
+  These are the response types we support. Append a suffix to the endpoint to
+  choose the response format.
 </Callout>
 
-| Format | Endpoint |
-| --- | --- |
-| JSON (default) | `https://api.serphouse.com/google-image` |
-| Markdown | `https://api.serphouse.com/google-image/md` |
-| HTML | `https://api.serphouse.com/google-image/html` |
+| Format         | Endpoint                                      |
+| -------------- | --------------------------------------------- |
+| JSON (default) | `https://api.serphouse.com/google-image`      |
+| Markdown       | `https://api.serphouse.com/google-image/md`   |
+| HTML           | `https://api.serphouse.com/google-image/html` |
 
 ## Headers
 
@@ -47,6 +47,12 @@ Retrieve real-time Google Image search results quickly and reliably using the Go
 | page                                          | integer           | Give specific page to get the result of that page number. By default it will get you first page.                                                                                                                                                                                                                           |
 | date_range                                    | String            | Sometimes you may want to only find information published during a specific time frame. To limit Google results by date<br /><br />Parameter values can be comma separated date range `YYYY-MM-DD,YYYY-MM-DD` OR<br /><br />`h` Past hour<br />`d` Past 24 hours<br />`w` Past week<br />`m` Past month<br />`y` Past year |
 | no_trace                                      | string \| integer | Enterprise only. Enables NoTrace mode. Accepted values: `0`, `1`, `true`, and `false`. When enabled (`1` or `true`), search parameters, files, and metadata are not stored on our servers.                                                                                                                                 |
+
+<VisualRef
+  title="Google Image API"
+  src="/images/google/google-image-api.png"
+  alt="Google image search results"
+/>
 
 ## Example Request
 

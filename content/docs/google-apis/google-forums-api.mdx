@@ -18,15 +18,15 @@ Access real-time forum discussions from Google Search with the Google Forums API
 `POST` `https://api.serphouse.com/google-forums-api`
 
 <Callout type="info" title="Response types">
-  These are the response types we support. Append a suffix to the endpoint
-  to choose the response format.
+  These are the response types we support. Append a suffix to the endpoint to
+  choose the response format.
 </Callout>
 
-| Format | Endpoint |
-| --- | --- |
-| JSON (default) | `https://api.serphouse.com/google-forums-api` |
-| Markdown | `https://api.serphouse.com/google-forums-api/md` |
-| HTML | `https://api.serphouse.com/google-forums-api/html` |
+| Format         | Endpoint                                           |
+| -------------- | -------------------------------------------------- |
+| JSON (default) | `https://api.serphouse.com/google-forums-api`      |
+| Markdown       | `https://api.serphouse.com/google-forums-api/md`   |
+| HTML           | `https://api.serphouse.com/google-forums-api/html` |
 
 ## Headers
 
@@ -48,6 +48,12 @@ Access real-time forum discussions from Google Search with the Google Forums API
 | date_range                                    | String  | Sometimes you may want to only find information published during a specific time frame. To limit Google results by date<br /><br />Parameter values can be comma separated date range `YYYY-MM-DD,YYYY-MM-DD` OR<br /><br />`h` Past hour<br />`d` Past 24 hours<br />`w` Past week<br />`m` Past month<br />`y` Past year |
 | page                                          | integer | Give specific page to get the result of that page number. By default it will get you first page.                                                                                                                                                                                                                           |
 | verbatim                                      | integer | Set Google Verbatim search, Parameter value can be `0` or `1`                                                                                                                                                                                                                                                              |
+
+<VisualRef
+  title="Google Forums API"
+  src="/images/google/google-forums-api.png"
+  alt="Google forums discussion results"
+/>
 
 ## Example Request
 

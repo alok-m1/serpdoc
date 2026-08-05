@@ -20,15 +20,15 @@ Performing a realtime search is as simple as making a GET HTTP request to the SE
 `GET` `https://api.serphouse.com/serp/live`
 
 <Callout type="info" title="Response types">
-  These are the response types we support. Append a suffix to the endpoint
-  to choose the response format.
+  These are the response types we support. Append a suffix to the endpoint to
+  choose the response format.
 </Callout>
 
-| Format | Endpoint |
-| --- | --- |
-| JSON (default) | `https://api.serphouse.com/serp/live` |
-| Markdown | `https://api.serphouse.com/serp/live/md` |
-| HTML | `https://api.serphouse.com/serp/live/html` |
+| Format         | Endpoint                                   |
+| -------------- | ------------------------------------------ |
+| JSON (default) | `https://api.serphouse.com/serp/live`      |
+| Markdown       | `https://api.serphouse.com/serp/live/md`   |
+| HTML           | `https://api.serphouse.com/serp/live/html` |
 
 ## Live SERP (GET)
 
@@ -56,6 +56,12 @@ Performing a realtime search is as simple as making a GET HTTP request to the SE
 | ---------------------------------------------------- | ------ | ----------------------- |
 | Authorization <span style={{color: "red"}}>\*</span> | String | Bearer `<YOUR_API_KEY>` |
 
+<VisualRef
+  title="Live SERP (HTTP GET)"
+  src="/images/extra/live-http-get-api.png"
+  alt="Live SERP results from an HTTP GET request"
+/>
+
 ## Example Request
 
 <ApiExample
@@ -66,6 +72,7 @@ Performing a realtime search is as simple as making a GET HTTP request to the SE
   lang="en"
   params='{"device": "desktop", "serp_type": "web", "loc": "Alba,Texas,United States"}'
 />
+
 ## Example Response
 
 <ApiExample mode="response">

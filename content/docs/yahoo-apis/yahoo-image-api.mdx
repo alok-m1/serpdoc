@@ -18,15 +18,15 @@ Fetch real-time image search results from Yahoo, enabling seamless access to ima
 `POST` `https://api.serphouse.com/yahoo-image`
 
 <Callout type="info" title="Response types">
-  These are the response types we support. Append a suffix to the endpoint
-  to choose the response format.
+  These are the response types we support. Append a suffix to the endpoint to
+  choose the response format.
 </Callout>
 
-| Format | Endpoint |
-| --- | --- |
-| JSON (default) | `https://api.serphouse.com/yahoo-image` |
-| Markdown | `https://api.serphouse.com/yahoo-image/md` |
-| HTML | `https://api.serphouse.com/yahoo-image/html` |
+| Format         | Endpoint                                     |
+| -------------- | -------------------------------------------- |
+| JSON (default) | `https://api.serphouse.com/yahoo-image`      |
+| Markdown       | `https://api.serphouse.com/yahoo-image/md`   |
+| HTML           | `https://api.serphouse.com/yahoo-image/html` |
 
 ## Headers
 
@@ -46,10 +46,16 @@ Fetch real-time image search results from Yahoo, enabling seamless access to ima
 | no_trace                                      | string \| integer | Enterprise only. Enables NoTrace mode. Accepted values: `0`, `1`, `true`, and `false`. When enabled (`1` or `true`), search parameters, files, and metadata are not stored on our servers.          |
 
 <Callout type="info">
-  Yahoo requires regional domains → use <code>serphouse_domain_list</code> to
-  find the right domain for your target region. <code>yahoo.com</code> is not
-  valid.
+  Yahoo requires regional domains → use <code>serphouse_domain_list</code> or
+  browse the [Domains List](/extra-apis/domains-list) to find the right domain
+  for your target region. <code>yahoo.com</code> is not valid.
 </Callout>
+
+<VisualRef
+  title="Yahoo Image API"
+  src="/images/yahoo/yahoo-image-api.png"
+  alt="Yahoo image search results"
+/>
 
 ## Example Request
 
@@ -60,6 +66,7 @@ Fetch real-time image search results from Yahoo, enabling seamless access to ima
   lang="lang_en"
   params='{"page": 1}'
 />
+
 ## Example Response
 
 <ApiExample mode="response">

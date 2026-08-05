@@ -1,5 +1,5 @@
 ---
-title: Google Shopping 
+title: Google Shopping
 description: Get up-to-date Google Shopping results including product details and pricing.
 ---
 
@@ -18,15 +18,15 @@ Get up-to-date Google Shopping results, including product details and pricing in
 `POST` `https://api.serphouse.com/google-shop`
 
 <Callout type="info" title="Response types">
-  These are the response types we support. Append a suffix to the endpoint
-  to choose the response format.
+  These are the response types we support. Append a suffix to the endpoint to
+  choose the response format.
 </Callout>
 
-| Format | Endpoint |
-| --- | --- |
-| JSON (default) | `https://api.serphouse.com/google-shop` |
-| Markdown | `https://api.serphouse.com/google-shop/md` |
-| HTML | `https://api.serphouse.com/google-shop/html` |
+| Format         | Endpoint                                     |
+| -------------- | -------------------------------------------- |
+| JSON (default) | `https://api.serphouse.com/google-shop`      |
+| Markdown       | `https://api.serphouse.com/google-shop/md`   |
+| HTML           | `https://api.serphouse.com/google-shop/html` |
 
 ## Headers
 
@@ -46,6 +46,12 @@ Get up-to-date Google Shopping results, including product details and pricing in
 | loc_id <span style={{color: "red"}}>\*</span> | integer           | Optional field if you specify `loc`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list)    |
 | page                                          | integer           | Give specific page to get the result of that page number. By default it will get you first page.                                                                                                                                                                               |
 | no_trace                                      | string \| integer | Enterprise only. Enables NoTrace mode. Accepted values: `0`, `1`, `true`, and `false`. When enabled (`1` or `true`), search parameters, files, and metadata are not stored on our servers.                                                                                     |
+
+<VisualRef
+  title="Google Shopping API"
+  src="/images/google/google-shopping-api.png"
+  alt="Google shopping results"
+/>
 
 ## Example Request
 

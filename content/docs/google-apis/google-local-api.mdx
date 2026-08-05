@@ -1,5 +1,5 @@
 ---
-title: Google Local 
+title: Google Local
 description: Structured local business results from Google Search including ratings, reviews, and addresses.
 ---
 
@@ -18,15 +18,15 @@ Google Local API provides structured local business results from Google Search, 
 `POST` `https://api.serphouse.com/google-local-api`
 
 <Callout type="info" title="Response types">
-  These are the response types we support. Append a suffix to the endpoint
-  to choose the response format.
+  These are the response types we support. Append a suffix to the endpoint to
+  choose the response format.
 </Callout>
 
-| Format | Endpoint |
-| --- | --- |
-| JSON (default) | `https://api.serphouse.com/google-local-api` |
-| Markdown | `https://api.serphouse.com/google-local-api/md` |
-| HTML | `https://api.serphouse.com/google-local-api/html` |
+| Format         | Endpoint                                          |
+| -------------- | ------------------------------------------------- |
+| JSON (default) | `https://api.serphouse.com/google-local-api`      |
+| Markdown       | `https://api.serphouse.com/google-local-api/md`   |
+| HTML           | `https://api.serphouse.com/google-local-api/html` |
 
 ## Headers
 
@@ -45,6 +45,12 @@ Google Local API provides structured local business results from Google Search, 
 | loc <span style={{color: "red"}}>\*</span>    | string  | Optional field if you specify `loc_id`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list) |
 | loc_id <span style={{color: "red"}}>\*</span> | integer | Optional field if you specify `loc`<br />**You must choose one of the fields: `loc_id` or `loc`**<br />You can receive the list of available locations of search engines with their loc_id by making a separate request to the [Locations List](/extra-apis/locations-list)    |
 | page                                          | integer | Give specific page to get the result of that page number. By default it will get you first page. (up to 20 local results per page)                                                                                                                                             |
+
+<VisualRef
+  title="Google Local API"
+  src="/images/google/google-local-api.png"
+  alt="Google local business results"
+/>
 
 ## Example Request
 

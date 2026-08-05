@@ -16,15 +16,15 @@ import {
 `POST` `https://api.serphouse.com/serp/google_advanced`
 
 <Callout type="info" title="Response types">
-  These are the response types we support. Append a suffix to the endpoint
-  to choose the response format.
+  These are the response types we support. Append a suffix to the endpoint to
+  choose the response format.
 </Callout>
 
-| Format | Endpoint |
-| --- | --- |
-| JSON (default) | `https://api.serphouse.com/serp/google_advanced` |
-| Markdown | `https://api.serphouse.com/serp/google_advanced/md` |
-| HTML | `https://api.serphouse.com/serp/google_advanced/html` |
+| Format         | Endpoint                                              |
+| -------------- | ----------------------------------------------------- |
+| JSON (default) | `https://api.serphouse.com/serp/google_advanced`      |
+| Markdown       | `https://api.serphouse.com/serp/google_advanced/md`   |
+| HTML           | `https://api.serphouse.com/serp/google_advanced/html` |
 
 ## Headers
 
@@ -72,6 +72,12 @@ import {
 - `max_pages=7` → 7 pages scraped → costs 70 credits
 - If `max_pages` is set to 7 but only 2 pages are available, 20 credits are charged.
 
+<VisualRef
+  title="Google SERP (Top 100 Results)"
+  src="/images/google/google-top-100-api.png"
+  alt="Google top 100 SERP results"
+/>
+
 ## Example Request
 
 <ApiExample
@@ -81,6 +87,7 @@ import {
   lang="en"
   params='{"device": "desktop", "loc": "Texas,United States", "max_pages": 4}'
 />
+
 ## Example Response
 
 <ApiExample mode="response">

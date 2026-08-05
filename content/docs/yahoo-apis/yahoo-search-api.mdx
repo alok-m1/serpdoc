@@ -18,15 +18,15 @@ Retrieve real-time search results from the Yahoo search page, providing access t
 `POST` `https://api.serphouse.com/yahoo-web`
 
 <Callout type="info" title="Response types">
-  These are the response types we support. Append a suffix to the endpoint
-  to choose the response format.
+  These are the response types we support. Append a suffix to the endpoint to
+  choose the response format.
 </Callout>
 
-| Format | Endpoint |
-| --- | --- |
-| JSON (default) | `https://api.serphouse.com/yahoo-web` |
-| Markdown | `https://api.serphouse.com/yahoo-web/md` |
-| HTML | `https://api.serphouse.com/yahoo-web/html` |
+| Format         | Endpoint                                   |
+| -------------- | ------------------------------------------ |
+| JSON (default) | `https://api.serphouse.com/yahoo-web`      |
+| Markdown       | `https://api.serphouse.com/yahoo-web/md`   |
+| HTML           | `https://api.serphouse.com/yahoo-web/html` |
 
 ## Headers
 
@@ -47,16 +47,22 @@ Retrieve real-time search results from the Yahoo search page, providing access t
 | no_trace                                      | string \| integer | Enterprise only. Enables NoTrace mode. Accepted values: `0`, `1`, `true`, and `false`. When enabled (`1` or `true`), search parameters, files, and metadata are not stored on our servers.          |
 
 <Callout type="info">
-  Yahoo requires regional domains → use <code>serphouse_domain_list</code> to
-  find the right domain for your target region. <code>yahoo.com</code> is not
-  valid.
+  Yahoo requires regional domains → use <code>serphouse_domain_list</code> or
+  browse the [Domains List](/extra-apis/domains-list) to find the right domain
+  for your target region. <code>yahoo.com</code> is not valid.
 </Callout>
+
+<VisualRef
+  title="Yahoo Search API"
+  src="/images/yahoo/yahoo-search-api.png"
+  alt="Yahoo web search results"
+/>
 
 ## Example Request
 
 <ApiExample
   endpoint="https://api.serphouse.com/yahoo-web"
-  query="Donald Trump"
+  query="cloud hosting service"
   domain="fr.yahoo.com"
   lang="lang_en"
   params='{"device": "desktop"}'
