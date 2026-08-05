@@ -4,7 +4,6 @@ export const accountInfoJsonResponse = {
   results: {
     email: "info@serphouse.com",
     name: "tester",
-    api_key: "zHF0qEUMwZAWWTB3AwzYLmudfdfdLKvabDmxQV6lq86phvoaoZdVyI59osQze",
     plan: [
       {
         name: "new 19 may custom plan",

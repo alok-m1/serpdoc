@@ -17,13 +17,16 @@ Access real-time web search data from Bing, delivering relevant search results f
 
 `POST` `https://api.serphouse.com/bing-web`
 
-<Callout type="info" title="Response format">
-  Append a suffix to the endpoint to choose the response format:
+<Callout type="info" title="Response types">
+  These are the response types we support. Append a suffix to the endpoint to
+  choose the response format.
+</Callout>
 
-  - **JSON** (default) — `https://api.serphouse.com/bing-web`
-  - **Markdown** — `https://api.serphouse.com/bing-web/md`
-  - **HTML** — `https://api.serphouse.com/bing-web/html`
-  </Callout>
+| Format         | Endpoint                                  |
+| -------------- | ----------------------------------------- |
+| JSON (default) | `https://api.serphouse.com/bing-web`      |
+| Markdown       | `https://api.serphouse.com/bing-web/md`   |
+| HTML           | `https://api.serphouse.com/bing-web/html` |
 
 ## Headers
 
@@ -52,7 +55,7 @@ Access real-time web search data from Bing, delivering relevant search results f
   query="Coffee"
   domain=""
   lang="en-US"
-  params='{"device": "desktop", "loc": "Mumbai,Maharashtra,India", "page": 1}'
+  params='{"device": "desktop", "loc": "United States", "page": 1}'
 />
 
 ## Example Response

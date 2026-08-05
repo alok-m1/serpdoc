@@ -1,5 +1,5 @@
 ---
-title: Google Search API
+title: Google Search
 description: Access Google's search results in real time, providing relevant web pages and search listings.
 ---
 import {
@@ -15,13 +15,16 @@ Access Google's search results in real time, providing relevant web pages, searc
 
 `POST` `https://api.serphouse.com/google-web`
 
-<Callout type="info" title="Response format">
-  Append a suffix to the endpoint to choose the response format:
-
-  - **JSON** (default) — `https://api.serphouse.com/google-web`
-  - **Markdown** — `https://api.serphouse.com/google-web/md`
-  - **HTML** — `https://api.serphouse.com/google-web/html`
+<Callout type="info" title="Response types">
+  These are the response types we support. Append a suffix to the endpoint
+  to choose the response format.
 </Callout>
+
+| Format | Endpoint |
+| --- | --- |
+| JSON (default) | `https://api.serphouse.com/google-web` |
+| Markdown | `https://api.serphouse.com/google-web/md` |
+| HTML | `https://api.serphouse.com/google-web/html` |
 
 ## Headers
 

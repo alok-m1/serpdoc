@@ -1,5 +1,5 @@
 ---
-title: Google Videos API
+title: Google Videos 
 description: Fetch real-time video search results from Google with duration and quality filters.
 ---
 
@@ -17,13 +17,16 @@ The Google Video API allows you to fetch real-time video search results directly
 
 `POST` `https://api.serphouse.com/google-videos-api`
 
-<Callout type="info" title="Response format">
-  Append a suffix to the endpoint to choose the response format:
-
-  - **JSON** (default) — `https://api.serphouse.com/google-videos-api`
-  - **Markdown** — `https://api.serphouse.com/google-videos-api/md`
-  - **HTML** — `https://api.serphouse.com/google-videos-api/html`
+<Callout type="info" title="Response types">
+  These are the response types we support. Append a suffix to the endpoint
+  to choose the response format.
 </Callout>
+
+| Format | Endpoint |
+| --- | --- |
+| JSON (default) | `https://api.serphouse.com/google-videos-api` |
+| Markdown | `https://api.serphouse.com/google-videos-api/md` |
+| HTML | `https://api.serphouse.com/google-videos-api/html` |
 
 ## Headers
 
@@ -45,8 +48,8 @@ The Google Video API allows you to fetch real-time video search results directly
 | date_range                                    | String  | Sometimes you may want to only find information published during a specific time frame. To limit Google results by date<br /><br />Parameter values can be comma separated date range `YYYY-MM-DD,YYYY-MM-DD` OR<br /><br />`h` Past hour<br />`d` Past 24 hours<br />`w` Past week<br />`m` Past month<br />`y` Past year |
 | page                                          | integer | Give specific page to get the result of that page number. By default it will get you first page.                                                                                                                                                                                                                           |
 | video_duration                                | String  | `short` (0-4 min), `medium` (4-20 min), `long` (20+ min)                                                                                                                                                                                                                                                                   |
-| video_quality                                 | String  | `high`                                                                                                                                                                                                                                                                                                                     |
-| video_captions                                | String  | `captioned`                                                                                                                                                                                                                                                                                                                |
+| video_quality                                 | String  | Allows filtering video results by quality level.<br />By default, videos of all qualities are returned. Use this option to request only high-quality videos.<br /><br />Available value:<br />`high` – high-quality videos only                                                                                                                                   |
+| video_captions                                | String  | Use this parameter to return only videos that include captions.<br />If not provided, both captioned and non-captioned videos are included in the results.<br /><br />To retrieve only videos with closed captions, the `captioned` parameter should be used.                                                                                                       |                                                                                                                                                                                                                                                                                                                |
 
 ## Example Request
 
